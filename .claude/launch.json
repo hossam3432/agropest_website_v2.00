@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "agropest-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000,
+      "autoPort": true
+    },
+    {
+      "name": "elvera",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": ["/c", "C:\\Users\\Hossam\\Documents\\agropest_website_v2.00\\.claude\\elvera-dev.cmd"],
+      "port": 5173,
+      "autoPort": true
+    }
+  ]
+}

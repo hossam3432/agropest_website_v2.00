@@ -1,0 +1,27 @@
+import { CommitmentSection } from "@/components/CommitmentSection";
+import { CTASection } from "@/components/CTASection";
+import { FeaturedProductLinesSection } from "@/components/FeaturedProductLinesSection";
+import { HomeHero } from "@/components/HomeHero";
+import { ProductCategoriesSection } from "@/components/ProductCategoriesSection";
+import { PartnersSection } from "@/components/PartnersSection";
+import { TechnicalLibraryPreview } from "@/components/TechnicalLibraryPreview";
+import { WhyAgropestSection } from "@/components/WhyAgropestSection";
+import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
+
+export default function HomePage({ params }: LocalePageProps) {
+  const { content, locale } = getLocalePage(params.locale);
+  const { home } = content;
+
+  return (
+    <>
+      <HomeHero content={content} locale={locale} />
+      <CommitmentSection content={content} />
+      <FeaturedProductLinesSection content={content} locale={locale} />
+      <ProductCategoriesSection content={content} locale={locale} />
+      <WhyAgropestSection content={content} />
+      <TechnicalLibraryPreview content={content} locale={locale} />
+      <PartnersSection content={content} />
+      <CTASection locale={locale} {...home.cta} />
+    </>
+  );
+}

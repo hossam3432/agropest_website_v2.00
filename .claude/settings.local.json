@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk -F: 'NR<=400')",
+      "Bash(where pdftoppm *)",
+      "Bash(where python *)",
+      "Bash(python -c \"import fitz; print\\('pymupdf available'\\)\")",
+      "Bash(python -c \"import pypdf; print\\('pypdf available'\\)\")",
+      "Bash(python -m pip install --quiet pymupdf)",
+      "Bash(python -m pip install pymupdf)",
+      "Bash(python3)",
+      "Bash(python \"C:\\\\Users\\\\Hossam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Hossam-Documents-agropest-website-v2-00\\\\e078c262-b4a4-4816-b7eb-b349fa47bde6\\\\scratchpad\\\\extract1.py\")",
+      "Bash(python \"C:\\\\Users\\\\Hossam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Hossam-Documents-agropest-website-v2-00\\\\e078c262-b4a4-4816-b7eb-b349fa47bde6\\\\scratchpad\\\\extract2.py\")",
+      "Bash(find \"/c/Users/Hossam/Desktop/WORK\" -iname \"*umbrella*\" -o -iname \"*potato*\" 2>/dev/null | head -30)",
+      "Bash(python \"C:\\\\Users\\\\Hossam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Hossam-Documents-agropest-website-v2-00\\\\e078c262-b4a4-4816-b7eb-b349fa47bde6\\\\scratchpad\\\\crop_hero.py\")",
+      "Bash(python \"C:\\\\Users\\\\Hossam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Hossam-Documents-agropest-website-v2-00\\\\e078c262-b4a4-4816-b7eb-b349fa47bde6\\\\scratchpad\\\\crop_hero2.py\")",
+      "Bash(python -c ' *)",
+      "Bash(python \"C:\\\\Users\\\\Hossam\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Hossam-Documents-agropest-website-v2-00\\\\e078c262-b4a4-4816-b7eb-b349fa47bde6\\\\scratchpad\\\\render_assets.py\")",
+      "Bash(node -e ' *)",
+      "Bash(npx tsc *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://localhost:3000/ar/rival-duo-45-sc\")",
+      "Bash(curl -s \"http://localhost:3000/ar/rival-duo-45-sc\")",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "Bash(python -c \"import pdfimages\")",
+      "Bash(pdftotext -layout \"C:/Users/Hossam/Desktop/WORK/Brochures And Marketing Materials 2024.2025/rival duo brochure digital 03.2026/RivalDUO_Leaflet_032026M.pdf\" -)",
+      "Bash(pip install *)"
+    ]
+  }
+}

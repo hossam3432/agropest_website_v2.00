@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Signal NPK 12-5-40 high potassium fruit quality support</title>
+  <desc id="desc">High potassium support for fruit sizing, sugar movement, color, and firmness.</desc>
+  <rect width="900" height="900" fill="#f4f7f5"/>
+  <circle cx="450" cy="450" r="330" fill="#ffffff" stroke="#d8e5dc" stroke-width="6"/>
+  <text x="450" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#111833">Signal NPK</text>
+  <text x="450" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="700" fill="#111833">12-5-40</text>
+  <text x="450" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#0a8f3c">High Potassium</text>
+  <g stroke="#0a8f3c" stroke-width="14" stroke-linecap="round" fill="none">
+    <path d="M450 280 C450 365 450 445 450 545"/>
+    <path d="M450 390 C380 365 330 325 285 270"/>
+    <path d="M450 405 C520 365 575 330 625 270"/>
+  </g>
+  <g fill="#0a8f3c">
+    <ellipse cx="285" cy="270" rx="70" ry="38" transform="rotate(-25 285 270)"/>
+    <ellipse cx="625" cy="270" rx="70" ry="38" transform="rotate(25 625 270)"/>
+  </g>
+  <g fill="#f6b331" stroke="#c97315" stroke-width="5">
+    <circle cx="360" cy="590" r="82"/>
+    <circle cx="540" cy="590" r="82"/>
+    <circle cx="450" cy="700" r="92"/>
+  </g>
+  <text x="450" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111833">Sizing</text>
+  <text x="450" y="705" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111833">Quality</text>
+  <text x="450" y="835" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#111833">Fruit Fill • Sugar Movement • Firmness</text>
+</svg>

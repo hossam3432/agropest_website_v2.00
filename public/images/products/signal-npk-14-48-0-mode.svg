@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Signal NPK 14-48-0 high phosphorus root and energy support</title>
+  <desc id="desc">High phosphorus support for roots, establishment, and flowering preparation.</desc>
+  <rect width="900" height="900" fill="#f4f7f5"/>
+  <circle cx="450" cy="450" r="330" fill="#ffffff" stroke="#d8e5dc" stroke-width="6"/>
+  <path d="M450 230 C400 300 390 360 450 420 C510 360 500 300 450 230Z" fill="#0a8f3c"/>
+  <path d="M450 420 C450 520 450 600 450 705" stroke="#0a8f3c" stroke-width="18" stroke-linecap="round"/>
+  <path d="M450 575 C390 615 330 655 260 720" stroke="#0a8f3c" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M450 600 C520 635 585 675 650 740" stroke="#0a8f3c" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M450 645 C405 680 370 720 330 770" stroke="#0a8f3c" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M450 670 C500 700 540 735 585 785" stroke="#0a8f3c" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <text x="450" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#111833">Signal NPK</text>
+  <text x="450" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="700" fill="#111833">14-48-0</text>
+  <text x="450" y="815" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#111833">High Phosphorus</text>
+  <text x="450" y="855" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#0a8f3c">Root Activity • Energy • Flowering Preparation</text>
+  <circle cx="450" cy="455" r="88" fill="#f6b331" opacity="0.9"/>
+  <text x="450" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#111833">P</text>
+</svg>
