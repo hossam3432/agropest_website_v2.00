@@ -8,27 +8,32 @@ import { getSiteContent, isLocale, locales } from "@/lib/content";
 
 type LocaleLayoutProps = {
   children: ReactNode;
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 };
 
 type LocaleParamsProps = {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export function generateMetadata({ params }: LocaleParamsProps): Metadata {
-  if (!isLocale(params.locale)) {
+// 1. Added 'async' here and changed return type to Promise<Metadata>
+export async function generateMetadata({ params }: LocaleParamsProps): Promise<Metadata> {
+  // 2. Await the params before using them
+  const resolvedParams = await params;
+  const locale = resolvedParams.locale;
+
+  if (!isLocale(locale)) {
     return {};
   }
 
-  const content = getSiteContent(params.locale);
+  const content = getSiteContent(locale);
 
   return {
     title: {
@@ -39,19 +44,24 @@ export function generateMetadata({ params }: LocaleParamsProps): Metadata {
   };
 }
 
-export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
-  if (!isLocale(params.locale)) {
+// 3. Added 'async' here
+export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
+  // 4. Await the params before using them
+  const resolvedParams = await params;
+  const locale = resolvedParams.locale;
+
+  if (!isLocale(locale)) {
     notFound();
   }
 
-  const content = getSiteContent(params.locale);
+  const content = getSiteContent(locale);
 
   return (
-    <div className="min-h-screen text-start" dir={content.direction} lang={params.locale}>
-      <DocumentLanguage direction={content.direction} locale={params.locale} />
-      <Navbar content={content} locale={params.locale} />
+    <div className="min-h-screen text-start" dir={content.direction} lang={locale}>
+      <DocumentLanguage direction={content.direction} locale={locale} />
+      <Navbar content={content} locale={locale} />
       <main>{children}</main>
-      <Footer content={content} locale={params.locale} />
+      <Footer content={content} locale={locale} />
     </div>
   );
 }
