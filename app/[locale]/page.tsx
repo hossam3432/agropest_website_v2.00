@@ -1,4 +1,5 @@
 import { CommitmentSection } from "@/components/CommitmentSection";
+import { CTASection } from "@/components/CTASection";
 import { FeaturedProductLinesSection } from "@/components/FeaturedProductLinesSection";
 import { HomeHero } from "@/components/HomeHero";
 import { ProductCategoriesSection } from "@/components/ProductCategoriesSection";
@@ -19,6 +20,7 @@ export default async function HomePage({ params }: LocalePageProps) {
       <WhyAgropestSection content={content} />
       <TechnicalLibraryPreview content={content} locale={locale} />
       <PartnersSection content={content} />
+      <CTASection locale={locale} {...content.home.cta} />
     </>
   );
 }

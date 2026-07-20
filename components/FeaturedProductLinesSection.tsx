@@ -59,7 +59,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
         <span className="mt-3 h-0.5 w-12 bg-agri-gold" />
         {item.eyebrow ? (
           <span
-            className={`mt-4 inline-flex w-fit items-center rounded-lg bg-agri-green/95 font-bold uppercase tracking-[0.14em] text-white ${
+            className={`mt-4 inline-flex w-fit items-center rounded-lg border border-agri-green bg-transparent font-bold uppercase tracking-[0.14em] text-agri-green ${
               isDesktop ? "px-3 py-1.5 text-[11px]" : "px-2.5 py-1 text-[10px]"
             }`}
           >
@@ -69,7 +69,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
         {item.tags.length ? (
           <div className={isDesktop ? "featured-card-tags mt-6 flex flex-wrap gap-2" : "featured-card-tags mt-4 hidden flex-wrap gap-2 sm:flex"}>
             {item.tags.map((tag) => (
-              <span key={tag} className="rounded-lg bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-agri-green">
+              <span key={tag} className="rounded-lg border border-agri-green bg-transparent px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-agri-green">
                 {tag}
               </span>
             ))}

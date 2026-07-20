@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { AnimatedAccentLine, RevealSection } from "@/components/animations";
+import { RevealSection } from "@/components/animations";
 import { localizeHref, type Locale } from "@/lib/content";
 
 type CTASectionProps = {
@@ -49,7 +49,7 @@ export function CTASection({
   return (
     <section className="bg-agri-mist py-16 sm:py-20 lg:py-24">
       <div className="container-shell">
-        <RevealSection className="relative overflow-hidden bg-agri-blue px-6 py-12 text-white shadow-soft sm:px-10 sm:py-14 lg:px-12 lg:py-16" amount={0.15}>
+        <RevealSection className="relative overflow-hidden rounded-3xl bg-agri-blue px-6 py-12 text-white shadow-soft sm:px-10 sm:py-14 lg:px-12 lg:py-16" amount={0.15}>
           {backgroundImage ? (
             <div
               aria-hidden="true"
@@ -58,8 +58,6 @@ export function CTASection({
             />
           ) : null}
           <div className="absolute inset-0 bg-gradient-to-r from-agri-blue via-agri-blue/90 to-agri-green/75" />
-          <AnimatedAccentLine className="absolute left-0 top-0 z-10 h-1 bg-agri-gold" />
-          <div className="absolute left-0 top-0 h-full w-2 bg-agri-gold" />
           <div className="absolute right-0 top-0 hidden h-full w-1/4 border-l border-white/10 bg-white/5 lg:block" />
           <div className="relative grid gap-9 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-12">
             <div className="max-w-3xl">
@@ -68,16 +66,16 @@ export function CTASection({
               <p className="mt-4 leading-8 text-white/75">{description}</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:max-w-xs lg:flex-col">
-              <ActionLink href={localizeHref(locale, primaryHref)} className="btn-accent">
+              <ActionLink href={localizeHref(locale, primaryHref)} className="btn-on-dark-outline">
                 {primaryLabel}
               </ActionLink>
               {secondaryLabel && secondaryHref ? (
-                <ActionLink href={localizeHref(locale, secondaryHref)} className="btn-on-dark">
+                <ActionLink href={localizeHref(locale, secondaryHref)} className="btn-on-dark-outline">
                   {secondaryLabel}
                 </ActionLink>
               ) : null}
               {tertiaryLabel && tertiaryHref ? (
-                <ActionLink href={localizeHref(locale, tertiaryHref)} className="btn-on-dark">
+                <ActionLink href={localizeHref(locale, tertiaryHref)} className="btn-on-dark-outline">
                   {tertiaryLabel}
                 </ActionLink>
               ) : null}

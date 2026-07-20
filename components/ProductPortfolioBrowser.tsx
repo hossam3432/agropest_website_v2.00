@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { Suspense, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { ProductVisual } from "@/components/ProductVisual";
 import type { Locale } from "@/lib/content";
 import type { ProductCategorySlug, ProductDetail, ProductSelectorCategory, ProductSelectorFilter } from "@/lib/products";
@@ -36,8 +36,6 @@ type ProductPortfolioBrowserProps = {
 };
 
 type ProductViewMode = "grid" | "list" | "gallery";
-
-const productViewModes: ProductViewMode[] = ["grid", "list", "gallery"];
 
 function isCategorySlug(value: string | undefined, categories: ProductSelectorCategory[]): value is ProductCategorySlug {
   return categories.some((category) => category.slug === value);
@@ -84,7 +82,9 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
   const initialCategoryObject = initialCategory ? content.categories.find((category) => category.slug === initialCategory) ?? null : null;
   const [activeCategorySlug, setActiveCategorySlug] = useState<ProductCategorySlug | null>(initialCategory);
   const [activeFilterIndex, setActiveFilterIndex] = useState(() => resolveInitialFilterIndex(initialCategoryObject, initialSubcategory));
-  const [viewMode, setViewMode] = useState<ProductViewMode>("grid");
+  const [shouldScrollToFilters, setShouldScrollToFilters] = useState(false);
+  const filtersRef = useRef<HTMLDivElement>(null);
+  const viewMode: ProductViewMode = "grid";
   const activeCategory = activeCategorySlug ? content.categories.find((category) => category.slug === activeCategorySlug) ?? null : null;
   const activeFilter = activeCategory ? activeCategory.filters[activeFilterIndex] ?? activeCategory.filters[0] : null;
   const productGridClass =
@@ -118,8 +118,18 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
   function handleCategoryChange(slug: ProductCategorySlug) {
     setActiveCategorySlug(slug);
     setActiveFilterIndex(0);
+    setShouldScrollToFilters(true);
     updateBrowserUrl(slug);
   }
+
+  useEffect(() => {
+    if (!shouldScrollToFilters || !filtersRef.current) {
+      return;
+    }
+
+    filtersRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    setShouldScrollToFilters(false);
+  }, [shouldScrollToFilters]);
 
   function handleFilterChange(index: number) {
     if (!activeCategory) {
@@ -134,14 +144,7 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
   return (
     <section className="bg-white py-14 sm:py-16 lg:py-20" dir={locale === "ar" ? "rtl" : "ltr"}>
       <div className="container-shell">
-        <div className="overflow-hidden border border-agri-line bg-agri-mist p-6 shadow-sm sm:p-8 lg:p-10">
-          <div className="max-w-4xl">
-            <h2 className="section-title">{content.title}</h2>
-            <p className="section-copy">{content.description}</p>
-          </div>
-        </div>
-
-        <div className="mt-8 grid items-stretch gap-4 md:grid-cols-2 lg:mt-10">
+        <div className="grid items-stretch gap-4 md:grid-cols-2">
           {content.categories.map((category, index) => {
             const isActive = category.slug === activeCategory?.slug;
             const hasActiveCategory = Boolean(activeCategory);
@@ -153,8 +156,8 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
                   isActive
                     ? "z-10 scale-100 border-agri-green bg-agri-green p-5 text-white shadow-soft sm:p-8 md:scale-[1.03]"
                     : hasActiveCategory
-                      ? "scale-[0.96] border-agri-line bg-white p-5 text-agri-blue opacity-80 shadow-sm hover:scale-100 hover:border-agri-gold hover:opacity-100 hover:shadow-soft sm:p-6"
-                      : "border-agri-line bg-white p-5 text-agri-blue shadow-sm hover:-translate-y-1 hover:border-agri-gold hover:shadow-soft sm:p-7"
+                      ? "scale-[0.96] border-[0.5px] border-agri-line bg-white p-5 text-agri-blue opacity-80 shadow-sm hover:scale-100 hover:border-agri-gold hover:opacity-100 hover:shadow-soft sm:p-6"
+                      : "border-[0.5px] border-agri-line bg-white p-5 text-agri-blue shadow-sm hover:-translate-y-1 hover:border-agri-gold hover:shadow-soft sm:p-7"
                 }`}
                 onClick={() => handleCategoryChange(category.slug)}
                 type="button"
@@ -171,16 +174,6 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
                 {category.description ? (
                   <span className={`mt-4 block leading-7 ${isActive ? "text-white/80" : "text-slate-600"}`}>{category.description}</span>
                 ) : null}
-                <span
-                  className={`mt-6 inline-flex items-center rounded-full px-4 py-2 text-sm font-bold transition ${
-                    isActive
-                      ? "bg-agri-gold text-agri-blue"
-                      : "bg-white text-agri-green group-hover:text-agri-gold"
-                  }`}
-                >
-                  {content.selectCategoryLabel}
-                  <span className="mx-2" aria-hidden="true">→</span>
-                </span>
               </button>
             );
           })}
@@ -188,8 +181,8 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
 
         {activeCategory ? (
           <>
-            <div className="mt-7 grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
-              <div className="grid grid-cols-1 gap-2 min-[420px]:grid-cols-2 sm:flex sm:flex-wrap">
+            <div ref={filtersRef} className="mt-7 scroll-mt-28">
+              <div className="inline-grid grid-cols-1 gap-1 rounded-full border-[0.5px] border-agri-line bg-white p-1 min-[420px]:grid-cols-2 sm:flex sm:flex-wrap">
                 {activeCategory.filters.map((filter, index) => {
                   const isActive = index === activeFilterIndex;
 
@@ -198,7 +191,7 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
                       key={filter.label}
                       className={`min-h-11 rounded-full px-3 py-2 text-center text-xs font-bold leading-5 transition duration-300 sm:px-4 sm:text-sm ${
                         isActive
-                          ? "bg-agri-gold text-white"
+                          ? "bg-agri-green text-white"
                           : "bg-white text-agri-blue hover:text-agri-green"
                       }`}
                       onClick={() => handleFilterChange(index)}
@@ -208,29 +201,6 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
                     </button>
                   );
                 })}
-              </div>
-              <div className="hidden border border-agri-line bg-white p-2 lg:block">
-                <p className="px-2 pb-2 text-xs font-bold uppercase tracking-[0.14em] text-agri-gold">{content.viewModeLabel}</p>
-                <div className="grid grid-cols-3 gap-1">
-                  {productViewModes.map((mode) => {
-                    const isActive = mode === viewMode;
-
-                    return (
-                      <button
-                        key={mode}
-                        className={`min-h-10 rounded-full px-3 py-2 text-xs font-bold transition duration-300 ${
-                          isActive
-                            ? "bg-agri-green text-white"
-                            : "bg-agri-mist text-agri-blue hover:text-agri-green"
-                        }`}
-                        onClick={() => setViewMode(mode)}
-                        type="button"
-                      >
-                        {content.viewModes[mode]}
-                      </button>
-                    );
-                  })}
-                </div>
               </div>
             </div>
 
@@ -263,25 +233,27 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
                         src={product.galleryImage}
                       />
                       <div className={`flex min-w-0 flex-col p-3 min-[420px]:p-4 sm:p-5 ${viewMode === "list" ? "lg:p-5" : "lg:p-6"}`}>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="rounded-lg bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-agri-green sm:px-3 sm:text-xs sm:tracking-[0.14em]">
+                        <h3 className={`${viewMode === "list" ? "text-lg sm:text-xl" : "text-lg sm:text-2xl"} font-bold tracking-normal text-agri-blue transition group-hover:text-agri-green`}>
+                          {product.name}
+                        </h3>
+                        <div className={`flex flex-wrap gap-2 ${viewMode === "list" ? "mt-2 sm:mt-3" : "mt-2 sm:mt-4"}`}>
+                          <span className="rounded-lg border-[0.1px] border-agri-line bg-transparent px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-agri-blue sm:px-3 sm:text-xs sm:tracking-[0.14em]">
                             {product.subcategory}
                           </span>
                         </div>
-                        <h3 className={`${viewMode === "list" ? "mt-2 text-lg sm:mt-3 sm:text-xl" : "mt-2 text-lg sm:mt-4 sm:text-2xl"} font-bold tracking-normal text-agri-blue transition group-hover:text-agri-green`}>
-                          {product.name}
-                        </h3>
-                        <p className={`${viewMode === "gallery" ? "mt-2 sm:mt-3" : "mt-2"} line-clamp-3 text-sm leading-6 text-slate-600 sm:text-base sm:leading-7 lg:line-clamp-none`}>{product.positioning}</p>
+                        <p className={`${viewMode === "gallery" ? "mt-2 sm:mt-3" : "mt-2"} me-[67px] line-clamp-3 text-justify text-sm leading-6 text-slate-600 sm:me-[75px] sm:text-base sm:leading-7`}>{product.positioning}</p>
                         <div className="mt-5 hidden flex-wrap gap-2 sm:flex">
                           {product.crops.slice(0, 3).map((crop) => (
-                            <span key={crop} className="rounded-lg bg-white px-3 py-1 text-xs font-bold text-slate-600">
+                            <span key={crop} className="rounded-lg border-[0.1px] border-agri-line bg-transparent px-3 py-1 text-xs font-bold text-agri-blue">
                               {crop}
                             </span>
                           ))}
                         </div>
-                        <span className="mt-4 inline-flex w-fit rounded-full border border-agri-green bg-agri-green px-3 py-1.5 text-xs font-bold text-white transition group-hover:border-agri-gold group-hover:bg-agri-gold group-hover:text-white group-active:border-agri-gold group-active:bg-agri-gold sm:mt-6">
-                          {content.viewProduct}
-                        </span>
+                        <div className="mt-auto w-fit self-end me-6 pt-6 sm:me-8 sm:pt-8">
+                          <span className="btn-primary w-fit min-h-9 px-3 py-1.5 text-xs">
+                            {content.viewProduct}
+                          </span>
+                        </div>
                       </div>
                     </Link>
                   ))}

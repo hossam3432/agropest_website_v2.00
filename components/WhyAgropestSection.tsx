@@ -11,12 +11,10 @@ export function WhyAgropestSection({ content }: WhyAgropestSectionProps) {
   return (
     <section className="bg-agri-greenDark py-14 text-white sm:py-16 lg:py-20">
       <RevealSection className="container-shell" amount={0.15}>
-        <div className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
-          <div>
-            <p className="eyebrow text-agri-gold">{whyAgropestSection.eyebrow}</p>
-            <h2 className="mt-3 text-3xl font-bold leading-tight tracking-normal sm:text-4xl">{whyAgropestSection.title}</h2>
-          </div>
-          <p className="section-copy text-white/70 lg:justify-self-end">{whyAgropestSection.description}</p>
+        <div>
+          <p className="eyebrow text-agri-gold">{whyAgropestSection.eyebrow}</p>
+          <h2 className="mt-3 text-3xl font-bold leading-tight tracking-normal sm:text-4xl">{whyAgropestSection.title}</h2>
+          <p className="section-copy mt-4 max-w-3xl text-white/70">{whyAgropestSection.description}</p>
         </div>
 
         <StaggerContainer className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4" amount={0.15}>

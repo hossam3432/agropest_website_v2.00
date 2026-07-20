@@ -120,7 +120,7 @@ export function Navbar({ content, locale }: NavbarProps) {
             ))}
           </div>
           <a
-            className={`inline-flex items-center justify-center whitespace-nowrap rounded-full bg-agri-green font-bold text-white transition hover:bg-agri-greenDark ${
+            className={`inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#008D36] font-bold text-white transition hover:bg-[#00722c] ${
               scrolled ? "h-9 w-9 p-0" : "px-4 py-2 text-sm"
             }`}
             href={navCta.href}
@@ -173,7 +173,7 @@ export function Navbar({ content, locale }: NavbarProps) {
                 ))}
               </div>
               <a
-                className="mt-3 rounded-full bg-agri-green px-4 py-3 text-center text-sm font-bold text-white"
+                className="mt-3 rounded-full bg-[#008D36] px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-[#00722c]"
                 href={navCta.href}
                 onClick={() => setIsOpen(false)}
               >
