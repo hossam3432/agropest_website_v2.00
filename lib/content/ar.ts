@@ -46,6 +46,7 @@ export const arContent = {
   footer: {
     companyColumn: "الشركة",
     contactColumn: "التواصل",
+    bottomNote: "",
     copyrightPrefix: "حقوق النشر",
     rightsReserved: "جميع الحقوق محفوظة."
   },
