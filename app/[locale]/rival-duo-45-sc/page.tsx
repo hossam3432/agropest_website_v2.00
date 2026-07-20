@@ -278,12 +278,14 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export function generateMetadata({ params }: RivalDuoLandingProps): Metadata {
-  if (!locales.includes(params.locale as Locale)) {
+export async function generateMetadata({ params }: RivalDuoLandingProps): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+
+  if (!locales.includes(localeParam as Locale)) {
     return {};
   }
 
-  const locale = params.locale as Locale;
+  const locale = localeParam as Locale;
   const product = getRivalDuo(locale);
   const c = content[locale];
 
@@ -294,8 +296,8 @@ export function generateMetadata({ params }: RivalDuoLandingProps): Metadata {
   };
 }
 
-export default function RivalDuoLandingPage({ params }: RivalDuoLandingProps) {
-  const { locale } = getLocalePage(params.locale);
+export default async function RivalDuoLandingPage({ params }: RivalDuoLandingProps) {
+  const { locale } = getLocalePage((await params).locale);
   const product = getRivalDuo(locale);
   const c = content[locale];
   const productHref = getProductPath(locale, product);

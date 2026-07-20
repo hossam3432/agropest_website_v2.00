@@ -5,22 +5,23 @@ import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { getProductPath, getProducts, productPortfolioBrowserContent, type ProductCategorySlug } from "@/lib/products";
 
 type ProductsPageProps = LocalePageProps & {
-  searchParams?: {
+  searchParams?: Promise<{
     category?: string;
     subcategory?: string;
-  };
+  }>;
 };
 
 function isProductCategorySlug(value: string | undefined): value is ProductCategorySlug {
   return value === "agrochemicals" || value === "specialty-fertilizers";
 }
 
-export default function ProductsPage({ params, searchParams }: ProductsPageProps) {
-  const { content, locale } = getLocalePage(params.locale);
+export default async function ProductsPage({ params, searchParams }: ProductsPageProps) {
+  const { content, locale } = getLocalePage((await params).locale);
+  const resolvedSearchParams = await searchParams;
   const { productsPage } = content;
-  const categoryParam = searchParams?.category;
+  const categoryParam = resolvedSearchParams?.category;
   const initialCategorySlug: ProductCategorySlug | undefined = isProductCategorySlug(categoryParam) ? categoryParam : undefined;
-  const initialSubcategory = searchParams?.subcategory;
+  const initialSubcategory = resolvedSearchParams?.subcategory;
   const portfolioProducts = getProducts(locale).map((product) => ({
     categorySlug: product.categorySlug,
     crops: product.crops,

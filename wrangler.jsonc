@@ -7,6 +7,6 @@
   ],
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "WORKER_SELF_REFERENCE"
+    "binding": "ASSETS"
   }
 }

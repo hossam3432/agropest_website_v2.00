@@ -202,12 +202,14 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export function generateMetadata({ params }: LocalePageProps): Metadata {
-  if (!locales.includes(params.locale as Locale)) {
+export async function generateMetadata({ params }: LocalePageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  if (!locales.includes(locale as Locale)) {
     return {};
   }
 
-  const c = content[params.locale as Locale];
+  const c = content[locale as Locale];
 
   return {
     title: c.eyebrow + " | " + c.hero.title,
@@ -244,8 +246,8 @@ function ShieldMark({ className, style }: IconProps) {
   );
 }
 
-export default function EdegalLandingPage({ params }: LocalePageProps) {
-  const { locale } = getLocalePage(params.locale);
+export default async function EdegalLandingPage({ params }: LocalePageProps) {
+  const { locale } = getLocalePage((await params).locale);
   const c = content[locale];
   const isRtl = locale === "ar";
   const contactHref = "/" + locale + "/contact";

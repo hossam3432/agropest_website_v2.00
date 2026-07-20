@@ -8,8 +8,8 @@ import { TechnicalLibraryPreview } from "@/components/TechnicalLibraryPreview";
 import { WhyAgropestSection } from "@/components/WhyAgropestSection";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 
-export default function HomePage({ params }: LocalePageProps) {
-  const { content, locale } = getLocalePage(params.locale);
+export default async function HomePage({ params }: LocalePageProps) {
+  const { content, locale } = getLocalePage((await params).locale);
   const { home } = content;
 
   return (

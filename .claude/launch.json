@@ -14,6 +14,12 @@
       "runtimeArgs": ["/c", "C:\\Users\\Hossam\\Documents\\agropest_website_v2.00\\.claude\\elvera-dev.cmd"],
       "port": 5173,
       "autoPort": true
+    },
+    {
+      "name": "cf-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["opennextjs-cloudflare", "preview", "--", "--port", "8787"],
+      "port": 8787
     }
   ]
 }

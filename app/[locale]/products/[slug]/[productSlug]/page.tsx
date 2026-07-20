@@ -11,11 +11,11 @@ import {
 } from "@/lib/products";
 
 type ProductPageProps = {
-  params: {
+  params: Promise<{
     locale: string;
     slug: string;
     productSlug: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
@@ -28,14 +28,14 @@ export function generateStaticParams() {
   );
 }
 
-export function generateMetadata({ params }: ProductPageProps): Metadata {
-  const locale = params.locale;
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+  const { locale, slug, productSlug } = await params;
 
   if (!isLocale(locale)) {
     return {};
   }
 
-  const product = getProductByCategoryAndSlug(locale, params.slug, params.productSlug);
+  const product = getProductByCategoryAndSlug(locale, slug, productSlug);
   const content = getSiteContent(locale);
 
   if (!product) {
@@ -49,23 +49,23 @@ export function generateMetadata({ params }: ProductPageProps): Metadata {
   };
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
-  const locale = params.locale;
+export default async function ProductPage({ params }: ProductPageProps) {
+  const { locale, slug, productSlug } = await params;
 
   if (!isLocale(locale)) {
     notFound();
   }
 
-  const categoryExists = productCategoriesByLocale[locale].some((category) => category.slug === params.slug);
+  const categoryExists = productCategoriesByLocale[locale].some((category) => category.slug === slug);
 
   if (!categoryExists) {
     notFound();
   }
 
-  const product = getProductByCategoryAndSlug(locale, params.slug, params.productSlug);
+  const product = getProductByCategoryAndSlug(locale, slug, productSlug);
 
   if (!product) {
-    const productByAnySlug = getProductByAnySlug(locale, params.productSlug);
+    const productByAnySlug = getProductByAnySlug(locale, productSlug);
 
     if (productByAnySlug) {
       redirect(getProductPath(locale, productByAnySlug));

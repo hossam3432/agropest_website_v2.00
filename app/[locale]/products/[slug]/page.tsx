@@ -10,13 +10,13 @@ import {
 } from "@/lib/products";
 
 type ProductCategoryPageProps = {
-  params: {
+  params: Promise<{
     locale: string;
     slug: string;
-  };
-  searchParams?: {
+  }>;
+  searchParams?: Promise<{
     subcategory?: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
@@ -35,15 +35,15 @@ export function generateStaticParams() {
   });
 }
 
-export function generateMetadata({ params }: ProductCategoryPageProps): Metadata {
-  const locale = params.locale;
+export async function generateMetadata({ params }: ProductCategoryPageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
 
   if (!isLocale(locale)) {
     return {};
   }
 
   const content = getSiteContent(locale);
-  const category = getProductCategory(locale, params.slug);
+  const category = getProductCategory(locale, slug);
 
   if (category) {
     return {
@@ -52,7 +52,7 @@ export function generateMetadata({ params }: ProductCategoryPageProps): Metadata
     };
   }
 
-  const product = getProductByAnySlug(locale, params.slug);
+  const product = getProductByAnySlug(locale, slug);
 
   if (!product) {
     return {};
@@ -64,21 +64,24 @@ export function generateMetadata({ params }: ProductCategoryPageProps): Metadata
   };
 }
 
-export default function ProductCategoryOrLegacyPage({ params, searchParams }: ProductCategoryPageProps) {
-  const locale = params.locale;
+export default async function ProductCategoryOrLegacyPage({ params, searchParams }: ProductCategoryPageProps) {
+  const { locale, slug } = await params;
 
   if (!isLocale(locale)) {
     notFound();
   }
 
-  const category = getProductCategory(locale, params.slug);
+  const category = getProductCategory(locale, slug);
 
   if (category) {
-    const subcategoryParam = searchParams?.subcategory ? `&subcategory=${encodeURIComponent(searchParams.subcategory)}` : "";
+    const resolvedSearchParams = await searchParams;
+    const subcategoryParam = resolvedSearchParams?.subcategory
+      ? `&subcategory=${encodeURIComponent(resolvedSearchParams.subcategory)}`
+      : "";
     redirect(localizeHref(locale, `/products?category=${category.slug}${subcategoryParam}`));
   }
 
-  const legacyProduct = getProductByAnySlug(locale, params.slug);
+  const legacyProduct = getProductByAnySlug(locale, slug);
 
   if (legacyProduct) {
     redirect(getProductPath(locale, legacyProduct));

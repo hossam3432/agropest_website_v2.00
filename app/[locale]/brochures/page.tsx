@@ -5,8 +5,8 @@ import { RevealItem, RevealSection, StaggerContainer } from "@/components/animat
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { localizeHref } from "@/lib/content";
 
-export default function BrochuresPage({ params }: LocalePageProps) {
-  const { content, locale } = getLocalePage(params.locale);
+export default async function BrochuresPage({ params }: LocalePageProps) {
+  const { content, locale } = getLocalePage((await params).locale);
   const { brochuresPage } = content;
 
   return (

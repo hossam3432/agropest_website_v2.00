@@ -3,8 +3,8 @@ import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 
-export default function PartnerWithUsPage({ params }: LocalePageProps) {
-  const { content, locale } = getLocalePage(params.locale);
+export default async function PartnerWithUsPage({ params }: LocalePageProps) {
+  const { content, locale } = getLocalePage((await params).locale);
   const { partnerPage, partnerTracks } = content;
 
   return (

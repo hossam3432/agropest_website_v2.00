@@ -512,16 +512,17 @@ function SectionHead({ index, title, intro, dark = false }: { index: string; tit
    PAGE
    ———————————————————————————————————————————————————————————————— */
 
-type PageProps = { params: { locale: string } };
+type PageProps = { params: Promise<{ locale: string }> };
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const locale: Locale = params.locale === "ar" ? "ar" : "en";
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const locale: Locale = (await params).locale === "ar" ? "ar" : "en";
   return { title: content[locale].meta.title, description: content[locale].meta.description };
 }
 
-export default function SignalNpkPage({ params }: PageProps) {
-  if (params.locale !== "ar" && params.locale !== "en") notFound();
-  const locale = params.locale as Locale;
+export default async function SignalNpkPage({ params }: PageProps) {
+  const { locale: localeParam } = await params;
+  if (localeParam !== "ar" && localeParam !== "en") notFound();
+  const locale = localeParam as Locale;
   const t = content[locale];
 
   return (
