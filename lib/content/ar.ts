@@ -46,7 +46,6 @@ export const arContent = {
   footer: {
     companyColumn: "الشركة",
     contactColumn: "التواصل",
-    bottomNote: "حسام نور الدين",
     copyrightPrefix: "حقوق النشر",
     rightsReserved: "جميع الحقوق محفوظة."
   },
