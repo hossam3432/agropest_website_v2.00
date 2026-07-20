@@ -27,7 +27,7 @@ export function ContactSection({
           <div className="mt-8 grid gap-4">
             <a className="card p-4 transition hover:border-agri-gold sm:p-5" href={whatsappHref}>
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-gold">{methods.whatsapp}</p>
-              <p className="mt-2 text-lg font-semibold text-agri-blue">{company.phone}</p>
+              <p className="mt-2 text-lg font-semibold text-agri-blue" dir="ltr">{company.phone}</p>
             </a>
             <a className="card p-5 transition hover:border-agri-gold" href={`mailto:${company.email}`}>
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-gold">{methods.email}</p>

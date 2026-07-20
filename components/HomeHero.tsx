@@ -66,9 +66,9 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
           <h1 className={headlineClassName}>{hero.title}</h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">{hero.subtitle}</p>
 
-          <div className="mt-7 inline-flex max-w-full items-center gap-3 rounded-full border border-agri-gold/35 bg-white/10 px-4 py-3 text-sm font-bold text-white shadow-sm backdrop-blur">
-            <span className="inline-flex h-2.5 w-2.5 rounded-full bg-agri-gold" />
-            <span>{hero.trustBadge}</span>
+          <div className="mt-7 inline-flex max-w-full items-center gap-2 rounded-full border border-agri-gold/35 bg-white/10 px-3 py-2.5 text-xs font-bold text-white shadow-sm backdrop-blur sm:gap-3 sm:px-4 sm:py-3 sm:text-sm">
+            <span className="inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-agri-gold" />
+            <span className="whitespace-nowrap">{hero.trustBadge}</span>
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

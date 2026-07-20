@@ -18,7 +18,7 @@ export function CommitmentSection({ content }: CommitmentSectionProps) {
             <h2 className="section-title mt-3">{commitmentSection.title}</h2>
           </div>
 
-          <div className="border-s-4 border-agri-gold bg-agri-mist p-6 sm:p-8 lg:p-10">
+          <div className="rounded-2xl border-s-4 border-agri-gold bg-agri-mist p-6 sm:p-8 lg:p-10">
             {commitmentSection.paragraphs.map((paragraph) => (
               <p key={paragraph} className="mt-4 first:mt-0 text-lg leading-9 text-slate-700">
                 {paragraph}

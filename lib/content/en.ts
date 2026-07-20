@@ -25,7 +25,7 @@
   }
 };
 
-const whatsappHref = "https://wa.me/201276929666";
+const whatsappHref = "https://wa.me/201288816352";
 
 export const enContent = {
   locale: "en",
@@ -52,8 +52,8 @@ export const enContent = {
     descriptor: "For Trading",
     footerDescriptor: "Agricultural input trading and coordination",
     tagline: "Crop protection, plant nutrition, and agricultural product coordination for the Egyptian market, from product selection and registration support to technical and marketing readiness.",
-    phone: "+20 127 692 9666",
-    whatsapp: "201276929666",
+    phone: "+20 128 88 16352",
+    whatsapp: "201288816352",
     email: "info@agropestcontrol.com",
     address: "80th km Cairo-Alexandria desert road, Al Nubariya, Behera, Egypt",
     workingHours: "Sunday to Thursday, 9:00 AM - 5:00 PM"

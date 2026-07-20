@@ -38,7 +38,7 @@ export function Footer({ content, locale }: FooterProps) {
             <a className="transition hover:text-white" href={`mailto:${company.email}`}>
               {company.email}
             </a>
-            <a className="transition hover:text-white" href={whatsappHref}>
+            <a className="transition hover:text-white" href={whatsappHref} dir="ltr">
               {company.phone}
             </a>
             <p>{company.address}</p>
@@ -46,11 +46,18 @@ export function Footer({ content, locale }: FooterProps) {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="container-shell flex flex-col gap-3 py-5 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
+        <div
+          className={`container-shell flex flex-col items-center gap-3 py-5 text-center text-sm text-white/60 ${
+            footer.bottomNote ? "sm:flex-row sm:justify-between sm:text-start" : "sm:flex-col"
+          }`}
+        >
           <p>
-            {footer.copyrightPrefix} {new Date().getFullYear()} {company.name}. {footer.rightsReserved}
+            <span className="block">
+              {footer.copyrightPrefix} {new Date().getFullYear()} {company.name}.
+            </span>
+            <span className="block">{footer.rightsReserved}</span>
           </p>
-          <p>{footer.bottomNote}</p>
+          {footer.bottomNote ? <p>{footer.bottomNote}</p> : null}
         </div>
       </div>
     </footer>

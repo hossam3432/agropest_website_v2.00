@@ -44,12 +44,12 @@ export function Navbar({ content, locale }: NavbarProps) {
   return (
     <div className={`fixed inset-x-0 top-0 z-50 flex justify-center px-4 transition-all duration-300 ${scrolled ? "pt-2" : "pt-4"}`}>
       <header
-        className={`w-full rounded-full border border-white/60 bg-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_30px_rgba(15,23,42,0.12)] backdrop-blur-xl transition-all duration-300 ${
+        className={`w-full transition-all duration-300 ${
           scrolled ? "max-w-3xl" : "max-w-6xl"
         }`}
       >
       <nav
-        className={`flex items-center justify-between gap-4 transition-all duration-300 ${
+        className={`flex items-center justify-between gap-4 rounded-full border border-white/60 bg-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_30px_rgba(15,23,42,0.12)] backdrop-blur-xl transition-all duration-300 ${
           scrolled ? "px-4 py-1.5" : "px-6 py-3"
         }`}
       >
@@ -138,7 +138,7 @@ export function Navbar({ content, locale }: NavbarProps) {
       </nav>
 
       {isOpen ? (
-        <div className="mx-2 mb-2 rounded-3xl border border-white/60 bg-white/90 shadow-inner backdrop-blur-xl xl:hidden">
+        <div className="mx-2 mb-2 mt-2 rounded-3xl border border-white/60 bg-white/90 shadow-inner backdrop-blur-xl xl:hidden">
           <div className="px-4 py-4">
             <div className="grid gap-1">
               {navigation.map((item) => {

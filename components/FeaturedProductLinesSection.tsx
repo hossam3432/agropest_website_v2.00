@@ -29,7 +29,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
       className={
         isDesktop
           ? "relative rounded-lg featured-deck-card group/card flex h-full min-h-[560px] flex-col overflow-hidden bg-agri-mist shadow-sm"
-          : "relative rounded-lg group/card grid min-h-[160px] grid-cols-[5.75rem_minmax(0,1fr)] min-[420px]:grid-cols-[6.5rem_minmax(0,1fr)] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)] sm:min-h-[240px] sm:grid-cols-1"
+          : "relative rounded-lg group/card grid min-h-[180px] grid-cols-[5.75rem_minmax(0,1fr)] min-[420px]:grid-cols-[6.5rem_minmax(0,1fr)] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)] sm:min-h-[260px] sm:grid-cols-1"
       }
       style={isDesktop ? ({ "--card-tilt": `${tiltValues[index] ?? 0}deg` } as CSSProperties) : undefined}
     >
@@ -52,7 +52,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
           />
         </div>
       </div>
-      <div className={isDesktop ? "flex flex-1 flex-col p-6 pb-20" : "flex min-w-0 flex-1 flex-col p-3 pb-14 min-[420px]:p-4 min-[420px]:pb-14 sm:p-5 sm:pb-16"}>
+      <div className={isDesktop ? "flex flex-1 flex-col p-6 pb-20" : "flex min-w-0 flex-1 flex-col p-3 pb-20 min-[420px]:p-4 min-[420px]:pb-20 sm:p-5 sm:pb-20"}>
         <h3 className={isDesktop ? "text-2xl font-bold tracking-normal text-agri-blue" : "text-base font-bold leading-6 tracking-normal text-agri-blue min-[420px]:text-lg sm:text-xl"}>
           {item.title}
         </h3>

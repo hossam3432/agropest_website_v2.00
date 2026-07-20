@@ -1,5 +1,4 @@
 import { CommitmentSection } from "@/components/CommitmentSection";
-import { CTASection } from "@/components/CTASection";
 import { FeaturedProductLinesSection } from "@/components/FeaturedProductLinesSection";
 import { HomeHero } from "@/components/HomeHero";
 import { ProductCategoriesSection } from "@/components/ProductCategoriesSection";
@@ -10,7 +9,6 @@ import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 
 export default async function HomePage({ params }: LocalePageProps) {
   const { content, locale } = getLocalePage((await params).locale);
-  const { home } = content;
 
   return (
     <>
@@ -21,7 +19,6 @@ export default async function HomePage({ params }: LocalePageProps) {
       <WhyAgropestSection content={content} />
       <TechnicalLibraryPreview content={content} locale={locale} />
       <PartnersSection content={content} />
-      <CTASection locale={locale} {...home.cta} />
     </>
   );
 }
