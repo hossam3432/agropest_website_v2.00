@@ -1,5 +1,5 @@
 {
-    "name": "agropestwebsitev2",
+  "name": "agropestwebsitev2",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-07-19",
   "compatibility_flags": [
@@ -7,8 +7,6 @@
   ],
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "WORKER_SELF_REFERENCE",
-      "service": "agropestwebsitev2"  // ← change from "agropest-control-website"
-    }
+    "binding": "WORKER_SELF_REFERENCE"
   }
-
+}
