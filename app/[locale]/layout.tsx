@@ -60,7 +60,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     <div className="min-h-screen text-start" dir={content.direction} lang={locale}>
       <DocumentLanguage direction={content.direction} locale={locale} />
       <Navbar content={content} locale={locale} />
-      <main>{children}</main>
+      <main className="pt-24">{children}</main>
       <Footer content={content} locale={locale} />
     </div>
   );

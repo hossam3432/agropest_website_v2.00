@@ -59,19 +59,19 @@ a {
   }
 
   .btn-primary {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full bg-agri-gold px-6 py-3 text-sm font-bold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-agri-orange active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-agri-gold focus:ring-offset-2;
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border-[1pt] border-agri-greenDark bg-transparent px-6 py-3 text-sm font-bold text-agri-greenDark shadow-sm transition duration-300 hover:border-transparent hover:bg-agri-green hover:text-white active:border-transparent active:bg-agri-green active:text-white focus:outline-none focus:ring-2 focus:ring-agri-greenDark focus:ring-offset-2;
   }
 
   .btn-accent {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full bg-agri-gold px-6 py-3 text-sm font-bold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-agri-orange active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-agri-gold focus:ring-offset-2;
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border-[1pt] border-agri-greenDark bg-transparent px-6 py-3 text-sm font-bold text-agri-greenDark shadow-sm transition duration-300 hover:border-transparent hover:bg-agri-green hover:text-white active:border-transparent active:bg-agri-green active:text-white focus:outline-none focus:ring-2 focus:ring-agri-greenDark focus:ring-offset-2;
   }
 
   .btn-on-dark {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-agri-gold bg-agri-gold px-6 py-3 text-sm font-bold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-agri-orange hover:bg-agri-orange active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-agri-gold focus:ring-offset-2 focus:ring-offset-agri-blue;
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border-[1pt] border-agri-greenDark bg-transparent px-6 py-3 text-sm font-bold text-agri-greenDark shadow-sm transition duration-300 hover:border-transparent hover:bg-agri-green hover:text-white active:border-transparent active:bg-agri-green active:text-white focus:outline-none focus:ring-2 focus:ring-agri-greenDark focus:ring-offset-2 focus:ring-offset-agri-blue;
   }
 
   .btn-secondary {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-agri-gold bg-agri-gold px-6 py-3 text-sm font-bold text-white shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-agri-orange hover:bg-agri-orange active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-agri-gold focus:ring-offset-2;
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border-[1pt] border-agri-greenDark bg-transparent px-6 py-3 text-sm font-bold text-agri-greenDark shadow-sm transition duration-300 hover:border-transparent hover:bg-agri-green hover:text-white active:border-transparent active:bg-agri-green active:text-white focus:outline-none focus:ring-2 focus:ring-agri-greenDark focus:ring-offset-2;
   }
 
   .card {
@@ -215,6 +215,7 @@ a {
     inset-inline: 2rem;
     top: 4.4rem;
     min-height: 370px;
+    border-radius: 1.75rem;
     border: 1px solid rgb(255 255 255 / 0.62);
     background: linear-gradient(135deg, rgb(255 255 255 / 0.96), rgb(244 247 245 / 0.92));
     padding: 2.25rem;

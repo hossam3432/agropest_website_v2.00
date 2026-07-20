@@ -501,8 +501,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
                 {whyThisProductSection.description ? <p className="section-copy">{whyThisProductSection.description}</p> : null}
                 <div className="mt-8 grid gap-3">
                   {whyThisProductSection.points.map((point) => (
-                    <div key={point} className="flex gap-3 border-s-2 border-agri-gold bg-agri-mist p-4">
-                      <span className="mt-2 h-2 w-2 flex-shrink-0 bg-agri-green" />
+                    <div key={point} className="rounded-lg flex gap-3 border-s-2 border-agri-gold bg-agri-mist p-4">
                       <p className="font-bold leading-7 text-agri-blue">{point}</p>
                     </div>
                   ))}

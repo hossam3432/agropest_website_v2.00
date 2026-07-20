@@ -29,8 +29,8 @@ export function PartnersSection({ content }: PartnersSectionProps) {
               <RevealItem key={partner.name} hoverLift>
                 <button
                   aria-pressed={isActive}
-                  className={`group grid min-h-[205px] w-full grid-rows-[5.5rem_auto_auto] border bg-white px-4 py-5 text-center shadow-sm transition duration-300 hover:border-agri-gold hover:bg-white hover:shadow-soft focus:outline-none focus:ring-2 focus:ring-agri-gold focus:ring-offset-2 focus:ring-offset-agri-blue sm:min-h-[230px] sm:grid-rows-[6.5rem_2.25rem_3.75rem] sm:px-6 sm:py-7 ${
-                    isActive ? "border-agri-gold shadow-soft" : "border-agri-line"
+                  className={`group grid min-h-[205px] w-full grid-rows-[5.5rem_auto_auto] rounded-2xl bg-white/75 px-4 py-5 text-center shadow-sm transition duration-300 hover:bg-white hover:shadow-soft focus:outline-none focus:ring-2 focus:ring-agri-gold focus:ring-offset-2 focus:ring-offset-agri-blue sm:min-h-[230px] sm:grid-rows-[6.5rem_2.25rem_3.75rem] sm:px-6 sm:py-7 ${
+                    isActive ? "shadow-soft" : ""
                   }`}
                   onClick={() => setActivePartner(isActive ? null : partner.name)}
                   type="button"
@@ -39,13 +39,11 @@ export function PartnersSection({ content }: PartnersSectionProps) {
                     <img
                       src={partner.logo}
                       alt={partner.logoAlt}
-                      className={`max-h-16 w-full max-w-[190px] object-contain opacity-90 transition duration-300 group-hover:scale-105 group-hover:opacity-100 ${
-                        isActive ? "grayscale-0 contrast-100" : "grayscale contrast-125"
-                      }`}
+                      className="max-h-16 w-full max-w-[190px] object-contain opacity-90 transition duration-300 group-hover:scale-105 group-hover:opacity-100"
                     />
                   </div>
-                  <p className="flex items-center justify-center text-base font-black tracking-tight text-slate-700">{partner.name}</p>
-                  <p className="flex items-start justify-center text-sm font-semibold leading-6 text-slate-500">{partner.description}</p>
+                  <p className="flex items-center justify-center text-base font-black tracking-tight text-black">{partner.name}</p>
+                  <p className="flex items-start justify-center text-sm font-semibold leading-6 text-black">{partner.description}</p>
                 </button>
               </RevealItem>
             );

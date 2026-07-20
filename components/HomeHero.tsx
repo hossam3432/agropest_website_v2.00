@@ -72,7 +72,7 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href={localizeHref(locale, hero.primaryCta.href)} className="btn-on-dark">
+            <Link href={localizeHref(locale, hero.primaryCta.href)} className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-bold text-white shadow-sm backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-agri-gold hover:bg-white/15 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-agri-gold focus:ring-offset-2 focus:ring-offset-agri-blue">
               {hero.primaryCta.label}
             </Link>
             <Link href={localizeHref(locale, hero.secondaryCta.href)} className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-bold text-white shadow-sm backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-agri-gold hover:bg-white/15 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-agri-gold focus:ring-offset-2 focus:ring-offset-agri-blue">
