@@ -16,9 +16,9 @@
       "autoPort": true
     },
     {
-      "name": "cf-preview",
+      "name": "cf-pages",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["opennextjs-cloudflare", "preview", "--", "--port", "8787"],
+      "runtimeArgs": ["-y", "wrangler@4", "pages", "dev", "out", "--port", "8787"],
       "port": 8787
     }
   ]

@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useMemo, useState } from "react";
 import { ProductVisual } from "@/components/ProductVisual";
 import type { Locale } from "@/lib/content";
 import type { ProductCategorySlug, ProductDetail, ProductSelectorCategory, ProductSelectorFilter } from "@/lib/products";
@@ -78,7 +79,7 @@ function updateBrowserUrl(slug: ProductCategorySlug, filter?: ProductSelectorFil
   window.history.replaceState(null, "", `${url.pathname}?${url.searchParams.toString()}${url.hash}`);
 }
 
-export function ProductPortfolioBrowser({ content, initialCategorySlug, initialSubcategory, locale, products }: ProductPortfolioBrowserProps) {
+function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubcategory, locale, products }: ProductPortfolioBrowserProps) {
   const initialCategory = isCategorySlug(initialCategorySlug, content.categories) ? initialCategorySlug : null;
   const initialCategoryObject = initialCategory ? content.categories.find((category) => category.slug === initialCategory) ?? null : null;
   const [activeCategorySlug, setActiveCategorySlug] = useState<ProductCategorySlug | null>(initialCategory);
@@ -295,5 +296,32 @@ export function ProductPortfolioBrowser({ content, initialCategorySlug, initialS
         ) : null}
       </div>
     </section>
+  );
+}
+
+type ProductPortfolioBrowserPublicProps = Omit<ProductPortfolioBrowserProps, "initialCategorySlug" | "initialSubcategory">;
+
+// The site is statically exported, so ?category= / ?subcategory= are only readable on the client.
+// Keying on the query string lets the view re-initialise its state once the real params arrive.
+function ProductPortfolioBrowserFromUrl(props: ProductPortfolioBrowserPublicProps) {
+  const searchParams = useSearchParams();
+  const category = searchParams.get("category") ?? undefined;
+  const subcategory = searchParams.get("subcategory") ?? undefined;
+
+  return (
+    <ProductPortfolioBrowserView
+      {...props}
+      key={searchParams.toString()}
+      initialCategorySlug={isCategorySlug(category, props.content.categories) ? category : undefined}
+      initialSubcategory={subcategory}
+    />
+  );
+}
+
+export function ProductPortfolioBrowser(props: ProductPortfolioBrowserPublicProps) {
+  return (
+    <Suspense fallback={<ProductPortfolioBrowserView {...props} />}>
+      <ProductPortfolioBrowserFromUrl {...props} />
+    </Suspense>
   );
 }

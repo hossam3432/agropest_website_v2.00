@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
+import { ClientRedirect } from "@/components/ClientRedirect";
 import { getSiteContent, isLocale, locales, localizeHref } from "@/lib/content";
 import {
   getProductByAnySlug,
@@ -13,9 +14,6 @@ type ProductCategoryPageProps = {
   params: Promise<{
     locale: string;
     slug: string;
-  }>;
-  searchParams?: Promise<{
-    subcategory?: string;
   }>;
 };
 
@@ -64,7 +62,7 @@ export async function generateMetadata({ params }: ProductCategoryPageProps): Pr
   };
 }
 
-export default async function ProductCategoryOrLegacyPage({ params, searchParams }: ProductCategoryPageProps) {
+export default async function ProductCategoryOrLegacyPage({ params }: ProductCategoryPageProps) {
   const { locale, slug } = await params;
 
   if (!isLocale(locale)) {
@@ -74,17 +72,13 @@ export default async function ProductCategoryOrLegacyPage({ params, searchParams
   const category = getProductCategory(locale, slug);
 
   if (category) {
-    const resolvedSearchParams = await searchParams;
-    const subcategoryParam = resolvedSearchParams?.subcategory
-      ? `&subcategory=${encodeURIComponent(resolvedSearchParams.subcategory)}`
-      : "";
-    redirect(localizeHref(locale, `/products?category=${category.slug}${subcategoryParam}`));
+    return <ClientRedirect href={localizeHref(locale, `/products?category=${category.slug}`)} />;
   }
 
   const legacyProduct = getProductByAnySlug(locale, slug);
 
   if (legacyProduct) {
-    redirect(getProductPath(locale, legacyProduct));
+    return <ClientRedirect href={getProductPath(locale, legacyProduct)} />;
   }
 
   notFound();
