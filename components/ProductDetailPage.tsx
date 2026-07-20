@@ -361,9 +361,9 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
             </Link>
             <p className="eyebrow mt-6">{pageContent.heroEyebrow}</p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <span className="bg-agri-green px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-white">{product.category}</span>
+              <span className="rounded-lg bg-agri-green px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-white">{product.category}</span>
               {!isUnderRegistrationStatus(product.registrationStatus) ? (
-                <span className="border border-agri-gold bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-agri-blue">
+                <span className="rounded-lg bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-agri-blue">
                   {product.registrationStatus}
                 </span>
               ) : null}
@@ -404,7 +404,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
           </aside>
 
           <div className="min-w-0 space-y-8">
-            <section className="border border-agri-line bg-white p-5 shadow-sm sm:p-7 lg:p-8">
+            <section className="rounded-lg bg-white p-5 shadow-sm sm:p-7 lg:p-8">
               <p className="eyebrow">{pageContent.sections.overview}</p>
               <div className="mt-3 grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
                 <div>
@@ -418,7 +418,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
                   const displayValue = stripTrailingSentencePunctuation(fact.value);
 
                   return (
-                    <article key={fact.key} className="border border-agri-line bg-agri-mist p-5 shadow-sm">
+                    <article key={fact.key} className="rounded-lg bg-agri-mist p-5 shadow-sm">
                       <p className="text-xs font-bold uppercase tracking-[0.16em] text-agri-gold">{fact.label}</p>
                       <p className="mt-3 text-base font-bold leading-7 text-agri-blue">{displayValue}</p>
                     </article>
@@ -430,7 +430,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
                 <div className="mt-8">
                   <p className="eyebrow">{pageContent.factLabels.composition}</p>
                   <h3 className="mt-3 text-2xl font-bold tracking-normal text-agri-blue">{pageContent.compositionTitle}</h3>
-                  <div className="mt-6 overflow-hidden border border-agri-line bg-white md:hidden">
+                  <div className="rounded-lg mt-6 overflow-hidden bg-white md:hidden">
                     <div className="grid grid-cols-[minmax(0,1fr)_minmax(5.5rem,0.72fr)] gap-3 bg-agri-blue p-4 text-white">
                       <p className="text-[11px] font-bold uppercase tracking-[0.14em]">{compositionHeaders[0]}</p>
                       <p className="border-s border-white/20 ps-3 text-[11px] font-bold uppercase tracking-[0.14em]">{compositionHeaders[1]}</p>
@@ -445,7 +445,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
                       </div>
                     ))}
                   </div>
-                  <div className="mt-6 hidden overflow-x-auto border border-agri-line bg-white md:block">
+                  <div className="rounded-lg mt-6 hidden overflow-x-auto bg-white md:block">
                     <table className="w-full min-w-[420px] border-collapse text-start">
                       <thead className="bg-agri-blue text-white">
                         <tr>
@@ -470,7 +470,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
               ) : null}
             </section>
 
-            <section className="border border-agri-line bg-white p-5 shadow-sm sm:p-7 lg:p-8">
+            <section className="rounded-lg bg-white p-5 shadow-sm sm:p-7 lg:p-8">
               <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
                 <div>
                   <h2 className="section-title">{whenToUseSection.title}</h2>
@@ -478,7 +478,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {whenToUseSection.items.map((item, index) => (
-                    <article key={item.title + "-" + index} className="border border-agri-line bg-agri-mist p-5">
+                    <article key={item.title + "-" + index} className="rounded-lg bg-agri-mist p-5">
                       <h3 className="text-xl font-bold text-agri-blue">{item.title}</h3>
                       {item.description ? <p className="mt-3 leading-7 text-slate-600">{item.description}</p> : null}
                     </article>
@@ -487,7 +487,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
               </div>
             </section>
 
-            <section className="grid gap-8 border border-agri-line bg-white p-5 shadow-sm sm:p-7 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:p-8">
+            <section className="rounded-lg grid gap-8 bg-white p-5 shadow-sm sm:p-7 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:p-8">
               <ProductVisual
                 alt={whyThisProductSection.imageAlt}
                 className="mx-auto h-[300px] w-full max-w-[520px] shadow-soft sm:h-[380px] lg:h-[440px]"
@@ -510,7 +510,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
               </div>
             </section>
 
-            <section className="bg-agri-blue p-5 text-white shadow-soft sm:p-7 lg:p-8">
+            <section className="rounded-lg bg-agri-blue p-5 text-white shadow-soft sm:p-7 lg:p-8">
               <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
                 <div>
                   <p className="eyebrow">{pageContent.fieldBenefitsEyebrow}</p>
@@ -518,7 +518,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {fieldBenefitsSection.items.map((benefit, index) => (
-                    <article key={benefit.title} className="border border-white/15 bg-white/5 p-5">
+                    <article key={benefit.title} className="rounded-lg bg-white/5 p-5">
                       <p className="text-3xl font-bold text-agri-gold">{String(index + 1).padStart(2, "0")}</p>
                       <h3 className="mt-4 text-2xl font-bold tracking-normal">{benefit.title}</h3>
                       <p className="mt-3 leading-7 text-white/70">{benefit.description}</p>
@@ -528,7 +528,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
               </div>
             </section>
 
-            <section className="scroll-mt-24 border border-agri-line bg-white p-5 shadow-sm sm:p-7 lg:p-8" id="application-recommendations">
+            <section className="rounded-lg scroll-mt-24 border border-agri-line bg-white p-5 shadow-sm sm:p-7 lg:p-8" id="application-recommendations">
               <p className="eyebrow">{pageContent.applicationRecommendationsEyebrow}</p>
               <h2 className="section-title mt-3">{applicationSection.title}</h2>
               {applicationSection.intro ? <p className="mt-4 max-w-3xl text-start leading-8 text-slate-600">{applicationSection.intro}</p> : null}
@@ -543,7 +543,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
                     : [row.target, row.timing, getMethod(row), getTreatmentCount(row)];
 
                   return (
-                    <details key={row.crop + "-" + row.target} className="group border border-agri-line bg-agri-mist">
+                    <details key={row.crop + "-" + row.target} className="rounded-lg group bg-agri-mist">
                       <summary className="grid cursor-pointer list-none gap-4 p-4 transition hover:bg-white/70 [&::-webkit-details-marker]:hidden">
                         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
                           <div className="min-w-0">
@@ -632,7 +632,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
               </div>
             </section>
 
-            <section className="border border-agri-line bg-white p-5 shadow-sm sm:p-7 lg:p-8">
+            <section className="rounded-lg bg-white p-5 shadow-sm sm:p-7 lg:p-8">
               <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
                 <div>
                   <h2 className="section-title">{technicalNotesSection.title}</h2>
@@ -640,14 +640,14 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
                 {technicalNotesSection.items.length ? (
                   <ul className="grid gap-3 text-start leading-7 text-slate-600 sm:grid-cols-2">
                     {technicalNotesSection.items.map((note) => (
-                      <li key={note} className="flex gap-2 border border-agri-line bg-agri-mist p-4">
+                      <li key={note} className="rounded-lg flex gap-2 bg-agri-mist p-4">
                         <span className="mt-3 h-1.5 w-1.5 flex-shrink-0 bg-agri-gold" />
                         <span>{note}</span>
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <div className="border border-dashed border-agri-line bg-agri-mist p-5">
+                  <div className="rounded-lg bg-agri-mist p-5">
                     <p className="text-xs font-bold uppercase tracking-[0.14em] text-agri-gold">{pageContent.sectionNotes.manualWritingNeeded}</p>
                     <p className="mt-3 leading-7 text-slate-600">{pageContent.sectionNotes.technicalNotesPlaceholder}</p>
                   </div>
@@ -665,7 +665,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
                     const documentHref = document.href ?? localizeHref(locale, "/contact");
 
                     return (
-                      <article key={document.title + "-" + documentType} className="border border-agri-line bg-agri-mist p-5">
+                      <article key={document.title + "-" + documentType} className="rounded-lg bg-agri-mist p-5">
                         <p className="text-xs font-bold uppercase tracking-[0.14em] text-agri-gold">{pageContent.documentTypeLabels[documentType]}</p>
                         <h3 className="mt-3 text-xl font-bold text-agri-blue">{document.title}</h3>
                         <p className="mt-3 leading-7 text-slate-600">{document.description}</p>

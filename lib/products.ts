@@ -292,7 +292,7 @@ export const productPageContent = {
   },
   "ar": {
     "nutritionFormulationLabel": "صورة المنتج",
-    "heroEyebrow": "ملف المنتج",
+    "heroEyebrow": "",
     "requestProductInfo": "اطلب معلومات المنتج",
     "whatsappAgropest": "واتساب أجروبست",
     "downloadBrochure": "تحميل البروشور",

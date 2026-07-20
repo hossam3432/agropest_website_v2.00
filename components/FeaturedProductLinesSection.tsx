@@ -27,8 +27,8 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
     <article
       className={
         isDesktop
-          ? "featured-deck-card group/card flex h-full min-h-[560px] flex-col overflow-hidden border border-t-4 border-agri-line border-t-agri-gold bg-agri-mist shadow-sm"
-          : "group/card grid min-h-[160px] grid-cols-[5.75rem_minmax(0,1fr)] min-[420px]:grid-cols-[6.5rem_minmax(0,1fr)] overflow-hidden border border-t-4 border-agri-line border-t-agri-gold bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-agri-gold hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)] sm:min-h-[240px] sm:grid-cols-1"
+          ? "rounded-lg featured-deck-card group/card flex h-full min-h-[560px] flex-col overflow-hidden bg-agri-mist shadow-sm"
+          : "rounded-lg group/card grid min-h-[160px] grid-cols-[5.75rem_minmax(0,1fr)] min-[420px]:grid-cols-[6.5rem_minmax(0,1fr)] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)] sm:min-h-[240px] sm:grid-cols-1"
       }
       style={isDesktop ? ({ "--card-tilt": `${tiltValues[index] ?? 0}deg` } as CSSProperties) : undefined}
     >
@@ -41,7 +41,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
       >
         {item.eyebrow ? (
           <span
-            className={`absolute z-20 inline-flex items-center bg-agri-green/95 font-bold uppercase tracking-[0.14em] text-white ${
+            className={`absolute z-20 inline-flex items-center rounded-lg bg-agri-green/95 font-bold uppercase tracking-[0.14em] text-white ${
               isDesktop
                 ? "start-4 top-4 px-3 py-1.5 text-[11px]"
                 : "start-2 top-2 px-2 py-1 text-[9px] min-[420px]:start-3 min-[420px]:top-3 sm:px-3 sm:py-1.5 sm:text-[10px]"
@@ -74,7 +74,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
         {item.tags.length ? (
           <div className={isDesktop ? "featured-card-tags mt-6 flex flex-wrap gap-2" : "featured-card-tags mt-4 hidden flex-wrap gap-2 sm:flex"}>
             {item.tags.map((tag) => (
-              <span key={tag} className="bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-agri-green">
+              <span key={tag} className="rounded-lg bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-agri-green">
                 {tag}
               </span>
             ))}
