@@ -202,10 +202,6 @@ const content = {
       title: "Manufactured in the EU. Delivered to your field.",
       cols: [
         {
-          h: "MANUFACTURED BY",
-          lines: ["Eurogro", "Paleologou str. 27", "Thessaloniki, Greece — EU", "Modern Fertilizers Europe Group"]
-        },
-        {
           h: "DISTRIBUTED IN EGYPT BY",
           lines: ["AgroPest Control for Trading", "80 Tayaran st., New Nozha", "Cairo, Egypt"]
         },
@@ -391,10 +387,6 @@ const content = {
       title: "تصنيع أوروبي. يصل إلى حقلك.",
       cols: [
         {
-          h: "الشركة المصنّعة",
-          lines: ["يورو جرو", "Paleologou str. 27", "تسالونيكي، اليونان — الاتحاد الأوروبي", "مجموعة الأسمدة الحديثة الأوروبية"]
-        },
-        {
           h: "الوكيل والموزّع في مصر",
           lines: ["أجروبست كنترول للتجارة", "80 ش الطيران، النزهة الجديدة", "القاهرة، مصر"]
         },
@@ -548,7 +540,9 @@ export default async function SignalNpkPage({ params }: PageProps) {
           <a href="#top" className="flex items-center gap-2.5">
             <SignalMark size={26} />
             <span className="text-lg font-black tracking-tight">{t.brand.name}</span>
-            <span className={`${mono.className} hidden text-[9px] tracking-[0.3em] text-[#008D36] sm:block`}>{t.brand.sub}</span>
+            <span className={`${mono.className} hidden text-[9px] tracking-[0.3em] text-[#008D36] sm:block`}>
+              {t.brand.sub.replace(/سلسلة\s*/, "")}
+            </span>
           </a>
         </div>
       </header>
@@ -715,46 +709,14 @@ export default async function SignalNpkPage({ params }: PageProps) {
       <footer id="supply" className="relative scroll-mt-48 px-4 pb-4">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-[#17142D] px-6 py-16 text-white md:px-14 md:py-20">
           <RadiatingRings className="-bottom-48 -start-48 h-[480px] w-[480px] opacity-40" color="#3fbf6e" rings={3} duration={6} />
-          <div className="relative">
+          <div className="relative flex flex-col items-center justify-center text-center">
             <SectionHead dark title={t.footer.title} />
-
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {t.footer.cols.map((c) => (
-                <div key={c.h} className="rounded-3xl border border-white/10 bg-white/5 px-6 py-7 backdrop-blur-md">
-                  <h3 className={`${mono.className} text-[10px] font-medium uppercase tracking-[0.2em] text-[#3fbf6e]`}>{c.h}</h3>
-                  <ul className="mt-4 space-y-1.5">
-                    {c.lines.map((l) => (
-                      <li key={l} className="text-sm leading-relaxed text-white/70">
-                        {l}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-4 flex flex-wrap items-center gap-4 rounded-3xl border border-white/10 bg-white/5 px-6 py-5 backdrop-blur-md">
-              <span className={`${mono.className} text-[10px] font-medium uppercase tracking-[0.2em] text-[#3fbf6e]`}>
-                {t.footer.contactHead}
-              </span>
-              {[...t.footer.phones, t.footer.email].map((c) => (
-                <span key={c} className={`${mono.className} text-xs text-white/85 md:text-sm`} dir="ltr">
-                  {c}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-10 flex flex-col items-start justify-between gap-5 border-t border-white/10 pt-7 md:flex-row md:items-center">
-              <div className="flex items-center gap-3">
-                <SignalMark size={26} color="#3fbf6e" />
-                <span className="text-lg font-black tracking-tight">{t.brand.name}</span>
-                <span className={`${mono.className} text-[9px] tracking-[0.3em] text-[#3fbf6e]`}>{t.brand.sub}</span>
-              </div>
-              <div className={`${mono.className} text-xs text-white/45`} dir="ltr">
-                {t.footer.site}
-              </div>
-              <p className="text-xs text-white/45">{t.footer.legal}</p>
-            </div>
+            <Link
+              href={`/${locale}/brochures`}
+              className="mt-10 rounded-full bg-[#3fbf6e] px-8 py-4 text-sm font-bold text-[#17142D] shadow-lg shadow-[#3fbf6e]/30 transition-colors hover:bg-[#2fa856]"
+            >
+              {locale === "ar" ? "تحميل النشرة الفنية" : "Download Technical Brochure"}
+            </Link>
           </div>
         </div>
       </footer>
