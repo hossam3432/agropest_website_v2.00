@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { IBM_Plex_Mono } from "next/font/google";
 
 const mono = IBM_Plex_Mono({
@@ -27,6 +27,12 @@ type MechanismSectionProps = {
 
 export default function MechanismSection({ mech, dir }: MechanismSectionProps) {
   const [activeStep, setActiveStep] = useState("02");
+  const figureRef = useRef<HTMLDivElement>(null);
+
+  const select = (no: string) => {
+    setActiveStep(no);
+    figureRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  };
 
   return (
     <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:gap-14">
@@ -35,7 +41,7 @@ export default function MechanismSection({ mech, dir }: MechanismSectionProps) {
         {mech.steps.map((s) => (
           <li
             key={s.no}
-            onClick={() => setActiveStep(s.no)}
+            onClick={() => select(s.no)}
             className={`flex gap-5 rounded-3xl border p-6 backdrop-blur-md transition-all cursor-pointer md:p-7 ${
               activeStep === s.no
                 ? "border-[#3fbf6e]/60 bg-[#3fbf6e]/10"
@@ -60,7 +66,7 @@ export default function MechanismSection({ mech, dir }: MechanismSectionProps) {
       </ol>
 
       {/* phloem animation slot */}
-      <div className="flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md">
+      <div ref={figureRef} className="flex scroll-mt-32 flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md">
         <div className="border-b border-white/10 px-6 py-4">
           <span className={`${mono.className} text-[10px] font-medium uppercase tracking-[0.22em] text-[#3fbf6e]`}>
             {mech.figureLabel}

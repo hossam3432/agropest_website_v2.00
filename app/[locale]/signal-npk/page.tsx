@@ -384,7 +384,7 @@ const content = {
     },
     footer: {
       index: "04 — التوريد",
-      title: "تصنيع أوروبي. يصل إلى حقلك.",
+      title: "تصنيع أوروبي، يصل إلى حقلك",
       cols: [
         {
           h: "الوكيل والموزّع في مصر",
@@ -480,7 +480,7 @@ function RadiatingRings({
   );
 }
 
-function SectionHead({ index, title, intro, dark = false, titleLeading = "leading-[1.4]" }: { index?: string; title: string; intro?: string; dark?: boolean; titleLeading?: string }) {
+function SectionHead({ index, title, intro, dark = false, titleLeading = "leading-[1.4] md:leading-[1.4]" }: { index?: string; title: string; intro?: string; dark?: boolean; titleLeading?: string }) {
   return (
     <div className="mx-auto max-w-2xl text-center">
       {index ? (
@@ -556,7 +556,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
               <p className={`${mono.className} text-[11px] font-medium uppercase tracking-[0.28em] text-[#008D36]`}>
                 {t.hero.kicker}
               </p>
-              <h1 className="mt-5 text-5xl font-black leading-[2] tracking-tight md:text-7xl">
+              <h1 className="mt-5 text-5xl font-black leading-[1.4] tracking-tight md:text-7xl">
                 {t.hero.slogan[0]}
                 <br />
                 {t.hero.slogan[1]}
@@ -622,7 +622,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
             <div className="pointer-events-none absolute -bottom-56 -start-56 h-[560px] w-[560px] rounded-full bg-[radial-gradient(closest-side,#008D3626,transparent)]" aria-hidden="true" />
 
             <div className="relative">
-              <SectionHead dark title={t.mech.title} intro={t.mech.intro} titleLeading="leading-[3]" />
+              <SectionHead dark title={t.mech.title} intro={t.mech.intro} titleLeading="leading-[1.4]" />
               <MechanismSection mech={t.mech} dir={t.dir} />
             </div>
           </div>
@@ -631,7 +631,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
         {/* ————— usage guide ————— */}
         <section id="usage" className="relative scroll-mt-48 py-20 md:py-28">
           <div className="mx-auto max-w-7xl px-6 md:px-8">
-            <SectionHead title={t.usage.title} intro={t.usage.intro} />
+            <SectionHead title={t.usage.title} intro={t.usage.intro} titleLeading="leading-[1.4]" />
 
             {/* application cards */}
             <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -710,10 +710,17 @@ export default async function SignalNpkPage({ params }: PageProps) {
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-[#17142D] px-6 py-16 text-white md:px-14 md:py-20">
           <RadiatingRings className="-bottom-48 -start-48 h-[480px] w-[480px] opacity-40" color="#3fbf6e" rings={3} duration={6} />
           <div className="relative flex flex-col items-center justify-center text-center">
+            <div className="mb-4 flex items-center gap-2.5">
+              <SignalMark size={30} color="#3fbf6e" />
+              <span className="text-2xl font-black tracking-tight">{t.brand.name}</span>
+              <span className={`${mono.className} text-xs tracking-[0.3em] text-[#3fbf6e]`} dir="ltr">
+                NPK
+              </span>
+            </div>
             <SectionHead dark title={t.footer.title} />
             <Link
               href={`/${locale}/brochures`}
-              className="mt-10 rounded-full bg-[#3fbf6e] px-8 py-4 text-sm font-bold text-[#17142D] shadow-lg shadow-[#3fbf6e]/30 transition-colors hover:bg-[#2fa856]"
+              className="mt-20 rounded-full bg-[#3fbf6e] px-8 py-4 text-sm font-bold text-[#17142D] shadow-lg shadow-[#3fbf6e]/30 transition-colors hover:bg-[#2fa856]"
             >
               {locale === "ar" ? "تحميل النشرة الفنية" : "Download Technical Brochure"}
             </Link>

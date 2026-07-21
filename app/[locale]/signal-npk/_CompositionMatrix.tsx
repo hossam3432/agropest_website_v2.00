@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /* ————————————————————————————————————————————————————————————————
    SIGNAL NPK — interactive composition matrix (client)
@@ -47,6 +47,18 @@ export default function CompositionMatrix({
 }) {
   const [active, setActive] = useState(0);
   const v = variants[active];
+  const detailRef = useRef<HTMLDivElement>(null);
+  const userSelected = useRef(false);
+
+  const select = (i: number) => {
+    userSelected.current = true;
+    setActive(i);
+  };
+
+  useEffect(() => {
+    if (!userSelected.current) return;
+    detailRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [active]);
 
   return (
     <div dir={dir}>
@@ -63,7 +75,7 @@ export default function CompositionMatrix({
               key={item.id}
               role="tab"
               aria-selected={selected}
-              onClick={() => setActive(i)}
+              onClick={() => select(i)}
               className="group relative overflow-hidden rounded-2xl p-5 text-start transition-all duration-300"
               style={{
                 backgroundColor: selected ? item.soft : "transparent",
@@ -103,7 +115,7 @@ export default function CompositionMatrix({
       </div>
 
       {/* ————— active variant detail ————— */}
-      <div key={v.id} className="sg-fade-up mt-5 grid gap-5 lg:grid-cols-[0.95fr_1.05fr]">
+      <div ref={detailRef} key={v.id} className="sg-fade-up mt-5 grid scroll-mt-32 gap-5 lg:grid-cols-[0.95fr_1.05fr]">
         {/* pack visual */}
         <div
           className="relative overflow-hidden rounded-3xl border border-white/70 p-8 shadow-xl shadow-slate-900/5 backdrop-blur-md"
