@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Cairo, IBM_Plex_Mono } from "next/font/google";
 import CompositionMatrix, { type Variant, type MatrixLabels } from "./_CompositionMatrix";
+import MechanismSection from "./_MechanismSection";
 
 /* ————————————————————————————————————————————————————————————————
    SIGNAL NPK — fluid agri-tech landing page
@@ -487,18 +488,20 @@ function RadiatingRings({
   );
 }
 
-function SectionHead({ index, title, intro, dark = false }: { index: string; title: string; intro?: string; dark?: boolean }) {
+function SectionHead({ index, title, intro, dark = false, titleLeading = "leading-[1.4]" }: { index?: string; title: string; intro?: string; dark?: boolean; titleLeading?: string }) {
   return (
     <div className="mx-auto max-w-2xl text-center">
-      <span
-        className={`${mono.className} inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-medium tracking-[0.22em] ${
-          dark ? "border-white/15 bg-white/5 text-[#3fbf6e]" : "border-[#008D36]/20 bg-white/60 text-[#008D36] backdrop-blur-md"
-        }`}
-      >
-        <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
-        {index}
-      </span>
-      <h2 className={`mt-5 text-3xl font-black leading-tight tracking-tight md:text-5xl ${dark ? "text-white" : "text-[#17142D]"}`}>
+      {index ? (
+        <span
+          className={`${mono.className} inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-medium tracking-[0.22em] ${
+            dark ? "border-white/15 bg-white/5 text-[#3fbf6e]" : "border-[#008D36]/20 bg-white/60 text-[#008D36] backdrop-blur-md"
+          }`}
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
+          {index}
+        </span>
+      ) : null}
+      <h2 className={`mt-5 text-3xl font-black ${titleLeading} tracking-tight md:text-5xl ${dark ? "text-white" : "text-[#17142D]"}`}>
         {title}
       </h2>
       {intro ? (
@@ -541,37 +544,12 @@ export default async function SignalNpkPage({ params }: PageProps) {
 
       {/* ————— floating glass navbar ————— */}
       <header className="sticky top-[90px] z-40 px-4 pt-5">
-        <div className="mx-auto flex max-w-5xl items-center justify-between rounded-full border border-white/70 bg-white/70 py-2.5 pe-2.5 ps-5 shadow-lg shadow-slate-900/5 backdrop-blur-md">
+        <div className="mx-auto flex w-fit items-center justify-center rounded-full border border-white/70 bg-white/70 py-2.5 px-5 shadow-lg shadow-slate-900/5 backdrop-blur-md">
           <a href="#top" className="flex items-center gap-2.5">
             <SignalMark size={26} />
             <span className="text-lg font-black tracking-tight">{t.brand.name}</span>
             <span className={`${mono.className} hidden text-[9px] tracking-[0.3em] text-[#008D36] sm:block`}>{t.brand.sub}</span>
           </a>
-          <nav className="hidden items-center gap-1 md:flex">
-            {t.nav.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 transition-colors hover:bg-[#008D36]/10 hover:text-[#17142D]"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-2">
-            <Link
-              href={t.langSwitch.href}
-              className="rounded-full border border-slate-200 bg-white/60 px-4 py-2 text-sm font-bold text-slate-600 transition-colors hover:border-[#008D36]/40 hover:text-[#008D36]"
-            >
-              {t.langSwitch.label}
-            </Link>
-            <Link
-              href={`/${locale}/contact`}
-              className="hidden rounded-full bg-[#008D36] px-5 py-2 text-sm font-bold text-white shadow-lg shadow-[#008D36]/30 transition-colors hover:bg-[#00722c] sm:block"
-            >
-              {t.hero.ctaSecondary}
-            </Link>
-          </div>
         </div>
       </header>
 
@@ -584,28 +562,14 @@ export default async function SignalNpkPage({ params }: PageProps) {
               <p className={`${mono.className} text-[11px] font-medium uppercase tracking-[0.28em] text-[#008D36]`}>
                 {t.hero.kicker}
               </p>
-              <h1 className="mt-5 text-5xl font-black leading-[1.04] tracking-tight md:text-7xl">
+              <h1 className="mt-5 text-5xl font-black leading-[2] tracking-tight md:text-7xl">
                 {t.hero.slogan[0]}
                 <br />
                 {t.hero.slogan[1]}
                 <br />
                 <span className="text-[#008D36]">{t.hero.slogan[2]}</span>
               </h1>
-              <p className="mt-7 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg">{t.hero.lead}</p>
-              <div className="mt-10 flex flex-wrap items-center gap-3">
-                <a
-                  href="#matrix"
-                  className="rounded-full bg-[#17142D] px-8 py-4 text-sm font-bold text-white shadow-xl shadow-[#17142D]/25 transition-all hover:bg-[#008D36] hover:shadow-[#008D36]/30"
-                >
-                  {t.hero.ctaPrimary}
-                </a>
-                <Link
-                  href={`/${locale}/contact`}
-                  className="rounded-full border border-slate-300/80 bg-white/60 px-8 py-4 text-sm font-bold text-[#17142D] backdrop-blur-md transition-colors hover:border-[#008D36]/50 hover:text-[#008D36]"
-                >
-                  {t.hero.ctaSecondary}
-                </Link>
-              </div>
+              <p className="mt-12 max-w-xl text-base leading-relaxed text-slate-600 md:text-lg">{t.hero.lead}</p>
             </div>
 
             {/* pack + radiating signal + floating badges */}
@@ -641,7 +605,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
         {/* ————— the matrix ————— */}
         <section id="matrix" className="relative scroll-mt-48 py-20 md:py-28">
           <div className="mx-auto max-w-7xl px-6 md:px-8">
-            <SectionHead index={t.matrix.index} title={t.matrix.title} intro={t.matrix.intro} />
+            <SectionHead title={t.matrix.title} intro={t.matrix.intro} />
             <div className="mt-12">
               <CompositionMatrix
                 variants={t.matrix.variants as ReadonlyArray<Variant>}
@@ -664,41 +628,8 @@ export default async function SignalNpkPage({ params }: PageProps) {
             <div className="pointer-events-none absolute -bottom-56 -start-56 h-[560px] w-[560px] rounded-full bg-[radial-gradient(closest-side,#008D3626,transparent)]" aria-hidden="true" />
 
             <div className="relative">
-              <SectionHead dark index={t.mech.index} title={t.mech.title} intro={t.mech.intro} />
-              <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:gap-14">
-                {/* steps */}
-                <ol className="space-y-4">
-                  {t.mech.steps.map((s) => (
-                    <li
-                      key={s.no}
-                      className="flex gap-5 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-colors hover:border-[#3fbf6e]/40 md:p-7"
-                    >
-                      <span
-                        className={`${mono.className} flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#3fbf6e]/40 text-sm font-semibold text-[#3fbf6e]`}
-                      >
-                        {s.no}
-                      </span>
-                      <div>
-                        <h3 className="text-xl font-extrabold tracking-tight">{s.title}</h3>
-                        <p className="mt-2 text-sm leading-relaxed text-white/60">{s.text}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-
-                {/* phloem animation slot */}
-                <div className="flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md">
-                  <div className="border-b border-white/10 px-6 py-4">
-                    <span className={`${mono.className} text-[10px] font-medium uppercase tracking-[0.22em] text-[#3fbf6e]`}>
-                      {t.mech.figureLabel}
-                    </span>
-                  </div>
-                  {/* ⬇ Custom phloem-transport SVG drops in here */}
-                  <div id="phloem-animation-container" className="relative min-h-[380px] flex-1">
-                    <RadiatingRings className="inset-0 m-auto h-56 w-56" color="#3fbf6e" rings={3} duration={5} />
-                  </div>
-                </div>
-              </div>
+              <SectionHead dark title={t.mech.title} intro={t.mech.intro} titleLeading="leading-[3]" />
+              <MechanismSection mech={t.mech} dir={t.dir} />
             </div>
           </div>
         </section>
@@ -706,7 +637,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
         {/* ————— usage guide ————— */}
         <section id="usage" className="relative scroll-mt-48 py-20 md:py-28">
           <div className="mx-auto max-w-7xl px-6 md:px-8">
-            <SectionHead index={t.usage.index} title={t.usage.title} intro={t.usage.intro} />
+            <SectionHead title={t.usage.title} intro={t.usage.intro} />
 
             {/* application cards */}
             <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -721,7 +652,11 @@ export default async function SignalNpkPage({ params }: PageProps) {
                   />
                   <h3 className="text-xl font-extrabold tracking-tight">{c.title}</h3>
                   <div className="mt-5 flex items-baseline gap-3">
-                    <span className={`${mono.className} text-6xl font-semibold tabular-nums tracking-tight text-[#008D36]`} dir="ltr">
+                    <span
+                      className={`${mono.className} text-6xl font-semibold tabular-nums tracking-tight text-[#008D36]`}
+                      dir="ltr"
+                      style={{ unicodeBidi: "bidi-override" }}
+                    >
                       {c.rate}
                     </span>
                     <span className={`${mono.className} text-sm text-slate-500`}>{c.unit}</span>
@@ -781,7 +716,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-[#17142D] px-6 py-16 text-white md:px-14 md:py-20">
           <RadiatingRings className="-bottom-48 -start-48 h-[480px] w-[480px] opacity-40" color="#3fbf6e" rings={3} duration={6} />
           <div className="relative">
-            <SectionHead dark index={t.footer.index} title={t.footer.title} />
+            <SectionHead dark title={t.footer.title} />
 
             <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {t.footer.cols.map((c) => (
