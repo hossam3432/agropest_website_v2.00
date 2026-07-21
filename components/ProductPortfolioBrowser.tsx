@@ -83,8 +83,8 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
   const [activeCategorySlug, setActiveCategorySlug] = useState<ProductCategorySlug | null>(initialCategory);
   const [activeFilterIndex, setActiveFilterIndex] = useState(() => resolveInitialFilterIndex(initialCategoryObject, initialSubcategory));
   const [shouldScrollToFilters, setShouldScrollToFilters] = useState(false);
+  const [viewMode, setViewMode] = useState<ProductViewMode>("grid");
   const filtersRef = useRef<HTMLDivElement>(null);
-  const viewMode: ProductViewMode = "grid";
   const activeCategory = activeCategorySlug ? content.categories.find((category) => category.slug === activeCategorySlug) ?? null : null;
   const activeFilter = activeCategory ? activeCategory.filters[activeFilterIndex] ?? activeCategory.filters[0] : null;
   const productGridClass =
