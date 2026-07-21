@@ -182,7 +182,7 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
         {activeCategory ? (
           <>
             <div ref={filtersRef} className="mt-7 scroll-mt-28">
-              <div className="inline-grid grid-cols-1 gap-1 rounded-full border-[0.5px] border-agri-line bg-white p-1 min-[420px]:grid-cols-2 sm:flex sm:flex-wrap">
+              <div className="hidden sm:inline-grid gap-1 rounded-full border-[0.5px] border-agri-line bg-white p-1 sm:flex sm:flex-wrap">
                 {activeCategory.filters.map((filter, index) => {
                   const isActive = index === activeFilterIndex;
 
@@ -241,7 +241,7 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
                             {product.subcategory}
                           </span>
                         </div>
-                        <p className={`${viewMode === "gallery" ? "mt-2 sm:mt-3" : "mt-2"} me-[67px] line-clamp-3 text-justify text-sm leading-6 text-slate-600 sm:me-[75px] sm:text-base sm:leading-7`}>{product.positioning}</p>
+                        <p className={`${viewMode === "gallery" ? "mt-2 sm:mt-3" : "mt-2"} me-[67px] line-clamp-3 ${locale === "ar" ? "text-right" : "text-left"} text-sm leading-6 text-slate-600 sm:me-[75px] sm:text-base sm:leading-7`}>{product.positioning}</p>
                         <div className="mt-5 hidden flex-wrap gap-2 sm:flex">
                           {product.crops.slice(0, 3).map((crop) => (
                             <span key={crop} className="rounded-lg border-[0.1px] border-agri-line bg-transparent px-3 py-1 text-xs font-bold text-agri-blue">
