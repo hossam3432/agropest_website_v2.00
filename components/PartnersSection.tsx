@@ -6,14 +6,15 @@ import type { SiteContent } from "@/lib/content";
 
 type PartnersSectionProps = {
   content: SiteContent;
+  className?: string;
 };
 
-export function PartnersSection({ content }: PartnersSectionProps) {
+export function PartnersSection({ content, className = "" }: PartnersSectionProps) {
   const { partnersSection } = content.home;
   const [activePartner, setActivePartner] = useState<string | null>(null);
 
   return (
-    <section className="bg-gradient-to-br from-agri-blue via-agri-greenDark to-agri-blue py-12 text-white sm:py-14 lg:py-16">
+    <section className={`bg-gradient-to-br from-agri-blue via-agri-greenDark to-agri-blue py-12 text-white sm:py-14 lg:py-[105px] ${className}`}>
       <RevealSection className="container-shell" amount={0.15}>
         <div className="max-w-3xl">
           <p className="eyebrow">{partnersSection.eyebrow}</p>
@@ -21,7 +22,7 @@ export function PartnersSection({ content }: PartnersSectionProps) {
           <p className="section-copy mt-4 text-white/80">{partnersSection.description}</p>
         </div>
 
-        <StaggerContainer className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" amount={0.15}>
+        <StaggerContainer className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:mt-7" amount={0.15}>
           {partnersSection.items.map((partner) => {
             const isActive = partner.name === activePartner;
 

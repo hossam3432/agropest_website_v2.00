@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
-import Link from "next/link";
 import { RevealSection, StaggerContainer, RevealItem } from "@/components/animations";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { locales, type Locale } from "@/lib/content";
@@ -167,7 +166,7 @@ const content = {
     },
     usage: {
       kicker: "جدول الاستخدام والمعدلات",
-      title: "المواصفات المسجلة",
+      title: "توصيات التطبيق",
       intro: "الاستعمال طبقاً لتوصيات وزارة الزراعة.",
       rows: [
         { label: "المحصول", value: "الخيار", arabic: "Cucumber" },
@@ -250,7 +249,6 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
   const { locale } = getLocalePage((await params).locale);
   const c = content[locale];
   const isRtl = locale === "ar";
-  const contactHref = "/" + locale + "/contact";
   const dirAttr = isRtl ? "rtl" : "ltr";
 
   return (
@@ -289,22 +287,6 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
                 {c.hero.lead}
               </p>
               <p className="mt-4 max-w-xl text-base leading-8 text-white/75">{c.hero.body}</p>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href="#usage"
-                  className="rounded-xl px-6 py-3 text-sm font-bold text-white shadow-lg transition hover:brightness-110"
-                  style={{ backgroundColor: ORANGE }}
-                >
-                  {c.hero.ctaPrimary}
-                </a>
-                <Link
-                  href={contactHref}
-                  className="rounded-xl border border-white/30 bg-white/5 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/15"
-                >
-                  {c.hero.ctaSecondary}
-                </Link>
-              </div>
 
               <dl className="mt-10 grid gap-4 sm:grid-cols-3">
                 {c.hero.stats.map((stat) => (
@@ -466,7 +448,6 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
           <h2 className="mt-3 text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl" style={{ color: BLUE }}>
             {c.usage.title}
           </h2>
-          <p className="mt-3 text-sm text-slate-500">{c.usage.intro}</p>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1.35fr_1fr]">
             <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
@@ -475,17 +456,14 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
                   <div
                     key={row.label}
                     className={
-                      "flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-6 py-5 sm:px-8 " +
+                      "grid grid-cols-2 items-baseline gap-x-6 gap-y-1 px-6 py-5 sm:px-8 " +
                       (index % 2 === 1 ? "bg-slate-50/70 " : "") +
                       (index > 0 ? "border-t border-slate-100" : "")
                     }
                   >
                     <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">{row.label}</dt>
-                    <dd className="flex items-baseline gap-3">
-                      <span className="text-lg font-extrabold" style={{ color: BLUE }}>
-                        {row.value}
-                      </span>
-                      <span className="text-sm text-slate-400">{row.arabic}</span>
+                    <dd className="text-right text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: BLUE }}>
+                      {row.value}
                     </dd>
                   </div>
                 ))}
@@ -522,48 +500,11 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
                   ))}
                 </div>
               </div>
-
-              <div className="overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-100 shadow-[inset_0_2px_28px_rgba(40,53,147,0.08)]">
-                <img
-                  src="/images/products/edegal-label-500.jpg"
-                  alt={c.eyebrow}
-                  className="h-full w-full object-cover"
-                />
-              </div>
             </div>
           </div>
         </RevealSection>
       </section>
 
-      {/* COMMERCIAL FOOTER */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8 lg:py-24" style={{ backgroundColor: BLUE }}>
-        <RevealSection className="container-shell text-white" amount={0.2}>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: GREEN }}>
-            {c.footer.kicker}
-          </p>
-          <h2 className="mt-3 max-w-3xl text-2xl font-extrabold leading-tight sm:text-3xl lg:text-4xl">{c.footer.title}</h2>
-
-          <dl className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {c.footer.items.map((item) => (
-              <div key={item.label} className="rounded-2xl border border-white/15 bg-white/[0.06] p-5 backdrop-blur-sm">
-                <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white/50">{item.label}</dt>
-                <dd className="mt-2 text-sm font-bold leading-7 text-white">{item.value}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Link
-              href={contactHref}
-              className="rounded-xl px-6 py-3 text-sm font-bold text-white shadow-lg transition hover:brightness-110"
-              style={{ backgroundColor: ORANGE }}
-            >
-              {c.footer.cta}
-            </Link>
-            <p className="text-xs text-white/55">{c.footer.note}</p>
-          </div>
-        </RevealSection>
-      </section>
     </div>
   );
 }

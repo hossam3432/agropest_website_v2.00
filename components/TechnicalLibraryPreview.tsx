@@ -5,16 +5,17 @@ import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
 type TechnicalLibraryPreviewProps = {
   content: SiteContent;
   locale: Locale;
+  className?: string;
 };
 
-export function TechnicalLibraryPreview({ content, locale }: TechnicalLibraryPreviewProps) {
+export function TechnicalLibraryPreview({ content, locale, className = "" }: TechnicalLibraryPreviewProps) {
   const { technicalLibraryPreview } = content;
 
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-24">
-      <div className="container-shell grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:gap-14">
+    <section className={`bg-white py-16 sm:py-20 lg:py-[86px] ${className}`}>
+      <div className="container-shell grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-14">
         <RevealSection amount={0.15}>
-          <div className="relative min-h-[195px] overflow-hidden bg-agri-blue shadow-soft sm:min-h-[250px]">
+          <div className="relative min-h-[195px] overflow-hidden bg-agri-blue shadow-soft sm:min-h-[250px] lg:min-h-[280px]">
             <img
               src={technicalLibraryPreview.image}
               alt={technicalLibraryPreview.imageAlt}

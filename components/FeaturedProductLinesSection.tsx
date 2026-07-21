@@ -8,6 +8,7 @@ import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
 type FeaturedProductLinesSectionProps = {
   content: SiteContent;
   locale: Locale;
+  className?: string;
 };
 
 type FeaturedItem = SiteContent["home"]["featuredProductLinesSection"]["items"][number];
@@ -28,7 +29,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
     <article
       className={
         isDesktop
-          ? "relative rounded-lg featured-deck-card group/card flex h-full min-h-[560px] flex-col overflow-hidden bg-agri-mist shadow-sm"
+          ? "relative rounded-lg featured-deck-card group/card flex h-full min-h-[420px] flex-col overflow-hidden bg-agri-mist shadow-sm"
           : "relative rounded-lg group/card grid min-h-[180px] grid-cols-[5.75rem_minmax(0,1fr)] min-[420px]:grid-cols-[6.5rem_minmax(0,1fr)] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)] sm:min-h-[260px] sm:grid-cols-1"
       }
       style={isDesktop ? ({ "--card-tilt": `${tiltValues[index] ?? 0}deg` } as CSSProperties) : undefined}
@@ -36,30 +37,31 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
       <div
         className={
           isDesktop
-            ? "relative flex min-h-56 items-center justify-center overflow-hidden border-b border-agri-line bg-white p-8 md:min-h-64 lg:min-h-[300px]"
+            ? "relative flex min-h-56 items-center justify-center overflow-hidden border-b border-agri-line bg-white p-8 md:min-h-64 lg:min-h-[200px] lg:p-6"
             : "relative flex h-full min-h-[160px] items-center justify-center overflow-hidden border-e border-agri-line bg-white p-3 min-[420px]:p-4 sm:min-h-48 sm:border-b sm:border-e-0 sm:p-6"
         }
       >
         <div
           className={`relative z-10 flex items-center justify-center ${
-            isDesktop ? "h-32 w-full max-w-[260px] md:h-36 md:max-w-[300px]" : "h-16 w-full max-w-[86px] min-[420px]:h-20 min-[420px]:max-w-[104px] sm:h-24 sm:max-w-[170px]"
+            isDesktop ? "h-24 w-full max-w-[220px] md:h-28 md:max-w-[240px]" : "h-16 w-full max-w-[86px] min-[420px]:h-20 min-[420px]:max-w-[104px] sm:h-24 sm:max-w-[170px]"
           }`}
         >
           <img
             src={item.image}
             alt={item.imageAlt}
             className="h-full w-full object-contain transition duration-700 group-hover/card:scale-105"
+            style={item.title === "Lasix 70 WG" || item.title === "Fossil 400 SL" ? { transform: "scale(0.75)" } : undefined}
           />
         </div>
       </div>
-      <div className={isDesktop ? "flex flex-1 flex-col p-6 pb-20" : "flex min-w-0 flex-1 flex-col p-3 pb-20 min-[420px]:p-4 min-[420px]:pb-20 sm:p-5 sm:pb-20"}>
-        <h3 className={isDesktop ? "text-2xl font-bold tracking-normal text-agri-blue" : "text-base font-bold leading-6 tracking-normal text-agri-blue min-[420px]:text-lg sm:text-xl"}>
+      <div className={isDesktop ? "flex flex-1 flex-col p-5 pb-16" : "flex min-w-0 flex-1 flex-col px-3 pt-6 pb-24 min-[420px]:px-4 min-[420px]:pt-7 min-[420px]:pb-24 sm:px-5 sm:pt-6 sm:pb-24"}>
+        <h3 className={isDesktop ? "text-xl font-bold tracking-normal text-agri-blue" : "text-base font-bold leading-6 tracking-normal text-agri-blue min-[420px]:text-lg sm:text-xl"}>
           {item.title}
         </h3>
-        <span className="mt-3 h-0.5 w-12 bg-agri-gold" />
+        <span className="mt-2 h-0.5 w-12 bg-agri-gold" />
         {item.eyebrow ? (
           <span
-            className={`mt-4 inline-flex w-fit items-center rounded-lg border border-agri-green bg-transparent font-bold uppercase tracking-[0.14em] text-agri-green ${
+            className={`mt-3 inline-flex w-fit items-center rounded-lg border border-agri-green bg-transparent font-bold uppercase tracking-[0.14em] text-agri-green ${
               isDesktop ? "px-3 py-1.5 text-[11px]" : "px-2.5 py-1 text-[10px]"
             }`}
           >
@@ -67,7 +69,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
           </span>
         ) : null}
         {item.tags.length ? (
-          <div className={isDesktop ? "featured-card-tags mt-6 flex flex-wrap gap-2" : "featured-card-tags mt-4 hidden flex-wrap gap-2 sm:flex"}>
+          <div className={isDesktop ? "featured-card-tags mt-4 flex flex-wrap gap-2" : "featured-card-tags mt-4 hidden flex-wrap gap-2 sm:flex"}>
             {item.tags.map((tag) => (
               <span key={tag} className="rounded-lg border border-agri-green bg-transparent px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-agri-green">
                 {tag}
@@ -75,15 +77,15 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
             ))}
           </div>
         ) : null}
-        <p className={`featured-card-description flex-1 text-slate-600 ${isDesktop ? "mt-4 leading-7" : "mt-3 line-clamp-3 text-sm leading-6 sm:line-clamp-none sm:text-base sm:leading-7"}`}>
+        <p className={`featured-card-description flex-1 text-slate-600 ${isDesktop ? "mt-3 line-clamp-3 leading-6" : "mt-3 line-clamp-3 text-sm leading-6 sm:line-clamp-none sm:text-base sm:leading-7"}`}>
           {item.description}
         </p>
         <Link
           href={localizeHref(locale, item.href)}
           className={`featured-card-cta btn-secondary absolute w-fit ${
             isDesktop
-              ? `bottom-6 ${isRtl ? "left-6" : "right-6"}`
-              : `bottom-4 min-h-10 px-3 py-2 text-xs ${isRtl ? "left-3 min-[420px]:left-4 sm:left-5" : "right-3 min-[420px]:right-4 sm:right-5"}`
+              ? `bottom-5 ${isRtl ? "left-5" : "right-5"}`
+              : `bottom-8 min-h-10 px-3 py-2 text-xs ${isRtl ? "left-3 min-[420px]:left-4 sm:left-5" : "right-3 min-[420px]:right-4 sm:right-5"}`
           }`}
         >
           {item.ctaLabel}
@@ -93,7 +95,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
   );
 }
 
-export function FeaturedProductLinesSection({ content, locale }: FeaturedProductLinesSectionProps) {
+export function FeaturedProductLinesSection({ content, locale, className = "" }: FeaturedProductLinesSectionProps) {
   const { featuredProductLinesSection } = content.home;
   const [activeDesktopIndex, setActiveDesktopIndex] = useState<number | null>(null);
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
@@ -126,7 +128,7 @@ export function FeaturedProductLinesSection({ content, locale }: FeaturedProduct
   }
 
   return (
-    <section className="relative overflow-hidden bg-[radial-gradient(circle_at_12%_10%,rgba(217,146,39,0.18),transparent_28%),linear-gradient(135deg,#06281f_0%,#0A3D2B_48%,#17324d_100%)] py-16 text-white sm:py-20 lg:py-24" dir={content.direction}>
+    <section className={`relative overflow-hidden bg-[radial-gradient(circle_at_12%_10%,rgba(217,146,39,0.18),transparent_28%),linear-gradient(135deg,#06281f_0%,#0A3D2B_48%,#17324d_100%)] py-16 text-white sm:py-20 lg:py-[108px] ${className}`} dir={content.direction}>
       <div className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
       <div className="absolute inset-x-0 top-0 hidden h-32 border-b border-white/10 bg-white/5 lg:block" />
       <RevealSection className="container-shell" amount={0.15}>
@@ -149,7 +151,7 @@ export function FeaturedProductLinesSection({ content, locale }: FeaturedProduct
         </StaggerContainer>
 
         <StaggerContainer
-          className={`featured-product-deck mt-12 hidden min-h-[590px] gap-0 lg:flex ${activeDesktopIndex !== null ? "is-pointer-controlled" : ""}`}
+          className={`featured-product-deck mt-8 hidden min-h-[440px] gap-0 lg:flex ${activeDesktopIndex !== null ? "is-pointer-controlled" : ""}`}
           amount={0.15}
           onMouseLeave={handleDeckMouseLeave}
           onMouseMove={handleDeckMouseMove}

@@ -22,7 +22,7 @@ export function ProductCategoriesSection({
   className = "bg-agri-mist"
 }: ProductCategoriesSectionProps) {
   return (
-    <section className={`${className} py-12 sm:py-14 lg:py-16`}>
+    <section className={`${className} py-12 sm:py-14 lg:py-[100px]`}>
       <RevealSection className="container-shell" amount={0.15}>
         <div className="relative overflow-hidden rounded-2xl border border-agri-line bg-white p-6 shadow-soft sm:p-8 lg:p-10">
           <div className="absolute inset-y-0 end-0 hidden w-1/3 bg-gradient-to-s from-agri-green/10 to-transparent lg:block" />

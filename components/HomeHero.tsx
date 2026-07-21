@@ -59,7 +59,7 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
       <div className="absolute -bottom-36 start-1/4 h-96 w-96 rounded-full bg-agri-gold/10 blur-3xl" />
       <div className="hero-pattern-overlay" />
 
-      <div className="container-shell relative grid min-h-[calc(100svh-5rem)] items-center gap-10 py-14 sm:py-16 lg:grid-cols-[0.95fr_1.05fr] lg:py-20">
+      <div className="container-shell relative grid min-h-[calc(100svh-6rem)] items-center gap-10 py-10 sm:py-12 lg:grid-cols-[0.95fr_1.05fr] lg:py-14">
         <div className={isArabic ? "text-right" : "text-left"} dir={isArabic ? "rtl" : "ltr"}>
           <div className="h-10 w-px bg-agri-gold sm:h-14" />
           <p className="eyebrow mt-6">{hero.eyebrow}</p>

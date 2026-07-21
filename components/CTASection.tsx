@@ -15,6 +15,7 @@ type CTASectionProps = {
   tertiaryLabel?: string;
   tertiaryHref?: string;
   backgroundImage?: string;
+  className?: string;
 };
 
 function ActionLink({ href, className, children }: { href: string; className: string; children: ReactNode }) {
@@ -44,12 +45,13 @@ export function CTASection({
   secondaryHref,
   tertiaryLabel,
   tertiaryHref,
-  backgroundImage
+  backgroundImage,
+  className = ""
 }: CTASectionProps) {
   return (
-    <section className="bg-agri-mist py-16 sm:py-20 lg:py-24">
+    <section className={`bg-agri-mist py-16 sm:py-20 lg:py-[93px] ${className}`}>
       <div className="container-shell">
-        <RevealSection className="relative overflow-hidden rounded-3xl bg-agri-blue px-6 py-12 text-white shadow-soft sm:px-10 sm:py-14 lg:px-12 lg:py-16" amount={0.15}>
+        <RevealSection className="relative overflow-hidden rounded-3xl bg-agri-blue px-6 py-12 text-white shadow-soft sm:px-10 sm:py-14 lg:px-12 lg:py-12" amount={0.15}>
           {backgroundImage ? (
             <div
               aria-hidden="true"

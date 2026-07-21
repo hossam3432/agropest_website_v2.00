@@ -3,13 +3,14 @@ import type { SiteContent } from "@/lib/content";
 
 type WhyAgropestSectionProps = {
   content: SiteContent;
+  className?: string;
 };
 
-export function WhyAgropestSection({ content }: WhyAgropestSectionProps) {
+export function WhyAgropestSection({ content, className = "" }: WhyAgropestSectionProps) {
   const { whyAgropestSection } = content.home;
 
   return (
-    <section className="bg-agri-greenDark py-14 text-white sm:py-16 lg:py-20">
+    <section className={`bg-agri-greenDark py-14 text-white sm:py-16 lg:py-[114px] ${className}`}>
       <RevealSection className="container-shell" amount={0.15}>
         <div>
           <p className="eyebrow text-agri-gold">{whyAgropestSection.eyebrow}</p>
@@ -17,7 +18,7 @@ export function WhyAgropestSection({ content }: WhyAgropestSectionProps) {
           <p className="section-copy mt-4 max-w-3xl text-white/70">{whyAgropestSection.description}</p>
         </div>
 
-        <StaggerContainer className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4" amount={0.15}>
+        <StaggerContainer className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4 lg:mt-7" amount={0.15}>
           {whyAgropestSection.items.map((item) => (
             <RevealItem key={item.title} hoverLift>
               <article className="h-full rounded-2xl bg-white/[0.06] p-6 backdrop-blur-sm transition duration-300 hover:bg-white/[0.1]">
