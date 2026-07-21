@@ -123,7 +123,7 @@ export default function CompositionMatrix({
         >
           {/* radiating rings behind the pack */}
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center" aria-hidden="true">
-            <div className="relative h-[420px] w-[420px]" style={{ color: v.color }}>
+            <div className="relative aspect-square w-56 sm:w-80 md:w-[420px]" style={{ color: v.color }}>
               <span className="sg-ring" />
               <span className="sg-ring" style={{ animationDelay: "1.6s" }} />
               <span className="sg-ring" style={{ animationDelay: "3.2s" }} />
