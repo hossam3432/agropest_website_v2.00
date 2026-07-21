@@ -182,7 +182,7 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
         {activeCategory ? (
           <>
             <div ref={filtersRef} className="mt-7 scroll-mt-28">
-              <div className="hidden sm:inline-grid gap-1 rounded-full border-[0.5px] border-agri-line bg-white p-1 sm:flex sm:flex-wrap">
+              <div className="hidden gap-1 rounded-full border-[0.5px] border-agri-line bg-white p-1 sm:flex sm:flex-wrap">
                 {activeCategory.filters.map((filter, index) => {
                   const isActive = index === activeFilterIndex;
 
