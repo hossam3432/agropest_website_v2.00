@@ -14,7 +14,7 @@ export function RivalDuoScrollShell({ children }: RivalDuoScrollShellProps) {
 
   return (
     <div className="relative">
-      <div className="pointer-events-none fixed inset-y-20 left-3 z-2npm0 hidden w-32 sm:block">
+      <div className="pointer-events-none fixed inset-y-20 left-3 z-30 hidden w-32 sm:block">
         <div className="relative h-full w-full">
           <div className="absolute left-0 top-0 h-full w-[20px] rounded-t-full rounded-b-full bg-[#0E4B9F]/12" />
           <div className="absolute left-0 top-0 h-full w-[8px] rounded-t-full rounded-b-full bg-[#F14723]/12" />

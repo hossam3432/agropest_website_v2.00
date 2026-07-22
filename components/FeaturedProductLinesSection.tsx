@@ -30,7 +30,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
       className={
         isDesktop
           ? "relative rounded-lg featured-deck-card group/card flex h-full min-h-[462px] flex-col overflow-hidden bg-agri-mist shadow-sm"
-          : "relative rounded-lg group/card grid min-h-[198px] grid-cols-[5.75rem_minmax(0,1fr)] min-[420px]:grid-cols-[6.5rem_minmax(0,1fr)] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)] sm:min-h-[286px] sm:grid-cols-1"
+          : "relative rounded-lg group/card min-h-[198px] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)]"
       }
       style={isDesktop ? ({ "--card-tilt": `${tiltValues[index] ?? 0}deg` } as CSSProperties) : undefined}
     >
@@ -38,12 +38,12 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
         className={
           isDesktop
             ? "relative flex min-h-56 items-center justify-center overflow-hidden border-b border-agri-line bg-white p-8 md:min-h-64 lg:min-h-[200px] lg:p-6"
-            : "relative flex h-full min-h-[160px] items-center justify-center overflow-hidden border-e border-agri-line bg-white p-3 min-[420px]:p-4 sm:min-h-48 sm:border-b sm:border-e-0 sm:p-6"
+            : "absolute inset-0 flex items-center justify-center overflow-hidden bg-white p-10"
         }
       >
         <div
           className={`relative z-10 flex items-center justify-center ${
-            isDesktop ? "h-24 w-full max-w-[220px] md:h-28 md:max-w-[240px]" : "h-16 w-full max-w-[86px] min-[420px]:h-20 min-[420px]:max-w-[104px] sm:h-24 sm:max-w-[170px]"
+            isDesktop ? "h-24 w-full max-w-[220px] md:h-28 md:max-w-[240px]" : "h-24 w-full max-w-[180px]"
           }`}
         >
           <img
@@ -58,42 +58,50 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
           />
         </div>
       </div>
-      <div className={isDesktop ? "flex flex-1 flex-col p-5 pb-24" : "flex min-w-0 flex-1 flex-col px-3 pt-6 pb-24 min-[420px]:px-4 min-[420px]:pt-7 min-[420px]:pb-24 sm:px-5 sm:pt-6 sm:pb-24"}>
-        <h3 className={isDesktop ? "text-xl font-bold tracking-normal text-agri-blue" : "text-base font-bold leading-6 tracking-normal text-agri-blue min-[420px]:text-lg sm:text-xl"}>
-          {item.title}
-        </h3>
-        <span className="mt-2 h-0.5 w-12 bg-agri-gold" />
-        {item.eyebrow ? (
-          <span
-            className={`mt-3 inline-flex w-fit items-center rounded-lg border border-agri-green bg-transparent font-bold uppercase tracking-[0.14em] text-agri-green ${
-              isDesktop ? "px-3 py-1.5 text-[11px]" : "px-2.5 py-1 text-[10px]"
+      <div className={isDesktop ? "flex flex-1 flex-col p-5 pb-24" : "absolute inset-0 z-10"}>
+        {isDesktop ? (
+          <>
+            <h3 className="text-xl font-bold tracking-normal text-agri-blue">{item.title}</h3>
+            <span className="mt-2 h-0.5 w-12 bg-agri-gold" />
+            {item.eyebrow ? (
+              <span className="mt-3 inline-flex w-fit items-center rounded-lg border border-agri-green bg-transparent px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-agri-green">
+                {item.eyebrow}
+              </span>
+            ) : null}
+            {item.tags.length ? (
+              <div className="featured-card-tags mt-4 flex flex-wrap gap-2">
+                {item.tags.map((tag) => (
+                  <span key={tag} className="rounded-lg border border-agri-green bg-transparent px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-agri-green">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            ) : null}
+          </>
+        ) : null}
+        {isDesktop ? (
+          <p className="featured-card-description flex-1 mt-3 line-clamp-3 leading-6 text-slate-600">{item.description}</p>
+        ) : null}
+        {isDesktop ? (
+          <Link
+            href={localizeHref(locale, item.href)}
+            className={`featured-card-cta btn-secondary absolute w-fit bottom-5 ${isRtl ? "left-5" : "right-5"}`}
+          >
+            {item.ctaLabel}
+          </Link>
+        ) : (
+          <Link
+            href={localizeHref(locale, item.href)}
+            aria-label={item.ctaLabel}
+            className={`featured-card-cta absolute bottom-3 flex h-8 w-8 items-center justify-center rounded-full border border-agri-green bg-white text-agri-green transition group-hover/card:bg-agri-green group-hover/card:text-white ${
+              isRtl ? "left-3 rotate-180" : "right-3"
             }`}
           >
-            {item.eyebrow}
-          </span>
-        ) : null}
-        {item.tags.length ? (
-          <div className={isDesktop ? "featured-card-tags mt-4 flex flex-wrap gap-2" : "featured-card-tags mt-4 hidden flex-wrap gap-2 sm:flex"}>
-            {item.tags.map((tag) => (
-              <span key={tag} className="rounded-lg border border-agri-green bg-transparent px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-agri-green">
-                {tag}
-              </span>
-            ))}
-          </div>
-        ) : null}
-        <p className={`featured-card-description flex-1 text-slate-600 ${isDesktop ? "mt-3 line-clamp-3 leading-6" : "mt-3 line-clamp-3 text-sm leading-6 sm:line-clamp-none sm:text-base sm:leading-7"}`}>
-          {item.description}
-        </p>
-        <Link
-          href={localizeHref(locale, item.href)}
-          className={`featured-card-cta btn-secondary absolute w-fit ${
-            isDesktop
-              ? `bottom-5 ${isRtl ? "left-5" : "right-5"}`
-              : `bottom-8 min-h-10 px-3 py-2 text-xs ${isRtl ? "left-3 min-[420px]:left-4 sm:left-5" : "right-3 min-[420px]:right-4 sm:right-5"}`
-          }`}
-        >
-          {item.ctaLabel}
-        </Link>
+            <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" aria-hidden="true">
+              <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
+        )}
       </div>
     </article>
   );

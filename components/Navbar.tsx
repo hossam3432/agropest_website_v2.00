@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   languageCookieName,
   localizeHref,
@@ -22,6 +22,7 @@ export function Navbar({ content, locale }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const { company, languageSwitcher, navigation } = content;
   const navCta = content.ctaActions.whatsapp;
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -29,6 +30,17 @@ export function Navbar({ content, locale }: NavbarProps) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const onOutside = (event: PointerEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("pointerdown", onOutside);
+    return () => document.removeEventListener("pointerdown", onOutside);
+  }, [isOpen]);
 
   const saveLanguagePreference = (nextLocale: Locale) => {
     window.localStorage.setItem(languageCookieName, nextLocale);
@@ -44,6 +56,7 @@ export function Navbar({ content, locale }: NavbarProps) {
   return (
     <div className={`fixed inset-x-0 top-0 z-50 flex justify-center px-4 transition-all duration-300 ${scrolled ? "pt-2" : "pt-4"}`}>
       <header
+        ref={headerRef}
         className={`w-full transition-all duration-300 ${
           scrolled ? "max-w-3xl" : "max-w-6xl"
         }`}
@@ -138,7 +151,7 @@ export function Navbar({ content, locale }: NavbarProps) {
       </nav>
 
       {isOpen ? (
-        <div className="mx-2 mb-2 mt-2 rounded-3xl border border-white/60 bg-white/90 shadow-inner backdrop-blur-xl xl:hidden">
+        <div className="mx-2 mb-2 mt-2 rounded-3xl border border-white/60 bg-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_30px_rgba(15,23,42,0.12)] backdrop-blur-xl xl:hidden">
           <div className="px-4 py-4">
             <div className="grid gap-1">
               {navigation.map((item) => {

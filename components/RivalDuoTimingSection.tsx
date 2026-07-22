@@ -31,12 +31,14 @@ type RivalDuoTimingSectionProps = {
 };
 
 export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, stages, timingTitle }: RivalDuoTimingSectionProps) {
-  const defaultIndex = Math.max(
-    0,
-    stages.findIndex((stage) => stage.highlighted)
-  );
-  const [active, setActive] = useState(defaultIndex);
+  const [active, setActive] = useState(0);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const reducedMotion = useReducedMotion();
+
+  function selectCard(index: number) {
+    setActive(index);
+    setHasInteracted(true);
+  }
 
   const containerRef = useRef<HTMLDivElement>(null);
   const imageBoxRef = useRef<HTMLDivElement>(null);
@@ -173,16 +175,18 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
 
   function selectMobile(index: number) {
     setActive(index);
+    setHasInteracted(true);
     const scroller = scrollerRef.current;
     const card = scroller?.querySelector<HTMLElement>(`[data-index="${index}"]`);
     card?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
   }
 
-  function cardVisual(stage: RivalDuoTimingStage, isActive: boolean) {
+  function cardVisual(stage: RivalDuoTimingStage, isActive: boolean, index: number) {
     return {
       className:
         "flex flex-col h-[150px] w-full rounded-[1.25rem] border-2 p-3 text-start transition-all duration-300 " +
-        (isActive ? "shadow-[0_18px_45px_rgba(14,75,159,0.18)]" : "border-slate-100 bg-white hover:border-slate-200"),
+        (isActive ? "shadow-[0_18px_45px_rgba(14,75,159,0.18)]" : "border-slate-100 bg-white hover:border-slate-200") +
+        (index === 0 && !hasInteracted ? " animate-pulse" : ""),
       style: isActive
         ? { borderColor: stage.highlighted ? ORANGE : BLUE, backgroundColor: stage.highlighted ? "#FFF6F3" : "#EEF4FF" }
         : undefined
@@ -190,10 +194,10 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
   }
 
   return (
-    <section className="relative flex h-[calc(100svh-5rem)] snap-start items-center overflow-hidden px-4 py-6 sm:px-6 lg:px-8">
+    <section className="relative flex h-[calc(100svh-5rem)] snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
       <RivalDuoFit>
       <motion.div
-        className="container-shell w-full"
+        className="container-shell w-full lg:mx-auto lg:max-w-5xl"
         initial={{ opacity: reducedMotion ? 1 : 0, y: reducedMotion ? 0 : 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
@@ -301,7 +305,7 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
           <StaggerContainer className="relative z-20 mt-3 hidden gap-2 lg:grid lg:grid-cols-4" amount={0.2}>
             {stages.map((stage, i) => {
               const isActive = active === i;
-              const visual = cardVisual(stage, isActive);
+              const visual = cardVisual(stage, isActive, i);
               return (
                 <RevealItem key={stage.day}>
                   <button
@@ -309,7 +313,7 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
                       cardRefs.current[i] = el;
                     }}
                     type="button"
-                    onClick={() => setActive(i)}
+                    onClick={() => selectCard(i)}
                     aria-pressed={isActive}
                     className={visual.className}
                     style={visual.style}
@@ -333,7 +337,7 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
           >
             {stages.map((stage, i) => {
               const isActive = active === i;
-              const visual = cardVisual(stage, isActive);
+              const visual = cardVisual(stage, isActive, i);
               return (
                 <button
                   key={stage.day}

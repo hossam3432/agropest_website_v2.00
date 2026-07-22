@@ -7,7 +7,7 @@ const CREAM = "#F7F2EF";
 const DOCK_TOP = 70; // px — clears the site navbar (scrolled/shrunk state) with a tighter gap
 const DOCK_SIDE = 16; // px
 const DOCK_SIZE = 96; // px
-const SCROLL_DELAY = 260; // px — the large logo holds its position for this much scroll before it starts tracking toward the dock
+const SCROLL_DELAY = 0; // px — the large logo tracks scroll immediately, so it doesn't linger over content scrolling up beneath it
 
 type Props = {
   src: string;
