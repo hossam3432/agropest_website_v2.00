@@ -313,7 +313,7 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
                   style={{ background: "radial-gradient(ellipse at 50% 100%, " + GREEN + "40, transparent 70%)" }}
                 />
                 <img
-                  src="/images/products/edegal-bottles-hero.png"
+                  src="/images/products/edegal-mode.png"
                   alt={c.eyebrow}
                   className="absolute inset-0 h-full w-full object-contain p-6 drop-shadow-2xl"
                 />

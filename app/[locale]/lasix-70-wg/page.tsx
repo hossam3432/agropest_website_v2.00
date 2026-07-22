@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
-import StickyLogoBar from "./_StickyLogoBar";
+import LogoSquare from "./_LogoSquare";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { locales, type Locale } from "@/lib/content";
 
@@ -126,7 +126,7 @@ const content = {
       kicker: "Packaging & Registration",
       title: "Lasix 70 WG — at a glance",
       packLabel: "Packaging",
-      pack: "40 g water-soluble sachets — carton box",
+      pack: "20 g & 40 g water-soluble sachets — carton box",
       formLabel: "Formulation",
       form: "WG — water dispersible granules, Acetamiprid 70% w/w",
       regLabel: "Registration",
@@ -251,7 +251,7 @@ const content = {
       kicker: "العبوات والتسجيل",
       title: "لازيكس 70 دبليو جي — في لمحة",
       packLabel: "العبوة",
-      pack: "أكياس 40 جرام — عبوة كرتونية",
+      pack: "أكياس 20 و 40 جرام",
       formLabel: "التركيبة",
       form: "WG — حبيبات قابلة للانتشار في الماء، أسيتامبرايد 70% وزن/وزن",
       regLabel: "التسجيل",
@@ -283,9 +283,17 @@ function Marker({ className }: { className?: string }) {
   return <span aria-hidden="true" className={"inline-block h-2.5 w-2.5 shrink-0 " + (className ?? "")} style={{ backgroundColor: ORANGE }} />;
 }
 
-function Kicker({ text }: { text: string }) {
+function Kicker({ text, nowrap }: { text: string; nowrap?: boolean }) {
   return (
-    <p className="flex items-center gap-3 text-sm font-bold uppercase tracking-[0.18em]" style={{ color: ORANGE }}>
+    <p
+      className={
+        "flex items-center gap-3 font-bold uppercase " +
+        (nowrap
+          ? "whitespace-nowrap text-[11px] tracking-[0.06em] sm:text-sm sm:tracking-[0.18em]"
+          : "text-sm tracking-[0.18em]")
+      }
+      style={{ color: ORANGE }}
+    >
       <Marker />
       {text}
     </p>
@@ -320,14 +328,16 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
     "@media (prefers-reduced-motion: reduce) { .lx-reveal { animation: none; } } " +
     ".lx-tile { transition: transform 300ms ease, filter 300ms ease, box-shadow 300ms ease; } " +
     ".lx-tile:hover { transform: scale(1.08); filter: brightness(1.15); box-shadow: 0 10px 24px rgba(0,0,0,0.28); z-index: 2; } " +
-    "@media (prefers-reduced-motion: reduce) { .lx-tile { transition: none; } .lx-tile:hover { transform: none; } }";
+    "@media (prefers-reduced-motion: reduce) { .lx-tile { transition: none; } .lx-tile:hover { transform: none; } } " +
+    "@keyframes lxLogoDrop { from { transform: translateY(-160px); opacity: 0; } to { transform: translateY(0); opacity: 1; } } " +
+    ".lx-logo-drop { animation: lxLogoDrop 650ms cubic-bezier(0.16,1,0.3,1) both; } " +
+    "@keyframes lxLogoFade { from { opacity: 0; } to { opacity: 1; } } " +
+    ".lx-logo-fade { animation: lxLogoFade 500ms ease-out 550ms both; } " +
+    "@media (prefers-reduced-motion: reduce) { .lx-logo-drop, .lx-logo-fade { animation: none; } }";
 
   return (
     <main dir={c.dir} className={cairo.className + " antialiased"} style={{ backgroundColor: CREAM, color: PETROL }}>
       <style dangerouslySetInnerHTML={{ __html: revealCss }} />
-
-      {/* ===== Top strip — sticky, logo shrinks on scroll ===== */}
-      <StickyLogoBar src={c.logo.src} width={c.logo.w} height={c.logo.h} alt={c.nav.name} dir={c.dir} />
 
       {/* ===== 1. HERO — dual-tone split with tile mosaic ===== */}
       <section className="relative overflow-hidden" style={{ backgroundColor: PETROL }}>
@@ -342,11 +352,11 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
           }}
         />
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14 lg:py-24">
-          <div className="lx-reveal flex flex-col justify-center">
-            <p className="mb-3 text-2xl font-extrabold tracking-tight text-white sm:text-3xl">{c.nav.name}</p>
-            <Kicker text={c.hero.kicker} />
+          <div className="lx-reveal flex flex-col justify-center lg:justify-start">
+            <LogoSquare src={c.logo.src} alt={c.nav.name} dir={c.dir} />
+            <Kicker text={c.hero.kicker} nowrap />
             <h1 className="mt-5 text-4xl font-extrabold leading-[1.45] text-white sm:text-5xl lg:text-6xl">{c.hero.slogan}</h1>
-            <div className="mt-4 flex items-center gap-3">
+            <div className="mt-9 flex items-center gap-3">
               <BrandCheck size={30} />
               <p className="text-xl font-bold sm:text-2xl" style={{ color: CYAN }}>
                 {c.hero.sub}
@@ -356,23 +366,32 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
           </div>
 
           {/* mosaic of solid tiles — echoes the leaflet collage */}
-          <div className="lx-reveal grid grid-cols-3 gap-1.5 self-center" aria-hidden="true">
-            <div className="lx-tile aspect-square" style={{ backgroundColor: GREEN }} />
-            <div className="lx-tile aspect-square" style={{ backgroundColor: TEAL }} />
-            <div className="lx-tile aspect-square" style={{ backgroundColor: "#ffffff14" }} />
-            <div className="lx-tile aspect-square" style={{ backgroundColor: "#ffffff14" }} />
-            <div className="lx-tile relative col-span-2 row-span-2 flex items-center justify-center" style={{ backgroundColor: TEAL }}>
+          <div
+            className="lx-reveal hidden gap-1.5 self-center lg:grid lg:w-full lg:grid-cols-3 lg:self-start"
+            aria-hidden="true"
+          >
+            <div className="lx-tile col-start-1 row-start-1 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: GREEN }} />
+            <div className="lx-tile col-start-1 row-start-2 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: TEAL }} />
+            <div className="lx-tile col-start-1 row-start-3 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: "#ffffff14" }} />
+            <div className="lx-tile col-start-2 row-start-1 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: "#ffffff14" }} />
+            <div
+              className="lx-tile relative col-span-2 col-start-2 row-span-2 row-start-2 flex items-center justify-center lg:col-start-auto lg:row-start-auto"
+              style={{ backgroundColor: TEAL }}
+            >
               <BrandCheck size={96} />
             </div>
-            <div className="lx-tile aspect-square" style={{ backgroundColor: GREEN }} />
-            <div className="lx-tile aspect-square flex items-center justify-center" style={{ backgroundColor: YELLOW }}>
+            <div className="lx-tile col-start-3 row-start-1 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: GREEN }} />
+            <div
+              className="lx-tile col-start-4 row-start-1 aspect-square flex items-center justify-center lg:col-start-auto lg:row-start-auto"
+              style={{ backgroundColor: YELLOW }}
+            >
               <span className="text-[10px] font-extrabold tracking-widest" style={{ color: PETROL }}>
                 70 WG
               </span>
             </div>
-            <div className="lx-tile aspect-square" style={{ backgroundColor: "#ffffff14" }} />
-            <div className="lx-tile aspect-square" style={{ backgroundColor: ORANGE }} />
-            <div className="lx-tile aspect-square" style={{ backgroundColor: GREEN }} />
+            <div className="lx-tile col-start-4 row-start-2 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: "#ffffff14" }} />
+            <div className="lx-tile col-start-4 row-start-3 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: ORANGE }} />
+            <div className="lx-tile col-start-5 row-start-1 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: GREEN }} />
           </div>
         </div>
 
@@ -563,12 +582,16 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
           <div className="lx-reveal grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
             {/* sachet visual */}
-            <div className="flex flex-col items-start gap-8">
+            <div className={"flex flex-col items-start gap-8" + (rtl ? " lg:order-2" : "")}>
               <div>
                 <Kicker text={c.footer.kicker} />
                 <h2 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">{c.footer.title}</h2>
               </div>
-              <div aria-hidden="true" className="relative w-56 sm:w-64" dir="ltr">
+              <div
+                aria-hidden="true"
+                className={"relative w-56 sm:w-64 " + (rtl ? "-ml-8 sm:-ml-16 lg:-ml-24" : "ml-8 sm:ml-12 lg:ml-16")}
+                dir="ltr"
+              >
                 <div className="absolute -inset-2 translate-x-3 translate-y-3" style={{ backgroundColor: GREEN }} />
                 <div className="relative flex aspect-[4/5] flex-col justify-between p-5" style={{ backgroundColor: YELLOW }}>
                   <div>
@@ -593,7 +616,10 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
             </div>
 
             {/* commercial data grid */}
-            <div className="grid content-start gap-px sm:grid-cols-2" style={{ backgroundColor: "#ffffff1f" }}>
+            <div
+              className={"grid content-start gap-px sm:grid-cols-2" + (rtl ? " lg:order-1" : "")}
+              style={{ backgroundColor: "#ffffff1f" }}
+            >
               {[
                 { label: c.footer.packLabel, value: c.footer.pack },
                 { label: c.footer.formLabel, value: c.footer.form },

@@ -29,8 +29,8 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
     <article
       className={
         isDesktop
-          ? "relative rounded-lg featured-deck-card group/card flex h-full min-h-[420px] flex-col overflow-hidden bg-agri-mist shadow-sm"
-          : "relative rounded-lg group/card grid min-h-[180px] grid-cols-[5.75rem_minmax(0,1fr)] min-[420px]:grid-cols-[6.5rem_minmax(0,1fr)] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)] sm:min-h-[260px] sm:grid-cols-1"
+          ? "relative rounded-lg featured-deck-card group/card flex h-full min-h-[462px] flex-col overflow-hidden bg-agri-mist shadow-sm"
+          : "relative rounded-lg group/card grid min-h-[198px] grid-cols-[5.75rem_minmax(0,1fr)] min-[420px]:grid-cols-[6.5rem_minmax(0,1fr)] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)] sm:min-h-[286px] sm:grid-cols-1"
       }
       style={isDesktop ? ({ "--card-tilt": `${tiltValues[index] ?? 0}deg` } as CSSProperties) : undefined}
     >
@@ -50,11 +50,15 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
             src={item.image}
             alt={item.imageAlt}
             className="h-full w-full object-contain transition duration-700 group-hover/card:scale-105"
-            style={item.title === "Lasix 70 WG" || item.title === "Fossil 400 SL" ? { transform: "scale(0.75)" } : undefined}
+            style={
+              item.image.includes("lasix-featured-logo") || item.image.includes("fossil-featured-logo")
+                ? { transform: "scale(0.75)" }
+                : undefined
+            }
           />
         </div>
       </div>
-      <div className={isDesktop ? "flex flex-1 flex-col p-5 pb-16" : "flex min-w-0 flex-1 flex-col px-3 pt-6 pb-24 min-[420px]:px-4 min-[420px]:pt-7 min-[420px]:pb-24 sm:px-5 sm:pt-6 sm:pb-24"}>
+      <div className={isDesktop ? "flex flex-1 flex-col p-5 pb-24" : "flex min-w-0 flex-1 flex-col px-3 pt-6 pb-24 min-[420px]:px-4 min-[420px]:pt-7 min-[420px]:pb-24 sm:px-5 sm:pt-6 sm:pb-24"}>
         <h3 className={isDesktop ? "text-xl font-bold tracking-normal text-agri-blue" : "text-base font-bold leading-6 tracking-normal text-agri-blue min-[420px]:text-lg sm:text-xl"}>
           {item.title}
         </h3>
@@ -151,7 +155,7 @@ export function FeaturedProductLinesSection({ content, locale, className = "" }:
         </StaggerContainer>
 
         <StaggerContainer
-          className={`featured-product-deck mt-8 hidden min-h-[440px] gap-0 lg:flex ${activeDesktopIndex !== null ? "is-pointer-controlled" : ""}`}
+          className={`featured-product-deck mt-8 hidden min-h-[484px] gap-0 lg:flex ${activeDesktopIndex !== null ? "is-pointer-controlled" : ""}`}
           amount={0.15}
           onMouseLeave={handleDeckMouseLeave}
           onMouseMove={handleDeckMouseMove}
