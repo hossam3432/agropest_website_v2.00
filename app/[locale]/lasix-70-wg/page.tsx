@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import LogoSquare from "./_LogoSquare";
+import SachetVisual from "./_SachetVisual";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { locales, type Locale } from "@/lib/content";
 
@@ -192,7 +193,7 @@ const content = {
     },
     rates: {
       kicker: "التوصيات وإرشادات الاستخدام",
-      title: "الاستخدام المسجل والمعدلات العالمية",
+      title: "توصيات الاستخدام",
       egyptTitle: "مصر — لجنة مبيدات الآفات الزراعية، تسجيل رقم 4828",
       egyptText: "مسجل للاستخدام على الطماطم لمكافحة الذبابة البيضاء بمعدل 12,5 جرام / 100 لتر ماء. للحصول على أفضل النتائج، ابدأ الرش عند بداية ظهور الإصابة.",
       tableTitle: "جدول التوصيات ومعدلات الاستخدام العالمية",
@@ -249,7 +250,7 @@ const content = {
     },
     footer: {
       kicker: "العبوات والتسجيل",
-      title: "لازيكس 70 دبليو جي — في لمحة",
+      title: "لازيكس 70 دبليو جي",
       packLabel: "العبوة",
       pack: "أكياس 20 و 40 جرام",
       formLabel: "التركيبة",
@@ -333,7 +334,12 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
     ".lx-logo-drop { animation: lxLogoDrop 650ms cubic-bezier(0.16,1,0.3,1) both; } " +
     "@keyframes lxLogoFade { from { opacity: 0; } to { opacity: 1; } } " +
     ".lx-logo-fade { animation: lxLogoFade 500ms ease-out 550ms both; } " +
-    "@media (prefers-reduced-motion: reduce) { .lx-logo-drop, .lx-logo-fade { animation: none; } }";
+    "@media (prefers-reduced-motion: reduce) { .lx-logo-drop, .lx-logo-fade { animation: none; } } " +
+    ".lx-step { transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease; } " +
+    ".lx-step:hover, .lx-step:active { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(11,75,103,0.18); border-color: " +
+    ORANGE +
+    "; } " +
+    "@media (prefers-reduced-motion: reduce) { .lx-step { transition: none; } .lx-step:hover, .lx-step:active { transform: none; } }";
 
   return (
     <main dir={c.dir} className={cairo.className + " antialiased"} style={{ backgroundColor: CREAM, color: PETROL }}>
@@ -352,17 +358,19 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
           }}
         />
         <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14 lg:py-24">
-          <div className="lx-reveal flex flex-col justify-center lg:justify-start">
+          <div className="flex flex-col justify-center lg:justify-start">
             <LogoSquare src={c.logo.src} alt={c.nav.name} dir={c.dir} />
-            <Kicker text={c.hero.kicker} nowrap />
-            <h1 className="mt-5 text-4xl font-extrabold leading-[1.45] text-white sm:text-5xl lg:text-6xl">{c.hero.slogan}</h1>
-            <div className="mt-9 flex items-center gap-3">
-              <BrandCheck size={30} />
-              <p className="text-xl font-bold sm:text-2xl" style={{ color: CYAN }}>
-                {c.hero.sub}
-              </p>
+            <div className="lx-reveal">
+              <Kicker text={c.hero.kicker} nowrap />
+              <h1 className="mt-5 text-4xl font-extrabold leading-[1.45] text-white sm:text-5xl lg:text-6xl">{c.hero.slogan}</h1>
+              <div className="mt-9 flex items-center gap-3">
+                <BrandCheck size={30} />
+                <p className="text-xl font-bold sm:text-2xl" style={{ color: CYAN }}>
+                  {c.hero.sub}
+                </p>
+              </div>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">{c.hero.lead}</p>
             </div>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">{c.hero.lead}</p>
           </div>
 
           {/* mosaic of solid tiles — echoes the leaflet collage */}
@@ -527,9 +535,9 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
           <h2 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">{c.timing.title}</h2>
         </div>
 
-        <ol className="lx-reveal mt-12 grid gap-1.5 lg:grid-cols-5">
+        <ol className="lx-reveal mt-12 grid gap-1.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {c.timing.steps.map((s, i) => (
-            <li key={s.tag} className="relative flex flex-col border bg-white p-6" style={{ borderColor: "#0B4B6722" }}>
+            <li key={s.tag} className="lx-step group relative flex flex-col border bg-white p-6" style={{ borderColor: "#0B4B6722" }}>
               <div className="flex items-center justify-between">
                 <span
                   className="px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-widest text-white"
@@ -537,7 +545,7 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
                 >
                   {s.tag}
                 </span>
-                <span className="text-2xl font-extrabold" style={{ color: "#0B4B6726" }}>
+                <span className="text-2xl font-extrabold text-[#0B4B6726] transition-colors duration-300 group-hover:text-[#F07728] group-active:text-[#F07728]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
@@ -546,7 +554,13 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
                 {s.text}
               </p>
               <span aria-hidden="true" className="mt-auto block pt-5">
-                <span className="block h-1 w-8" style={{ backgroundColor: ORANGE }} />
+                <span
+                  className={
+                    "block h-1 w-8 transition-transform duration-300 " +
+                    (rtl ? "group-hover:-translate-x-3 group-active:-translate-x-3" : "group-hover:translate-x-3 group-active:translate-x-3")
+                  }
+                  style={{ backgroundColor: ORANGE }}
+                />
               </span>
             </li>
           ))}
@@ -582,86 +596,45 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
           <div className="lx-reveal grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
             {/* sachet visual */}
-            <div className={"flex flex-col items-start gap-8" + (rtl ? " lg:order-2" : "")}>
+            <div className="flex flex-col items-start gap-8">
               <div>
                 <Kicker text={c.footer.kicker} />
                 <h2 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">{c.footer.title}</h2>
               </div>
-              <div
-                aria-hidden="true"
-                className={"relative w-56 sm:w-64 " + (rtl ? "-ml-8 sm:-ml-16 lg:-ml-24" : "ml-8 sm:ml-12 lg:ml-16")}
-                dir="ltr"
-              >
-                <div className="absolute -inset-2 translate-x-3 translate-y-3" style={{ backgroundColor: GREEN }} />
-                <div className="relative flex aspect-[4/5] flex-col justify-between p-5" style={{ backgroundColor: YELLOW }}>
-                  <div>
-                    <p className="text-2xl font-extrabold tracking-tight" style={{ color: PETROL }}>
-                      LASIX
-                    </p>
-                    <p className="inline-block px-1.5 text-sm font-extrabold text-white" style={{ backgroundColor: ORANGE }}>
-                      70 WG
-                    </p>
-                  </div>
-                  <BrandCheck size={64} className="self-center" />
-                  <div className="flex items-end justify-between">
-                    <span className="px-2 py-1 text-xs font-extrabold text-white" style={{ backgroundColor: PETROL }}>
-                      40 GRAM
-                    </span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: PETROL }}>
-                      Insecticide
-                    </span>
-                  </div>
-                </div>
-              </div>
+              <SachetVisual />
             </div>
 
             {/* commercial data grid */}
-            <div
-              className={"grid content-start gap-px sm:grid-cols-2" + (rtl ? " lg:order-1" : "")}
-              style={{ backgroundColor: "#ffffff1f" }}
-            >
-              {[
-                { label: c.footer.packLabel, value: c.footer.pack },
-                { label: c.footer.formLabel, value: c.footer.form },
-                { label: c.footer.regLabel, value: c.footer.reg },
-                { label: c.footer.agentLabel, value: c.footer.agent + " — " + c.footer.address }
-              ].map((f) => (
-                <div key={f.label} className="p-6" style={{ backgroundColor: PETROL }}>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: CYAN }}>
-                    {f.label}
-                  </p>
-                  <p className="mt-2 text-sm font-semibold leading-relaxed text-white/90 sm:text-base">{f.value}</p>
-                </div>
-              ))}
-              <div className="p-6 sm:col-span-2" style={{ backgroundColor: "#083A50" }}>
-                <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm font-semibold">
-                  <a href={"tel:" + c.footer.phone.replace(/\s/g, "")} className="transition-colors hover:text-white" style={{ color: CYAN }} dir="ltr">
-                    {c.footer.phone}
-                  </a>
-                  <a href={"mailto:" + c.footer.email} className="transition-colors hover:text-white" style={{ color: CYAN }} dir="ltr">
-                    {c.footer.email}
-                  </a>
-                  <span className="text-white/70" dir="ltr">
-                    {c.footer.site}
-                  </span>
-                </div>
-                <p className="mt-4 text-xs leading-relaxed text-white/60">{c.footer.safety}</p>
+            <div className="flex flex-col content-start gap-12">
+              <div className="grid gap-px sm:grid-cols-2" style={{ backgroundColor: "#ffffff1f" }}>
+                {[
+                  { label: c.footer.packLabel, value: c.footer.pack },
+                  { label: c.footer.formLabel, value: c.footer.form },
+                  { label: c.footer.regLabel, value: c.footer.reg }
+                ].map((f) => (
+                  <div key={f.label} className="p-6" style={{ backgroundColor: PETROL }}>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: CYAN }}>
+                      {f.label}
+                    </p>
+                    <p className="mt-2 text-sm font-semibold leading-relaxed text-white/90 sm:text-base">{f.value}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="p-6" style={{ backgroundColor: "#083A50" }}>
+                <p className="text-xs leading-relaxed text-white/60">{c.footer.safety}</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="border-t" style={{ borderColor: "#ffffff22" }}>
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-6 sm:px-6">
-            <div className="flex items-center gap-3">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-4 py-6 sm:px-6">
+            <div className={"flex items-center gap-3" + (rtl ? " -ml-8 sm:-ml-12" : "")}>
               <BrandCheck size={20} />
               <p className="text-sm font-extrabold" style={{ color: CYAN }}>
                 {c.footer.slogan}
               </p>
             </div>
-            <p className="text-xs text-white/50">
-              {c.nav.name} — {c.nav.reg}
-            </p>
           </div>
         </div>
       </section>
