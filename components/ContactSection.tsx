@@ -41,7 +41,7 @@ export function ContactSection({
           </div>
         </div>
 
-        <form action={`mailto:${company.email}`} className="card p-5 sm:p-8">
+        <form action={`mailto:${company.email}?subject=WEBSITE`} className="card p-5 sm:p-8">
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="grid gap-2 text-sm font-semibold text-agri-blue">
               {labels.name}
