@@ -30,6 +30,11 @@ export function readConsent(): ConsentState | null {
   }
 }
 
+export function clearStoredConsent(): void {
+  if (typeof window === "undefined") return;
+  window.localStorage.removeItem(STORAGE_KEY);
+}
+
 export function writeConsent(prefs: { analytics: boolean; marketing: boolean }): ConsentState {
   const state: ConsentState = {
     necessary: true,

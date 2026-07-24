@@ -1,7 +1,8 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
-import { readConsent, writeConsent, type ConsentState } from "@/lib/consent";
+import { clearStoredConsent, readConsent, writeConsent, type ConsentState } from "@/lib/consent";
+import { clearAnalyticsCookies, denyGtagConsent } from "@/lib/gtag";
 
 type ConsentContextValue = {
   consent: ConsentState | null;
@@ -9,6 +10,7 @@ type ConsentContextValue = {
   acceptAll: () => void;
   rejectNonEssential: () => void;
   savePreferences: (prefs: { analytics: boolean; marketing: boolean }) => void;
+  resetConsent: () => void;
 };
 
 const ConsentContext = createContext<ConsentContextValue | null>(null);
@@ -32,14 +34,29 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
     const state = writeConsent(prefs);
     setConsent(state);
     setHasResponded(true);
+    // Revoking analytics consent (vs. never having granted it) means gtag.js
+    // may already be loaded and GA cookies may already be on disk — tell
+    // Consent Mode and sweep the cookies regardless of prior state.
+    if (!prefs.analytics) {
+      denyGtagConsent();
+      clearAnalyticsCookies();
+    }
   }, []);
 
   const acceptAll = useCallback(() => apply({ analytics: true, marketing: true }), [apply]);
   const rejectNonEssential = useCallback(() => apply({ analytics: false, marketing: false }), [apply]);
 
+  const resetConsent = useCallback(() => {
+    clearStoredConsent();
+    denyGtagConsent();
+    clearAnalyticsCookies();
+    setConsent(null);
+    setHasResponded(false);
+  }, []);
+
   return (
     <ConsentContext.Provider
-      value={{ consent, hasResponded, acceptAll, rejectNonEssential, savePreferences: apply }}
+      value={{ consent, hasResponded, acceptAll, rejectNonEssential, savePreferences: apply, resetConsent }}
     >
       {children}
     </ConsentContext.Provider>
