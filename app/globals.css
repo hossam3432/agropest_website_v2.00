@@ -22,8 +22,13 @@ body {
   color: #17324d;
 }
 
-[dir="rtl"] .eyebrow {
-  letter-spacing: 0;
+/* Arabic is a joined script: any positive letter-spacing visually breaks the
+   ligatures apart. Kill tracking site-wide in RTL, at every breakpoint. */
+[dir="rtl"],
+[dir="rtl"] *,
+[dir="rtl"] *::before,
+[dir="rtl"] *::after {
+  letter-spacing: 0 !important;
 }
 
 [dir="rtl"] input,
