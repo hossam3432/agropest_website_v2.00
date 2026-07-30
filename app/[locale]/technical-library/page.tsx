@@ -1,8 +1,30 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { localizeHref } from "@/lib/content";
+import { buildPageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({ params }: LocalePageProps): Promise<Metadata> {
+  const { content, locale } = getLocalePage((await params).locale);
+
+  const title = locale === "ar" ? "المصادر الفنية ومركز المعرفة الزراعية" : "Technical Resources & Agricultural Knowledge Center";
+  const description =
+    locale === "ar"
+      ? "تصفح مكتبة أجروبست الفنية التي تضم بروشورات المنتجات والنشرات الفنية وتوصيات الاستخدام والمواد المرئية لدعم الموزعين والمهندسين والمزارعين في مصر."
+      : "Access AgroPest's technical library of product brochures, leaflets, usage recommendations, and visual materials supporting distributors, engineers, and growers across Egypt.";
+
+  return buildPageMetadata({
+    locale,
+    content,
+    path: "/technical-library",
+    title,
+    description,
+    image: content.images.hero.library,
+    imageAlt: title
+  });
+}
 
 export default async function TechnicalLibraryPage({ params }: LocalePageProps) {
   const { content, locale } = getLocalePage((await params).locale);

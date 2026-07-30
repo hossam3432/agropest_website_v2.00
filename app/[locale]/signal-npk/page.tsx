@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Cairo, IBM_Plex_Mono } from "next/font/google";
 import CompositionMatrix, { type Variant, type MatrixLabels } from "./_CompositionMatrix";
 import MechanismSection from "./_MechanismSection";
+import { absoluteUrl } from "@/lib/seo";
 
 /* ————————————————————————————————————————————————————————————————
    SIGNAL NPK — fluid agri-tech landing page
@@ -511,7 +512,18 @@ type PageProps = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const locale: Locale = (await params).locale === "ar" ? "ar" : "en";
-  return { title: content[locale].meta.title, description: content[locale].meta.description };
+  return {
+    title: content[locale].meta.title,
+    description: content[locale].meta.description,
+    alternates: {
+      canonical: absoluteUrl(`/${locale}/signal-npk`),
+      languages: {
+        en: absoluteUrl("/en/signal-npk"),
+        ar: absoluteUrl("/ar/signal-npk"),
+        "x-default": absoluteUrl("/en/signal-npk")
+      }
+    }
+  };
 }
 
 export default async function SignalNpkPage({ params }: PageProps) {

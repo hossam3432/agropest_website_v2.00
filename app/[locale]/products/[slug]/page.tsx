@@ -9,6 +9,7 @@ import {
   getProductPath,
   getProducts
 } from "@/lib/products";
+import { absoluteUrl } from "@/lib/seo";
 
 type ProductCategoryPageProps = {
   params: Promise<{
@@ -42,11 +43,24 @@ export async function generateMetadata({ params }: ProductCategoryPageProps): Pr
 
   const content = getSiteContent(locale);
   const category = getProductCategory(locale, slug);
+  const alternates = {
+    canonical: absoluteUrl(`/${locale}/products/${slug}`),
+    languages: {
+      en: absoluteUrl(`/en/products/${slug}`),
+      ar: absoluteUrl(`/ar/products/${slug}`),
+      "x-default": absoluteUrl(`/en/products/${slug}`)
+    }
+  };
 
   if (category) {
+    const ogImage = absoluteUrl(`/api/og/${locale}/${category.slug}`);
+
     return {
       title: `${category.title} | ${content.company.shortName}`,
-      description: category.description
+      description: category.description,
+      alternates,
+      openGraph: { images: [{ url: ogImage, width: 1200, height: 630, alt: category.title }] },
+      twitter: { card: "summary_large_image", images: [ogImage] }
     };
   }
 
@@ -56,9 +70,14 @@ export async function generateMetadata({ params }: ProductCategoryPageProps): Pr
     return {};
   }
 
+  const ogImage = absoluteUrl(`/api/og/${locale}/${product.slug}`);
+
   return {
     title: `${product.name} | ${content.company.shortName}`,
-    description: product.positioning
+    description: product.positioning,
+    alternates,
+    openGraph: { images: [{ url: ogImage, width: 1200, height: 630, alt: product.name }] },
+    twitter: { card: "summary_large_image", images: [ogImage] }
   };
 }
 

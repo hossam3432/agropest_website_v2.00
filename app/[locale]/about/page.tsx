@@ -1,9 +1,31 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
 import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { localizeHref } from "@/lib/content";
+import { buildPageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({ params }: LocalePageProps): Promise<Metadata> {
+  const { content, locale } = getLocalePage((await params).locale);
+
+  const title = locale === "ar" ? "من نحن – شركة تجارة زراعية منذ 1995" : "About Us – Agrochemical Trading Since 1995";
+  const description =
+    locale === "ar"
+      ? "تعرف على أجروبست كنترول للتجارة، الشركة المصرية المتخصصة في اختيار وتسجيل واستيراد وتوزيع حلول وقاية المحاصيل والتغذية النباتية والمحفزات الحيوية منذ عام 1995."
+      : "Learn about AgroPest Control for Trading, an Egyptian agricultural company selecting, registering, importing, and distributing crop protection, plant nutrition, and biostimulant solutions since 1995.";
+
+  return buildPageMetadata({
+    locale,
+    content,
+    path: "/about",
+    title,
+    description,
+    image: content.images.hero.about,
+    imageAlt: title
+  });
+}
 
 export default async function AboutPage({ params }: LocalePageProps) {
   const { content, locale } = getLocalePage((await params).locale);

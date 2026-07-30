@@ -1,9 +1,31 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
 import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { localizeHref } from "@/lib/content";
+import { buildPageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({ params }: LocalePageProps): Promise<Metadata> {
+  const { content, locale } = getLocalePage((await params).locale);
+
+  const title = locale === "ar" ? "بروشورات المنتجات والنشرات الفنية" : "Product Brochures & Technical Datasheets";
+  const description =
+    locale === "ar"
+      ? "حمّل بروشورات منتجات أجروبست كنترول التي تعرض التركيب ومجالات الاستخدام والتوصيات الفنية لمنتجات وقاية المحاصيل والتغذية النباتية في مصر."
+      : "Download AgroPest Control product brochures with composition, use areas, and technical recommendations for crop protection and plant nutrition products in Egypt.";
+
+  return buildPageMetadata({
+    locale,
+    content,
+    path: "/brochures",
+    title,
+    description,
+    image: content.images.hero.library,
+    imageAlt: title
+  });
+}
 
 export default async function BrochuresPage({ params }: LocalePageProps) {
   const { content, locale } = getLocalePage((await params).locale);

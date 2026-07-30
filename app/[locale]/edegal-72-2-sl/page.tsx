@@ -3,6 +3,7 @@ import { Cairo } from "next/font/google";
 import { RevealSection, StaggerContainer, RevealItem } from "@/components/animations";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { locales, type Locale } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 const cairo = Cairo({ subsets: ["arabic", "latin"], weight: ["400", "500", "600", "700", "800"], display: "swap" });
 
@@ -212,7 +213,15 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
 
   return {
     title: c.eyebrow + " | " + c.hero.title,
-    description: c.hero.body
+    description: c.hero.body,
+    alternates: {
+      canonical: absoluteUrl(`/${locale}/edegal-72-2-sl`),
+      languages: {
+        en: absoluteUrl("/en/edegal-72-2-sl"),
+        ar: absoluteUrl("/ar/edegal-72-2-sl"),
+        "x-default": absoluteUrl("/en/edegal-72-2-sl")
+      }
+    }
   };
 }
 

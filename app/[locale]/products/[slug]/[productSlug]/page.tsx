@@ -9,6 +9,7 @@ import {
   getProducts,
   productCategoriesByLocale
 } from "@/lib/products";
+import { absoluteUrl } from "@/lib/seo";
 
 type ProductPageProps = {
   params: Promise<{
@@ -42,10 +43,22 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     return {};
   }
 
+  const ogImage = absoluteUrl(`/api/og/${locale}/${product.slug}`);
+
   return {
     title: product.seo?.title ?? `${product.name} | ${content.company.shortName}`,
     description: product.seo?.description ?? product.positioning,
-    keywords: product.seo?.keywords
+    keywords: product.seo?.keywords,
+    alternates: {
+      canonical: absoluteUrl(`/${locale}/products/${slug}/${productSlug}`),
+      languages: {
+        en: absoluteUrl(`/en/products/${slug}/${productSlug}`),
+        ar: absoluteUrl(`/ar/products/${slug}/${productSlug}`),
+        "x-default": absoluteUrl(`/en/products/${slug}/${productSlug}`)
+      }
+    },
+    openGraph: { images: [{ url: ogImage, width: 1200, height: 630, alt: product.name }] },
+    twitter: { card: "summary_large_image", images: [ogImage] }
   };
 }
 

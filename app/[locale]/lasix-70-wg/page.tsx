@@ -4,6 +4,7 @@ import LogoSquare from "./_LogoSquare";
 import SachetVisual from "./_SachetVisual";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { locales, type Locale } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 const cairo = Cairo({ subsets: ["arabic", "latin"], weight: ["400", "500", "600", "700", "800"], display: "swap" });
 
@@ -314,7 +315,15 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
   const c = content[locale as Locale];
   return {
     title: c.nav.name + " | " + c.hero.slogan,
-    description: c.hero.lead
+    description: c.hero.lead,
+    alternates: {
+      canonical: absoluteUrl(`/${locale}/lasix-70-wg`),
+      languages: {
+        en: absoluteUrl("/en/lasix-70-wg"),
+        ar: absoluteUrl("/ar/lasix-70-wg"),
+        "x-default": absoluteUrl("/en/lasix-70-wg")
+      }
+    }
   };
 }
 

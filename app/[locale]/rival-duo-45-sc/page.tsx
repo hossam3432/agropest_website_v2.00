@@ -12,6 +12,7 @@ import { RivalDuoOomyceteCards } from "@/components/RivalDuoOomyceteCards";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { getProductByAnySlug, getProductPath } from "@/lib/products";
 import { locales, type Locale } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 const cairo = Cairo({ subsets: ["arabic", "latin"], weight: ["400", "500", "600", "700", "800"], display: "swap" });
 
@@ -293,7 +294,15 @@ export async function generateMetadata({ params }: RivalDuoLandingProps): Promis
   return {
     title: product.name + " | " + c.hero.slogan,
     description: product.seo?.description ?? product.positioning,
-    keywords: product.seo?.keywords
+    keywords: product.seo?.keywords,
+    alternates: {
+      canonical: absoluteUrl(`/${locale}/rival-duo-45-sc`),
+      languages: {
+        en: absoluteUrl("/en/rival-duo-45-sc"),
+        ar: absoluteUrl("/ar/rival-duo-45-sc"),
+        "x-default": absoluteUrl("/en/rival-duo-45-sc")
+      }
+    }
   };
 }
 

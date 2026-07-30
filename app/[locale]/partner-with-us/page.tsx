@@ -1,7 +1,29 @@
+import type { Metadata } from "next";
 import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
 import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
+import { buildPageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({ params }: LocalePageProps): Promise<Metadata> {
+  const { content, locale } = getLocalePage((await params).locale);
+
+  const title = locale === "ar" ? "الشراكة معنا – دخول السوق الزراعي المصري" : "Partner With Us – Agricultural Market Entry in Egypt";
+  const description =
+    locale === "ar"
+      ? "للموردين والشركات الزراعية الدولية: تعاونوا مع أجروبست كنترول للحصول على دعم التسجيل والاستيراد والتسويق والتوزيع لدخول السوق الزراعي المصري."
+      : "International suppliers and agrochemical companies: partner with AgroPest Control for registration, import coordination, marketing, and distribution support to enter the Egyptian agricultural market.";
+
+  return buildPageMetadata({
+    locale,
+    content,
+    path: "/partner-with-us",
+    title,
+    description,
+    image: content.images.hero.partner,
+    imageAlt: title
+  });
+}
 
 export default async function PartnerWithUsPage({ params }: LocalePageProps) {
   const { content, locale } = getLocalePage((await params).locale);

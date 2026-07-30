@@ -5,6 +5,7 @@ import { DocumentLanguage } from "@/components/DocumentLanguage";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { getSiteContent, isLocale, locales } from "@/lib/content";
+import { absoluteUrl } from "@/lib/seo";
 
 type LocaleLayoutProps = {
   children: ReactNode;
@@ -34,13 +35,39 @@ export async function generateMetadata({ params }: LocaleParamsProps): Promise<M
   }
 
   const content = getSiteContent(locale);
+  const url = absoluteUrl(`/${locale}`);
+  const ogLocale = locale === "ar" ? "ar_EG" : "en_US";
 
   return {
     title: {
       default: content.company.name,
       template: `%s | ${content.company.shortName}`
     },
-    description: content.company.tagline
+    description: content.company.tagline,
+    alternates: {
+      canonical: url,
+      languages: {
+        en: absoluteUrl("/en"),
+        ar: absoluteUrl("/ar"),
+        "x-default": absoluteUrl("/en")
+      }
+    },
+    openGraph: {
+      title: content.company.name,
+      description: content.company.tagline,
+      url,
+      siteName: content.company.shortName,
+      locale: ogLocale,
+      alternateLocale: locale === "ar" ? "en_US" : "ar_EG",
+      type: "website",
+      images: [{ url: absoluteUrl(content.images.hero.home), width: 1200, height: 630, alt: content.company.name }]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: content.company.name,
+      description: content.company.tagline,
+      images: [absoluteUrl(content.images.hero.home)]
+    }
   };
 }
 

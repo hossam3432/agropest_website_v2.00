@@ -1,9 +1,32 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
 import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { localizeHref } from "@/lib/content";
+import { buildPageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({ params }: LocalePageProps): Promise<Metadata> {
+  const { content, locale } = getLocalePage((await params).locale);
+
+  const title = locale === "ar" ? "الحلول الزراعية – برامج وقاية المحاصيل والتغذية" : "Agricultural Solutions – Crop Protection & Nutrition Programs";
+  const description =
+    locale === "ar"
+      ? "استكشف مسارات الحلول الزراعية من أجروبست في وقاية المحاصيل والتغذية النباتية والمحفزات الحيوية والدعم الفني، لمساعدة الموزعين والمزارعين في مصر على اتخاذ قرارات حقلية أكثر ثقة."
+      : "Explore AgroPest's agricultural solution tracks across crop protection, plant nutrition, biostimulants, and technical support, built to help distributors and growers in Egypt make confident field decisions.";
+
+  return buildPageMetadata({
+    locale,
+    content,
+    path: "/solutions",
+    title,
+    description,
+    image: content.images.hero.solutions,
+    imageAlt: title
+  });
+}
 
 export default async function SolutionsPage({ params }: LocalePageProps) {
   const { content, locale } = getLocalePage((await params).locale);
@@ -11,6 +34,11 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
 
   return (
     <>
+      <Breadcrumbs
+        locale={locale}
+        homeLabel={content.navigation.find((item) => item.href === "/")?.label ?? "Home"}
+        items={[{ label: content.navigation.find((item) => item.href === "/solutions")?.label ?? "Solutions", href: "/solutions" }]}
+      />
       <HeroSection compact locale={locale} {...solutionsPage.hero} />
 
       <section className="bg-agri-mist py-12 sm:py-20">

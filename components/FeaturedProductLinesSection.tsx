@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useState, type CSSProperties, type MouseEvent } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
@@ -46,10 +47,12 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
             isDesktop ? "h-24 w-full max-w-[220px] md:h-28 md:max-w-[240px]" : "h-24 w-full max-w-[180px]"
           }`}
         >
-          <img
+          <Image
             src={item.image}
             alt={item.imageAlt}
-            className="h-full w-full object-contain transition duration-700 group-hover/card:scale-105"
+            fill
+            sizes={isDesktop ? "(min-width: 768px) 240px, 220px" : "180px"}
+            className="object-contain transition duration-700 group-hover/card:scale-105"
             style={
               item.image.includes("lasix-featured-logo") || item.image.includes("fossil-featured-logo")
                 ? { transform: "scale(0.75)" }

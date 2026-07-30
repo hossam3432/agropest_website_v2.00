@@ -1,9 +1,13 @@
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTASection } from "@/components/CTASection";
 import { ProductNavigationTree } from "@/components/ProductNavigationTree";
+import { ProductSchema } from "@/components/ProductSchema";
 import { ProductVisual } from "@/components/ProductVisual";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
 import {
+  getProductCategory,
+  getProductPath,
   productNavigationByLocale,
   productPageContent,
   type ProductDetail,
@@ -11,6 +15,7 @@ import {
   type ProductDocumentType,
   type ProductUsageRow
 } from "@/lib/products";
+import { absoluteUrl } from "@/lib/seo";
 
 type ProductDetailPageProps = {
   content: SiteContent;
@@ -152,6 +157,10 @@ function parseCompositionRows(value: string | undefined): CompositionRow[] {
     .filter((row): row is CompositionRow => Boolean(row));
 
   return rows.length ? rows : [{ ingredient: cleanValue, concentration: "-" }];
+}
+
+function extractRegistrationNumber(status: string) {
+  return status.match(/(\d{3,})/)?.[1];
 }
 
 function isUnderRegistrationStatus(status: string) {
@@ -343,6 +352,14 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
   const hasFertigationRecommendation =
     isNutritionProduct && applicationSection.rows.some((row) => hasDoseValue(splitNutritionDose(row).fertigationDose));
   const backHref = localizeHref(locale, "/products?category=" + product.categorySlug + "&subcategory=" + encodeURIComponent(product.subcategory));
+  const productCategory = getProductCategory(locale, product.categorySlug);
+  const breadcrumbItems = [
+    { label: content.navigation.find((item) => item.href === "/products")?.label ?? "Products", href: "/products" },
+    ...(productCategory
+      ? [{ label: productCategory.title, href: `/products?category=${product.categorySlug}` }]
+      : []),
+    { label: product.name, href: `/products/${product.categorySlug}/${product.slug}` }
+  ];
   const compositionHeaders = locale === "ar" ? ["العنصر", "التركيز"] : ["Ingredient", "Concentration"];
   const compositionRows = (product.facts.compositionRows ?? parseCompositionRows(product.facts.composition)).map((row) => ({
     ...row,
@@ -351,6 +368,21 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
 
   return (
     <>
+      <ProductSchema
+        name={product.name}
+        description={product.seo?.description ?? product.positioning}
+        url={absoluteUrl(getProductPath(locale, product))}
+        image={absoluteUrl(product.detailImage)}
+        category={product.category}
+        brandName={content.company.shortName}
+        registrationNumber={extractRegistrationNumber(product.facts.registrationStatus)}
+        activeIngredient={compositionRows.map((row) => row.ingredientLabel)}
+      />
+      <Breadcrumbs
+        locale={locale}
+        homeLabel={content.navigation.find((item) => item.href === "/")?.label ?? "Home"}
+        items={breadcrumbItems}
+      />
       <section className="relative isolate bg-[linear-gradient(135deg,#0A3D2B_0%,#F4F7F5_50%,#FFFFFF_100%)] py-14 sm:py-16 lg:py-20">
         <div className="absolute start-0 top-0 h-1 w-full bg-agri-gold" />
         <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:items-center lg:px-8">

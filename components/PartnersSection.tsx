@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
 import type { SiteContent } from "@/lib/content";
 
@@ -37,9 +38,11 @@ export function PartnersSection({ content, className = "" }: PartnersSectionProp
                   type="button"
                 >
                   <div className="flex h-full items-center justify-center">
-                    <img
+                    <Image
                       src={partner.logo}
                       alt={partner.logoAlt}
+                      width={190}
+                      height={64}
                       className="max-h-16 w-full max-w-[190px] object-contain opacity-90 transition duration-300 group-hover:scale-105 group-hover:opacity-100"
                     />
                   </div>
