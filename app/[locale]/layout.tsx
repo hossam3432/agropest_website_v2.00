@@ -85,6 +85,25 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   return (
     <div className="min-h-screen text-start" dir={content.direction} lang={locale}>
+      {locale === "ar" ? (
+        <>
+          {/* forma-djr-arabic is an Arabic-only Adobe Fonts kit — it has no Latin
+              glyphs, so it's scoped to /ar only. Loaded non-render-blocking (preload
+              + swap) since the kit CSS itself chains an @import to p.typekit.net. */}
+          <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
+          <link rel="preconnect" href="https://p.typekit.net" crossOrigin="anonymous" />
+          <link rel="preload" as="style" href="https://use.typekit.net/gjc0cjr.css" />
+          <script
+            dangerouslySetInnerHTML={{
+              __html:
+                "(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://use.typekit.net/gjc0cjr.css';document.head.appendChild(l);})();"
+            }}
+          />
+          <noscript>
+            <link rel="stylesheet" href="https://use.typekit.net/gjc0cjr.css" />
+          </noscript>
+        </>
+      ) : null}
       <DocumentLanguage direction={content.direction} locale={locale} />
       <Navbar content={content} locale={locale} />
       <main className="pt-24">{children}</main>

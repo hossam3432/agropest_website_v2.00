@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import { RevealSection, StaggerContainer, RevealItem } from "@/components/animations";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { locales, type Locale } from "@/lib/content";
 import { absoluteUrl } from "@/lib/seo";
@@ -321,10 +322,13 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
                   className="absolute inset-x-0 bottom-0 h-2/3"
                   style={{ background: "radial-gradient(ellipse at 50% 100%, " + GREEN + "40, transparent 70%)" }}
                 />
-                <img
+                <ResponsiveImage
                   src="/images/products/edegal-mode.png"
                   alt={c.eyebrow}
                   className="absolute inset-0 h-full w-full object-contain p-6 drop-shadow-2xl"
+                  objectFit="contain"
+                  sizes="(min-width: 1024px) 45vw, 90vw"
+                  priority
                 />
                 <span className="absolute bottom-5 start-6 rounded-full bg-black/35 px-4 py-1.5 text-xs font-semibold text-white/85 backdrop-blur-sm">
                   {c.hero.mediaCaption}

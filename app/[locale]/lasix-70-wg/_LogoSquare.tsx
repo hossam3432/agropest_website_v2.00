@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useLayoutEffect, useRef, useState } from "react";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 const CREAM = "#F7F2EF";
 const DOCK_TOP = 70; // px — clears the site navbar (scrolled/shrunk state) with a tighter gap
@@ -97,13 +97,14 @@ export default function LogoSquare({ src, alt, dir }: Props) {
           style={style}
         >
           <span aria-hidden="true" className="absolute inset-x-0 bottom-full h-[2000px]" style={{ backgroundColor: CREAM }} />
-          <Image
+          <ResponsiveImage
             src={src}
             alt={alt}
-            fill
             priority
+            sizes="230px"
+            objectFit="contain"
             className={
-              "lx-logo-fade relative object-contain transition-[padding] duration-500 ease-out " +
+              "lx-logo-fade relative h-full w-full object-contain transition-[padding] duration-500 ease-out " +
               (docked ? "p-4" : "p-[28px] sm:p-[43px] md:p-[32px] lg:p-[43px]")
             }
           />

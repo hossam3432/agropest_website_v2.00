@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { localizeHref } from "@/lib/content";
@@ -48,7 +49,13 @@ export default async function BrochuresPage({ params }: LocalePageProps) {
               <RevealItem key={product.slug} hoverLift>
                 <article className="group flex h-full flex-col overflow-hidden border border-agri-line bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-agri-gold hover:shadow-soft">
                   <div className="flex flex-1 flex-col p-6 sm:p-7">
-                    <img src={product.logo} alt={product.logoAlt} className="ml-auto h-20 w-auto object-contain sm:h-24" />
+                    <ResponsiveImage
+                      src={product.logo}
+                      alt={product.logoAlt}
+                      className="ml-auto h-20 w-auto object-contain sm:h-24"
+                      objectFit="contain"
+                      sizes="96px"
+                    />
                     <p className="mt-4 text-xs font-bold uppercase tracking-[0.18em] text-agri-gold">{product.category}</p>
                     <p className="mt-3 flex-1 leading-7 text-slate-600">{product.description}</p>
                     <div className="mt-6 flex flex-wrap gap-3">

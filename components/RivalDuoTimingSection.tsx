@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { RevealItem, StaggerContainer } from "@/components/animations";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { RivalDuoSectionKicker } from "@/components/RivalDuoSectionKicker";
 import { RivalDuoFit } from "@/components/RivalDuoFit";
 
@@ -217,10 +218,12 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: reducedMotion ? 0 : 0.9, ease: premiumEase, delay: reducedMotion ? 0 : 0.1 }}
           >
-            <img
+            <ResponsiveImage
               ref={imageRef}
               src={imageSrc}
               alt={imageAlt ?? ""}
+              objectFit="contain"
+              sizes="(min-width: 1024px) 560px, 460px"
               onLoad={() => window.dispatchEvent(new Event("resize"))}
               className="mx-auto block h-auto max-h-[clamp(200px,34vh,460px)] w-auto max-w-full object-contain lg:max-h-[clamp(260px,46vh,560px)]"
               style={{ transform: rtl ? "scaleX(-1)" : undefined }}

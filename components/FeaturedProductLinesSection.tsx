@@ -1,9 +1,9 @@
 ﻿"use client";
 
 import { useState, type CSSProperties, type MouseEvent } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
 
 type FeaturedProductLinesSectionProps = {
@@ -47,12 +47,12 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
             isDesktop ? "h-24 w-full max-w-[220px] md:h-28 md:max-w-[240px]" : "h-24 w-full max-w-[180px]"
           }`}
         >
-          <Image
+          <ResponsiveImage
             src={item.image}
             alt={item.imageAlt}
-            fill
             sizes={isDesktop ? "(min-width: 768px) 240px, 220px" : "180px"}
-            className="object-contain transition duration-700 group-hover/card:scale-105"
+            className="absolute inset-0 h-full w-full object-contain transition duration-700 group-hover/card:scale-105"
+            objectFit="contain"
             style={
               item.image.includes("lasix-featured-logo") || item.image.includes("fossil-featured-logo")
                 ? { transform: "scale(0.75)" }

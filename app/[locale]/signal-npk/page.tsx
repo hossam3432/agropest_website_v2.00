@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { Cairo, IBM_Plex_Mono } from "next/font/google";
 import CompositionMatrix, { type Variant, type MatrixLabels } from "./_CompositionMatrix";
 import MechanismSection from "./_MechanismSection";
@@ -581,14 +581,13 @@ export default async function SignalNpkPage({ params }: PageProps) {
             {/* pack + radiating signal + floating badges */}
             <div className="relative mx-auto flex h-[440px] w-full max-w-lg items-center justify-center sm:h-[540px]">
               <RadiatingRings className="inset-0 m-auto h-[320px] w-[320px] sm:h-[460px] sm:w-[460px]" />
-              <Image
+              <ResponsiveImage
                 src="/images/products/signal-npk-20-20-20-product.png"
                 alt={t.hero.packAlt}
-                width={760}
-                height={760}
                 priority
                 sizes="(min-width: 640px) 420px, 320px"
                 className="sg-float-slow relative z-10 h-72 w-auto object-contain drop-shadow-2xl sm:h-96"
+                objectFit="contain"
               />
               {t.hero.badges.map((b, i) => (
                 <div

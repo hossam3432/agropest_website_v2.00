@@ -1,3 +1,5 @@
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+
 type ProductCardProps = {
   name: string;
   category: string;
@@ -11,7 +13,13 @@ export function ProductCard({ name, category, description, image, imageAlt, tags
   return (
     <article className="overflow-hidden rounded-lg bg-white transition hover:-translate-y-1 hover:shadow-soft">
       <div className="aspect-[16/10] overflow-hidden bg-agri-mist">
-        <img src={image} alt={imageAlt} className="h-full w-full object-cover" />
+        <ResponsiveImage
+          src={image}
+          alt={imageAlt}
+          className="h-full w-full object-cover"
+          objectFit="cover"
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        />
       </div>
       <div className="p-6">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-agri-gold">{category}</p>

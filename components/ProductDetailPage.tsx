@@ -413,6 +413,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
               eyebrow={pageContent.imagePlaceholder}
               label={product.name}
               src={product.detailImage}
+              priority
             />
           </div>
         </div>

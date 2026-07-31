@@ -1,0 +1,4972 @@
+{
+  "/images/products/agria-bulgaria-logo.png": {
+    "width": 400,
+    "height": 197,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/agria-bulgaria-logo-400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/agria-bulgaria-logo-400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/agria-bulgaria-logo-400.png"
+      }
+    ]
+  },
+  "/images/products/chrome-ca-b-detail.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-ca-b-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-ca-b-detail-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-ca-b-detail-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-ca-b-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-ca-b-detail-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-ca-b-detail-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-ca-b-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-ca-b-detail-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-ca-b-detail-1080.png"
+      }
+    ]
+  },
+  "/images/products/chrome-ca-b-gallery.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-ca-b-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-ca-b-gallery-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-ca-b-gallery-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-ca-b-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-ca-b-gallery-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-ca-b-gallery-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-ca-b-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-ca-b-gallery-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-ca-b-gallery-1080.png"
+      }
+    ]
+  },
+  "/images/products/chrome-ca-b-mode.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-ca-b-mode-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-ca-b-mode-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-ca-b-mode-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-ca-b-mode-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-ca-b-mode-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-ca-b-mode-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-ca-b-mode-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-ca-b-mode-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-ca-b-mode-1080.png"
+      }
+    ]
+  },
+  "/images/products/chrome-pk-detail.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-pk-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-pk-detail-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-pk-detail-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-pk-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-pk-detail-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-pk-detail-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-pk-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-pk-detail-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-pk-detail-1080.png"
+      }
+    ]
+  },
+  "/images/products/chrome-pk-gallery.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-pk-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-pk-gallery-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-pk-gallery-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-pk-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-pk-gallery-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-pk-gallery-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-pk-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-pk-gallery-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-pk-gallery-1080.png"
+      }
+    ]
+  },
+  "/images/products/chrome-pk-mode.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-pk-mode-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-pk-mode-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-pk-mode-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-pk-mode-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-pk-mode-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-pk-mode-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/chrome-pk-mode-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/chrome-pk-mode-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/chrome-pk-mode-1080.png"
+      }
+    ]
+  },
+  "/images/products/crop-protection-range.jpg": {
+    "width": 1500,
+    "height": 1000,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/crop-protection-range-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/crop-protection-range-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/crop-protection-range-1200.avif"
+      },
+      {
+        "width": 1500,
+        "path": "/images/optimized/products/crop-protection-range-1500.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/crop-protection-range-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/crop-protection-range-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/crop-protection-range-1200.webp"
+      },
+      {
+        "width": 1500,
+        "path": "/images/optimized/products/crop-protection-range-1500.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/crop-protection-range-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/crop-protection-range-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/crop-protection-range-1200.jpg"
+      },
+      {
+        "width": 1500,
+        "path": "/images/optimized/products/crop-protection-range-1500.jpg"
+      }
+    ]
+  },
+  "/images/products/crop-protection-range1.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/crop-protection-range1-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/crop-protection-range1-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/crop-protection-range1-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/crop-protection-range1-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/crop-protection-range1-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/crop-protection-range1-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/crop-protection-range1-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/crop-protection-range1-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/crop-protection-range1-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/crop-protection-range1-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/crop-protection-range1-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/crop-protection-range1-1400.jpg"
+      }
+    ]
+  },
+  "/images/products/cupman-gallery.png": {
+    "width": 1494,
+    "height": 1974,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/cupman-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/cupman-gallery-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/cupman-gallery-1200.avif"
+      },
+      {
+        "width": 1494,
+        "path": "/images/optimized/products/cupman-gallery-1494.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/cupman-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/cupman-gallery-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/cupman-gallery-1200.webp"
+      },
+      {
+        "width": 1494,
+        "path": "/images/optimized/products/cupman-gallery-1494.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/cupman-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/cupman-gallery-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/cupman-gallery-1200.png"
+      },
+      {
+        "width": 1494,
+        "path": "/images/optimized/products/cupman-gallery-1494.png"
+      }
+    ]
+  },
+  "/images/products/edegal-bottles-hero.png": {
+    "width": 2688,
+    "height": 3805,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-bottles-hero-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-bottles-hero-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/edegal-bottles-hero-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/edegal-bottles-hero-1600.avif"
+      },
+      {
+        "width": 2688,
+        "path": "/images/optimized/products/edegal-bottles-hero-2688.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-bottles-hero-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-bottles-hero-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/edegal-bottles-hero-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/edegal-bottles-hero-1600.webp"
+      },
+      {
+        "width": 2688,
+        "path": "/images/optimized/products/edegal-bottles-hero-2688.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-bottles-hero-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-bottles-hero-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/edegal-bottles-hero-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/edegal-bottles-hero-1600.png"
+      },
+      {
+        "width": 2688,
+        "path": "/images/optimized/products/edegal-bottles-hero-2688.png"
+      }
+    ]
+  },
+  "/images/products/edegal-detail.png": {
+    "width": 1974,
+    "height": 1974,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-detail-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/edegal-detail-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/edegal-detail-1600.avif"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/edegal-detail-1974.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-detail-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/edegal-detail-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/edegal-detail-1600.webp"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/edegal-detail-1974.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-detail-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/edegal-detail-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/edegal-detail-1600.png"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/edegal-detail-1974.png"
+      }
+    ]
+  },
+  "/images/products/edegal-gallery.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-gallery-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/edegal-gallery-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-gallery-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/edegal-gallery-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-gallery-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/edegal-gallery-1080.png"
+      }
+    ]
+  },
+  "/images/products/edegal-label-500.jpg": {
+    "width": 2539,
+    "height": 1287,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-label-500-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-label-500-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/edegal-label-500-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/edegal-label-500-1600.avif"
+      },
+      {
+        "width": 2539,
+        "path": "/images/optimized/products/edegal-label-500-2539.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-label-500-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-label-500-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/edegal-label-500-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/edegal-label-500-1600.webp"
+      },
+      {
+        "width": 2539,
+        "path": "/images/optimized/products/edegal-label-500-2539.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-label-500-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-label-500-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/edegal-label-500-1200.jpg"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/edegal-label-500-1600.jpg"
+      },
+      {
+        "width": 2539,
+        "path": "/images/optimized/products/edegal-label-500-2539.jpg"
+      }
+    ]
+  },
+  "/images/products/edegal-mode.png": {
+    "width": 1974,
+    "height": 1974,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-mode-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-mode-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/edegal-mode-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/edegal-mode-1600.avif"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/edegal-mode-1974.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-mode-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-mode-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/edegal-mode-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/edegal-mode-1600.webp"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/edegal-mode-1974.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/edegal-mode-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/edegal-mode-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/edegal-mode-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/edegal-mode-1600.png"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/edegal-mode-1974.png"
+      }
+    ]
+  },
+  "/images/products/fertilizer-range.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/fertilizer-range-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/fertilizer-range-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/fertilizer-range-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/fertilizer-range-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/fertilizer-range-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/fertilizer-range-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/fertilizer-range-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/fertilizer-range-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/fertilizer-range-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/fertilizer-range-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/fertilizer-range-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/fertilizer-range-1400.jpg"
+      }
+    ]
+  },
+  "/images/products/foliq-amical-detail.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-amical-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-amical-detail-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-amical-detail-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-amical-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-amical-detail-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-amical-detail-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-amical-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-amical-detail-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-amical-detail-1080.png"
+      }
+    ]
+  },
+  "/images/products/foliq-amical-gallery.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-amical-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-amical-gallery-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-amical-gallery-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-amical-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-amical-gallery-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-amical-gallery-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-amical-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-amical-gallery-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-amical-gallery-1080.png"
+      }
+    ]
+  },
+  "/images/products/foliq-aminovigor-detail.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-aminovigor-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-aminovigor-detail-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-aminovigor-detail-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-aminovigor-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-aminovigor-detail-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-aminovigor-detail-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-aminovigor-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-aminovigor-detail-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-aminovigor-detail-1080.png"
+      }
+    ]
+  },
+  "/images/products/foliq-aminovigor-gallery.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-aminovigor-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-aminovigor-gallery-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-aminovigor-gallery-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-aminovigor-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-aminovigor-gallery-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-aminovigor-gallery-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-aminovigor-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-aminovigor-gallery-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-aminovigor-gallery-1080.png"
+      }
+    ]
+  },
+  "/images/products/foliq-ascovigor-detail.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-ascovigor-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-ascovigor-detail-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-ascovigor-detail-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-ascovigor-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-ascovigor-detail-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-ascovigor-detail-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-ascovigor-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-ascovigor-detail-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-ascovigor-detail-1080.png"
+      }
+    ]
+  },
+  "/images/products/foliq-ascovigor-gallery.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-ascovigor-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-ascovigor-gallery-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-ascovigor-gallery-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-ascovigor-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-ascovigor-gallery-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-ascovigor-gallery-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-ascovigor-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-ascovigor-gallery-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-ascovigor-gallery-1080.png"
+      }
+    ]
+  },
+  "/images/products/foliq-boron-detail.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-boron-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-boron-detail-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-boron-detail-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-boron-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-boron-detail-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-boron-detail-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-boron-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-boron-detail-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-boron-detail-1080.png"
+      }
+    ]
+  },
+  "/images/products/foliq-boron-gallery.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-boron-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-boron-gallery-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-boron-gallery-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-boron-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-boron-gallery-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-boron-gallery-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-boron-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-boron-gallery-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-boron-gallery-1080.png"
+      }
+    ]
+  },
+  "/images/products/foliq-k-potassium-detail.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-k-potassium-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-k-potassium-detail-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-k-potassium-detail-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-k-potassium-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-k-potassium-detail-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-k-potassium-detail-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-k-potassium-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-k-potassium-detail-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-k-potassium-detail-1080.png"
+      }
+    ]
+  },
+  "/images/products/foliq-k-potassium-gallery.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-k-potassium-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-k-potassium-gallery-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-k-potassium-gallery-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-k-potassium-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-k-potassium-gallery-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-k-potassium-gallery-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/foliq-k-potassium-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/foliq-k-potassium-gallery-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/foliq-k-potassium-gallery-1080.png"
+      }
+    ]
+  },
+  "/images/products/fossil-detail.png": {
+    "width": 2046,
+    "height": 2046,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/fossil-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/fossil-detail-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/fossil-detail-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/fossil-detail-1600.avif"
+      },
+      {
+        "width": 2046,
+        "path": "/images/optimized/products/fossil-detail-2046.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/fossil-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/fossil-detail-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/fossil-detail-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/fossil-detail-1600.webp"
+      },
+      {
+        "width": 2046,
+        "path": "/images/optimized/products/fossil-detail-2046.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/fossil-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/fossil-detail-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/fossil-detail-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/fossil-detail-1600.png"
+      },
+      {
+        "width": 2046,
+        "path": "/images/optimized/products/fossil-detail-2046.png"
+      }
+    ]
+  },
+  "/images/products/fossil-gallery.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/fossil-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/fossil-gallery-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/fossil-gallery-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/fossil-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/fossil-gallery-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/fossil-gallery-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/fossil-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/fossil-gallery-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/fossil-gallery-1080.png"
+      }
+    ]
+  },
+  "/images/products/lasix-detail.png": {
+    "width": 1974,
+    "height": 1974,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/lasix-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/lasix-detail-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/lasix-detail-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/lasix-detail-1600.avif"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/lasix-detail-1974.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/lasix-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/lasix-detail-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/lasix-detail-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/lasix-detail-1600.webp"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/lasix-detail-1974.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/lasix-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/lasix-detail-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/lasix-detail-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/lasix-detail-1600.png"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/lasix-detail-1974.png"
+      }
+    ]
+  },
+  "/images/products/lasix-gallery.png": {
+    "width": 1494,
+    "height": 1974,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/lasix-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/lasix-gallery-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/lasix-gallery-1200.avif"
+      },
+      {
+        "width": 1494,
+        "path": "/images/optimized/products/lasix-gallery-1494.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/lasix-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/lasix-gallery-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/lasix-gallery-1200.webp"
+      },
+      {
+        "width": 1494,
+        "path": "/images/optimized/products/lasix-gallery-1494.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/lasix-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/lasix-gallery-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/lasix-gallery-1200.png"
+      },
+      {
+        "width": 1494,
+        "path": "/images/optimized/products/lasix-gallery-1494.png"
+      }
+    ]
+  },
+  "/images/products/lasix-mode.png": {
+    "width": 1974,
+    "height": 1974,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/lasix-mode-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/lasix-mode-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/lasix-mode-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/lasix-mode-1600.avif"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/lasix-mode-1974.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/lasix-mode-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/lasix-mode-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/lasix-mode-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/lasix-mode-1600.webp"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/lasix-mode-1974.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/lasix-mode-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/lasix-mode-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/lasix-mode-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/lasix-mode-1600.png"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/lasix-mode-1974.png"
+      }
+    ]
+  },
+  "/images/products/rival-duo-bottles-2026.png": {
+    "width": 1618,
+    "height": 1264,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-1600.avif"
+      },
+      {
+        "width": 1618,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-1618.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-1600.webp"
+      },
+      {
+        "width": 1618,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-1618.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-1600.png"
+      },
+      {
+        "width": 1618,
+        "path": "/images/optimized/products/rival-duo-bottles-2026-1618.png"
+      }
+    ]
+  },
+  "/images/products/rival-duo-bottles-white.png": {
+    "width": 1400,
+    "height": 1050,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-bottles-white-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-bottles-white-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-bottles-white-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/rival-duo-bottles-white-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-bottles-white-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-bottles-white-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-bottles-white-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/rival-duo-bottles-white-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-bottles-white-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-bottles-white-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-bottles-white-1200.png"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/rival-duo-bottles-white-1400.png"
+      }
+    ]
+  },
+  "/images/products/rival-duo-detail.png": {
+    "width": 1974,
+    "height": 1974,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-detail-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-detail-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/rival-duo-detail-1600.avif"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/rival-duo-detail-1974.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-detail-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-detail-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/rival-duo-detail-1600.webp"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/rival-duo-detail-1974.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-detail-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-detail-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/rival-duo-detail-1600.png"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/rival-duo-detail-1974.png"
+      }
+    ]
+  },
+  "/images/products/rival-duo-frame-lines.png": {
+    "width": 1400,
+    "height": 515,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-frame-lines-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-frame-lines-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-frame-lines-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/rival-duo-frame-lines-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-frame-lines-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-frame-lines-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-frame-lines-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/rival-duo-frame-lines-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-frame-lines-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-frame-lines-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-frame-lines-1200.png"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/rival-duo-frame-lines-1400.png"
+      }
+    ]
+  },
+  "/images/products/rival-duo-gallery.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-gallery-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/rival-duo-gallery-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-gallery-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/rival-duo-gallery-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-gallery-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/rival-duo-gallery-1080.png"
+      }
+    ]
+  },
+  "/images/products/rival-duo-hero-field.jpg": {
+    "width": 933,
+    "height": 1400,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-hero-field-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-hero-field-800.avif"
+      },
+      {
+        "width": 933,
+        "path": "/images/optimized/products/rival-duo-hero-field-933.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-hero-field-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-hero-field-800.webp"
+      },
+      {
+        "width": 933,
+        "path": "/images/optimized/products/rival-duo-hero-field-933.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-hero-field-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-hero-field-800.jpg"
+      },
+      {
+        "width": 933,
+        "path": "/images/optimized/products/rival-duo-hero-field-933.jpg"
+      }
+    ]
+  },
+  "/images/products/rival-duo-oomycete-blocked.png": {
+    "width": 506,
+    "height": 900,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-oomycete-blocked-400.avif"
+      },
+      {
+        "width": 506,
+        "path": "/images/optimized/products/rival-duo-oomycete-blocked-506.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-oomycete-blocked-400.webp"
+      },
+      {
+        "width": 506,
+        "path": "/images/optimized/products/rival-duo-oomycete-blocked-506.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-oomycete-blocked-400.png"
+      },
+      {
+        "width": 506,
+        "path": "/images/optimized/products/rival-duo-oomycete-blocked-506.png"
+      }
+    ]
+  },
+  "/images/products/rival-duo-oomycete-germinate.png": {
+    "width": 900,
+    "height": 506,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-oomycete-germinate-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-oomycete-germinate-800.avif"
+      },
+      {
+        "width": 900,
+        "path": "/images/optimized/products/rival-duo-oomycete-germinate-900.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-oomycete-germinate-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-oomycete-germinate-800.webp"
+      },
+      {
+        "width": 900,
+        "path": "/images/optimized/products/rival-duo-oomycete-germinate-900.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-oomycete-germinate-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-oomycete-germinate-800.png"
+      },
+      {
+        "width": 900,
+        "path": "/images/optimized/products/rival-duo-oomycete-germinate-900.png"
+      }
+    ]
+  },
+  "/images/products/rival-duo-potato-progression.png": {
+    "width": 1600,
+    "height": 893,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-potato-progression-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-potato-progression-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-potato-progression-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/rival-duo-potato-progression-1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-potato-progression-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-potato-progression-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-potato-progression-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/rival-duo-potato-progression-1600.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-potato-progression-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-potato-progression-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/rival-duo-potato-progression-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/rival-duo-potato-progression-1600.png"
+      }
+    ]
+  },
+  "/images/products/rival-duo-shield-logo.png": {
+    "width": 322,
+    "height": 284,
+    "avif": [
+      {
+        "width": 322,
+        "path": "/images/optimized/products/rival-duo-shield-logo-322.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 322,
+        "path": "/images/optimized/products/rival-duo-shield-logo-322.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 322,
+        "path": "/images/optimized/products/rival-duo-shield-logo-322.png"
+      }
+    ]
+  },
+  "/images/products/rival-duo-umbrella-branded-portrait.jpg": {
+    "width": 685,
+    "height": 1200,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-umbrella-branded-portrait-400.avif"
+      },
+      {
+        "width": 685,
+        "path": "/images/optimized/products/rival-duo-umbrella-branded-portrait-685.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-umbrella-branded-portrait-400.webp"
+      },
+      {
+        "width": 685,
+        "path": "/images/optimized/products/rival-duo-umbrella-branded-portrait-685.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-umbrella-branded-portrait-400.jpg"
+      },
+      {
+        "width": 685,
+        "path": "/images/optimized/products/rival-duo-umbrella-branded-portrait-685.jpg"
+      }
+    ]
+  },
+  "/images/products/rival-duo-umbrella-lineart.png": {
+    "width": 763,
+    "height": 900,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-umbrella-lineart-400.avif"
+      },
+      {
+        "width": 763,
+        "path": "/images/optimized/products/rival-duo-umbrella-lineart-763.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-umbrella-lineart-400.webp"
+      },
+      {
+        "width": 763,
+        "path": "/images/optimized/products/rival-duo-umbrella-lineart-763.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-umbrella-lineart-400.png"
+      },
+      {
+        "width": 763,
+        "path": "/images/optimized/products/rival-duo-umbrella-lineart-763.png"
+      }
+    ]
+  },
+  "/images/products/rival-duo-umbrella-studio.jpg": {
+    "width": 672,
+    "height": 900,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-umbrella-studio-400.avif"
+      },
+      {
+        "width": 672,
+        "path": "/images/optimized/products/rival-duo-umbrella-studio-672.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-umbrella-studio-400.webp"
+      },
+      {
+        "width": 672,
+        "path": "/images/optimized/products/rival-duo-umbrella-studio-672.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-umbrella-studio-400.jpg"
+      },
+      {
+        "width": 672,
+        "path": "/images/optimized/products/rival-duo-umbrella-studio-672.jpg"
+      }
+    ]
+  },
+  "/images/products/rival-duo-wordmark-ar.png": {
+    "width": 900,
+    "height": 390,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-wordmark-ar-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-wordmark-ar-800.avif"
+      },
+      {
+        "width": 900,
+        "path": "/images/optimized/products/rival-duo-wordmark-ar-900.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-wordmark-ar-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-wordmark-ar-800.webp"
+      },
+      {
+        "width": 900,
+        "path": "/images/optimized/products/rival-duo-wordmark-ar-900.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-wordmark-ar-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/rival-duo-wordmark-ar-800.png"
+      },
+      {
+        "width": 900,
+        "path": "/images/optimized/products/rival-duo-wordmark-ar-900.png"
+      }
+    ]
+  },
+  "/images/products/rival-duo-wordmark-en.png": {
+    "width": 500,
+    "height": 337,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-wordmark-en-400.avif"
+      },
+      {
+        "width": 500,
+        "path": "/images/optimized/products/rival-duo-wordmark-en-500.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-wordmark-en-400.webp"
+      },
+      {
+        "width": 500,
+        "path": "/images/optimized/products/rival-duo-wordmark-en-500.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/rival-duo-wordmark-en-400.png"
+      },
+      {
+        "width": 500,
+        "path": "/images/optimized/products/rival-duo-wordmark-en-500.png"
+      }
+    ]
+  },
+  "/images/products/signal-npk-12-5-40-product.png": {
+    "width": 1466,
+    "height": 1162,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-12-5-40-product-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-12-5-40-product-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-12-5-40-product-1200.avif"
+      },
+      {
+        "width": 1466,
+        "path": "/images/optimized/products/signal-npk-12-5-40-product-1466.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-12-5-40-product-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-12-5-40-product-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-12-5-40-product-1200.webp"
+      },
+      {
+        "width": 1466,
+        "path": "/images/optimized/products/signal-npk-12-5-40-product-1466.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-12-5-40-product-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-12-5-40-product-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-12-5-40-product-1200.png"
+      },
+      {
+        "width": 1466,
+        "path": "/images/optimized/products/signal-npk-12-5-40-product-1466.png"
+      }
+    ]
+  },
+  "/images/products/signal-npk-14-48-0-product.png": {
+    "width": 1466,
+    "height": 1162,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-14-48-0-product-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-14-48-0-product-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-14-48-0-product-1200.avif"
+      },
+      {
+        "width": 1466,
+        "path": "/images/optimized/products/signal-npk-14-48-0-product-1466.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-14-48-0-product-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-14-48-0-product-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-14-48-0-product-1200.webp"
+      },
+      {
+        "width": 1466,
+        "path": "/images/optimized/products/signal-npk-14-48-0-product-1466.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-14-48-0-product-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-14-48-0-product-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-14-48-0-product-1200.png"
+      },
+      {
+        "width": 1466,
+        "path": "/images/optimized/products/signal-npk-14-48-0-product-1466.png"
+      }
+    ]
+  },
+  "/images/products/signal-npk-20-20-20-product.png": {
+    "width": 1466,
+    "height": 1162,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-20-20-20-product-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-20-20-20-product-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-20-20-20-product-1200.avif"
+      },
+      {
+        "width": 1466,
+        "path": "/images/optimized/products/signal-npk-20-20-20-product-1466.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-20-20-20-product-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-20-20-20-product-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-20-20-20-product-1200.webp"
+      },
+      {
+        "width": 1466,
+        "path": "/images/optimized/products/signal-npk-20-20-20-product-1466.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-20-20-20-product-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-20-20-20-product-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-20-20-20-product-1200.png"
+      },
+      {
+        "width": 1466,
+        "path": "/images/optimized/products/signal-npk-20-20-20-product-1466.png"
+      }
+    ]
+  },
+  "/images/products/signal-npk-detail.png": {
+    "width": 1974,
+    "height": 1974,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-detail-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-detail-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/signal-npk-detail-1600.avif"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/signal-npk-detail-1974.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-detail-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-detail-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/signal-npk-detail-1600.webp"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/signal-npk-detail-1974.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-detail-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-detail-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/signal-npk-detail-1600.png"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/signal-npk-detail-1974.png"
+      }
+    ]
+  },
+  "/images/products/signal-npk-gallery.png": {
+    "width": 1494,
+    "height": 1974,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-gallery-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-gallery-1200.avif"
+      },
+      {
+        "width": 1494,
+        "path": "/images/optimized/products/signal-npk-gallery-1494.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-gallery-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-gallery-1200.webp"
+      },
+      {
+        "width": 1494,
+        "path": "/images/optimized/products/signal-npk-gallery-1494.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-gallery-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-gallery-1200.png"
+      },
+      {
+        "width": 1494,
+        "path": "/images/optimized/products/signal-npk-gallery-1494.png"
+      }
+    ]
+  },
+  "/images/products/signal-npk-mode.png": {
+    "width": 1974,
+    "height": 1974,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-mode-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-mode-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-mode-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/signal-npk-mode-1600.avif"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/signal-npk-mode-1974.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-mode-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-mode-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-mode-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/signal-npk-mode-1600.webp"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/signal-npk-mode-1974.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/signal-npk-mode-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/signal-npk-mode-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/signal-npk-mode-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/products/signal-npk-mode-1600.png"
+      },
+      {
+        "width": 1974,
+        "path": "/images/optimized/products/signal-npk-mode-1974.png"
+      }
+    ]
+  },
+  "/images/products/technical-materials.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/technical-materials-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/technical-materials-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/technical-materials-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/technical-materials-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/technical-materials-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/technical-materials-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/technical-materials-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/technical-materials-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/technical-materials-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/technical-materials-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/products/technical-materials-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/products/technical-materials-1400.jpg"
+      }
+    ]
+  },
+  "/images/products/tesla-detail.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/tesla-detail-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/tesla-detail-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/tesla-detail-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/tesla-detail-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/tesla-detail-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/tesla-detail-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/tesla-detail-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/tesla-detail-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/tesla-detail-1080.png"
+      }
+    ]
+  },
+  "/images/products/tesla-gallery.png": {
+    "width": 1080,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/tesla-gallery-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/tesla-gallery-800.avif"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/tesla-gallery-1080.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/tesla-gallery-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/tesla-gallery-800.webp"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/tesla-gallery-1080.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/products/tesla-gallery-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/products/tesla-gallery-800.png"
+      },
+      {
+        "width": 1080,
+        "path": "/images/optimized/products/tesla-gallery-1080.png"
+      }
+    ]
+  },
+  "/images/categories/crop-protection-field.jpg": {
+    "width": 2048,
+    "height": 2048,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/categories/crop-protection-field-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/categories/crop-protection-field-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/categories/crop-protection-field-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/categories/crop-protection-field-1600.avif"
+      },
+      {
+        "width": 2048,
+        "path": "/images/optimized/categories/crop-protection-field-2048.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/categories/crop-protection-field-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/categories/crop-protection-field-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/categories/crop-protection-field-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/categories/crop-protection-field-1600.webp"
+      },
+      {
+        "width": 2048,
+        "path": "/images/optimized/categories/crop-protection-field-2048.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/categories/crop-protection-field-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/categories/crop-protection-field-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/categories/crop-protection-field-1200.jpg"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/categories/crop-protection-field-1600.jpg"
+      },
+      {
+        "width": 2048,
+        "path": "/images/optimized/categories/crop-protection-field-2048.jpg"
+      }
+    ]
+  },
+  "/images/categories/crop-protection-field1.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/categories/crop-protection-field1-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/categories/crop-protection-field1-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/categories/crop-protection-field1-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/categories/crop-protection-field1-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/categories/crop-protection-field1-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/categories/crop-protection-field1-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/categories/crop-protection-field1-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/categories/crop-protection-field1-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/categories/crop-protection-field1-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/categories/crop-protection-field1-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/categories/crop-protection-field1-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/categories/crop-protection-field1-1400.jpg"
+      }
+    ]
+  },
+  "/images/categories/plant-nutrition-field.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/categories/plant-nutrition-field-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/categories/plant-nutrition-field-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/categories/plant-nutrition-field-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/categories/plant-nutrition-field-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/categories/plant-nutrition-field-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/categories/plant-nutrition-field-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/categories/plant-nutrition-field-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/categories/plant-nutrition-field-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/categories/plant-nutrition-field-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/categories/plant-nutrition-field-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/categories/plant-nutrition-field-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/categories/plant-nutrition-field-1400.jpg"
+      }
+    ]
+  },
+  "/images/categories/technical-support-field.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/categories/technical-support-field-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/categories/technical-support-field-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/categories/technical-support-field-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/categories/technical-support-field-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/categories/technical-support-field-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/categories/technical-support-field-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/categories/technical-support-field-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/categories/technical-support-field-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/categories/technical-support-field-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/categories/technical-support-field-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/categories/technical-support-field-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/categories/technical-support-field-1400.jpg"
+      }
+    ]
+  },
+  "/images/hero/about-partnership.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/about-partnership-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/about-partnership-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/about-partnership-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/about-partnership-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/about-partnership-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/about-partnership-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/about-partnership-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/about-partnership-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/about-partnership-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/about-partnership-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/about-partnership-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/about-partnership-1400.jpg"
+      }
+    ]
+  },
+  "/images/hero/agropest-field.jpg": {
+    "width": 1200,
+    "height": 1184,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/agropest-field-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/agropest-field-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/agropest-field-1200.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/agropest-field-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/agropest-field-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/agropest-field-1200.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/agropest-field-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/agropest-field-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/agropest-field-1200.jpg"
+      }
+    ]
+  },
+  "/images/hero/agropest-greenhouse.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/agropest-greenhouse-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/agropest-greenhouse-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/agropest-greenhouse-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/agropest-greenhouse-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/agropest-greenhouse-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/agropest-greenhouse-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/agropest-greenhouse-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/agropest-greenhouse-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/agropest-greenhouse-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/agropest-greenhouse-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/agropest-greenhouse-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/agropest-greenhouse-1400.jpg"
+      }
+    ]
+  },
+  "/images/hero/contact-greenhouse.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/contact-greenhouse-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/contact-greenhouse-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/contact-greenhouse-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/contact-greenhouse-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/contact-greenhouse-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/contact-greenhouse-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/contact-greenhouse-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/contact-greenhouse-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/contact-greenhouse-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/contact-greenhouse-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/contact-greenhouse-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/contact-greenhouse-1400.jpg"
+      }
+    ]
+  },
+  "/images/hero/library-documents.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/library-documents-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/library-documents-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/library-documents-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/library-documents-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/library-documents-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/library-documents-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/library-documents-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/library-documents-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/library-documents-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/library-documents-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/library-documents-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/library-documents-1400.jpg"
+      }
+    ]
+  },
+  "/images/hero/products-crop-inputs.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/products-crop-inputs-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/products-crop-inputs-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/products-crop-inputs-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/products-crop-inputs-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/products-crop-inputs-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/products-crop-inputs-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/products-crop-inputs-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/products-crop-inputs-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/products-crop-inputs-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/products-crop-inputs-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/products-crop-inputs-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/products-crop-inputs-1400.jpg"
+      }
+    ]
+  },
+  "/images/hero/solutions-logistics.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/solutions-logistics-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/solutions-logistics-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/solutions-logistics-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/solutions-logistics-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/solutions-logistics-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/solutions-logistics-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/solutions-logistics-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/solutions-logistics-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/solutions-logistics-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/solutions-logistics-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/solutions-logistics-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/hero/solutions-logistics-1400.jpg"
+      }
+    ]
+  },
+  "/images/backgrounds/egypt-field-rows.jpg": {
+    "width": 1200,
+    "height": 1184,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/backgrounds/egypt-field-rows-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/backgrounds/egypt-field-rows-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/backgrounds/egypt-field-rows-1200.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/backgrounds/egypt-field-rows-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/backgrounds/egypt-field-rows-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/backgrounds/egypt-field-rows-1200.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/backgrounds/egypt-field-rows-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/backgrounds/egypt-field-rows-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/backgrounds/egypt-field-rows-1200.jpg"
+      }
+    ]
+  },
+  "/images/backgrounds/warehouse-coordination.jpg": {
+    "width": 1200,
+    "height": 1184,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/backgrounds/warehouse-coordination-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/backgrounds/warehouse-coordination-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/backgrounds/warehouse-coordination-1200.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/backgrounds/warehouse-coordination-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/backgrounds/warehouse-coordination-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/backgrounds/warehouse-coordination-1200.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/backgrounds/warehouse-coordination-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/backgrounds/warehouse-coordination-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/backgrounds/warehouse-coordination-1200.jpg"
+      }
+    ]
+  },
+  "/images/backgrounds/warehouse-coordination1.jpg": {
+    "width": 1400,
+    "height": 920,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/backgrounds/warehouse-coordination1-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/backgrounds/warehouse-coordination1-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/backgrounds/warehouse-coordination1-1200.avif"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/backgrounds/warehouse-coordination1-1400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/backgrounds/warehouse-coordination1-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/backgrounds/warehouse-coordination1-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/backgrounds/warehouse-coordination1-1200.webp"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/backgrounds/warehouse-coordination1-1400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/backgrounds/warehouse-coordination1-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/backgrounds/warehouse-coordination1-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/backgrounds/warehouse-coordination1-1200.jpg"
+      },
+      {
+        "width": 1400,
+        "path": "/images/optimized/backgrounds/warehouse-coordination1-1400.jpg"
+      }
+    ]
+  },
+  "/images/featured/fossil-featured-logo-ar-transparent.png": {
+    "width": 948,
+    "height": 358,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-800.avif"
+      },
+      {
+        "width": 948,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-948.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-800.webp"
+      },
+      {
+        "width": 948,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-948.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-800.png"
+      },
+      {
+        "width": 948,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-948.png"
+      }
+    ]
+  },
+  "/images/featured/fossil-featured-logo-ar.png": {
+    "width": 952,
+    "height": 387,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-800.avif"
+      },
+      {
+        "width": 952,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-952.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-800.webp"
+      },
+      {
+        "width": 952,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-952.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-800.png"
+      },
+      {
+        "width": 952,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-952.png"
+      }
+    ]
+  },
+  "/images/featured/fossil-featured-logo-en-transparent.png": {
+    "width": 950,
+    "height": 346,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-800.avif"
+      },
+      {
+        "width": 950,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-950.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-800.webp"
+      },
+      {
+        "width": 950,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-950.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-800.png"
+      },
+      {
+        "width": 950,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-950.png"
+      }
+    ]
+  },
+  "/images/featured/fossil-featured-logo-en.png": {
+    "width": 953,
+    "height": 377,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-800.avif"
+      },
+      {
+        "width": 953,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-953.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-800.webp"
+      },
+      {
+        "width": 953,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-953.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-800.png"
+      },
+      {
+        "width": 953,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-953.png"
+      }
+    ]
+  },
+  "/images/featured/lasix-featured-logo-ar-transparent.png": {
+    "width": 946,
+    "height": 438,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-800.avif"
+      },
+      {
+        "width": 946,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-946.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-800.webp"
+      },
+      {
+        "width": 946,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-946.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-800.png"
+      },
+      {
+        "width": 946,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-946.png"
+      }
+    ]
+  },
+  "/images/featured/lasix-featured-logo-ar.png": {
+    "width": 2780,
+    "height": 1287,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-1600.avif"
+      },
+      {
+        "width": 2780,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-2780.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-1600.webp"
+      },
+      {
+        "width": 2780,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-2780.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-1600.png"
+      },
+      {
+        "width": 2780,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-2780.png"
+      }
+    ]
+  },
+  "/images/featured/lasix-featured-logo-en-transparent.png": {
+    "width": 927,
+    "height": 377,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-800.avif"
+      },
+      {
+        "width": 927,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-927.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-800.webp"
+      },
+      {
+        "width": 927,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-927.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-800.png"
+      },
+      {
+        "width": 927,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-927.png"
+      }
+    ]
+  },
+  "/images/featured/lasix-featured-logo-en.png": {
+    "width": 2598,
+    "height": 1056,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-1600.avif"
+      },
+      {
+        "width": 2598,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-2598.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-1600.webp"
+      },
+      {
+        "width": 2598,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-2598.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-1600.png"
+      },
+      {
+        "width": 2598,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-2598.png"
+      }
+    ]
+  },
+  "/images/featured/rival-duo-featured-logo-ar-transparent.png": {
+    "width": 617,
+    "height": 384,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-ar-transparent-400.avif"
+      },
+      {
+        "width": 617,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-ar-transparent-617.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-ar-transparent-400.webp"
+      },
+      {
+        "width": 617,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-ar-transparent-617.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-ar-transparent-400.png"
+      },
+      {
+        "width": 617,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-ar-transparent-617.png"
+      }
+    ]
+  },
+  "/images/featured/rival-duo-featured-logo-ar.png": {
+    "width": 618,
+    "height": 384,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-ar-400.avif"
+      },
+      {
+        "width": 618,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-ar-618.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-ar-400.webp"
+      },
+      {
+        "width": 618,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-ar-618.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-ar-400.png"
+      },
+      {
+        "width": 618,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-ar-618.png"
+      }
+    ]
+  },
+  "/images/featured/rival-duo-featured-logo-en-transparent.png": {
+    "width": 559,
+    "height": 377,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-en-transparent-400.avif"
+      },
+      {
+        "width": 559,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-en-transparent-559.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-en-transparent-400.webp"
+      },
+      {
+        "width": 559,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-en-transparent-559.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-en-transparent-400.png"
+      },
+      {
+        "width": 559,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-en-transparent-559.png"
+      }
+    ]
+  },
+  "/images/featured/rival-duo-featured-logo-en.png": {
+    "width": 559,
+    "height": 377,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-en-400.avif"
+      },
+      {
+        "width": 559,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-en-559.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-en-400.webp"
+      },
+      {
+        "width": 559,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-en-559.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-en-400.png"
+      },
+      {
+        "width": 559,
+        "path": "/images/optimized/featured/rival-duo-featured-logo-en-559.png"
+      }
+    ]
+  },
+  "/images/featured/signal-npk-featured-logo-ar-transparent.png": {
+    "width": 2121,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-1600.avif"
+      },
+      {
+        "width": 2121,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-2121.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-1600.webp"
+      },
+      {
+        "width": 2121,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-2121.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-1600.png"
+      },
+      {
+        "width": 2121,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-transparent-2121.png"
+      }
+    ]
+  },
+  "/images/featured/signal-npk-featured-logo-ar.png": {
+    "width": 2121,
+    "height": 1700,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-1600.avif"
+      },
+      {
+        "width": 2121,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-2121.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-1600.webp"
+      },
+      {
+        "width": 2121,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-2121.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-1600.png"
+      },
+      {
+        "width": 2121,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-ar-2121.png"
+      }
+    ]
+  },
+  "/images/featured/signal-npk-featured-logo-en-transparent.png": {
+    "width": 1783,
+    "height": 1697,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-1600.avif"
+      },
+      {
+        "width": 1783,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-1783.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-1600.webp"
+      },
+      {
+        "width": 1783,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-1783.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-1600.png"
+      },
+      {
+        "width": 1783,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-transparent-1783.png"
+      }
+    ]
+  },
+  "/images/featured/signal-npk-featured-logo-en.png": {
+    "width": 1783,
+    "height": 1697,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-1600.avif"
+      },
+      {
+        "width": 1783,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-1783.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-1600.webp"
+      },
+      {
+        "width": 1783,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-1783.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-1600.png"
+      },
+      {
+        "width": 1783,
+        "path": "/images/optimized/featured/signal-npk-featured-logo-en-1783.png"
+      }
+    ]
+  },
+  "/images/partners/agria-bulgaria-logo-supplied.png": {
+    "width": 293,
+    "height": 112,
+    "avif": [
+      {
+        "width": 293,
+        "path": "/images/optimized/partners/agria-bulgaria-logo-supplied-293.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 293,
+        "path": "/images/optimized/partners/agria-bulgaria-logo-supplied-293.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 293,
+        "path": "/images/optimized/partners/agria-bulgaria-logo-supplied-293.png"
+      }
+    ]
+  },
+  "/images/partners/agrii-logo-supplied.png": {
+    "width": 220,
+    "height": 84,
+    "avif": [
+      {
+        "width": 220,
+        "path": "/images/optimized/partners/agrii-logo-supplied-220.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 220,
+        "path": "/images/optimized/partners/agrii-logo-supplied-220.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 220,
+        "path": "/images/optimized/partners/agrii-logo-supplied-220.png"
+      }
+    ]
+  },
+  "/images/partners/eurogro-logo-supplied.png": {
+    "width": 466,
+    "height": 107,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/partners/eurogro-logo-supplied-400.avif"
+      },
+      {
+        "width": 466,
+        "path": "/images/optimized/partners/eurogro-logo-supplied-466.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/partners/eurogro-logo-supplied-400.webp"
+      },
+      {
+        "width": 466,
+        "path": "/images/optimized/partners/eurogro-logo-supplied-466.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/partners/eurogro-logo-supplied-400.png"
+      },
+      {
+        "width": 466,
+        "path": "/images/optimized/partners/eurogro-logo-supplied-466.png"
+      }
+    ]
+  },
+  "/images/partners/star-cropscience-logo-supplied.png": {
+    "width": 228,
+    "height": 151,
+    "avif": [
+      {
+        "width": 228,
+        "path": "/images/optimized/partners/star-cropscience-logo-supplied-228.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 228,
+        "path": "/images/optimized/partners/star-cropscience-logo-supplied-228.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 228,
+        "path": "/images/optimized/partners/star-cropscience-logo-supplied-228.png"
+      }
+    ]
+  },
+  "/images/brand/agropest-footer-asset-39-exact.png": {
+    "width": 3492,
+    "height": 2966,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-1600.avif"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-3492.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-1600.webp"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-3492.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-1600.png"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-footer-asset-39-exact-3492.png"
+      }
+    ]
+  },
+  "/images/brand/agropest-logo-contrast-original.png": {
+    "width": 3492,
+    "height": 2966,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-1600.avif"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-3492.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-1600.webp"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-3492.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-1600.png"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-logo-contrast-original-3492.png"
+      }
+    ]
+  },
+  "/images/brand/agropest-logo-contrast.png": {
+    "width": 3492,
+    "height": 580,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-contrast-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-contrast-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-contrast-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-logo-contrast-1600.avif"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-logo-contrast-3492.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-contrast-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-contrast-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-contrast-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-logo-contrast-1600.webp"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-logo-contrast-3492.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-contrast-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-contrast-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-contrast-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-logo-contrast-1600.png"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-logo-contrast-3492.png"
+      }
+    ]
+  },
+  "/images/brand/agropest-logo-footer-asset-39-original.png": {
+    "width": 3492,
+    "height": 2966,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-1600.avif"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-3492.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-1600.webp"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-3492.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-1600.png"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-original-3492.png"
+      }
+    ]
+  },
+  "/images/brand/agropest-logo-footer-asset-39.png": {
+    "width": 3492,
+    "height": 580,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-1600.avif"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-3492.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-1600.webp"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-3492.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-1600.png"
+      },
+      {
+        "width": 3492,
+        "path": "/images/optimized/brand/agropest-logo-footer-asset-39-3492.png"
+      }
+    ]
+  },
+  "/images/brand/agropest-logo.png": {
+    "width": 1266,
+    "height": 1199,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-1200.avif"
+      },
+      {
+        "width": 1266,
+        "path": "/images/optimized/brand/agropest-logo-1266.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-1200.webp"
+      },
+      {
+        "width": 1266,
+        "path": "/images/optimized/brand/agropest-logo-1266.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/brand/agropest-logo-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/brand/agropest-logo-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/brand/agropest-logo-1200.png"
+      },
+      {
+        "width": 1266,
+        "path": "/images/optimized/brand/agropest-logo-1266.png"
+      }
+    ]
+  }
+}

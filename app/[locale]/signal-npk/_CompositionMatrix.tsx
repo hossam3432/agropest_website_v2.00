@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 /* ————————————————————————————————————————————————————————————————
    SIGNAL NPK — interactive composition matrix (client)
@@ -130,14 +130,12 @@ export default function CompositionMatrix({
             </div>
           </div>
           <div className="relative flex flex-col items-center">
-            <Image
+            <ResponsiveImage
               src={v.image}
               alt={`Signal NPK ${v.npk} — ${v.name}`}
-              width={640}
-              height={640}
               sizes="(min-width: 640px) 360px, 280px"
               className="sg-float h-64 w-auto object-contain drop-shadow-2xl sm:h-80"
-              priority={false}
+              objectFit="contain"
             />
             <p className="mt-6 max-w-sm text-center text-sm leading-relaxed sm:text-base" style={{ color: INK + "B3" }}>
               {v.focus}

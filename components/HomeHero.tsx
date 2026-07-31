@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { AnimatedAccentLine } from "@/components/animations";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
 
 type HomeHeroProps = {
@@ -53,8 +52,12 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
 
   return (
     <section className="relative isolate overflow-hidden bg-[radial-gradient(circle_at_14%_12%,rgba(217,146,39,0.22),transparent_28%),linear-gradient(135deg,#06281f_0%,#0A3D2B_42%,#17324d_100%)] text-white">
-      <AnimatedAccentLine className="absolute start-0 top-0 h-1 bg-agri-gold" />
-      <AnimatedAccentLine className="absolute end-0 top-24 hidden h-px bg-agri-gold/50 lg:block" width="42%" delay={0.15} />
+      <div aria-hidden="true" className="hero-accent-line absolute start-0 top-0 h-1 w-full bg-agri-gold" />
+      <div
+        aria-hidden="true"
+        className="hero-accent-line absolute end-0 top-24 hidden h-px w-[42%] bg-agri-gold/50 lg:block"
+        style={{ animationDelay: "0.15s" }}
+      />
       <div className="absolute -end-28 -top-28 h-80 w-80 rounded-full border border-white/10" />
       <div className="absolute -bottom-36 start-1/4 h-96 w-96 rounded-full bg-agri-gold/10 blur-3xl" />
       <div className="hero-pattern-overlay" />

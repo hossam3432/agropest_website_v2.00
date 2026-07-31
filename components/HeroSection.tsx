@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { localizeHref, type Locale } from "@/lib/content";
 
 type HeroSectionProps = {
@@ -26,11 +27,11 @@ export function HeroSection({
 }: HeroSectionProps) {
   return (
     <section className={`relative isolate overflow-hidden ${compact ? "min-h-[380px]" : "min-h-[72svh]"} bg-agri-blue`}>
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-center"
-        style={backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : undefined}
-      />
+      {backgroundImage ? (
+        <div aria-hidden="true" className="absolute inset-0">
+          <ResponsiveImage src={backgroundImage} alt="" className="h-full w-full" objectFit="cover" priority />
+        </div>
+      ) : null}
       <div className="absolute inset-0 bg-gradient-to-r from-agri-blue via-agri-blue/80 to-agri-green/40" />
       <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-agri-mist to-transparent" />
 

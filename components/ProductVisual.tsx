@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 type ProductVisualProps = {
   src: string;
@@ -8,17 +9,21 @@ type ProductVisualProps = {
   eyebrow: string;
   label: string;
   className?: string;
+  priority?: boolean;
 };
 
-export function ProductVisual({ src, alt, eyebrow, label, className }: ProductVisualProps) {
+export function ProductVisual({ src, alt, eyebrow, label, className, priority = false }: ProductVisualProps) {
   const [hasImageError, setHasImageError] = useState(false);
 
   return (
     <div className={`relative overflow-hidden bg-transparent ${className ?? ""}`}>
       {!hasImageError ? (
-        <img
+        <ResponsiveImage
           alt={alt}
           className="absolute inset-0 h-full w-full object-contain"
+          objectFit="contain"
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          priority={priority}
           onError={() => setHasImageError(true)}
           src={src}
         />

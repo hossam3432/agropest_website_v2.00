@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
 
 type FooterProps = {
@@ -15,7 +16,13 @@ export function Footer({ content, locale }: FooterProps) {
       <div className="container-shell grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
         <div>
           <div>
-            <img src={company.logoContrastPath} alt={company.logoContrastAlt} className="h-28 w-28 max-w-full object-contain sm:h-32 sm:w-32" />
+            <ResponsiveImage
+              src={company.logoContrastPath}
+              alt={company.logoContrastAlt}
+              className="h-28 w-28 max-w-full object-contain sm:h-32 sm:w-32"
+              objectFit="contain"
+              sizes="128px"
+            />
             <p className="mt-3 text-sm text-white/70">{company.footerDescriptor}</p>
           </div>
           <p className="mt-6 max-w-md leading-7 text-white/75">{company.tagline}</p>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import {
   languageCookieName,
   localizeHref,
@@ -72,7 +73,7 @@ export function Navbar({ content, locale }: NavbarProps) {
               scrolled ? "h-9 w-9" : "h-12 w-12"
             }`}
           >
-            <img src={company.logoPath} alt={company.logoAlt} className="h-full w-full object-contain" />
+            <ResponsiveImage src={company.logoPath} alt={company.logoAlt} className="h-full w-full object-contain" objectFit="contain" sizes="48px" priority />
           </span>
           {scrolled ? null : (
             <span className="min-w-0">

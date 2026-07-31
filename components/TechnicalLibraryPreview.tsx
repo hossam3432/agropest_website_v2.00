@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { RevealSection } from "@/components/animations";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
 
 type TechnicalLibraryPreviewProps = {
@@ -17,12 +17,12 @@ export function TechnicalLibraryPreview({ content, locale, className = "" }: Tec
       <div className="container-shell grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-14">
         <RevealSection amount={0.15}>
           <div className="relative min-h-[195px] overflow-hidden bg-agri-blue shadow-soft sm:min-h-[250px] lg:min-h-[280px]">
-            <Image
+            <ResponsiveImage
               src={technicalLibraryPreview.image}
               alt={technicalLibraryPreview.imageAlt}
-              fill
               sizes="(min-width: 1024px) 45vw, 100vw"
-              className="object-cover"
+              className="absolute inset-0 h-full w-full object-cover"
+              objectFit="cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-agri-blue/90 via-agri-blue/20 to-transparent" />
             <div className="absolute top-5 start-5 end-5 border border-white/20 bg-white/10 p-5 text-white backdrop-blur-sm sm:top-8 sm:start-8 sm:end-8">

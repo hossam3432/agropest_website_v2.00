@@ -9,6 +9,7 @@ import { RivalDuoSectionKicker } from "@/components/RivalDuoSectionKicker";
 import { RivalDuoTimingSection } from "@/components/RivalDuoTimingSection";
 import { RivalDuoFit } from "@/components/RivalDuoFit";
 import { RivalDuoOomyceteCards } from "@/components/RivalDuoOomyceteCards";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { getProductByAnySlug, getProductPath } from "@/lib/products";
 import { locales, type Locale } from "@/lib/content";
@@ -332,7 +333,7 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
         <div className="relative bg-[#F5F8FC]">
           <div className="pointer-events-none absolute inset-0 z-0">
             <div className="sticky top-0 flex h-[calc(100svh-5rem)] w-full items-center justify-center overflow-hidden">
-              <img src="/images/products/rival-duo-umbrella-lineart.png" alt="" aria-hidden="true" className="h-[140%] w-auto max-w-none opacity-[0.13]" style={locale === "ar" ? { transform: "scaleX(-1)" } : undefined} />
+              <ResponsiveImage src="/images/products/rival-duo-umbrella-lineart.png" alt="" aria-hidden="true" className="h-[140%] w-auto max-w-none opacity-[0.13]" objectFit="contain" sizes="100vw" priority style={locale === "ar" ? { transform: "scaleX(-1)" } : undefined} />
             </div>
           </div>
           <div className="relative z-10">
@@ -343,7 +344,7 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
             <RevealSection className="container-shell relative w-full lg:mx-auto lg:max-w-5xl" amount={0.2}>
               <div className="mx-auto max-w-4xl lg:max-w-none">
                 <div className="flex flex-wrap items-center gap-5">
-                  <img src={wordmark} alt={c.nav.eyebrow} className="h-24 w-auto object-contain sm:h-[120px] lg:h-36" />
+                  <ResponsiveImage src={wordmark} alt={c.nav.eyebrow} className="h-24 w-auto object-contain sm:h-[120px] lg:h-36" objectFit="contain" sizes="144px" />
                 </div>
                 <DoubleLine className="mt-6" rtl={locale === "ar"} />
                 <span className="mt-3 inline-block rounded-full border-2 px-5 py-2.5 text-sm font-normal uppercase tracking-[0.14em] sm:text-base" style={{ borderColor: BLUE, color: BLUE }}>{c.nav.badge}</span>
@@ -387,7 +388,7 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
             <RevealSection className="container-shell w-full lg:mx-auto lg:max-w-5xl" amount={0.2}>
               <div className="flex flex-wrap items-center gap-5">
                 <RivalDuoSectionKicker>{c.s3.kicker}</RivalDuoSectionKicker>
-                <img src="/images/products/rival-duo-shield-logo.png" alt="" className="h-16 w-auto object-contain sm:h-20" />
+                <ResponsiveImage src="/images/products/rival-duo-shield-logo.png" alt="" className="h-16 w-auto object-contain sm:h-20" objectFit="contain" sizes="80px" />
               </div>
               <h2 className="mt-4 max-w-4xl text-3xl font-extrabold leading-[1.15]" style={{ color: INK }}>{c.s3.title}</h2>
               <RivalDuoCompositionToggle
@@ -462,7 +463,7 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
           <RivalDuoFit>
           <RevealSection className="container-shell relative z-10 w-full lg:mx-auto lg:max-w-5xl" amount={0.2}>
             <div className="flex flex-wrap items-center gap-4 sm:gap-5">
-              <img src="/images/products/rival-duo-shield-logo.png" alt="" className="h-12 w-auto object-contain sm:h-20" />
+              <ResponsiveImage src="/images/products/rival-duo-shield-logo.png" alt="" className="h-12 w-auto object-contain sm:h-20" objectFit="contain" sizes="80px" />
               <h2 className="text-3xl font-extrabold leading-[1.15]" style={{ color: INK }}>{c.s7.title}</h2>
             </div>
             <StaggerContainer className="mt-4 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-4" amount={0.15}>
@@ -501,10 +502,16 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
             <div className="grid gap-4 sm:gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
               {/* Mobile: bleed the bottles past the container — the image is width-bound there, so max-h alone can't enlarge it. */}
               <div className="-mx-[5%] sm:mx-auto sm:w-3/4">
-                <img src="/images/products/rival-duo-bottles-2026.png" alt={c.s8.eyebrow} className="mx-auto h-auto max-h-[clamp(320px,68vh,720px)] w-3/4 object-contain drop-shadow-[0_30px_60px_rgba(14,75,159,0.25)] sm:w-full" />
+                <ResponsiveImage
+                  src="/images/products/rival-duo-bottles-2026.png"
+                  alt={c.s8.eyebrow}
+                  className="mx-auto h-auto max-h-[clamp(320px,68vh,720px)] w-3/4 object-contain drop-shadow-[0_30px_60px_rgba(14,75,159,0.25)] sm:w-full"
+                  objectFit="contain"
+                  sizes="(min-width: 1024px) 40vw, 75vw"
+                />
               </div>
               <div className="ml-auto mr-[50px]">
-                <img src={wordmark} alt={c.nav.eyebrow} className="h-20 w-auto object-contain sm:h-24" />
+                <ResponsiveImage src={wordmark} alt={c.nav.eyebrow} className="h-20 w-auto object-contain sm:h-24" objectFit="contain" sizes="96px" />
                 <h2 className="mt-4 max-w-xl text-xl font-extrabold leading-[1.3] sm:text-2xl lg:text-3xl" style={{ color: INK }}>{c.s8.tagline}</h2>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">{c.s8.manufacturerLabel}</p><p className="mt-1 text-base font-bold" style={{ color: INK }}>{c.s8.manufacturer}</p></div>

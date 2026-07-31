@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { RevealSection } from "@/components/animations";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { localizeHref, type Locale } from "@/lib/content";
 
 type CTASectionProps = {
@@ -53,11 +54,9 @@ export function CTASection({
       <div className="container-shell">
         <RevealSection className="relative overflow-hidden rounded-3xl bg-agri-blue px-6 py-12 text-white shadow-soft sm:px-10 sm:py-14 lg:px-12 lg:py-12" amount={0.15}>
           {backgroundImage ? (
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-cover bg-center opacity-25"
-              style={{ backgroundImage: `url(${backgroundImage})` }}
-            />
+            <div aria-hidden="true" className="absolute inset-0 opacity-25">
+              <ResponsiveImage src={backgroundImage} alt="" className="h-full w-full" objectFit="cover" />
+            </div>
           ) : null}
           <div className="absolute inset-0 bg-gradient-to-r from-agri-blue via-agri-blue/90 to-agri-green/75" />
           <div className="absolute right-0 top-0 hidden h-full w-1/4 border-l border-white/10 bg-white/5 lg:block" />
