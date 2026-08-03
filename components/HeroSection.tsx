@@ -38,7 +38,13 @@ export function HeroSection({
       <div className="container-shell relative flex min-h-[inherit] items-center py-20">
         <div className="max-w-3xl text-white">
           {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-          <h1 className="mt-5 max-w-4xl text-3xl font-bold leading-[1.22] tracking-normal sm:text-4xl sm:leading-[1.18] lg:text-5xl lg:leading-[1.16]">{title}</h1>
+          <h1
+            className={`mt-5 max-w-4xl text-3xl font-bold leading-[1.22] tracking-normal sm:text-4xl sm:leading-[1.18] lg:text-5xl lg:leading-[1.16] ${
+              locale === "ar" ? "lg:font-semibold" : ""
+            }`}
+          >
+            {title}
+          </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/85 sm:text-xl">{subtitle}</p>
           {description ? <p className="mt-4 max-w-3xl text-base leading-8 text-white/75 sm:text-lg">{description}</p> : null}
           {(primaryCta || secondaryCta) ? (

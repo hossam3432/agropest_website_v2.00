@@ -47,7 +47,7 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
   }, [signatureCards.length]);
 
   const headlineClassName = isArabic
-    ? "mt-5 w-full text-[32px] font-bold leading-[1.2] tracking-normal text-white sm:text-[38px] md:text-[44px] lg:text-[48px]"
+    ? "mt-5 w-full text-[32px] font-bold leading-[1.2] tracking-normal text-white sm:text-[38px] md:text-[44px] lg:text-[48px] lg:font-semibold"
     : "mt-5 w-full text-[32px] font-bold leading-[1.05] tracking-normal text-white sm:text-[38px] md:text-[44px] lg:text-[48px]";
 
   return (

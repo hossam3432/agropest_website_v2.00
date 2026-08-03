@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { Readex_Pro } from "next/font/google";
 import "./globals.css";
 import { enContent } from "@/lib/content/en";
 import { AnalyticsScripts } from "@/components/consent/AnalyticsScripts";
@@ -9,6 +10,15 @@ import { StructuredData } from "@/components/StructuredData";
 import { absoluteUrl, siteUrl } from "@/lib/seo";
 
 const { company } = enContent;
+
+// Site-wide typeface. The featured product landing pages (rival-duo-45-sc,
+// lasix-70-wg, edegal-72-2-sl, signal-npk) declare Cairo on their own root
+// element, so their direct declaration wins over this inherited one.
+const readexPro = Readex_Pro({
+  subsets: ["latin", "arabic"],
+  display: "swap",
+  variable: "--font-readex-pro"
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -41,7 +51,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${readexPro.variable} ${readexPro.className}`} suppressHydrationWarning>
       <body>
         <noscript>
           <iframe
