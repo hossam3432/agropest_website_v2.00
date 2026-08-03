@@ -45,8 +45,8 @@ export function Footer({ content, locale }: FooterProps) {
             <a className="transition hover:text-white" href={`mailto:${company.email}`}>
               {company.email}
             </a>
-            <a className="text-left transition hover:text-white" href={whatsappHref} dir="ltr">
-              {company.phone}
+            <a className="text-start transition hover:text-white" href={whatsappHref}>
+              <bdi dir="ltr">{company.phone}</bdi>
             </a>
             <p>{company.address}</p>
           </div>
