@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, type ReactNode } from "react";
 
 type RivalDuoScrollShellProps = {
@@ -11,6 +11,9 @@ export function RivalDuoScrollShell({ children }: RivalDuoScrollShellProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ container: containerRef });
+  // At the top of the page progress is 0, so a raw scaleY leaves nothing on
+  // screen but the faint track. Keep a visible cap at all times.
+  const fillScale = useTransform(scrollYProgress, [0, 1], [0.08, 1]);
 
   // A hard fling on a phone carries the native momentum scroll across several
   // snap panels at once. Drive the panning by hand instead: follow the finger,
@@ -99,17 +102,20 @@ export function RivalDuoScrollShell({ children }: RivalDuoScrollShellProps) {
 
   return (
     <div className="relative">
-      <div className="pointer-events-none fixed inset-y-20 left-3 z-30 hidden w-32 sm:block">
+      {/* Logical inset: stays on the left in RTL, mirrors to the right in LTR. */}
+      <div className="pointer-events-none fixed inset-y-20 end-3 z-30 hidden w-32 sm:block">
         <div className="relative h-full w-full">
-          <div className="absolute left-0 top-0 h-full w-[20px] rounded-t-full rounded-b-full bg-[#0E4B9F]/12" />
-          <div className="absolute left-0 top-0 h-full w-[8px] rounded-t-full rounded-b-full bg-[#F14723]/12" />
+          {/* 8-digit hex: Tailwind never emitted the `bg-[#0E4B9F]/12` opacity
+              modifier on an arbitrary hex, so these tracks rendered transparent. */}
+          <div className="absolute end-0 top-0 h-full w-[20px] rounded-t-full rounded-b-full bg-[#0E4B9F3D]" />
+          <div className="absolute end-0 top-0 h-full w-[8px] rounded-t-full rounded-b-full bg-[#F147233D]" />
           <motion.div
-            className="absolute left-0 top-0 w-[20px] origin-top rounded-t-full rounded-b-full bg-[#0E4B9F]"
-            style={{ scaleY: reducedMotion ? 1 : scrollYProgress, height: "100%" }}
+            className="absolute end-0 top-0 w-[20px] origin-top rounded-t-full rounded-b-full bg-[#0E4B9F]"
+            style={{ scaleY: reducedMotion ? 1 : fillScale, height: "100%" }}
           />
           <motion.div
-            className="absolute left-0 top-0 w-[8px] origin-top rounded-t-full rounded-b-full bg-[#F14723]"
-            style={{ scaleY: reducedMotion ? 1 : scrollYProgress, height: "100%" }}
+            className="absolute end-0 top-0 w-[8px] origin-top rounded-t-full rounded-b-full bg-[#F14723]"
+            style={{ scaleY: reducedMotion ? 1 : fillScale, height: "100%" }}
           />
         </div>
       </div>
