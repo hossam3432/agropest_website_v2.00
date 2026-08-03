@@ -1098,15 +1098,17 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
         "items": [
           {
             "type": "brochure",
-            "title": "Lasix 70 WG brochure",
-            "description": "Product profile covering the concept, uses, and key technical messages.",
-            "status": "Yes"
+            "title": "Brochure",
+            "description": "Product profile presenting the product concept, its main uses, and the key technical and commercial messages in a format suited to distributors and customers.",
+            "status": "Yes",
+            "href": "/brochures/lasix-70-wg-brochure.pdf"
           },
           {
             "type": "technical-sheet",
             "title": "Technical sheet",
-            "description": "Concise technical reference covering composition, formulation, use rates, and application guidance.",
-            "status": "Yes"
+            "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
+            "status": "Yes",
+            "href": "/brochures/lasix-70-wg-technical-sheet.pdf"
           }
         ]
       }
@@ -1206,15 +1208,17 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
     "documents": [
       {
         "type": "brochure",
-        "title": "Lasix 70 WG brochure",
-        "description": "Product profile covering the concept, uses, and key technical messages.",
-        "status": "Yes"
+        "title": "Brochure",
+        "description": "Product profile presenting the product concept, its main uses, and the key technical and commercial messages in a format suited to distributors and customers.",
+        "status": "Yes",
+        "href": "/brochures/lasix-70-wg-brochure.pdf"
       },
       {
         "type": "technical-sheet",
         "title": "Technical sheet",
-        "description": "Concise technical reference covering composition, formulation, use rates, and application guidance.",
-        "status": "Yes"
+        "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
+        "status": "Yes",
+        "href": "/brochures/lasix-70-wg-technical-sheet.pdf"
       }
     ]
   },
@@ -1398,8 +1402,9 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
           {
             "type": "brochure",
             "title": "Brochure",
-            "description": "Product profile covering the concept, dual composition, target crops, and key use messages.",
-            "status": "Yes"
+            "description": "Product profile presenting the product concept, its main uses, and the key technical and commercial messages in a format suited to distributors and customers.",
+            "status": "Yes",
+            "href": "/brochures/rival-duo-45-sc-brochure.pdf"
           },
           {
             "type": "label",
@@ -1410,8 +1415,9 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
           {
             "type": "technical-sheet",
             "title": "Technical sheet",
-            "description": "Concise technical reference covering composition, formulation, use rates, and pre-harvest intervals.",
-            "status": "Yes"
+            "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
+            "status": "Yes",
+            "href": "/brochures/rival-duo-45-sc-technical-sheet.pdf"
           },
           {
             "type": "certificate",
@@ -1512,8 +1518,9 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       {
         "type": "brochure",
         "title": "Brochure",
-        "description": "Product profile covering the concept, dual composition, target crops, and key use messages.",
-        "status": "Yes"
+        "description": "Product profile presenting the product concept, its main uses, and the key technical and commercial messages in a format suited to distributors and customers.",
+        "status": "Yes",
+        "href": "/brochures/rival-duo-45-sc-brochure.pdf"
       },
       {
         "type": "label",
@@ -1524,8 +1531,9 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       {
         "type": "technical-sheet",
         "title": "Technical sheet",
-        "description": "Concise technical reference covering composition, formulation, use rates, and pre-harvest intervals.",
-        "status": "Yes"
+        "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
+        "status": "Yes",
+        "href": "/brochures/rival-duo-45-sc-technical-sheet.pdf"
       },
       {
         "type": "registration-document",
@@ -1626,18 +1634,14 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
     ],
     "documents": [
       {
-        "title": "Brochure",
-        "description": "Product profile covering the concept, main uses, and key technical and commercial messages for distributors and customers.",
-        "status": "Yes"
-      },
-      {
         "title": "Label",
         "description": "Local label reference and approved use details.",
         "status": "Yes / on photographed pack"
       },
       {
+        "type": "technical-sheet",
         "title": "Technical sheet",
-        "description": "Concise technical reference covering composition, formulation, use rates, and the key product presentation points.",
+        "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
         "status": "Yes"
       },
       {
@@ -1771,16 +1775,13 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
             }
       ],
       "documents": [
-            {
-                  "title": "Brochure",
-                  "description": "Signal NPK series brochure covering the concept, formula differences, recommended rates, and crop-stage positioning.",
-                  "status": "Available"
-            },
-            {
-                  "title": "Technical sheet",
-                  "description": "Formula-specific reference covering composition, application rates, compatibility notes, and positioning in crop nutrition programs.",
-                  "status": "Available / can be prepared"
-            }
+        {
+          "type": "technical-sheet",
+          "title": "Technical sheet",
+          "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
+          "status": "Available / can be prepared",
+          "href": "/brochures/signal-npk-technical-sheet.pdf"
+        }
       ]
 },
     {
@@ -1906,16 +1907,13 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
             }
       ],
       "documents": [
-            {
-                  "title": "Brochure",
-                  "description": "Signal NPK series brochure covering the concept, formula differences, recommended rates, and crop-stage positioning.",
-                  "status": "Available"
-            },
-            {
-                  "title": "Technical sheet",
-                  "description": "Formula-specific reference covering composition, application rates, compatibility notes, and positioning in crop nutrition programs.",
-                  "status": "Available / can be prepared"
-            }
+        {
+          "type": "technical-sheet",
+          "title": "Technical sheet",
+          "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
+          "status": "Available / can be prepared",
+          "href": "/brochures/signal-npk-technical-sheet.pdf"
+        }
       ]
 },
     {
@@ -2041,16 +2039,13 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
             }
       ],
       "documents": [
-            {
-                  "title": "Brochure",
-                  "description": "Signal NPK series brochure covering the concept, formula differences, recommended rates, and crop-stage positioning.",
-                  "status": "Available"
-            },
-            {
-                  "title": "Technical sheet",
-                  "description": "Formula-specific reference covering composition, application rates, compatibility notes, and positioning in crop nutrition programs.",
-                  "status": "Available / can be prepared"
-            }
+        {
+          "type": "technical-sheet",
+          "title": "Technical sheet",
+          "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
+          "status": "Available / can be prepared",
+          "href": "/brochures/signal-npk-technical-sheet.pdf"
+        }
       ]
 },
     {
@@ -2169,14 +2164,11 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       ],
       "documents": [
         {
-          "title": "Brochure",
-          "description": "Product overview, key applications, and commercial messages formatted for distributors and growers.",
-          "status": ""
-        },
-        {
+          "type": "technical-sheet",
           "title": "Technical sheet",
-          "description": "Composition, formulation properties, approved rates, compatibility notes, and technical positioning in a concise reference format.",
-          "status": ""
+          "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
+          "status": "",
+          "href": "/brochures/chrome-pk-technical-sheet.pdf"
         }
       ]
     },
@@ -2290,13 +2282,9 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       ],
       "documents": [
         {
-          "title": "Brochure",
-          "description": "Product overview, key applications, and commercial messages formatted for distributors and growers.",
-          "status": ""
-        },
-        {
+          "type": "technical-sheet",
           "title": "Technical sheet",
-          "description": "Composition, formulation properties, approved rates, compatibility notes, and technical positioning in a concise reference format.",
+          "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
           "status": ""
         }
       ]
@@ -2410,13 +2398,9 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       ],
       "documents": [
         {
-          "title": "Brochure",
-          "description": "Product overview, key applications, and commercial messages formatted for distributors and growers.",
-          "status": ""
-        },
-        {
+          "type": "technical-sheet",
           "title": "Technical sheet",
-          "description": "Composition, formulation properties, approved rates, compatibility notes, and technical positioning in a concise reference format.",
+          "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
           "status": ""
         }
       ]
@@ -2609,14 +2593,11 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       ],
       "documents": [
         {
-          "title": "Brochure",
-          "description": "Product overview, key applications, and commercial messages formatted for distributors and growers.",
-          "status": ""
-        },
-        {
+          "type": "technical-sheet",
           "title": "Technical sheet",
-          "description": "Composition, formulation properties, application rates, compatibility notes, and key technical positioning in a concise reference format.",
-          "status": ""
+          "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
+          "status": "",
+          "href": "/brochures/fossil-400-sl-technical-sheet.pdf"
         }
       ]
     },
@@ -2759,18 +2740,14 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
         ],
         "documents": [
           {
-            "title": "Brochure",
-            "description": "Product profile covering the concept, main uses, and key technical and commercial messages for distributors and customers.",
-            "status": "Yes / FoliQ catalogue"
-          },
-          {
             "title": "Label",
             "description": "Local label reference and approved use details.",
             "status": "No / after registration"
           },
           {
+            "type": "technical-sheet",
             "title": "Technical sheet",
-            "description": "Concise technical reference covering composition, formulation, use rates, and the key product presentation points.",
+            "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
             "status": "Yes"
           },
           {
@@ -2919,18 +2896,14 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
         ],
         "documents": [
           {
-            "title": "Brochure",
-            "description": "Product profile covering the concept, main uses, and key technical and commercial messages for distributors and customers.",
-            "status": "Yes / FoliQ catalogue"
-          },
-          {
             "title": "Label",
             "description": "Local label reference and approved use details.",
             "status": "No / after registration"
           },
           {
+            "type": "technical-sheet",
             "title": "Technical sheet",
-            "description": "Concise technical reference covering composition, formulation, use rates, and the key product presentation points.",
+            "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
             "status": "Yes"
           },
           {
@@ -3062,18 +3035,14 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
         ],
         "documents": [
           {
-            "title": "Brochure",
-            "description": "Product profile covering the concept, main uses, and key technical and commercial messages for distributors and customers.",
-            "status": "Yes / FoliQ catalogue"
-          },
-          {
             "title": "Label",
             "description": "Local label reference and approved use details.",
             "status": "No / after registration"
           },
           {
+            "type": "technical-sheet",
             "title": "Technical sheet",
-            "description": "Concise technical reference covering composition, formulation, use rates, and the key product presentation points.",
+            "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
             "status": "Yes"
           },
           {
@@ -3213,18 +3182,14 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
         ],
         "documents": [
           {
-            "title": "Brochure",
-            "description": "Product profile covering the concept, main uses, and key technical and commercial messages for distributors and customers.",
-            "status": "Yes / FoliQ catalogue"
-          },
-          {
             "title": "Label",
             "description": "Local label reference and approved use details.",
             "status": "No / after registration"
           },
           {
+            "type": "technical-sheet",
             "title": "Technical sheet",
-            "description": "Concise technical reference covering composition, formulation, use rates, and the key product presentation points.",
+            "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
             "status": "Yes"
           },
           {
@@ -3373,18 +3338,14 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
         ],
         "documents": [
           {
-            "title": "Brochure",
-            "description": "Product profile covering the concept, main uses, and key technical and commercial messages for distributors and customers.",
-            "status": "Yes / FoliQ catalogue"
-          },
-          {
             "title": "Label",
             "description": "Local label reference and approved use details.",
             "status": "No / after registration"
           },
           {
+            "type": "technical-sheet",
             "title": "Technical sheet",
-            "description": "Concise technical reference covering composition, formulation, use rates, and the key product presentation points.",
+            "description": "Technical reference covering composition, formulation, use rates, and the key technical points that help present the product accurately.",
             "status": "Yes"
           },
           {
@@ -3579,15 +3540,17 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
         "items": [
           {
             "type": "brochure",
-            "title": "تحميل بروشور لازيكس 70 WG",
-            "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته وأهم الرسائل الفنية.",
-            "status": "نعم"
+            "title": "البروشور",
+            "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية وأهم الرسائل الفنية والتجارية بطريقة مناسبة للموزعين والعملاء.",
+            "status": "نعم",
+            "href": "/brochures/lasix-70-wg-brochure.pdf"
           },
           {
             "type": "technical-sheet",
-            "title": "تحميل النشرة الفنية",
-            "description": "مرجع فني مختصر يوضح التركيب، الصيغة، معدلات الاستخدام، وإرشادات التطبيق.",
-            "status": "نعم"
+            "title": "النشرة الفنية",
+            "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+            "status": "نعم",
+            "href": "/brochures/lasix-70-wg-technical-sheet.pdf"
           }
         ]
       }
@@ -3687,15 +3650,17 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
     "documents": [
       {
         "type": "brochure",
-        "title": "تحميل بروشور لازيكس 70 WG",
-        "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته وأهم الرسائل الفنية.",
-        "status": "نعم"
+        "title": "البروشور",
+        "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية وأهم الرسائل الفنية والتجارية بطريقة مناسبة للموزعين والعملاء.",
+        "status": "نعم",
+        "href": "/brochures/lasix-70-wg-brochure.pdf"
       },
       {
         "type": "technical-sheet",
-        "title": "تحميل النشرة الفنية",
-        "description": "مرجع فني مختصر يوضح التركيب، الصيغة، معدلات الاستخدام، وإرشادات التطبيق.",
-        "status": "نعم"
+        "title": "النشرة الفنية",
+        "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+        "status": "نعم",
+        "href": "/brochures/lasix-70-wg-technical-sheet.pdf"
       }
     ]
   },
@@ -3879,8 +3844,9 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
           {
             "type": "brochure",
             "title": "البروشور",
-            "description": "ملف تعريفي يعرض فكرة المنتج، التركيبة المزدوجة، المحاصيل المستهدفة، وأهم رسائل الاستخدام.",
-            "status": "نعم"
+            "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية وأهم الرسائل الفنية والتجارية بطريقة مناسبة للموزعين والعملاء.",
+            "status": "نعم",
+            "href": "/brochures/rival-duo-45-sc-brochure.pdf"
           },
           {
             "type": "label",
@@ -3891,8 +3857,9 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
           {
             "type": "technical-sheet",
             "title": "النشرة الفنية",
-            "description": "مرجع مختصر يوضح التركيب، الصيغة، معدلات الاستخدام، وفترات ما قبل الحصاد.",
-            "status": "نعم"
+            "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+            "status": "نعم",
+            "href": "/brochures/rival-duo-45-sc-technical-sheet.pdf"
           },
           {
             "type": "certificate",
@@ -3993,8 +3960,9 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       {
         "type": "brochure",
         "title": "البروشور",
-        "description": "ملف تعريفي يعرض فكرة المنتج، التركيبة المزدوجة، المحاصيل المستهدفة، وأهم رسائل الاستخدام.",
-        "status": "نعم"
+        "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية وأهم الرسائل الفنية والتجارية بطريقة مناسبة للموزعين والعملاء.",
+        "status": "نعم",
+        "href": "/brochures/rival-duo-45-sc-brochure.pdf"
       },
       {
         "type": "label",
@@ -4005,8 +3973,9 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       {
         "type": "technical-sheet",
         "title": "النشرة الفنية",
-        "description": "مرجع مختصر يوضح التركيب، الصيغة، معدلات الاستخدام، وفترات ما قبل الحصاد.",
-        "status": "نعم"
+        "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+        "status": "نعم",
+        "href": "/brochures/rival-duo-45-sc-technical-sheet.pdf"
       },
       {
         "type": "registration-document",
@@ -4107,18 +4076,14 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
     ],
     "documents": [
       {
-        "title": "البروشور",
-        "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية وأهم الرسائل الفنية والتجارية بطريقة مناسبة للموزعين والعملاء.",
-        "status": "نعم"
-      },
-      {
         "title": "الملصق",
         "description": "مرجع الملصق المحلي والاستخدامات المعتمدة.",
         "status": "نعم / على العبوة المصورة"
       },
       {
+        "type": "technical-sheet",
         "title": "النشرة الفنية",
-        "description": "مرجع فني مختصر يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+        "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
         "status": "نعم"
       },
       {
@@ -4255,16 +4220,13 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
             }
       ],
       "documents": [
-            {
-                  "title": "البروشور",
-                  "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية وأهم الرسائل الفنية والتجارية بطريقة مناسبة للموزعين والعملاء.",
-                  "status": "متاح"
-            },
-            {
-                  "title": "النشرة الفنية",
-                  "description": "مرجع فني مختصر يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
-                  "status": "متاح / يمكن إعداده"
-            }
+        {
+          "type": "technical-sheet",
+          "title": "النشرة الفنية",
+          "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+          "status": "متاح / يمكن إعداده",
+          "href": "/brochures/signal-npk-technical-sheet.pdf"
+        }
       ]
 },
     {
@@ -4390,16 +4352,13 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
             }
       ],
       "documents": [
-            {
-                  "title": "البروشور",
-                  "description": "بروشور سلسلة سيجنال NPK يوضح فكرة السلسلة واختلاف التركيبات ومعدلات الاستخدام وتموضع كل تركيبة حسب مرحلة نمو المحصول.",
-                  "status": "متاح"
-            },
-            {
-                  "title": "النشرة الفنية",
-                  "description": "مرجع فني خاص بكل تركيبة يوضح التركيب ومعدلات الاستخدام وملاحظات الخلط والتموضع داخل برامج التغذية.",
-                  "status": "متاح / يمكن إعداده"
-            }
+        {
+          "type": "technical-sheet",
+          "title": "النشرة الفنية",
+          "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+          "status": "متاح / يمكن إعداده",
+          "href": "/brochures/signal-npk-technical-sheet.pdf"
+        }
       ]
 },
     {
@@ -4525,16 +4484,13 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
             }
       ],
       "documents": [
-            {
-                  "title": "البروشور",
-                  "description": "بروشور سلسلة سيجنال NPK يوضح فكرة السلسلة واختلاف التركيبات ومعدلات الاستخدام وتموضع كل تركيبة حسب مرحلة نمو المحصول.",
-                  "status": "متاح"
-            },
-            {
-                  "title": "النشرة الفنية",
-                  "description": "مرجع فني خاص بكل تركيبة يوضح التركيب ومعدلات الاستخدام وملاحظات الخلط والتموضع داخل برامج التغذية.",
-                  "status": "متاح / يمكن إعداده"
-            }
+        {
+          "type": "technical-sheet",
+          "title": "النشرة الفنية",
+          "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+          "status": "متاح / يمكن إعداده",
+          "href": "/brochures/signal-npk-technical-sheet.pdf"
+        }
       ]
 },
     {
@@ -4689,16 +4645,11 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       ],
       "documents": [
         {
-          "type": "brochure",
-          "title": "البروشور",
-          "description": "ملف تعريفي يعرض فكرة كروم PK، آلية عمل فوسفيت البوتاسيوم، دوره في دعم مقاومة النبات، توصيات الاستخدام، ومعلومات الخلط بطريقة مناسبة للموزعين والعملاء.",
-          "status": ""
-        },
-        {
           "type": "technical-sheet",
           "title": "النشرة الفنية",
-          "description": "مرجع فني مختصر يوضح التركيب، صورة المنتج، معدلات الاستخدام، وإرشادات الخلط والتطبيق.",
-          "status": "نعم"
+          "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+          "status": "نعم",
+          "href": "/brochures/chrome-pk-technical-sheet.pdf"
         }
       ]
     },
@@ -4826,13 +4777,9 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       ],
       "documents": [
         {
-          "title": "البروشور",
-          "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية والرسائل الفنية والتجارية المناسبة للموزعين والعملاء.",
-          "status": ""
-        },
-        {
+          "type": "technical-sheet",
           "title": "النشرة الفنية",
-          "description": "مرجع فني مختصر يوضح التركيب والصيغة ومعدلات الاستخدام والتوافق والنقاط الفنية الأساسية للمنتج.",
+          "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
           "status": ""
         }
       ]
@@ -4946,13 +4893,9 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       ],
       "documents": [
         {
-          "title": "البروشور",
-          "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية والرسائل الفنية والتجارية المناسبة للموزعين والعملاء.",
-          "status": ""
-        },
-        {
+          "type": "technical-sheet",
           "title": "النشرة الفنية",
-          "description": "مرجع فني مختصر يوضح التركيب والصيغة ومعدلات الاستخدام والتوافق والنقاط الفنية الأساسية للمنتج.",
+          "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
           "status": ""
         }
       ]
@@ -5073,14 +5016,11 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       ],
       "documents": [
         {
-          "title": "البروشور",
-          "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية والرسائل الفنية والتجارية المناسبة للموزعين والعملاء.",
-          "status": ""
-        },
-        {
+          "type": "technical-sheet",
           "title": "النشرة الفنية",
-          "description": "مرجع فني مختصر يوضح التركيب والصيغة ومعدلات الاستخدام والتوافق والنقاط الفنية الأساسية للمنتج.",
-          "status": ""
+          "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+          "status": "",
+          "href": "/brochures/fossil-400-sl-technical-sheet.pdf"
         }
       ]
     },
@@ -5223,18 +5163,14 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
         ],
         "documents": [
           {
-            "title": "البروشور",
-            "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية وأهم الرسائل الفنية والتجارية بطريقة مناسبة للموزعين والعملاء.",
-            "status": "نعم / كتالوج فولي كيو"
-          },
-          {
             "title": "الملصق",
             "description": "مرجع الملصق المحلي والاستخدامات المعتمدة.",
             "status": "لا / بعد التسجيل"
           },
           {
+            "type": "technical-sheet",
             "title": "النشرة الفنية",
-            "description": "مرجع فني مختصر يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+            "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
             "status": "نعم"
           },
           {
@@ -5383,18 +5319,14 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
         ],
         "documents": [
           {
-            "title": "البروشور",
-            "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية وأهم الرسائل الفنية والتجارية بطريقة مناسبة للموزعين والعملاء.",
-            "status": "نعم / كتالوج فولي كيو"
-          },
-          {
             "title": "الملصق",
             "description": "مرجع الملصق المحلي والاستخدامات المعتمدة.",
             "status": "لا / بعد التسجيل"
           },
           {
+            "type": "technical-sheet",
             "title": "النشرة الفنية",
-            "description": "مرجع فني مختصر يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+            "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
             "status": "نعم"
           },
           {
@@ -5526,18 +5458,14 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
         ],
         "documents": [
           {
-            "title": "البروشور",
-            "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية وأهم الرسائل الفنية والتجارية بطريقة مناسبة للموزعين والعملاء.",
-            "status": "نعم / كتالوج فولي كيو"
-          },
-          {
             "title": "الملصق",
             "description": "مرجع الملصق المحلي والاستخدامات المعتمدة.",
             "status": "لا / بعد التسجيل"
           },
           {
+            "type": "technical-sheet",
             "title": "النشرة الفنية",
-            "description": "مرجع فني مختصر يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+            "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
             "status": "نعم"
           },
           {
@@ -5677,18 +5605,14 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
         ],
         "documents": [
           {
-            "title": "البروشور",
-            "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية وأهم الرسائل الفنية والتجارية بطريقة مناسبة للموزعين والعملاء.",
-            "status": "نعم / كتالوج فولي كيو"
-          },
-          {
             "title": "الملصق",
             "description": "مرجع الملصق المحلي والاستخدامات المعتمدة.",
             "status": "لا / بعد التسجيل"
           },
           {
+            "type": "technical-sheet",
             "title": "النشرة الفنية",
-            "description": "مرجع فني مختصر يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+            "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
             "status": "نعم"
           },
           {
@@ -5837,18 +5761,14 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
         ],
         "documents": [
           {
-            "title": "البروشور",
-            "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية وأهم الرسائل الفنية والتجارية بطريقة مناسبة للموزعين والعملاء.",
-            "status": "نعم / كتالوج فولي كيو"
-          },
-          {
             "title": "الملصق",
             "description": "مرجع الملصق المحلي والاستخدامات المعتمدة.",
             "status": "لا / بعد التسجيل"
           },
           {
+            "type": "technical-sheet",
             "title": "النشرة الفنية",
-            "description": "مرجع فني مختصر يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
+            "description": "مرجع فني يوضح التركيب والصيغة ومعدلات الاستخدام والنقاط الفنية الأساسية التي تساعد على تقديم المنتج بصورة دقيقة.",
             "status": "نعم"
           },
           {

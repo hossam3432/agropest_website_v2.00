@@ -696,9 +696,15 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
                         <p className="text-xs font-bold uppercase tracking-[0.14em] text-agri-gold">{pageContent.documentTypeLabels[documentType]}</p>
                         <h3 className="mt-3 text-xl font-bold text-agri-blue">{document.title}</h3>
                         <p className="mt-3 leading-7 text-slate-600">{document.description}</p>
-                        <Link href={documentHref} className="btn-secondary mt-5">
-                          {pageContent.requestDocument}
-                        </Link>
+                        {document.href ? (
+                          <a href={document.href} target="_blank" rel="noopener noreferrer" className="btn-secondary mt-5">
+                            {pageContent.requestDocument}
+                          </a>
+                        ) : (
+                          <Link href={documentHref} className="btn-secondary mt-5">
+                            {pageContent.requestDocument}
+                          </Link>
+                        )}
                       </article>
                     );
                   })}
