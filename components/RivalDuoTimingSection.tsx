@@ -59,7 +59,9 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
   const stageAnchorsLTR = [0.11, 0.32, 0.53, 0.825];
   // Per-stage X offset as % of image width (responsive to screen size).
   const stageXOffsetsPct = [0.01, 0.025, 0.05, 0.05];
-  // Per-stage X offset for glow as % of image width.
+  // Per-stage X offset for glow as % of image width, tuned against the RTL
+  // (mirrored) image. The band index is already mirrored via effIndex, so in LTR
+  // the offset has to flip sign too or it pushes the glow the wrong way.
   const stageGlowXOffsetsPct = [-0.01, 0.07, 0.1, 0.07];
   // Y offset for lines as % of image height.
   const startYOffsetPct = -0.2;
@@ -237,7 +239,7 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-y-0 transition-opacity duration-[400ms] ease-in-out"
                   style={{
-                    left: `calc(${effIndex * widthPct}% + ${glowXOffsets[i] ?? 0}px)`,
+                    left: `calc(${effIndex * widthPct}% + ${(rtl ? 1 : -1) * (glowXOffsets[i] ?? 0)}px)`,
                     width: `${widthPct}%`,
                     opacity: active === i ? 1 : 0,
                     background: `radial-gradient(ellipse 60% 50% at center, ${(stage.highlighted ? ORANGE : BLUE)}66 0%, ${(stage.highlighted ? ORANGE : BLUE)}33 50%, transparent 80%)`
