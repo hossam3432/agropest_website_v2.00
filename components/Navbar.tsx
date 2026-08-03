@@ -69,7 +69,7 @@ export function Navbar({ content, locale }: NavbarProps) {
       <header
         ref={headerRef}
         className={`w-full transition-all duration-300 ${
-          compact ? "max-w-3xl" : "max-w-6xl"
+          compact ? "max-w-3xl" : locale === "en" ? "max-w-7xl" : "max-w-6xl"
         }`}
       >
       <nav

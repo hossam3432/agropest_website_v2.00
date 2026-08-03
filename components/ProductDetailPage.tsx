@@ -664,12 +664,12 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
               </div>
             </section>
 
-            <section className="rounded-lg bg-white p-5 shadow-sm sm:p-7 lg:p-8">
-              <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
-                <div>
-                  <h2 className="section-title">{technicalNotesSection.title}</h2>
-                </div>
-                {technicalNotesSection.items.length ? (
+            {technicalNotesSection.items.length ? (
+              <section className="rounded-lg bg-white p-5 shadow-sm sm:p-7 lg:p-8">
+                <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr]">
+                  <div>
+                    <h2 className="section-title">{technicalNotesSection.title}</h2>
+                  </div>
                   <ul className="grid gap-3 text-start leading-7 text-slate-600 sm:grid-cols-2">
                     {technicalNotesSection.items.map((note) => (
                       <li key={note} className="rounded-lg flex gap-2 bg-agri-mist p-4">
@@ -678,14 +678,9 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
                       </li>
                     ))}
                   </ul>
-                ) : (
-                  <div className="rounded-lg bg-agri-mist p-5">
-                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-agri-gold">{pageContent.sectionNotes.manualWritingNeeded}</p>
-                    <p className="mt-3 leading-7 text-slate-600">{pageContent.sectionNotes.technicalNotesPlaceholder}</p>
-                  </div>
-                )}
-              </div>
-            </section>
+                </div>
+              </section>
+            ) : null}
 
             <section className="border border-agri-line bg-white p-5 shadow-sm sm:p-7 lg:p-8" id="documents">
               <p className="eyebrow">{pageContent.sections.documents}</p>
