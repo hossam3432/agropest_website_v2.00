@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cairo } from "next/font/google";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -277,6 +277,13 @@ function ScrollCue() {
   );
 }
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false
+};
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -322,6 +329,7 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
         "; } .rival-landing .font-extrabold { font-weight: 700; }"
       : "";
   const animationCss =
+    ".rival-landing { touch-action: pan-x pan-y; } " +
     "@keyframes rivalTrimDraw { 0% { transform: scaleX(0); } 15% { transform: scaleX(1); } 100% { transform: scaleX(1); } } " +
     ".rival-line-trim { transform: scaleX(0); animation: rivalTrimDraw 10s ease-out infinite; } " +
     "@media (prefers-reduced-motion: reduce) { .rival-line-trim { animation: none; transform: scaleX(1); } }";

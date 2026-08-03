@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import { DocumentLanguage } from "@/components/DocumentLanguage";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -93,7 +94,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
           <link rel="preconnect" href="https://p.typekit.net" crossOrigin="anonymous" />
           <link rel="preload" as="style" href="https://use.typekit.net/gjc0cjr.css" />
-          <script
+          <Script
+            id="forma-djr-arabic-kit"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html:
                 "(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://use.typekit.net/gjc0cjr.css';document.head.appendChild(l);})();"

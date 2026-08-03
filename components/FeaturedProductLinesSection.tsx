@@ -27,11 +27,13 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
   const isRtl = locale === "ar";
 
   return (
-    <article
+    <Link
+      href={localizeHref(locale, item.href)}
+      aria-label={item.ctaLabel}
       className={
         isDesktop
           ? "relative rounded-lg featured-deck-card group/card flex h-full min-h-[462px] flex-col overflow-hidden bg-agri-mist shadow-sm"
-          : "relative rounded-lg group/card min-h-[198px] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)]"
+          : "relative block rounded-lg group/card min-h-[198px] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)]"
       }
       style={isDesktop ? ({ "--card-tilt": `${tiltValues[index] ?? 0}deg` } as CSSProperties) : undefined}
     >
@@ -86,16 +88,15 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
           <p className="featured-card-description flex-1 mt-3 line-clamp-3 leading-6 text-slate-600">{item.description}</p>
         ) : null}
         {isDesktop ? (
-          <Link
-            href={localizeHref(locale, item.href)}
+          <span
+            aria-hidden="true"
             className={`featured-card-cta btn-secondary absolute w-fit bottom-5 ${isRtl ? "left-5" : "right-5"}`}
           >
             {item.ctaLabel}
-          </Link>
+          </span>
         ) : (
-          <Link
-            href={localizeHref(locale, item.href)}
-            aria-label={item.ctaLabel}
+          <span
+            aria-hidden="true"
             className={`featured-card-cta absolute bottom-3 flex h-8 w-8 items-center justify-center rounded-full border border-agri-green bg-white text-agri-green transition group-hover/card:bg-agri-green group-hover/card:text-white ${
               isRtl ? "left-3 rotate-180" : "right-3"
             }`}
@@ -103,10 +104,10 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
             <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" aria-hidden="true">
               <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </Link>
+          </span>
         )}
       </div>
-    </article>
+    </Link>
   );
 }
 

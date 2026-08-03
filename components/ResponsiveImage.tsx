@@ -66,9 +66,8 @@ export const ResponsiveImage = forwardRef<HTMLImageElement, ResponsiveImageProps
           rel="preload"
           as="image"
           href={fallbackLargest.path}
-          // @ts-expect-error -- imagesrcset/imagesizes aren't in React's LinkHTMLAttributes typing yet
-          imagesrcset={avifSrcSet}
-          imagesizes={sizes}
+          imageSrcSet={avifSrcSet}
+          imageSizes={sizes}
           fetchPriority="high"
           type="image/avif"
         />
