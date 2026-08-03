@@ -21,15 +21,25 @@ export function Navbar({ content, locale }: NavbarProps) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
   const { company, languageSwitcher, navigation } = content;
   const navCta = content.ctaActions.whatsapp;
   const headerRef = useRef<HTMLElement>(null);
+  const compact = scrolled && !isLargeScreen;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 1280px)");
+    const onChange = () => setIsLargeScreen(query.matches);
+    onChange();
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
   }, []);
 
   useEffect(() => {
@@ -55,27 +65,27 @@ export function Navbar({ content, locale }: NavbarProps) {
   ];
 
   return (
-    <div className={`fixed inset-x-0 top-0 z-50 flex justify-center px-4 transition-all duration-300 ${scrolled ? "pt-2" : "pt-4"}`}>
+    <div className={`fixed inset-x-0 top-0 z-50 flex justify-center px-4 transition-all duration-300 ${compact ? "pt-2" : "pt-4"}`}>
       <header
         ref={headerRef}
         className={`w-full transition-all duration-300 ${
-          scrolled ? "max-w-3xl" : "max-w-6xl"
+          compact ? "max-w-3xl" : "max-w-6xl"
         }`}
       >
       <nav
         className={`flex items-center justify-between gap-4 rounded-full border border-white/60 bg-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_30px_rgba(15,23,42,0.12)] backdrop-blur-xl transition-all duration-300 ${
-          scrolled ? "px-4 py-1.5" : "px-6 py-3"
+          compact ? "px-4 py-1.5" : "px-6 py-3"
         }`}
       >
         <Link href={localizeHref(locale, "/")} className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
           <span
             className={`flex shrink-0 items-center justify-center transition-all duration-300 ${
-              scrolled ? "h-9 w-9" : "h-12 w-12"
+              compact ? "h-9 w-9" : "h-12 w-12"
             }`}
           >
             <ResponsiveImage src={company.logoPath} alt={company.logoAlt} className="h-full w-full object-contain" objectFit="contain" sizes="48px" priority />
           </span>
-          {scrolled ? null : (
+          {compact ? null : (
             <span className="min-w-0">
               <span className="block text-base font-bold text-agri-blue sm:text-lg">{company.shortName}</span>
               {locale === "en" ? null : (
@@ -129,18 +139,18 @@ export function Navbar({ content, locale }: NavbarProps) {
                 hrefLang={option.locale}
                 onClick={() => saveLanguagePreference(option.locale)}
               >
-                {scrolled ? option.short : option.label}
+                {compact ? option.short : option.label}
               </Link>
             ))}
           </div>
           <a
             className={`inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#008D36] font-bold text-white transition hover:bg-[#00722c] ${
-              scrolled ? "h-9 w-9 p-0" : "px-4 py-2 text-sm"
+              compact ? "h-9 w-9 p-0" : "px-4 py-2 text-sm"
             }`}
             href={navCta.href}
             aria-label={navCta.label}
           >
-            {scrolled ? (
+            {compact ? (
               <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5" aria-hidden="true">
                 <path d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.45 1.27 4.9L2 22l5.25-1.38a9.96 9.96 0 0 0 4.79 1.22h.01c5.52 0 10-4.48 10-10s-4.48-10-10-10Zm0 18.15h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.11.82.83-3.03-.2-.31a8.18 8.18 0 0 1-1.26-4.35c0-4.52 3.68-8.2 8.22-8.2 2.2 0 4.26.86 5.81 2.41a8.15 8.15 0 0 1 2.41 5.8c0 4.53-3.68 8.2-8.22 8.2Zm4.5-6.14c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.15.16-.29.18-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.87.85-.87 2.08 0 1.22.89 2.4 1.02 2.57.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.46-.6 1.67-1.17.2-.58.2-1.07.14-1.17-.06-.11-.22-.17-.47-.29Z" />
               </svg>

@@ -48,14 +48,14 @@ export function HeroSection({
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/85 sm:text-xl">{subtitle}</p>
           {description ? <p className="mt-4 max-w-3xl text-base leading-8 text-white/75 sm:text-lg">{description}</p> : null}
           {(primaryCta || secondaryCta) ? (
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               {primaryCta ? (
-                <Link href={localizeHref(locale, primaryCta.href)} className="btn-accent">
+                <Link href={localizeHref(locale, primaryCta.href)} className="btn-hero-glass">
                   {primaryCta.label}
                 </Link>
               ) : null}
               {secondaryCta ? (
-                <Link href={localizeHref(locale, secondaryCta.href)} className="btn-on-dark">
+                <Link href={localizeHref(locale, secondaryCta.href)} className="btn-hero-glass">
                   {secondaryCta.label}
                 </Link>
               ) : null}
