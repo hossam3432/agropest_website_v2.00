@@ -228,6 +228,8 @@ export const enContent = {
       description:
         "AgroPest Control for Trading is an Egyptian company operating in the agricultural market since 1995, focused on selecting, registering, importing, and distributing agricultural solutions suited to crop needs in Egypt.",
       backgroundImage: imagePaths.hero.about,
+      backgroundPosition: "center 35%",
+      splitOnLarge: true,
       primaryCta: { label: "View Products", href: "/products" },
       secondaryCta: { label: "Contact Us", href: "/contact" }
     },
@@ -496,8 +498,8 @@ export const enContent = {
       {
         slug: "edegal",
         name: "Edegal 72.2% SL",
-        logo: "/images/products/edegal-gallery.png",
-        logoAlt: "Edegal 72.2% SL packs",
+        logo: "/images/featured/edegal-featured-logo-en-transparent.png",
+        logoAlt: "Edegal 72.2% SL logo",
         category: "Fungicide",
         description: "A systemic fungicide containing propamocarb hydrochloride 72.2% in SL formulation, designed for prevention and early treatment of downy mildew in cucumber, cucurbits, and onion.",
         image: "/images/products/edegal-gallery.png",
@@ -547,6 +549,20 @@ export const enContent = {
         brochureHref: "/brochures/fossil-400-sl-technical-sheet.pdf",
         viewLabel: "View Technical Sheet",
         productPageHref: "/products/specialty-fertilizers/fossil",
+        productPageLabel: "Open Product Page"
+      },
+      {
+        slug: "chrome-pk",
+        name: "Chrome PK",
+        logo: "/images/products/chrome-pk-gallery.png",
+        logoAlt: "Chrome PK pack",
+        category: "Phosphite & Stress Support",
+        description: "A high-concentration potassium phosphite foliar fertilizer delivering functional PK nutrition with rapid mobility and plant defense-support positioning.",
+        image: "/images/products/chrome-pk-gallery.png",
+        imageAlt: "Chrome PK pack",
+        brochureHref: "/brochures/chrome-pk-technical-sheet.pdf",
+        viewLabel: "View Technical Sheet",
+        productPageHref: "/products/specialty-fertilizers/chrome-pk",
         productPageLabel: "Open Product Page"
       }
     ],

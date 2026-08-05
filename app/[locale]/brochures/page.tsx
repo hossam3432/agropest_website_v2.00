@@ -8,6 +8,14 @@ import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { localizeHref } from "@/lib/content";
 import { buildPageMetadata } from "@/lib/seo";
 
+// A few product logos come in wider than the others at the same fixed height,
+// so they get scaled down to sit visually level with the rest of the grid.
+const LOGO_SCALE: Record<string, { en: number; ar: number }> = {
+  lasix: { en: 0.55, ar: 0.7 },
+  fossil: { en: 0.7, ar: 0.7 },
+  edegal: { en: 0.55, ar: 0.55 }
+};
+
 export async function generateMetadata({ params }: LocalePageProps): Promise<Metadata> {
   const { content, locale } = getLocalePage((await params).locale);
 
@@ -56,8 +64,11 @@ export default async function BrochuresPage({ params }: LocalePageProps) {
                       objectFit="contain"
                       sizes="96px"
                       style={
-                        product.slug === "lasix" || product.slug === "fossil"
-                          ? { transform: "scale(0.7)", transformOrigin: "left center" }
+                        LOGO_SCALE[product.slug]
+                          ? {
+                              transform: `scale(${LOGO_SCALE[product.slug][locale]})`,
+                              transformOrigin: locale === "en" ? "left center" : "right center"
+                            }
                           : undefined
                       }
                     />

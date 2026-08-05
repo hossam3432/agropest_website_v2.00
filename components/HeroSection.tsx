@@ -9,11 +9,15 @@ type HeroSectionProps = {
   subtitle: string;
   description?: string;
   backgroundImage?: string;
+  backgroundPosition?: string;
+  backgroundVideo?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   compact?: boolean;
   /** Set false when a full-bleed element (e.g. Breadcrumbs) already precedes this hero. */
   leading?: boolean;
+  /** On lg+ screens, confine the image to the left panel with a solid/gradient panel on the right for the text; falls back to full-bleed cover below lg. */
+  splitOnLarge?: boolean;
 };
 
 export function HeroSection({
@@ -23,25 +27,65 @@ export function HeroSection({
   subtitle,
   description,
   backgroundImage,
+  backgroundPosition,
+  backgroundVideo,
   primaryCta,
   secondaryCta,
   compact = false,
-  leading = true
+  leading = true,
+  splitOnLarge = false
 }: HeroSectionProps) {
   return (
     <section
       className={`relative isolate overflow-hidden ${leading ? "-mt-24 pt-24" : ""} ${compact ? "min-h-[520px]" : "min-h-[72svh]"} bg-agri-blue`}
     >
-      {backgroundImage ? (
-        <div aria-hidden="true" className="absolute inset-0">
-          <ResponsiveImage src={backgroundImage} alt="" className="h-full w-full" objectFit="cover" priority />
-        </div>
+      {backgroundVideo ? (
+        <video
+          aria-hidden="true"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
+      ) : backgroundImage ? (
+        <>
+          <div aria-hidden="true" className={`absolute inset-0 ${splitOnLarge ? "lg:hidden" : ""}`}>
+            <ResponsiveImage
+              src={backgroundImage}
+              alt=""
+              className="h-full w-full"
+              objectFit="cover"
+              priority
+              style={backgroundPosition ? { objectPosition: backgroundPosition } : undefined}
+            />
+          </div>
+          {splitOnLarge ? (
+            <div aria-hidden="true" className="absolute inset-0 hidden lg:block">
+              <div className="absolute inset-y-0 left-0 w-[58%] overflow-hidden">
+                <ResponsiveImage
+                  src={backgroundImage}
+                  alt=""
+                  className="h-full w-full"
+                  objectFit="cover"
+                  priority
+                  style={backgroundPosition ? { objectPosition: backgroundPosition } : undefined}
+                />
+                <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-r from-transparent via-agri-blue/60 to-agri-blue" />
+              </div>
+              <div className="absolute inset-y-0 right-0 w-[42%] bg-agri-blue" />
+            </div>
+          ) : null}
+        </>
       ) : null}
-      <div className="absolute inset-0 bg-gradient-to-r from-agri-blue via-agri-blue/80 to-agri-green/40" />
+      <div className={`absolute inset-0 bg-gradient-to-r from-agri-blue via-agri-blue/80 to-agri-green/40 ${splitOnLarge ? "lg:hidden" : ""}`} />
       <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-agri-mist to-transparent" />
 
       <div className="container-shell relative flex min-h-[inherit] items-center py-20">
-        <div className="max-w-3xl text-white">
+        <div className={`max-w-3xl text-white ${splitOnLarge ? "lg:ml-auto lg:text-right" : ""}`}>
           {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
           <h1
             className={`mt-5 max-w-4xl text-3xl font-bold leading-[1.22] tracking-normal sm:text-4xl sm:leading-[1.18] lg:text-5xl lg:leading-[1.16] ${

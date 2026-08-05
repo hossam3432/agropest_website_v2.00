@@ -3144,8 +3144,8 @@
     ]
   },
   "/images/hero/about-warehouse.jpg": {
-    "width": 1096,
-    "height": 400,
+    "width": 2400,
+    "height": 1792,
     "avif": [
       {
         "width": 400,
@@ -3156,8 +3156,16 @@
         "path": "/images/optimized/hero/about-warehouse-800.avif"
       },
       {
-        "width": 1096,
-        "path": "/images/optimized/hero/about-warehouse-1096.avif"
+        "width": 1200,
+        "path": "/images/optimized/hero/about-warehouse-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/hero/about-warehouse-1600.avif"
+      },
+      {
+        "width": 2400,
+        "path": "/images/optimized/hero/about-warehouse-2400.avif"
       }
     ],
     "webp": [
@@ -3170,8 +3178,16 @@
         "path": "/images/optimized/hero/about-warehouse-800.webp"
       },
       {
-        "width": 1096,
-        "path": "/images/optimized/hero/about-warehouse-1096.webp"
+        "width": 1200,
+        "path": "/images/optimized/hero/about-warehouse-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/hero/about-warehouse-1600.webp"
+      },
+      {
+        "width": 2400,
+        "path": "/images/optimized/hero/about-warehouse-2400.webp"
       }
     ],
     "fallback": [
@@ -3184,8 +3200,16 @@
         "path": "/images/optimized/hero/about-warehouse-800.jpg"
       },
       {
-        "width": 1096,
-        "path": "/images/optimized/hero/about-warehouse-1096.jpg"
+        "width": 1200,
+        "path": "/images/optimized/hero/about-warehouse-1200.jpg"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/hero/about-warehouse-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "path": "/images/optimized/hero/about-warehouse-2400.jpg"
       }
     ]
   },
@@ -3812,6 +3836,50 @@
       {
         "width": 1400,
         "path": "/images/optimized/backgrounds/warehouse-coordination1-1400.jpg"
+      }
+    ]
+  },
+  "/images/featured/edegal-featured-logo-ar-transparent.png": {
+    "width": 246,
+    "height": 89,
+    "avif": [
+      {
+        "width": 246,
+        "path": "/images/optimized/featured/edegal-featured-logo-ar-transparent-246.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 246,
+        "path": "/images/optimized/featured/edegal-featured-logo-ar-transparent-246.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 246,
+        "path": "/images/optimized/featured/edegal-featured-logo-ar-transparent-246.png"
+      }
+    ]
+  },
+  "/images/featured/edegal-featured-logo-en-transparent.png": {
+    "width": 244,
+    "height": 79,
+    "avif": [
+      {
+        "width": 244,
+        "path": "/images/optimized/featured/edegal-featured-logo-en-transparent-244.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 244,
+        "path": "/images/optimized/featured/edegal-featured-logo-en-transparent-244.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 244,
+        "path": "/images/optimized/featured/edegal-featured-logo-en-transparent-244.png"
       }
     ]
   },

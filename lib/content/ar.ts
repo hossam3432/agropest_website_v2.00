@@ -203,6 +203,8 @@ export const arContent = {
       description:
         "أجروبست كنترول للتجارة شركة مصرية تعمل في السوق الزراعي منذ عام 1995، وتركز على اختيار وتسجيل واستيراد وتوزيع حلول زراعية مناسبة لاحتياجات المحاصيل في مصر.",
       backgroundImage: imagePaths.hero.about,
+      backgroundPosition: "center 35%",
+      splitOnLarge: true,
       primaryCta: { label: "استعرض المنتجات", href: "/products" },
       secondaryCta: { label: "تواصل معنا", href: "/contact" }
     },
@@ -485,8 +487,8 @@ export const arContent = {
       {
         slug: "edegal",
         name: "ايديجال 72.2% SL",
-        logo: "/images/products/edegal-gallery.png",
-        logoAlt: "عبوات ايديجال 72.2% SL",
+        logo: "/images/featured/edegal-featured-logo-ar-transparent.png",
+        logoAlt: "شعار ايديجال 72.2% SL",
         category: "مبيد فطري",
         description: "مبيد فطري جهازي يحتوي على بروباموكارب هيدروكلوريد 72.2% بتركيبة SL، مصمم للوقاية والعلاج المبكر للبياض الزغبي في الخيار والعائلة القرعية والبصل.",
         image: "/images/products/edegal-gallery.png",
@@ -536,6 +538,20 @@ export const arContent = {
         brochureHref: "/brochures/fossil-400-sl-technical-sheet.pdf",
         viewLabel: "عرض النشرة الفنية",
         productPageHref: "/products/specialty-fertilizers/fossil",
+        productPageLabel: "فتح صفحة المنتج"
+      },
+      {
+        slug: "chrome-pk",
+        name: "كروم PK",
+        logo: "/images/products/chrome-pk-gallery.png",
+        logoAlt: "عبوة كروم PK",
+        category: "فوسفيت ودعم الإجهاد",
+        description: "سماد فوسفيت بوتاسيوم سائل عالي التركيز للرش الورقي، صُمم لدعم المناعة الداخلية للنبات وتحفيز آليات الدفاع الطبيعية، مع إمداد وظيفي بالفوسفيت والبوتاسيوم يساعد النبات على النمو المتوازن وتحسين جودة المحصول.",
+        image: "/images/products/chrome-pk-gallery.png",
+        imageAlt: "عبوة كروم PK",
+        brochureHref: "/brochures/chrome-pk-technical-sheet.pdf",
+        viewLabel: "عرض النشرة الفنية",
+        productPageHref: "/products/specialty-fertilizers/chrome-pk",
         productPageLabel: "فتح صفحة المنتج"
       }
     ],
