@@ -65,7 +65,7 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
       </video>
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_14%_12%,rgba(217,146,39,0.22),transparent_28%),linear-gradient(135deg,rgba(6,40,31,0.82)_0%,rgba(10,61,43,0.78)_42%,rgba(23,50,77,0.82)_100%)]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_14%_12%,rgba(217,146,39,0.14),transparent_28%),linear-gradient(135deg,rgba(6,40,31,0.5)_0%,rgba(10,61,43,0.45)_42%,rgba(23,50,77,0.5)_100%)]"
       />
       <div aria-hidden="true" className="hero-accent-line absolute start-0 top-0 h-1 w-full bg-agri-gold" />
       <div
