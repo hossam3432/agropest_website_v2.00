@@ -171,6 +171,7 @@ export const enContent = {
       title: "Why the market trusts AgroPest",
       description:
         "AgroPest combines understanding of the Egyptian agricultural market, suitable product selection, and technical and commercial preparation that help distributors and growers evaluate and use each product clearly and confidently.",
+      imageAlt: "AgroPest team and growers inspecting a tomato field trial beside branded AgroPest flags",
       items: [
         { eyebrow: "01", title: "Product screening and selection", description: "Each product is selected after studying its technical and commercial fit and its ability to serve real needs in Egyptian fields and crops." },
         { eyebrow: "02", title: "Registration with the Egyptian Ministry of Agriculture", description: "We rely on officially registered products, supporting distributor and grower confidence while maintaining safe use and crop application." },
