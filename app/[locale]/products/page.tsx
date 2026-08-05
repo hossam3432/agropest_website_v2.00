@@ -51,7 +51,7 @@ export default async function ProductsPage({ params }: LocalePageProps) {
         homeLabel={content.navigation.find((item) => item.href === "/")?.label ?? "Home"}
         items={[{ label: content.navigation.find((item) => item.href === "/products")?.label ?? "Products", href: "/products" }]}
       />
-      <HeroSection compact locale={locale} {...productsPage.hero} />
+      <HeroSection compact leading={false} locale={locale} {...productsPage.hero} />
 
       <ProductPortfolioBrowser content={productPortfolioBrowserContent[locale]} locale={locale} products={portfolioProducts} />
 

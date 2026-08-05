@@ -32,7 +32,7 @@ export function Breadcrumbs({ locale, homeLabel, items }: BreadcrumbsProps) {
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="border-b border-agri-line bg-agri-mist">
+    <nav aria-label="Breadcrumb" className="-mt-24 border-b border-agri-line bg-agri-mist pt-24">
       <ol className="container-shell flex flex-wrap items-center gap-2 py-3 text-sm text-slate-600">
         {trail.map((item, index) => {
           const isLast = index === trail.length - 1;

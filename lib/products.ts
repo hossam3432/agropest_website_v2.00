@@ -1634,6 +1634,13 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
     ],
     "documents": [
       {
+        "type": "brochure",
+        "title": "Brochure",
+        "description": "Product profile presenting the product concept, its main uses, and the key technical and commercial messages in a format suited to distributors and customers.",
+        "status": "Yes",
+        "href": "/brochures/edegal-72-2-sl-brochure.pdf"
+      },
+      {
         "title": "Label",
         "description": "Local label reference and approved use details.",
         "status": "Yes / on photographed pack"
@@ -4075,6 +4082,13 @@ export const productsByLocale: Record<Locale, ProductDetail[]> = {
       }
     ],
     "documents": [
+      {
+        "type": "brochure",
+        "title": "البروشور",
+        "description": "ملف تعريفي يعرض فكرة المنتج واستخداماته الأساسية وأهم الرسائل الفنية والتجارية بطريقة مناسبة للموزعين والعملاء.",
+        "status": "نعم",
+        "href": "/brochures/edegal-72-2-sl-brochure.pdf"
+      },
       {
         "title": "الملصق",
         "description": "مرجع الملصق المحلي والاستخدامات المعتمدة.",

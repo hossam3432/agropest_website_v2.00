@@ -476,7 +476,7 @@ export const enContent = {
     section: {
       eyebrow: "Available brochures",
       title: "Browse product brochures",
-      intro: "We're building this library out product by product. Start with Rival DUO 45 SC below — more product brochures are on the way."
+      intro: "We're building this library out product by product. Browse the available brochures and technical sheets below — more are on the way."
     },
     products: [
       {
@@ -491,6 +491,62 @@ export const enContent = {
         brochureHref: "/brochures/rival-duo-45-sc-brochure.pdf",
         viewLabel: "View Brochure",
         productPageHref: "/rival-duo-45-sc",
+        productPageLabel: "Open Product Page"
+      },
+      {
+        slug: "edegal",
+        name: "Edegal 72.2% SL",
+        logo: "/images/products/edegal-gallery.png",
+        logoAlt: "Edegal 72.2% SL packs",
+        category: "Fungicide",
+        description: "A systemic fungicide containing propamocarb hydrochloride 72.2% in SL formulation, designed for prevention and early treatment of downy mildew in cucumber, cucurbits, and onion.",
+        image: "/images/products/edegal-gallery.png",
+        imageAlt: "Edegal 72.2% SL packs",
+        brochureHref: "/brochures/edegal-72-2-sl-brochure.pdf",
+        viewLabel: "View Brochure",
+        productPageHref: "/edegal-72-2-sl",
+        productPageLabel: "Open Product Page"
+      },
+      {
+        slug: "lasix",
+        name: "Lasix 70 WG",
+        logo: "/images/featured/lasix-featured-logo-en-transparent.png",
+        logoAlt: "Lasix 70 WG logo",
+        category: "Insecticide",
+        description: "A systemic insecticide containing acetamiprid 70% in a WG water-dispersible granule formulation, designed to control whitefly and sucking pests within integrated pest management programs.",
+        image: "/images/products/lasix-gallery.png",
+        imageAlt: "Lasix 70 WG packs",
+        brochureHref: "/brochures/lasix-70-wg-brochure.pdf",
+        viewLabel: "View Brochure",
+        productPageHref: "/lasix-70-wg",
+        productPageLabel: "Open Product Page"
+      },
+      {
+        slug: "signal-npk",
+        name: "Signal NPK Series",
+        logo: "/images/featured/signal-npk-featured-logo-en-transparent.png",
+        logoAlt: "Signal NPK Series logo",
+        category: "NPK Series",
+        description: "A water-soluble NPK series enriched with chelated micronutrients, designed to support plant needs across different growth stages.",
+        image: "/images/products/signal-npk-gallery.png",
+        imageAlt: "Signal NPK Series packs",
+        brochureHref: "/brochures/signal-npk-technical-sheet.pdf",
+        viewLabel: "View Technical Sheet",
+        productPageHref: "/signal-npk",
+        productPageLabel: "Open Product Page"
+      },
+      {
+        slug: "fossil",
+        name: "Fossil 400 SL",
+        logo: "/images/featured/fossil-featured-logo-en-transparent.png",
+        logoAlt: "Fossil 400 SL logo",
+        category: "Biostimulant",
+        description: "A liquid biostimulant based on 17% Ascophyllum nodosum seaweed extract supported with cytokinin, designed to support root activity, stress tolerance, and fruit quality.",
+        image: "/images/products/fossil-gallery.png",
+        imageAlt: "Fossil 400 SL pack",
+        brochureHref: "/brochures/fossil-400-sl-technical-sheet.pdf",
+        viewLabel: "View Technical Sheet",
+        productPageHref: "/products/specialty-fertilizers/fossil",
         productPageLabel: "Open Product Page"
       }
     ],

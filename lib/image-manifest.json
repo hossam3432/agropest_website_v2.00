@@ -3816,418 +3816,178 @@
     ]
   },
   "/images/featured/fossil-featured-logo-ar-transparent.png": {
-    "width": 948,
-    "height": 358,
+    "width": 299,
+    "height": 122,
     "avif": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-400.avif"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-800.avif"
-      },
-      {
-        "width": 948,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-948.avif"
+        "width": 299,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-299.avif"
       }
     ],
     "webp": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-800.webp"
-      },
-      {
-        "width": 948,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-948.webp"
+        "width": 299,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-299.webp"
       }
     ],
     "fallback": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-400.png"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-800.png"
-      },
-      {
-        "width": 948,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-948.png"
+        "width": 299,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-transparent-299.png"
       }
     ]
   },
   "/images/featured/fossil-featured-logo-ar.png": {
-    "width": 952,
-    "height": 387,
+    "width": 299,
+    "height": 122,
     "avif": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-400.avif"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-800.avif"
-      },
-      {
-        "width": 952,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-952.avif"
+        "width": 299,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-299.avif"
       }
     ],
     "webp": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-800.webp"
-      },
-      {
-        "width": 952,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-952.webp"
+        "width": 299,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-299.webp"
       }
     ],
     "fallback": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-400.png"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-800.png"
-      },
-      {
-        "width": 952,
-        "path": "/images/optimized/featured/fossil-featured-logo-ar-952.png"
+        "width": 299,
+        "path": "/images/optimized/featured/fossil-featured-logo-ar-299.png"
       }
     ]
   },
   "/images/featured/fossil-featured-logo-en-transparent.png": {
-    "width": 950,
-    "height": 346,
+    "width": 300,
+    "height": 120,
     "avif": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-400.avif"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-800.avif"
-      },
-      {
-        "width": 950,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-950.avif"
+        "width": 300,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-300.avif"
       }
     ],
     "webp": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-800.webp"
-      },
-      {
-        "width": 950,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-950.webp"
+        "width": 300,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-300.webp"
       }
     ],
     "fallback": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-400.png"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-800.png"
-      },
-      {
-        "width": 950,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-950.png"
+        "width": 300,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-transparent-300.png"
       }
     ]
   },
   "/images/featured/fossil-featured-logo-en.png": {
-    "width": 953,
-    "height": 377,
+    "width": 300,
+    "height": 120,
     "avif": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-400.avif"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-800.avif"
-      },
-      {
-        "width": 953,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-953.avif"
+        "width": 300,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-300.avif"
       }
     ],
     "webp": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-800.webp"
-      },
-      {
-        "width": 953,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-953.webp"
+        "width": 300,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-300.webp"
       }
     ],
     "fallback": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-400.png"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-800.png"
-      },
-      {
-        "width": 953,
-        "path": "/images/optimized/featured/fossil-featured-logo-en-953.png"
+        "width": 300,
+        "path": "/images/optimized/featured/fossil-featured-logo-en-300.png"
       }
     ]
   },
   "/images/featured/lasix-featured-logo-ar-transparent.png": {
-    "width": 946,
-    "height": 438,
+    "width": 227,
+    "height": 109,
     "avif": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-400.avif"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-800.avif"
-      },
-      {
-        "width": 946,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-946.avif"
+        "width": 227,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-227.avif"
       }
     ],
     "webp": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-800.webp"
-      },
-      {
-        "width": 946,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-946.webp"
+        "width": 227,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-227.webp"
       }
     ],
     "fallback": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-400.png"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-800.png"
-      },
-      {
-        "width": 946,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-946.png"
+        "width": 227,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-transparent-227.png"
       }
     ]
   },
   "/images/featured/lasix-featured-logo-ar.png": {
-    "width": 2780,
-    "height": 1287,
+    "width": 227,
+    "height": 109,
     "avif": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-400.avif"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-800.avif"
-      },
-      {
-        "width": 1200,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-1200.avif"
-      },
-      {
-        "width": 1600,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-1600.avif"
-      },
-      {
-        "width": 2780,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-2780.avif"
+        "width": 227,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-227.avif"
       }
     ],
     "webp": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-1200.webp"
-      },
-      {
-        "width": 1600,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-1600.webp"
-      },
-      {
-        "width": 2780,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-2780.webp"
+        "width": 227,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-227.webp"
       }
     ],
     "fallback": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-400.png"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-800.png"
-      },
-      {
-        "width": 1200,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-1200.png"
-      },
-      {
-        "width": 1600,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-1600.png"
-      },
-      {
-        "width": 2780,
-        "path": "/images/optimized/featured/lasix-featured-logo-ar-2780.png"
+        "width": 227,
+        "path": "/images/optimized/featured/lasix-featured-logo-ar-227.png"
       }
     ]
   },
   "/images/featured/lasix-featured-logo-en-transparent.png": {
-    "width": 927,
-    "height": 377,
+    "width": 224,
+    "height": 92,
     "avif": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-400.avif"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-800.avif"
-      },
-      {
-        "width": 927,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-927.avif"
+        "width": 224,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-224.avif"
       }
     ],
     "webp": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-800.webp"
-      },
-      {
-        "width": 927,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-927.webp"
+        "width": 224,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-224.webp"
       }
     ],
     "fallback": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-400.png"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-800.png"
-      },
-      {
-        "width": 927,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-927.png"
+        "width": 224,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-transparent-224.png"
       }
     ]
   },
   "/images/featured/lasix-featured-logo-en.png": {
-    "width": 2598,
-    "height": 1056,
+    "width": 224,
+    "height": 92,
     "avif": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-400.avif"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-800.avif"
-      },
-      {
-        "width": 1200,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-1200.avif"
-      },
-      {
-        "width": 1600,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-1600.avif"
-      },
-      {
-        "width": 2598,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-2598.avif"
+        "width": 224,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-224.avif"
       }
     ],
     "webp": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-1200.webp"
-      },
-      {
-        "width": 1600,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-1600.webp"
-      },
-      {
-        "width": 2598,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-2598.webp"
+        "width": 224,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-224.webp"
       }
     ],
     "fallback": [
       {
-        "width": 400,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-400.png"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-800.png"
-      },
-      {
-        "width": 1200,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-1200.png"
-      },
-      {
-        "width": 1600,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-1600.png"
-      },
-      {
-        "width": 2598,
-        "path": "/images/optimized/featured/lasix-featured-logo-en-2598.png"
+        "width": 224,
+        "path": "/images/optimized/featured/lasix-featured-logo-en-224.png"
       }
     ]
   },

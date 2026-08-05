@@ -52,9 +52,14 @@ export default async function BrochuresPage({ params }: LocalePageProps) {
                     <ResponsiveImage
                       src={product.logo}
                       alt={product.logoAlt}
-                      className="ml-auto h-20 w-auto object-contain sm:h-24"
+                      className="me-auto h-20 w-auto object-contain sm:h-24"
                       objectFit="contain"
                       sizes="96px"
+                      style={
+                        product.slug === "lasix" || product.slug === "fossil"
+                          ? { transform: "scale(0.7)", transformOrigin: "left center" }
+                          : undefined
+                      }
                     />
                     <p className="mt-4 text-xs font-bold uppercase tracking-[0.18em] text-agri-gold">{product.category}</p>
                     <p className="mt-3 flex-1 leading-7 text-slate-600">{product.description}</p>

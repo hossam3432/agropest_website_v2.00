@@ -22,6 +22,7 @@ const content = {
       body: "A propamocarb hydrochloride soluble concentrate that moves inside cucumber tissue to build a botanical shield against downy mildew — before symptoms appear.",
       ctaPrimary: "Application matrix",
       ctaSecondary: "Talk to AgroPest",
+      brochureCta: "Download brochure",
       stats: [
         { label: "Active ingredient", value: "72.2%", note: "Propamocarb HCl" },
         { label: "Pre-harvest interval", value: "5 days", note: "Cucumber" },
@@ -114,6 +115,7 @@ const content = {
       body: "مركز قابل للذوبان في الماء من بروباموكارب هيدروكلوريد ينتقل داخل أنسجة نبات الخيار ليبني درعاً نباتياً ضد البياض الزغبي قبل ظهور الأعراض.",
       ctaPrimary: "جدول الاستخدام",
       ctaSecondary: "تواصل مع اجروبست",
+      brochureCta: "تحميل البروشور",
       stats: [
         { label: "المادة الفعالة", value: "72.2%", note: "بروباموكارب هيدروكلوريد" },
         { label: "فترة ما قبل الحصاد", value: "٥ أيام", note: "الخيار" },
@@ -297,6 +299,16 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
                 {c.hero.lead}
               </p>
               <p className="mt-4 max-w-xl text-base leading-8 text-white/75">{c.hero.body}</p>
+
+              <a
+                href="/brochures/edegal-72-2-sl-brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold text-[#141C55] shadow-lg transition hover:-translate-y-0.5"
+                style={{ backgroundColor: GREEN }}
+              >
+                {c.hero.brochureCta}
+              </a>
 
               <dl className="mt-10 grid gap-4 sm:grid-cols-3">
                 {c.hero.stats.map((stat) => (

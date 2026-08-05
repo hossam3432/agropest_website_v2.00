@@ -39,7 +39,7 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
         homeLabel={content.navigation.find((item) => item.href === "/")?.label ?? "Home"}
         items={[{ label: content.navigation.find((item) => item.href === "/solutions")?.label ?? "Solutions", href: "/solutions" }]}
       />
-      <HeroSection compact locale={locale} {...solutionsPage.hero} />
+      <HeroSection compact leading={false} locale={locale} {...solutionsPage.hero} />
 
       <section className="bg-agri-mist py-12 sm:py-20">
         <div className="container-shell">

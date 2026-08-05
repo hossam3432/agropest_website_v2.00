@@ -465,7 +465,7 @@ export const arContent = {
     section: {
       eyebrow: "البروشورات المتاحة",
       title: "استعرض بروشورات المنتجات",
-      intro: "نعمل على استكمال هذه المكتبة منتجًا تلو الآخر. ابدأ بريفال ديو SC 45 أدناه — والمزيد من بروشورات المنتجات قادم قريبًا."
+      intro: "نعمل على استكمال هذه المكتبة منتجًا تلو الآخر. تصفح البروشورات والنشرات الفنية المتاحة أدناه — والمزيد قادم قريبًا."
     },
     products: [
       {
@@ -480,6 +480,62 @@ export const arContent = {
         brochureHref: "/brochures/rival-duo-45-sc-brochure.pdf",
         viewLabel: "عرض البروشور",
         productPageHref: "/rival-duo-45-sc",
+        productPageLabel: "فتح صفحة المنتج"
+      },
+      {
+        slug: "edegal",
+        name: "ايديجال 72.2% SL",
+        logo: "/images/products/edegal-gallery.png",
+        logoAlt: "عبوات ايديجال 72.2% SL",
+        category: "مبيد فطري",
+        description: "مبيد فطري جهازي يحتوي على بروباموكارب هيدروكلوريد 72.2% بتركيبة SL، مصمم للوقاية والعلاج المبكر للبياض الزغبي في الخيار والعائلة القرعية والبصل.",
+        image: "/images/products/edegal-gallery.png",
+        imageAlt: "عبوات ايديجال 72.2% SL",
+        brochureHref: "/brochures/edegal-72-2-sl-brochure.pdf",
+        viewLabel: "عرض البروشور",
+        productPageHref: "/edegal-72-2-sl",
+        productPageLabel: "فتح صفحة المنتج"
+      },
+      {
+        slug: "lasix",
+        name: "لازيكس 70 WG",
+        logo: "/images/featured/lasix-featured-logo-ar-transparent.png",
+        logoAlt: "شعار لازيكس 70 WG",
+        category: "مبيد حشري",
+        description: "مبيد حشري جهازي يحتوي على أسيتامبريد 70% في صورة حبيبات قابلة للانتشار في الماء WG، مصمم لمكافحة الذبابة البيضاء والحشرات الثاقبة الماصة ضمن برامج المكافحة المتكاملة.",
+        image: "/images/products/lasix-gallery.png",
+        imageAlt: "عبوات لازيكس 70 WG",
+        brochureHref: "/brochures/lasix-70-wg-brochure.pdf",
+        viewLabel: "عرض البروشور",
+        productPageHref: "/lasix-70-wg",
+        productPageLabel: "فتح صفحة المنتج"
+      },
+      {
+        slug: "signal-npk",
+        name: "سلسلة سيجنال NPK",
+        logo: "/images/featured/signal-npk-featured-logo-ar-transparent.png",
+        logoAlt: "شعار سلسلة سيجنال NPK",
+        category: "سلسلة NPK",
+        description: "سلسلة أسمدة NPK قابلة للذوبان في الماء، مدعمة بعناصر صغرى مخلبية، لدعم احتياجات النبات في مراحل النمو المختلفة.",
+        image: "/images/products/signal-npk-gallery.png",
+        imageAlt: "عبوات سلسلة سيجنال NPK",
+        brochureHref: "/brochures/signal-npk-technical-sheet.pdf",
+        viewLabel: "عرض النشرة الفنية",
+        productPageHref: "/signal-npk",
+        productPageLabel: "فتح صفحة المنتج"
+      },
+      {
+        slug: "fossil",
+        name: "فوسيل 400 SL",
+        logo: "/images/featured/fossil-featured-logo-ar-transparent.png",
+        logoAlt: "شعار فوسيل 400 SL",
+        category: "محفز حيوي",
+        description: "محفز حيوي سائل قائم على مستخلص طحالب Ascophyllum nodosum بنسبة 17% ومدعم بالسيتوكينين، لدعم نشاط الجذور وتحمل الإجهاد وجودة الثمار.",
+        image: "/images/products/fossil-gallery.png",
+        imageAlt: "عبوة فوسيل 400 SL",
+        brochureHref: "/brochures/fossil-400-sl-technical-sheet.pdf",
+        viewLabel: "عرض النشرة الفنية",
+        productPageHref: "/products/specialty-fertilizers/fossil",
         productPageLabel: "فتح صفحة المنتج"
       }
     ],

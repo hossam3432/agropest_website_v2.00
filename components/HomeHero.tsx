@@ -51,7 +51,7 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
     : "mt-5 w-full text-[32px] font-bold leading-[1.05] tracking-normal text-white sm:text-[38px] md:text-[44px] lg:text-[48px]";
 
   return (
-    <section className="relative isolate overflow-hidden bg-[radial-gradient(circle_at_14%_12%,rgba(217,146,39,0.22),transparent_28%),linear-gradient(135deg,#06281f_0%,#0A3D2B_42%,#17324d_100%)] text-white">
+    <section className="relative isolate -mt-24 overflow-hidden bg-[radial-gradient(circle_at_14%_12%,rgba(217,146,39,0.22),transparent_28%),linear-gradient(135deg,#06281f_0%,#0A3D2B_42%,#17324d_100%)] pt-24 text-white">
       <video
         aria-hidden="true"
         autoPlay
