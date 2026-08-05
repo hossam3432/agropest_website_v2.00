@@ -52,6 +52,21 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
 
   return (
     <section className="relative isolate overflow-hidden bg-[radial-gradient(circle_at_14%_12%,rgba(217,146,39,0.22),transparent_28%),linear-gradient(135deg,#06281f_0%,#0A3D2B_42%,#17324d_100%)] text-white">
+      <video
+        aria-hidden="true"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute inset-0 -z-10 h-full w-full object-cover"
+      >
+        <source src="/videos/hero.mp4" type="video/mp4" />
+      </video>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_14%_12%,rgba(217,146,39,0.22),transparent_28%),linear-gradient(135deg,rgba(6,40,31,0.82)_0%,rgba(10,61,43,0.78)_42%,rgba(23,50,77,0.82)_100%)]"
+      />
       <div aria-hidden="true" className="hero-accent-line absolute start-0 top-0 h-1 w-full bg-agri-gold" />
       <div
         aria-hidden="true"
