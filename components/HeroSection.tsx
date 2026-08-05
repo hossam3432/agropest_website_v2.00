@@ -26,7 +26,7 @@ export function HeroSection({
   compact = false
 }: HeroSectionProps) {
   return (
-    <section className={`relative isolate overflow-hidden ${compact ? "min-h-[380px]" : "min-h-[72svh]"} bg-agri-blue`}>
+    <section className={`relative isolate overflow-hidden ${compact ? "min-h-[520px]" : "min-h-[72svh]"} bg-agri-blue`}>
       {backgroundImage ? (
         <div aria-hidden="true" className="absolute inset-0">
           <ResponsiveImage src={backgroundImage} alt="" className="h-full w-full" objectFit="cover" priority />

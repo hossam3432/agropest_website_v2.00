@@ -33,9 +33,11 @@ export default async function AboutPage({ params }: LocalePageProps) {
 
   return (
     <>
-      <HeroSection compact locale={locale} {...about.hero} />
+      <div className="lg:-mt-24">
+        <HeroSection locale={locale} {...about.hero} />
+      </div>
 
-      <section className="bg-agri-mist py-12 sm:py-20">
+      <section className="bg-agri-mist py-12 sm:py-20 pt-0">
         <RevealSection className="container-shell grid gap-7 sm:gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start" amount={0.15}>
           <div>
             <p className="eyebrow">{about.intro.eyebrow}</p>

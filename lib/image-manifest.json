@@ -3143,6 +3143,52 @@
       }
     ]
   },
+  "/images/hero/about-warehouse.jpg": {
+    "width": 1096,
+    "height": 400,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/about-warehouse-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/about-warehouse-800.avif"
+      },
+      {
+        "width": 1096,
+        "path": "/images/optimized/hero/about-warehouse-1096.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/about-warehouse-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/about-warehouse-800.webp"
+      },
+      {
+        "width": 1096,
+        "path": "/images/optimized/hero/about-warehouse-1096.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/about-warehouse-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/about-warehouse-800.jpg"
+      },
+      {
+        "width": 1096,
+        "path": "/images/optimized/hero/about-warehouse-1096.jpg"
+      }
+    ]
+  },
   "/images/hero/agropest-field.jpg": {
     "width": 1200,
     "height": 1184,
@@ -3302,6 +3348,76 @@
       {
         "width": 1400,
         "path": "/images/optimized/hero/contact-greenhouse-1400.jpg"
+      }
+    ]
+  },
+  "/images/hero/library-brochures-stack.jpg": {
+    "width": 2752,
+    "height": 1536,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/library-brochures-stack-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/library-brochures-stack-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/library-brochures-stack-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/hero/library-brochures-stack-1600.avif"
+      },
+      {
+        "width": 2752,
+        "path": "/images/optimized/hero/library-brochures-stack-2752.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/library-brochures-stack-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/library-brochures-stack-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/library-brochures-stack-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/hero/library-brochures-stack-1600.webp"
+      },
+      {
+        "width": 2752,
+        "path": "/images/optimized/hero/library-brochures-stack-2752.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/library-brochures-stack-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/library-brochures-stack-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/library-brochures-stack-1200.jpg"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/hero/library-brochures-stack-1600.jpg"
+      },
+      {
+        "width": 2752,
+        "path": "/images/optimized/hero/library-brochures-stack-2752.jpg"
       }
     ]
   },

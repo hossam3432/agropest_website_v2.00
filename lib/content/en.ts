@@ -2,10 +2,11 @@
   hero: {
     home: "/images/hero/agropest-field.jpg",
     greenhouse: "/images/hero/agropest-greenhouse.jpg",
-    about: "/images/hero/about-partnership.jpg",
+    about: "/images/hero/about-warehouse.jpg",
     solutions: "/images/hero/solutions-logistics.jpg",
     products: "/images/hero/products-crop-inputs.jpg",
     library: "/images/hero/library-documents.jpg",
+    libraryPreview: "/images/hero/library-brochures-stack.jpg",
     partner: "/images/hero/about-partnership.jpg",
     contact: "/images/hero/contact-greenhouse.jpg"
   },
@@ -618,7 +619,7 @@ export const enContent = {
     eyebrow: "Technical resources",
     title: "Practical materials ready to use",
     description: "AgroPest provides a set of technical materials that help users reach information faster, whether to understand a product, support a technical recommendation, or simplify practical agricultural topics.",
-    image: imagePaths.hero.library,
+    image: imagePaths.hero.libraryPreview,
     imageAlt: "AgroPest technical resources and agricultural knowledge center",
     panel: { eyebrow: "Agricultural knowledge", title: "Brochures, technical leaflets, visual materials, and practical agricultural knowledge." },
     documents: [
