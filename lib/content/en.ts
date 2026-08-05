@@ -228,7 +228,8 @@ export const enContent = {
       description:
         "AgroPest Control for Trading is an Egyptian company operating in the agricultural market since 1995, focused on selecting, registering, importing, and distributing agricultural solutions suited to crop needs in Egypt.",
       backgroundImage: imagePaths.hero.about,
-      backgroundPosition: "center 35%",
+      backgroundPosition: "center 50%",
+      backgroundScale: 1.25,
       splitOnLarge: true,
       primaryCta: { label: "View Products", href: "/products" },
       secondaryCta: { label: "Contact Us", href: "/contact" }

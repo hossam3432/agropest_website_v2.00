@@ -10,6 +10,7 @@ type HeroSectionProps = {
   description?: string;
   backgroundImage?: string;
   backgroundPosition?: string;
+  backgroundScale?: number;
   backgroundVideo?: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
@@ -28,6 +29,7 @@ export function HeroSection({
   description,
   backgroundImage,
   backgroundPosition,
+  backgroundScale,
   backgroundVideo,
   primaryCta,
   secondaryCta,
@@ -35,6 +37,14 @@ export function HeroSection({
   leading = true,
   splitOnLarge = false
 }: HeroSectionProps) {
+  const imageStyle: React.CSSProperties | undefined =
+    backgroundPosition || backgroundScale
+      ? {
+          ...(backgroundPosition ? { objectPosition: backgroundPosition } : null),
+          ...(backgroundScale ? { transform: `scale(${backgroundScale})` } : null)
+        }
+      : undefined;
+
   return (
     <section
       className={`relative isolate overflow-hidden ${leading ? "-mt-24 pt-24" : ""} ${compact ? "min-h-[520px]" : "min-h-[72svh]"} bg-agri-blue`}
@@ -60,7 +70,7 @@ export function HeroSection({
               className="h-full w-full"
               objectFit="cover"
               priority
-              style={backgroundPosition ? { objectPosition: backgroundPosition } : undefined}
+              style={imageStyle}
             />
           </div>
           {splitOnLarge ? (
@@ -72,7 +82,7 @@ export function HeroSection({
                   className="h-full w-full"
                   objectFit="cover"
                   priority
-                  style={backgroundPosition ? { objectPosition: backgroundPosition } : undefined}
+                  style={imageStyle}
                 />
                 <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-r from-transparent via-agri-blue/60 to-agri-blue" />
               </div>

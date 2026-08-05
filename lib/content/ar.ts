@@ -203,7 +203,8 @@ export const arContent = {
       description:
         "أجروبست كنترول للتجارة شركة مصرية تعمل في السوق الزراعي منذ عام 1995، وتركز على اختيار وتسجيل واستيراد وتوزيع حلول زراعية مناسبة لاحتياجات المحاصيل في مصر.",
       backgroundImage: imagePaths.hero.about,
-      backgroundPosition: "center 35%",
+      backgroundPosition: "center 50%",
+      backgroundScale: 1.25,
       splitOnLarge: true,
       primaryCta: { label: "استعرض المنتجات", href: "/products" },
       secondaryCta: { label: "تواصل معنا", href: "/contact" }
