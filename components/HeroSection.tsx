@@ -92,7 +92,6 @@ export function HeroSection({
         </>
       ) : null}
       <div className={`absolute inset-0 bg-gradient-to-r from-agri-blue via-agri-blue/80 to-agri-green/40 ${splitOnLarge ? "lg:hidden" : ""}`} />
-      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-agri-mist to-transparent" />
 
       <div className="container-shell relative flex min-h-[inherit] items-center py-20">
         <div className={`max-w-3xl text-white ${splitOnLarge ? "lg:ml-auto lg:text-right" : ""}`}>
