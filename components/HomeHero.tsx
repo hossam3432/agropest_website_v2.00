@@ -58,7 +58,8 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
+        poster="/videos/hero-poster.jpg"
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       >
         <source src="/videos/hero.mp4" type="video/mp4" />
