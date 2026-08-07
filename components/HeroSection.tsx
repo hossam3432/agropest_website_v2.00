@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { localizeHref, type Locale } from "@/lib/content";
@@ -37,6 +40,14 @@ export function HeroSection({
   leading = true,
   splitOnLarge = false
 }: HeroSectionProps) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (backgroundVideo) {
+      videoRef.current?.play().catch(() => {});
+    }
+  }, [backgroundVideo]);
+
   const imageStyle: React.CSSProperties | undefined =
     backgroundPosition || backgroundScale
       ? {
@@ -51,6 +62,7 @@ export function HeroSection({
     >
       {backgroundVideo ? (
         <video
+          ref={videoRef}
           aria-hidden="true"
           autoPlay
           muted

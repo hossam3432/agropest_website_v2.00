@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
 
@@ -37,6 +37,17 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
   const signatureCards = hero.signatureCards;
   const isArabic = content.direction === "rtl";
   const [activeIndex, setActiveIndex] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    // Safari ignores the JSX `muted` attribute on hydration and blocks
+    // autoplay unless the `muted` IDL property is set explicitly.
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise) playPromise.catch(() => {});
+  }, []);
 
   useEffect(() => {
     if (signatureCards.length <= 1) return undefined;
@@ -53,6 +64,7 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
   return (
     <section className="relative isolate -mt-24 overflow-hidden bg-[radial-gradient(circle_at_14%_12%,rgba(217,146,39,0.22),transparent_28%),linear-gradient(135deg,#06281f_0%,#0A3D2B_42%,#17324d_100%)] pt-24 text-white">
       <video
+        ref={videoRef}
         aria-hidden="true"
         autoPlay
         muted
