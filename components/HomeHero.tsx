@@ -43,10 +43,42 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
     const video = videoRef.current;
     if (!video) return;
     // Safari ignores the JSX `muted` attribute on hydration and blocks
-    // autoplay unless the `muted` IDL property is set explicitly.
+    // autoplay unless both the `defaultMuted` and `muted` IDL properties
+    // are set explicitly before play() is requested.
+    video.defaultMuted = true;
     video.muted = true;
-    const playPromise = video.play();
-    if (playPromise) playPromise.catch(() => {});
+
+    const tryPlay = () => {
+      const playPromise = video.play();
+      if (playPromise) playPromise.catch(() => {});
+    };
+
+    // Safari can silently reject play() if called before enough data is
+    // buffered, so retry once metadata/frames are actually available.
+    video.addEventListener("loadedmetadata", tryPlay);
+    video.addEventListener("canplay", tryPlay);
+    tryPlay();
+
+    // Last-resort fallback: if the platform's auto-play setting still
+    // blocked it, start on the first tap/scroll so it's never stuck
+    // showing a static poster.
+    const onFirstInteraction = () => {
+      tryPlay();
+      window.removeEventListener("touchstart", onFirstInteraction);
+      window.removeEventListener("click", onFirstInteraction);
+      window.removeEventListener("scroll", onFirstInteraction);
+    };
+    window.addEventListener("touchstart", onFirstInteraction, { passive: true, once: true });
+    window.addEventListener("click", onFirstInteraction, { once: true });
+    window.addEventListener("scroll", onFirstInteraction, { passive: true, once: true });
+
+    return () => {
+      video.removeEventListener("loadedmetadata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+      window.removeEventListener("touchstart", onFirstInteraction);
+      window.removeEventListener("click", onFirstInteraction);
+      window.removeEventListener("scroll", onFirstInteraction);
+    };
   }, []);
 
   useEffect(() => {

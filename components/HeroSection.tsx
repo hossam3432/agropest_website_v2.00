@@ -43,8 +43,11 @@ export function HeroSection({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (backgroundVideo) {
-      videoRef.current?.play().catch(() => {});
+    const video = videoRef.current;
+    if (backgroundVideo && video) {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.play().catch(() => {});
     }
   }, [backgroundVideo]);
 
