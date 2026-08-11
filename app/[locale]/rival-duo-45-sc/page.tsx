@@ -339,8 +339,10 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
     <main className={cairo.className + " rival-landing bg-white text-[" + INK + "]"}>
       <style dangerouslySetInnerHTML={{ __html: arabicFontCss + " " + animationCss }} />
 
-      {/* MOBILE (<lg) — dedicated mobile-first structure, natural document scroll. */}
-      <div className="lg:hidden">
+      {/* MOBILE (<lg) — dedicated mobile-first structure, natural document scroll.
+          bg here (not on the shared <main>) keeps the unified page tint off the
+          desktop tree next to it. */}
+      <div className="bg-[#F5F8FC] lg:hidden">
         <RivalDuoMobile
           c={c}
           locale={locale}

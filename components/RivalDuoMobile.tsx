@@ -566,7 +566,7 @@ export function RivalDuoMobile({
       </div>
 
       {/* --------------------------------------------- DUAL COMPOSITION (s3) */}
-      <section id="m-s3" className="scroll-mt-[140px] px-4 pb-12 pt-12">
+      <section id="m-s3" className="scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-12 pt-12">
         <SectionHead kicker={c.s3.kicker} title={c.s3.title} logo />
         <div className="mt-4 grid gap-3">
           {[
@@ -628,7 +628,7 @@ export function RivalDuoMobile({
       </section>
 
       {/* ------------------------------------------------------- TIMING (s5) */}
-      <section id="m-s5" className="scroll-mt-[140px] px-4 pb-12 pt-12">
+      <section id="m-s5" className="scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-12 pt-12">
         <SectionHead kicker={c.s5.kicker} title={c.s5.title} />
 
         <div className="mt-4 overflow-hidden rounded-[1.5rem] bg-white p-2 shadow-[0_16px_44px_rgba(14,75,159,0.1)]">
@@ -786,7 +786,7 @@ export function RivalDuoMobile({
       </section>
 
       {/* ------------------------------------------------ WHY RIVAL DUO (s7) */}
-      <section id="m-s7" className="scroll-mt-[140px] px-4 pb-12 pt-12">
+      <section id="m-s7" className="scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-12 pt-12">
         <div className="flex flex-wrap items-center gap-3">
           <ResponsiveImage
             src="/images/products/rival-duo-shield-logo.png"
