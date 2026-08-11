@@ -164,8 +164,8 @@ export const arContent = {
       items: [
         { name: "Agria Bulgaria", logo: "/images/partners/agria-bulgaria-logo-supplied.png", logoAlt: "لوجو Agria Bulgaria", description: "بلغاريا · وقاية المحاصيل" },
         { name: "EuroGro Greece", logo: "/images/partners/eurogro-logo-supplied.png", logoAlt: "لوجو EuroGro Greece", description: "اليونان · تغذية نباتية ومحفزات حيوية" },
-        { name: "Agri Unitech", logo: "/images/partners/star-cropscience-logo-supplied.png", logoAlt: "لوجو Agri Unitech", description: "حلول وقاية المزروعات" },
-        { name: "Agrii Poland", logo: "/images/partners/agrii-logo-supplied.png", logoAlt: "لوجو Agrii Poland", description: "بولندا · تغذية ورقية — قيد التسجيل" }
+        { name: "Agri Unitech", logo: "/images/partners/star-cropscience-logo-supplied.png", logoAlt: "لوجو Agri Unitech", description: "الصين - حلول وقاية المزروعات" },
+        { name: "Agrii Poland", logo: "/images/partners/agrii-logo-supplied.png", logoAlt: "لوجو Agrii Poland", description: "بولندا - تغذية ورقية واسمدة متخصصة" }
       ]
     },
     solutionsSection: {
