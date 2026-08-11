@@ -3619,6 +3619,76 @@
       }
     ]
   },
+  "/images/backgrounds/agropest-showroom-facade.jpg": {
+    "width": 2400,
+    "height": 1792,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-1600.avif"
+      },
+      {
+        "width": 2400,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-2400.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-1600.webp"
+      },
+      {
+        "width": 2400,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-2400.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-1200.jpg"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-1600.jpg"
+      },
+      {
+        "width": 2400,
+        "path": "/images/optimized/backgrounds/agropest-showroom-facade-2400.jpg"
+      }
+    ]
+  },
   "/images/backgrounds/egypt-field-rows.jpg": {
     "width": 1200,
     "height": 1184,
@@ -4980,76 +5050,6 @@
       {
         "width": 1266,
         "path": "/images/optimized/brand/agropest-logo-1266.png"
-      }
-    ]
-  },
-  "/images/backgrounds/agropest-showroom-facade.jpg": {
-    "width": 2400,
-    "height": 1792,
-    "avif": [
-      {
-        "width": 400,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-400.avif"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-800.avif"
-      },
-      {
-        "width": 1200,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-1200.avif"
-      },
-      {
-        "width": 1600,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-1600.avif"
-      },
-      {
-        "width": 2400,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-2400.avif"
-      }
-    ],
-    "webp": [
-      {
-        "width": 400,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-1200.webp"
-      },
-      {
-        "width": 1600,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-1600.webp"
-      },
-      {
-        "width": 2400,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-2400.webp"
-      }
-    ],
-    "fallback": [
-      {
-        "width": 400,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-400.jpg"
-      },
-      {
-        "width": 800,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-800.jpg"
-      },
-      {
-        "width": 1200,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-1200.jpg"
-      },
-      {
-        "width": 1600,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-1600.jpg"
-      },
-      {
-        "width": 2400,
-        "path": "/images/optimized/backgrounds/agropest-showroom-facade-2400.jpg"
       }
     ]
   }
