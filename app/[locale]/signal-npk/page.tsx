@@ -5,6 +5,7 @@ import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { Cairo, IBM_Plex_Mono } from "next/font/google";
 import CompositionMatrix, { type Variant, type MatrixLabels } from "./_CompositionMatrix";
 import MechanismSection from "./_MechanismSection";
+import MobileLanding from "./_MobileLanding";
 import { absoluteUrl } from "@/lib/seo";
 
 /* ————————————————————————————————————————————————————————————————
@@ -30,7 +31,7 @@ const INK = "#17142D";
 const BLUE = "#1D4ED8";
 const AMBER = "#B45309";
 
-type Locale = "ar" | "en";
+export type Locale = "ar" | "en";
 
 /* ————————————————————————————————————————————————————————————————
    CONTENT DICTIONARY
@@ -219,7 +220,8 @@ const content = {
       phones: ["+20 101 486 3909", "+20 100 252 0979"],
       email: "info@agropestcontrol.com",
       site: "www.agropestcontrol.com",
-      legal: "© AgroPest Control for Trading — Signal is manufactured by Eurogro, Greece."
+      legal: "© AgroPest Control for Trading — Signal is manufactured by Eurogro, Greece.",
+      brochureCta: "Download Technical Brochure"
     }
   },
   ar: {
@@ -404,10 +406,13 @@ const content = {
       phones: ["+20 101 486 3909", "+20 100 252 0979"],
       email: "info@agropestcontrol.com",
       site: "www.agropestcontrol.com",
-      legal: "© أجروبست كنترول للتجارة — سيجنال من تصنيع يورو جرو، اليونان."
+      legal: "© أجروبست كنترول للتجارة — سيجنال من تصنيع يورو جرو، اليونان.",
+      brochureCta: "تحميل النشرة الفنية"
     }
   }
 };
+
+export type SignalNpkContent = (typeof content)[Locale];
 
 /* ————————————————————————————————————————————————————————————————
    GLOBAL KEYFRAMES — radiating signal · float · fade
@@ -538,6 +543,14 @@ export default async function SignalNpkPage({ params }: PageProps) {
       className={`${cairo.className} relative min-h-screen overflow-x-clip bg-[#F4F8F5] text-[#17142D] antialiased`}
     >
       <style dangerouslySetInnerHTML={{ __html: keyframes }} />
+
+      {/* MOBILE (<lg) — dedicated mobile-first structure, natural document scroll. */}
+      <div className="lg:hidden">
+        <MobileLanding t={t} locale={locale} />
+      </div>
+
+      {/* DESKTOP (lg+) — unchanged. */}
+      <div className="hidden lg:block">
 
       {/* ambient washes */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -733,11 +746,12 @@ export default async function SignalNpkPage({ params }: PageProps) {
               href={`/${locale}/brochures`}
               className="mt-20 rounded-full bg-[#3fbf6e] px-8 py-4 text-sm font-bold text-[#17142D] shadow-lg shadow-[#3fbf6e]/30 transition-colors hover:bg-[#2fa856]"
             >
-              {locale === "ar" ? "تحميل النشرة الفنية" : "Download Technical Brochure"}
+              {t.footer.brochureCta}
             </Link>
           </div>
         </div>
       </footer>
+      </div>
     </div>
   );
 }
