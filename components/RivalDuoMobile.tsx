@@ -10,6 +10,18 @@ const ORANGE = "#F14723";
 const INK = "#0A2A57";
 const premiumEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
+// A groove carved into the page rather than a pill floating on it: dark shadow
+// under the top lip, a soft dark haze all round, light catching the bottom inner
+// wall and the outer bottom edge. Ambient outer shadow stays minimal — elevation
+// is what makes a surface read as raised, so more of it would undo the recess.
+const GROOVE_SHADOW = [
+  "inset 0 2px 5px rgba(10,42,87,0.13)",
+  "inset 0 0 14px rgba(10,42,87,0.07)",
+  "inset 0 -1px 0 rgba(255,255,255,0.85)",
+  "0 1px 0 rgba(255,255,255,0.55)",
+  "0 4px 16px rgba(15,23,42,0.07)"
+].join(", ");
+
 type Stage = {
   readonly day: string;
   readonly label: string;
@@ -522,7 +534,10 @@ export function RivalDuoMobile({
       {/* Parks below the navbar's compact height with a gap, so the two glass
           pills read as separate layers instead of one merged bar. */}
       <div className="sticky top-[70px] z-30 px-4 py-1">
-        <div className="overflow-hidden rounded-full border border-white/60 bg-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_30px_rgba(15,23,42,0.12)] backdrop-blur-xl">
+        <div
+          className="overflow-hidden rounded-full border border-white/40 bg-white/60 backdrop-blur-xl"
+          style={{ boxShadow: GROOVE_SHADOW }}
+        >
           <div
             ref={tabStripRef}
             className="flex gap-1.5 overflow-x-auto p-1.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
