@@ -345,26 +345,48 @@ export function RivalDuoMobile({
     document.getElementById(id)?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
   }
 
-  // Scroll-spy for the sticky tab strip: the topmost section still on screen wins.
+  // Open on the whole hero. A reload restores the previous offset, which parks the
+  // wordmark under the fixed navbar; back/forward keeps its restored position.
+  useEffect(() => {
+    if (window.matchMedia("(min-width: 1024px)").matches) return;
+    if (window.location.hash) return;
+    const [entry] = performance.getEntriesByType("navigation") as PerformanceNavigationTiming[];
+    if (entry?.type === "back_forward") return;
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
+
+  // Scroll-spy for the sticky tab strip. Sections butt directly against each
+  // other, so an IntersectionObserver sees a zero-area overlap on the outgoing
+  // one and can't break the tie. Pick the deepest section whose top has crossed
+  // the line just under the pill instead — that is always the one being read.
   useEffect(() => {
     const ids = tabs.map((tab) => tab.id);
-    const elements = ids.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => Boolean(el));
-    if (!elements.length) return;
+    let frame = 0;
 
-    const onScreen = new Set<string>();
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) onScreen.add(entry.target.id);
-          else onScreen.delete(entry.target.id);
-        }
-        const first = ids.find((id) => onScreen.has(id));
-        if (first) setActiveTab(first);
-      },
-      { rootMargin: "-140px 0px -55% 0px" }
-    );
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    function update() {
+      frame = 0;
+      if (!tabStripRef.current?.offsetParent) return; // desktop: tree is display:none
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 150) current = id;
+      }
+      setActiveTab(current);
+    }
+
+    function onScroll() {
+      if (frame) return;
+      frame = window.requestAnimationFrame(update);
+    }
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -399,7 +421,9 @@ export function RivalDuoMobile({
   return (
     <div>
       {/* ---------------------------------------------------------- HERO */}
-      <section className="relative overflow-hidden bg-[#F5F8FC] px-4 pb-9 pt-4">
+      {/* pt clears the floating navbar in its tall (unscrolled) state, on top of
+          the 6rem the layout already reserves. */}
+      <section className="relative overflow-hidden bg-[#F5F8FC] px-4 pb-9 pt-10">
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
           <ResponsiveImage
             src="/images/products/rival-duo-umbrella-lineart.png"
@@ -495,35 +519,39 @@ export function RivalDuoMobile({
       </section>
 
       {/* ------------------------------------------------- STICKY TAB STRIP */}
-      <div className="sticky top-[60px] z-30 border-b border-slate-100 bg-white/85 backdrop-blur-xl">
-        <div
-          ref={tabStripRef}
-          className="flex gap-2 overflow-x-auto px-4 py-2.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {tabs.map((tab) => {
-            const isActive = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                data-tab={tab.id}
-                type="button"
-                onClick={() => scrollToSection(tab.id)}
-                aria-current={isActive ? "true" : undefined}
-                className={
-                  "flex min-h-[44px] shrink-0 items-center whitespace-nowrap rounded-full px-4 text-[13px] font-bold transition-colors duration-300 " +
-                  (isActive ? "text-white" : "bg-[#F1F5FB] text-slate-500")
-                }
-                style={isActive ? { backgroundColor: BLUE } : undefined}
-              >
-                {tab.label}
-              </button>
-            );
-          })}
+      {/* Parks below the navbar's compact height with a gap, so the two glass
+          pills read as separate layers instead of one merged bar. */}
+      <div className="sticky top-[70px] z-30 px-4 py-1">
+        <div className="overflow-hidden rounded-full border border-white/60 bg-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_30px_rgba(15,23,42,0.12)] backdrop-blur-xl">
+          <div
+            ref={tabStripRef}
+            className="flex gap-1.5 overflow-x-auto p-1.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {tabs.map((tab) => {
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  data-tab={tab.id}
+                  type="button"
+                  onClick={() => scrollToSection(tab.id)}
+                  aria-current={isActive ? "true" : undefined}
+                  className={
+                    "flex min-h-[44px] shrink-0 items-center whitespace-nowrap rounded-full px-4 text-[13px] font-bold transition-colors duration-300 " +
+                    (isActive ? "text-white" : "text-slate-500")
+                  }
+                  style={isActive ? { backgroundColor: BLUE } : undefined}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
       {/* --------------------------------------------- DUAL COMPOSITION (s3) */}
-      <section id="m-s3" className="scroll-mt-[124px] px-4 pb-11 pt-9">
+      <section id="m-s3" className="scroll-mt-[140px] px-4 pb-11 pt-9">
         <SectionHead kicker={c.s3.kicker} title={c.s3.title} logo />
         <div className="mt-4 grid gap-3">
           {[
@@ -556,7 +584,7 @@ export function RivalDuoMobile({
       </section>
 
       {/* ------------------------------------ PREVENTIVE & CURATIVE (s2) */}
-      <section id="m-s2" className="scroll-mt-[124px] bg-[#F5F8FC] px-4 pb-11 pt-9">
+      <section id="m-s2" className="scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-11 pt-9">
         <SectionHead kicker={c.s2.kicker} title={c.s2.title} />
         <div className="mt-3">
           <ReadMore text={c.s2.intro} labels={labels} />
@@ -585,7 +613,7 @@ export function RivalDuoMobile({
       </section>
 
       {/* ------------------------------------------------------- TIMING (s5) */}
-      <section id="m-s5" className="scroll-mt-[124px] px-4 pb-11 pt-9">
+      <section id="m-s5" className="scroll-mt-[140px] px-4 pb-11 pt-9">
         <SectionHead kicker={c.s5.kicker} title={c.s5.title} />
 
         <div className="mt-4 overflow-hidden rounded-[1.5rem] bg-white p-2 shadow-[0_16px_44px_rgba(14,75,159,0.1)]">
@@ -693,7 +721,7 @@ export function RivalDuoMobile({
       </section>
 
       {/* ------------------------------------------- APPLICATION RATES (s4) */}
-      <section id="m-s4" className="scroll-mt-[124px] bg-[#F5F8FC] px-4 pb-11 pt-9">
+      <section id="m-s4" className="scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-11 pt-9">
         <SectionHead kicker={c.s4.kicker} title={c.s4.title} />
 
         <div className="mt-4 overflow-hidden rounded-[1.5rem] border-2 bg-white" style={{ borderColor: BLUE + "22" }}>
@@ -743,7 +771,7 @@ export function RivalDuoMobile({
       </section>
 
       {/* ------------------------------------------------ WHY RIVAL DUO (s7) */}
-      <section id="m-s7" className="scroll-mt-[124px] px-4 pb-11 pt-9">
+      <section id="m-s7" className="scroll-mt-[140px] px-4 pb-11 pt-9">
         <div className="flex flex-wrap items-center gap-3">
           <ResponsiveImage
             src="/images/products/rival-duo-shield-logo.png"
@@ -788,7 +816,7 @@ export function RivalDuoMobile({
       </section>
 
       {/* ---------------------------------------------- COMMERCIAL CLOSE (s8) */}
-      <section id="m-s8" className="scroll-mt-[124px] bg-[#F5F8FC] px-4 pb-12 pt-9">
+      <section id="m-s8" className="scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-12 pt-9">
         <ResponsiveImage
           src="/images/products/rival-duo-bottles-2026.png"
           alt={c.s8.eyebrow}
