@@ -60,9 +60,9 @@ const content = {
       ctaPrimary: "Explore the matrix",
       ctaSecondary: "Talk to an agronomist",
       badges: [
-        { big: "100%", small: "Fully soluble · zero residue" },
+        { big: "2.5%", small: "Active organic matter" },
         { big: "LOW-BIURET", small: "High-purity urea source" },
-        { big: "FAST", small: "Leaf response in hours" }
+        { big: "KNO₃", small: "Contains potassium nitrate" }
       ],
       packAlt: "Signal NPK 20-20-20 soluble fertilizer pack"
     },
@@ -234,7 +234,7 @@ const content = {
     langSwitch: { label: "English", href: "/en/signal-npk" },
     brand: { name: "سيجنال", sub: "سلسلة NPK" },
     nav: [
-      { label: "المصفوفة", href: "#matrix" },
+      { label: "سلسلة المنتجات", href: "#matrix" },
       { label: "آلية العمل", href: "#mechanism" },
       { label: "الاستخدام", href: "#usage" },
       { label: "التوريد", href: "#supply" }
@@ -243,17 +243,17 @@ const content = {
       kicker: "نظام تغذية ورقي وأرضي متكامل",
       slogan: ["سيجنال..", "إشارة", "يفهمها النبات."],
       lead: "ثلاث تركيبات NPK دقيقة مبنية على خامات عالية النقاوة منخفضة الملوحة — يمتصها النبات عبر الورقة خلال ساعات لا أيام. مجموعة عناصر صغرى مخلبية واحدة، ومحفّز عضوي واحد، وثلاث نسب كبرى تقود الموسم بأكمله.",
-      ctaPrimary: "استكشف المصفوفة",
+      ctaPrimary: "استكشف سلسلة المنتجات",
       ctaSecondary: "تحدث مع مهندس زراعي",
       badges: [
-        { big: "100%", small: "تام الذوبان · بدون رواسب" },
+        { big: "2.5%", small: "مادة عضوية نشطة" },
         { big: "منخفض البيوريت", small: "يوريا عالية النقاوة" },
-        { big: "سريع", small: "استجابة ورقية خلال ساعات" }
+        { big: "KNO₃", small: "يحتوي على نترات البوتاسيوم" }
       ],
       packAlt: "عبوة سماد سيجنال NPK 20-20-20 تام الذوبان"
     },
     matrix: {
-      index: "01 — المصفوفة",
+      index: "01 — سلسلة المنتجات",
       title: "نظام واحد. ثلاث إشارات.",
       intro: "تشترك كل تركيبات سيجنال في نفس مجموعة العناصر الصغرى المخلبية والمحفّز العضوي النشط — يتغيّر توازن العناصر الكبرى فقط. بدّل بين التركيبات لعرض التركيب الكامل.",
       labels: {

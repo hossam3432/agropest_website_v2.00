@@ -227,7 +227,6 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
   const [activeSection, setActiveSection] = useState(sections[0].id);
   const [activeVariant, setActiveVariant] = useState(0);
   const [microOpen, setMicroOpen] = useState(true);
-  const [barVisible, setBarVisible] = useState(false);
 
   const tabStripRef = useRef<HTMLDivElement>(null);
   const variantStripRef = useRef<HTMLDivElement>(null);
@@ -279,23 +278,6 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
     variantDetailRef.current?.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "nearest" });
     centerInStrip(variantStripRef.current, `[data-variant="${activeVariant}"]`);
   }, [activeVariant]);
-
-  // Sticky action bar: past the hero, and out of the way once the closing
-  // section (which carries the same actions inline) is reached.
-  useEffect(() => {
-    function onScroll() {
-      const closing = document.getElementById("m-supply");
-      const reachedClosing = closing ? closing.getBoundingClientRect().top < window.innerHeight - 120 : true;
-      setBarVisible(window.scrollY > 480 && !reachedClosing);
-    }
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
 
   function selectVariant(i: number) {
     variantUserSelected.current = true;
@@ -716,30 +698,6 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
           <p className="relative mt-6 text-[11px] leading-relaxed text-white/40">{t.footer.legal}</p>
         </div>
       </section>
-
-      {/* --------------------------------------------- STICKY ACTION BAR */}
-      <div
-        className={`pointer-events-none fixed inset-x-0 bottom-0 z-40 transition-transform duration-300 ${
-          barVisible ? "translate-y-0" : "translate-y-[140%]"
-        }`}
-      >
-        <div className="pointer-events-auto mx-3 mb-3 flex gap-2 rounded-[1.5rem] border border-white/60 bg-white/85 p-2 shadow-[0_12px_36px_rgba(23,20,45,0.18)] backdrop-blur-xl">
-          <Link
-            href={`/${locale}/brochures`}
-            className="flex min-h-[52px] flex-1 items-center justify-center rounded-[1.1rem] px-3 text-center text-[13px] font-bold leading-4 text-white active:scale-[0.985]"
-            style={{ backgroundColor: GREEN }}
-          >
-            {t.footer.brochureCta}
-          </Link>
-          <Link
-            href={`/${locale}/contact`}
-            className="flex min-h-[52px] flex-1 items-center justify-center rounded-[1.1rem] border-2 px-3 text-center text-[13px] font-bold leading-4 active:scale-[0.985]"
-            style={{ borderColor: GREEN, color: GREEN }}
-          >
-            {t.hero.ctaSecondary}
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }
