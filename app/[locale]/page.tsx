@@ -8,18 +8,24 @@ import { buildPageMetadata } from "@/lib/seo";
 const homeFaqItems = {
   en: [
     {
-      question: "What does AgroPest Control do?",
+      question: "What does AgroPest Control for Trading do?",
       answer:
-        "AgroPest Control for Trading is an Egyptian company that selects, registers, imports, and distributes crop protection products, specialty fertilizers, and biostimulants for the Egyptian agricultural market."
+        "AgroPest Control for Trading is an Egyptian importer and distributor of registered crop protection products, NPK fertilizers, and biostimulants. Established in 1995 and based in Al Nubariya, Beheira, it supplies wholesalers and regional distributors across Egypt."
     },
     {
-      question: "How long has AgroPest Control been operating in Egypt?",
-      answer: "AgroPest Control has operated in the Egyptian agricultural market since 1995."
+      question: "Are AgroPest's products registered in Egypt?",
+      answer:
+        "Yes. Every product AgroPest distributes is registered with the Ministry of Agriculture and the Agricultural Pesticides Committee before it is offered in the Egyptian market. A registered product carries an official label, a reference standard, and an accountable party behind it."
     },
     {
-      question: "What types of products does AgroPest Control offer?",
+      question: "How do I become an agricultural input distributor with AgroPest in Egypt?",
       answer:
-        "AgroPest Control's portfolio spans registered crop protection products (agrochemicals) and specialty fertilizers and biostimulants suited to Egyptian crops and farming conditions."
+        "Distribution partnerships begin with a direct conversation through the Partner With Us page. Each partner receives registered products, complete technical documentation, and organized follow-up in market."
+    },
+    {
+      question: "Which products and crops does AgroPest supply?",
+      answer:
+        "Two pillars: crop protection (insecticides and fungicides for vegetable and field crops) and crop nutrition and yield enhancement (water-soluble NPK fertilizers, phosphites, calcium-boron, potassium silicate, and seaweed-extract biostimulants)."
     },
     {
       question: "How can I contact AgroPest Control?",
@@ -29,18 +35,24 @@ const homeFaqItems = {
   ],
   ar: [
     {
-      question: "ما الذي تقدمه أجروبست كنترول؟",
+      question: "ما الذي تقدمه أجروبست كنترول للتجارة؟",
       answer:
-        "أجروبست كنترول للتجارة شركة مصرية تعمل على اختيار وتسجيل واستيراد وتوزيع منتجات وقاية المحاصيل والأسمدة المتخصصة والمحفزات الحيوية للسوق الزراعي المصري."
+        "أجروبست كنترول للتجارة شركة مصرية تستورد وتوزع مبيدات مسجلة وأسمدة مركبة ومحفزات حيوية. تأسست عام 1995 ومقرها النوبارية بالبحيرة، وتورّد لتجار الجملة والموزعين الإقليميين في أنحاء مصر."
     },
     {
-      question: "منذ متى تعمل أجروبست كنترول في مصر؟",
-      answer: "تعمل أجروبست كنترول في السوق الزراعي المصري منذ عام 1995."
+      question: "هل منتجات أجروبست مسجلة في مصر؟",
+      answer:
+        "نعم. كل منتج توزعه أجروبست مسجل لدى وزارة الزراعة ولجنة مبيدات الآفات الزراعية قبل طرحه في السوق المصري. المنتج المسجل له بطاقة استدلالية رسمية وعينة قياسية وجهة مسؤولة خلفه."
     },
     {
-      question: "ما أنواع المنتجات التي تقدمها أجروبست كنترول؟",
+      question: "كيف أصبح موزعا لمستلزمات زراعية مع أجروبست في مصر؟",
       answer:
-        "تضم محفظة أجروبست كنترول منتجات وقاية محاصيل مسجلة (كيماويات زراعية) بالإضافة إلى أسمدة متخصصة ومحفزات حيوية تناسب المحاصيل وظروف الزراعة المصرية."
+        "تبدأ شراكة التوزيع بحوار مباشر من صفحة «كن موزعا». يحصل كل شريك على منتجات مسجلة، ومستندات فنية كاملة، ومتابعة منظمة في السوق."
+    },
+    {
+      question: "ما المنتجات والمحاصيل التي تخدمها أجروبست؟",
+      answer:
+        "ركيزتان: وقاية المحاصيل (مبيدات حشرية وفطرية لمحاصيل الخضر والحقل)، والتغذية وتحسين المحصول (أسمدة NPK ذائبة، وفوسفيت، وكالسيوم وبورون، وسيليكات البوتاسيوم، ومحفزات حيوية من مستخلص الطحالب البحرية)."
     },
     {
       question: "كيف يمكنني التواصل مع أجروبست كنترول؟",
@@ -66,11 +78,11 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
 
   const title =
     locale === "ar"
-      ? "وقاية المحاصيل والأسمدة واستيراد المستلزمات الزراعية في مصر"
+      ? "مبيدات وأسمدة مسجلة في مصر — استيراد وتوزيع منذ 1995"
       : "Crop Protection, Fertilizers & Agri Imports in Egypt";
   const description =
     locale === "ar"
-      ? "أجروبست كنترول شركة مصرية متخصصة في اختيار وتسجيل واستيراد وتوزيع حلول موثوقة لوقاية المحاصيل والتغذية النباتية والمحفزات الحيوية في السوق المصري منذ عام 1995."
+      ? "أجروبست كنترول للتجارة: تسجيل واستيراد وتوزيع مبيدات وأسمدة معتمدة من وزارة الزراعة المصرية، لتجار الجملة والموزعين الإقليميين ومزارع التصدير، منذ عام 1995."
       : "AgroPest Control selects, registers, and distributes trusted crop protection, plant nutrition, and biostimulant products for Egypt's agricultural market since 1995.";
 
   return buildPageMetadata({

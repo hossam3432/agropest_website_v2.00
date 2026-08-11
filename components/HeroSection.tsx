@@ -20,7 +20,7 @@ type HeroSectionProps = {
   compact?: boolean;
   /** Set false when a full-bleed element (e.g. Breadcrumbs) already precedes this hero. */
   leading?: boolean;
-  /** On lg+ screens, confine the image to the left panel with a solid/gradient panel on the right for the text; falls back to full-bleed cover below lg. */
+  /** On lg+ screens, confine the image to the inline-end panel with a solid/gradient panel on the inline-start side for the text; falls back to full-bleed cover below lg. */
   splitOnLarge?: boolean;
 };
 
@@ -90,7 +90,7 @@ export function HeroSection({
           </div>
           {splitOnLarge ? (
             <div aria-hidden="true" className="absolute inset-0 hidden lg:block">
-              <div className="absolute inset-y-0 left-0 w-[58%] overflow-hidden">
+              <div className="absolute inset-y-0 end-0 w-[58%] overflow-hidden">
                 <ResponsiveImage
                   src={backgroundImage}
                   alt=""
@@ -99,9 +99,9 @@ export function HeroSection({
                   priority
                   style={imageStyle}
                 />
-                <div className="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-r from-transparent via-agri-blue/60 to-agri-blue" />
+                <div className="absolute inset-y-0 start-0 w-1/2 bg-gradient-to-l from-transparent via-agri-blue/60 to-agri-blue rtl:bg-gradient-to-r" />
               </div>
-              <div className="absolute inset-y-0 right-0 w-[42%] bg-agri-blue" />
+              <div className="absolute inset-y-0 start-0 w-[42%] bg-agri-blue" />
             </div>
           ) : null}
         </>
@@ -110,7 +110,7 @@ export function HeroSection({
       <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-agri-mist to-transparent" />
 
       <div className="container-shell relative flex min-h-[inherit] items-center py-20">
-        <div className={`max-w-3xl text-white ${splitOnLarge ? "lg:ml-auto lg:text-right" : ""}`}>
+        <div className={`max-w-3xl text-white ${splitOnLarge ? "lg:me-auto lg:text-start" : ""}`}>
           {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
           <h1
             className={`mt-5 max-w-4xl text-3xl font-bold leading-[1.22] tracking-normal sm:text-4xl sm:leading-[1.18] lg:text-5xl lg:leading-[1.16] ${

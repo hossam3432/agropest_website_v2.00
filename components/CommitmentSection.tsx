@@ -29,7 +29,7 @@ export function CommitmentSection({ content, className = "" }: CommitmentSection
         </div>
 
         {highlights.length ? (
-          <StaggerContainer className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4 lg:mt-6" amount={0.15}>
+          <StaggerContainer className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4 lg:mt-16" amount={0.15}>
             {highlights.map((item, index) => (
               <RevealItem key={item.title} hoverLift>
                 <article className="h-full border border-agri-line bg-white p-6 shadow-sm transition duration-300 hover:border-agri-gold hover:shadow-soft">

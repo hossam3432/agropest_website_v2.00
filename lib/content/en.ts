@@ -2,7 +2,7 @@
   hero: {
     home: "/images/hero/agropest-field.jpg",
     greenhouse: "/images/hero/agropest-greenhouse.jpg",
-    about: "/images/hero/about-warehouse.jpg",
+    about: "/images/backgrounds/agropest-showroom-facade.jpg",
     solutions: "/images/hero/solutions-logistics.jpg",
     products: "/images/hero/products-crop-inputs.jpg",
     library: "/images/hero/library-documents.jpg",
@@ -22,7 +22,8 @@
   },
   backgrounds: {
     fieldRows: "/images/backgrounds/egypt-field-rows.jpg",
-    warehouse: "/images/backgrounds/warehouse-coordination.jpg"
+    warehouse: "/images/backgrounds/warehouse-coordination.jpg",
+    showroomFacade: "/images/backgrounds/agropest-showroom-facade.jpg"
   }
 };
 
@@ -78,20 +79,20 @@ export const enContent = {
   images: imagePaths,
   home: {
     hero: {
-      eyebrow: "Agricultural solutions for Egypt",
-      title: "Reliable agricultural solutions for better harvest and greater profit",
+      eyebrow: "Crop protection & crop nutrition",
+      title: "Registration, Import, and Distribution of Agri Inputs in Egypt",
       subtitle:
-        "AgroPest Control is an Egyptian agricultural trading company dedicated to selecting, registering, importing, and distributing reliable crop protection, plant nutrition, and biostimulant solutions for the Egyptian agricultural market.",
+        "AgroPest Control for Trading registers, imports, and distributes crop protection products, NPK fertilizers, and biostimulants in Egypt. For international manufacturers, we are the route into the market. For Egyptian wholesalers and distributors, we supply the portfolio and build the grower demand that makes those brands move.",
       backgroundImage: imagePaths.hero.home,
       visualImage: imagePaths.hero.greenhouse,
       visualAlt: "Agricultural greenhouse visual for AgroPest product commercialization",
-      primaryCta: { label: "Explore Products", href: "/products" },
-      secondaryCta: { label: "Talk to AgroPest", href: "/contact" },
-      trustBadge: "Over 25 years in the Egyptian agricultural market",
+      primaryCta: { label: "Become a Distributor", href: "/partner-with-us" },
+      secondaryCta: { label: "View the Portfolio", href: "/products" },
+      trustBadge: "Established 1995 · Al Nubariya, Beheira",
       signatureCards: [
-        { title: "A Carefully Selected Portfolio", description: "Selected crop protection, plant nutrition, and biostimulant solutions built around real needs in the Egyptian agricultural market." },
-        { title: "Registered Products & Trusted Quality", description: "Carefully selected products supported by clear technical information and practical relevance for distributors and growers." },
-        { title: "Long-Term Partnerships", description: "Serious cooperation with international companies to introduce suitable solutions to the Egyptian agricultural market, supported by organized follow-up and clear technical and commercial support." }
+        { title: "For the International Supplier", description: "Registration, importation, and a route into established Egyptian distribution channels, with the local technical material prepared here." },
+        { title: "For the Distributor", description: "A registered portfolio, complete technical documentation, and the marketing that carries each product to the grower before your rep has to explain it." },
+        { title: "For the Farm", description: "Crop protection, nutrition, and stress-support products matched to the crop, the stage, and the pressure of an Egyptian season — available through your regional dealer." }
       ],
       trustPoints: [
         "In the Egyptian agricultural market since 1995",
@@ -106,19 +107,25 @@ export const enContent = {
       }
     },
     commitmentSection: {
-      eyebrow: "Our commitment",
-      title: "AgroPest's commitment to the Egyptian agricultural market",
+      eyebrow: "How demand is built",
+      title: "We supply the portfolio — and we build the demand behind it",
       paragraphs: [
-        "At AgroPest, our commitment starts with the way every product is selected for our portfolio. We believe that supporting growers begins with choosing the right product, so we provide reliable agricultural solutions in crop protection, plant nutrition, and biostimulants that consider quality, official registration, and the needs of the Egyptian market, helping growers and distributors work with each product confidently for better harvests and greater profitability."
+        "Most importers stop at the invoice. We publish the technical material that reaches the grower and the agri-retailer directly, in Arabic, crop by crop and season by season.",
+        "Marketing supports the distributor. It never competes with him. We do not sell to farmers, we do not open retail, and we do not price against our own partners."
       ],
-      highlights: []
+      highlights: [
+        { title: "The grower learns something useful", description: "How to recognise a deficiency, read a symptom in the field, or tell a registered product from an unknown one." },
+        { title: "He asks for the name he knows", description: "At the dealer he already buys from, using the product name he has seen explained rather than advertised." },
+        { title: "The retailer stocks to meet it", description: "The request exists before the rep arrives, so the counter conversation starts from demand instead of persuasion." },
+        { title: "The distributor buys into demand", description: "A registered product that is already asked for by name, rather than one that has to be built from nothing." }
+      ]
     },
     productCategoriesSection: {
-      eyebrow: "Product portfolio",
-      title: "AgroPest Product Portfolio",
+      eyebrow: "What we supply",
+      title: "Two pillars, one registered portfolio",
       description:
-        "Explore AgroPest's selected portfolio across crop protection, plant nutrition, and biostimulants, with clear paths to the right products for each agricultural need.",
-      cta: { label: "View Product Portfolio", href: "/products" }
+        "Crop protection — registered insecticides and fungicides for Egyptian vegetable and field crops. Crop nutrition and yield enhancement — water-soluble NPK fertilizers, phosphites, calcium-boron, potassium silicate, and seaweed-extract biostimulants for drip, foliar, and flood systems. Every product is registered with the Ministry of Agriculture before it is offered.",
+      cta: { label: "View the Full Portfolio", href: "/products" }
     },
     featuredProductLinesSection: {
       eyebrow: "Featured solutions",
@@ -168,28 +175,28 @@ export const enContent = {
       ]
     },
     whyAgropestSection: {
-      eyebrow: "Why AgroPest?",
-      title: "Why the market trusts AgroPest",
+      eyebrow: "What comes with the product",
+      title: "A product arrives as a complete file",
       description:
-        "AgroPest combines understanding of the Egyptian agricultural market, suitable product selection, and technical and commercial preparation that help distributors and growers evaluate and use each product clearly and confidently.",
+        "More than a pack. Each product is delivered with the documentation that proves it, the material that sells it at the counter, and the published content that puts it in front of the grower first.",
       imageAlt: "AgroPest team and growers inspecting a tomato field trial beside branded AgroPest flags",
       items: [
-        { eyebrow: "01", title: "Product screening and selection", description: "Each product is selected after studying its technical and commercial fit and its ability to serve real needs in Egyptian fields and crops." },
-        { eyebrow: "02", title: "Registration with the Egyptian Ministry of Agriculture", description: "We rely on officially registered products, supporting distributor and grower confidence while maintaining safe use and crop application." },
-        { eyebrow: "03", title: "Clear technical support materials", description: "We provide technical sheets, product pages, and simplified use recommendations that help distributors present each product confidently and help growers understand its role and suitable timing." },
-        { eyebrow: "04", title: "Continuity and long-term cooperation", description: "We build stable relationships with suppliers and distributors based on product quality, close follow-up, and continued availability of solutions in the market." }
+        { eyebrow: "01", title: "The registration file", description: "The registered label, the registration documentation, and the manufacturer's technical sheet. A registered product carries a reference standard and an accountable party behind it." },
+        { eyebrow: "02", title: "Counter-ready material", description: "A brochure, a product page, and a recommendation table for each product — the crop it serves, the stage it serves, and the problem it addresses. Written so a retailer can repeat it accurately." },
+        { eyebrow: "03", title: "Crop-specific campaigns", description: "Published technical content aimed at the crops in your territory, in the field Arabic growers actually read. This is what turns a product name into a request at the counter." },
+        { eyebrow: "04", title: "A named contact", description: "Follow-up is organized and personal. One person who knows your territory and your stock position. Not a call centre." }
       ]
     },
     partnersSection: {
-      eyebrow: "Our Partners",
-      title: "International expertise, selected for Egyptian agriculture",
+      eyebrow: "Manufacturers and supply partners",
+      title: "Who makes what we supply",
       description:
-        "AgroPest works with global agricultural suppliers to provide crop protection and plant nutrition products suited to the Egyptian market.",
+        "We import from manufacturers we have worked with over years, and we register what we import.",
       items: [
-        { name: "Agrii Poland", logo: "/images/partners/agrii-logo-supplied.png", logoAlt: "Agrii Poland logo", description: "Foliar fertilization and biostimulation" },
-        { name: "Agria Bulgaria", logo: "/images/partners/agria-bulgaria-logo-supplied.png", logoAlt: "Agria Bulgaria logo", description: "Crop protection solutions" },
-        { name: "Eurogro Greece", logo: "/images/partners/eurogro-logo-supplied.png", logoAlt: "Eurogro Greece logo", description: "Plant nutrition and specialty fertilizers" },
-        { name: "Star CropScience", logo: "/images/partners/star-cropscience-logo-supplied.png", logoAlt: "Star CropScience logo", description: "Crop protection solutions" }
+        { name: "Agria Bulgaria", logo: "/images/partners/agria-bulgaria-logo-supplied.png", logoAlt: "Agria Bulgaria logo", description: "Bulgaria · Crop protection" },
+        { name: "EuroGro Greece", logo: "/images/partners/eurogro-logo-supplied.png", logoAlt: "EuroGro Greece logo", description: "Greece · Crop nutrition and biostimulants" },
+        { name: "Star CropScience", logo: "/images/partners/star-cropscience-logo-supplied.png", logoAlt: "Star CropScience logo", description: "Manufacturer · supplied via Agri Unitech (China)" },
+        { name: "Agrii Poland", logo: "/images/partners/agrii-logo-supplied.png", logoAlt: "Agrii Poland logo", description: "Poland · Partnership in development" }
       ]
     },
     solutionsSection: {
@@ -208,11 +215,11 @@ export const enContent = {
     },
     cta: {
       eyebrow: "Next step",
-      title: "Looking for the right solution for your crop, product line, or market opportunity?",
+      title: "Three ways in",
       description:
-        "Explore the product portfolio or contact AgroPest to discuss a crop need, distributor request, supplier opportunity, or technical product information.",
-      primaryLabel: "Explore Products",
-      primaryHref: "/products",
+        "Distributors evaluating a new supplier, international manufacturers looking for a route into the Egyptian market, and growers with a crop question all reach the same people. Tell us which you are. The full company record is on the About page.",
+      primaryLabel: "Become a Distributor",
+      primaryHref: "/partner-with-us",
       secondaryLabel: "Talk to AgroPest",
       secondaryHref: "/contact",
       tertiaryLabel: "WhatsApp",
@@ -223,110 +230,108 @@ export const enContent = {
   about: {
     hero: {
       eyebrow: "About",
-      title: "AgroPest Control for Trading",
-      subtitle: "Agricultural and commercial experience in the Egyptian market since 1995",
+      title: "Registered Agricultural Inputs for the Egyptian Market — Since 1995",
+      subtitle: "AgroPest Control for Trading · Established 1995",
       description:
-        "AgroPest Control for Trading is an Egyptian company operating in the agricultural market since 1995, focused on selecting, registering, importing, and distributing agricultural solutions suited to crop needs in Egypt.",
+        "AgroPest Control for Trading selects, registers, imports, and distributes crop protection and crop nutrition brands for the Egyptian market, with organized technical and commercial support for its wholesale and regional distribution partners.",
       backgroundImage: imagePaths.hero.about,
       backgroundPosition: "center 50%",
       backgroundScale: 1.25,
       splitOnLarge: true,
-      primaryCta: { label: "View Products", href: "/products" },
+      primaryCta: { label: "Become a Distributor", href: "/partner-with-us" },
       secondaryCta: { label: "Contact Us", href: "/contact" }
     },
     intro: {
-      eyebrow: "Identity",
-      title: "A company connecting technical expertise with market understanding",
+      eyebrow: "Our legacy",
+      title: "Three decades in the Egyptian input market",
       paragraphs: [
-        "From the beginning, AgroPest's role has not been limited to supplying products. It has been about understanding the product, studying market needs, selecting the right source, and organizing the journey of an agricultural solution from evaluation and registration to reaching distributors and growers clearly and reliably.",
-        "We believe a good agricultural product does not succeed by trade name alone. It needs clear quality, proper registration, accurate technical information, and practical presentation that helps it be used in the right place and at the right time.",
-        "AgroPest works at an important point between the agricultural product, the international supplier, the local distributor, and the Egyptian grower. That is why we view each product as part of an integrated solution, not just a package introduced to the market."
+        "AgroPest Control for Trading has operated in the Egyptian agricultural input market since 1995, from a base in Al Nubariya, Beheira — on the Cairo–Alexandria desert road, inside the reclaimed-land farming belt we supply.",
+        "We work across two commercial pillars: crop protection, and crop nutrition and yield enhancement. Every product in the portfolio was selected, registered, imported, and supported through a deliberate selection process — from source evaluation through to the design and production of the technical material that carries it in market.",
+        "We work with a carefully selected portfolio. Each product in it is followed in market and supported technically and commercially."
       ]
     },
     checklistSection: {
-      eyebrow: "Decision logic",
-      title: "How we think when selecting a product",
-      subtitle: "From market need to product readiness",
-      intro: "Before presenting any product, AgroPest looks at a core set of questions:",
+      eyebrow: "Selection",
+      title: "How a product enters our portfolio",
+      subtitle: "The questions we answer before selection, registration, and importation",
+      intro: "Before AgroPest takes on a product, it must pass a fixed set of questions:",
       items: [
-        "Does the product address a real market need?",
-        "Does it fit Egyptian crops and farming conditions?",
-        "Is its source reliable and are its documents clear?",
+        "Does the product address a real, current need in the Egyptian market?",
+        "Does it suit Egyptian crops and conditions — Delta clay and reclaimed sand behave differently?",
+        "Is the source reliable, and is the technical documentation complete?",
         "Can it be registered and introduced in an organized way?",
-        "Can the distributor explain it with confidence?",
-        "Can the grower understand its benefit and how to use it?"
-      ],
-      conclusion: "These questions help us reduce randomness and select solutions that are more connected to market reality and more likely to continue after entry."
+        "Can the distributor explain it to a retailer with confidence?",
+        "Can the grower understand what it does and when to use it?"
+      ]
     },
     sections: [
       {
-        eyebrow: "Philosophy",
-        title: "Selection before expansion",
+        eyebrow: "Our partners",
+        title: "Wholesalers and regional distributors",
         paragraphs: [
-          "AgroPest does not rely on random expansion in product count. We focus on building a carefully selected agricultural portfolio.",
-          "We prefer products that can be understood, registered, supported, and explained clearly, because the agricultural market needs trusted solutions more than it needs many names without a clear meaning.",
-          "Our philosophy is that a company's strength is not shown only by portfolio size, but by its ability to choose suitable products, present them confidently, and follow their market presence over the long term."
+          "AgroPest works with wholesalers and regional distributors across Egypt.",
+          "Each partner receives registered products, clear technical documentation, and organized follow-up in market.",
+          "We support the product's presence in market through technical content and marketing campaigns focused on specific crops."
         ]
       },
       {
-        eyebrow: "Our market position",
-        title: "Between international suppliers and Egyptian field needs",
+        eyebrow: "Registration",
+        title: "Registration comes before availability",
         paragraphs: [
-          "AgroPest approaches the agricultural market through a practical understanding of three connected circles: the international supplier with the product and manufacturing expertise, the local distributor who needs a clear and trusted product that can be commercially presented, and the grower or agricultural engineer looking for a practical solution suited to the crop and field conditions.",
-          "AgroPest's role is to organize this relationship so the product reaches the market not as a name only, but as an understood solution with a clear place in crop protection, nutrition, or plant vitality programs."
+          "Registration is the line between a genuine agricultural input and an unknown one. A registered product carries an official label, a reference standard, and an accountable party behind it.",
+          "Every product we distribute is registered with the Ministry of Agriculture and the Agricultural Pesticides Committee before it is offered in the Egyptian market.",
+          "The technical data given in our technical leaflets and marketing material is supported by the product's manufacturer, stated on the registered label or the product's technical documentation, or based on current scientific sources."
         ]
       },
       {
-        eyebrow: "Beyond the product",
-        title: "Not only a package, but a presentation system",
+        eyebrow: "Sourcing",
+        title: "Long-term supplier relationships",
         paragraphs: [
-          "AgroPest believes the success of an agricultural product depends not only on composition or country of origin, but also on how it is presented.",
-          "That is why we care about preparing technical information, shaping marketing messages, developing brochures and product pages, and organizing recommendations in a way that helps the product be understood and used better.",
-          "This matters to distributors because it gives them clearer selling and explanation tools, and to growers because it helps them make more informed field decisions."
+          "We take on a supplier when we can support their product properly in the Egyptian market, not when the price is briefly attractive. Suppliers currently in the portfolio include Agria (Bulgaria), EuroGro (Greece), and Agri Unitech (China).",
+          "We work with suppliers over a span of years, which keeps supply stable and technical specifications consistent for each product. That continuity reaches the distributor as a settled, familiar portfolio rather than a line-up that changes from season to season."
         ]
       },
       {
-        eyebrow: "Experience in Egypt",
-        title: "Understanding crops, seasons, and decision-making",
+        eyebrow: "Partnership",
+        title: "What a distribution partnership includes",
         paragraphs: [
-          "The Egyptian agricultural market has its own nature. Crops are diverse, seasons change, decisions can be fast, and growers need practical information that can be applied easily.",
-          "AgroPest therefore uses a language that combines technical and practical thinking. We do not exaggerate promises or rely only on complex scientific terms. We try to present the product with clear logic: when it is used, why it is used, and what role it plays inside the agricultural program.",
-          "This understanding helps us build messages that are closer to distributors and growers, and more suited to the local market."
+          "We publish organized technical content on our products and the crops they serve — to support the distributor, and to make the product's ideal use clear to the retailer and the grower.",
+          "Alongside it: product technical sheets and registration documentation, brochures and product pages, and a clear use case for each product — the crop, the stage it serves, and the problem it addresses.",
+          "Follow-up is organized and personal. A named point of contact, not a call center."
         ]
       },
       {
-        eyebrow: "Work values",
-        title: "Trust before selling",
+        eyebrow: "Coverage",
+        title: "Where we operate",
         paragraphs: [
-          "AgroPest builds long-term relationships with suppliers, distributors, and customers because the agricultural market needs continuity and trust more than temporary transactions.",
-          "We believe trust is built through product clarity, serious follow-up, respect for registration, honest information, and commitment to offering suitable solutions rather than quick commercial choices.",
-          "For this reason, AgroPest works to keep its market presence based on seriousness, knowledge, and continuity."
+          "AgroPest supplies distributors across Egypt, including the Alexandria desert road corridor, the Delta, the Upper Egypt governorates, and the reclaimed-land regions of the north-west.",
+          "We build long-term relationships with suppliers and distributors because the Egyptian market needs continuity more than it needs transactions."
         ]
       },
       {
-        eyebrow: "Vision",
-        title: "A clearer professional presence for selected agricultural solutions",
+        eyebrow: "Direction",
+        title: "A trusted source for selected agricultural solutions",
         paragraphs: [
-          "AgroPest aims to be a trusted platform for selected agricultural solutions in Egypt through a studied product portfolio, organized technical content, and stable partnerships that help deliver real value to the market.",
-          "Our vision is for distributors, growers, and international partners to feel that working with AgroPest means working with a company that understands the product, understands the market, and knows how to turn an agricultural solution into a clear and trusted presence in the field."
+          "AgroPest works to remain a trusted source of selected agricultural solutions in Egypt: a studied portfolio, organized technical content, and stable partnerships.",
+          "For a distributor, that means a product that is registered, understood, supported, and already asked for by name."
         ]
       }
     ],
     knowledgeRole: {
-      eyebrow: "Knowledge role",
-      title: "Clearer information means better use",
+      eyebrow: "Technical content",
+      title: "The technical material behind the portfolio",
       description:
-        "Alongside commercial work, AgroPest prepares technical and knowledge content that helps simplify agricultural information related to products, crops, and usage conditions. We believe correct information is an essential part of product value, and that supporting a grower or distributor is not only about supplying a solution, but explaining it clearly and responsibly. That is why AgroPest seeks to provide brochures, technical leaflets, visual materials, and knowledge resources that help improve decision quality in the agricultural market.",
+        "Every product in the portfolio is documented before it is offered: a product brochure, a technical leaflet, a product page, and the registration documentation that supports it. Alongside these, we publish field-facing explanations of what a product does and when it is used, written in Arabic for the grower and the agri-retailer.",
       ctaLabel: "Explore technical resources",
       ctaHref: "/technical-library"
     },
     cta: {
-      title: "Want to know more about AgroPest?",
-      description: "Whether you are a distributor, farm, agricultural engineer, or company looking for a local partner in the Egyptian market, we would be glad to connect and help you find the right path.",
-      primaryLabel: "Contact AgroPest",
-      primaryHref: "/contact",
-      secondaryLabel: "View Products",
-      secondaryHref: "/products"
+      title: "Working with AgroPest",
+      description: "If you are a wholesaler or regional distributor evaluating a new supplier, or an international manufacturer looking for a registration and distribution partner in Egypt, the next step is a direct conversation.",
+      primaryLabel: "Become a Distributor",
+      primaryHref: "/partner-with-us",
+      secondaryLabel: "Contact AgroPest",
+      secondaryHref: "/contact"
     }
   },
   solutionsPage: {
@@ -690,8 +695,8 @@ export const enContent = {
   },
   technicalLibraryPreview: {
     eyebrow: "Technical resources",
-    title: "Practical materials ready to use",
-    description: "AgroPest provides a set of technical materials that help users reach information faster, whether to understand a product, support a technical recommendation, or simplify practical agricultural topics.",
+    title: "For the grower and the retail counter",
+    description: "Not every visitor here is buying by the container. We publish what a grower and an agri-retailer can act on: how to recognise a nutrient deficiency or a disease in the field, what is happening inside the plant, and how to tell a registered product from an unknown one. What to apply, and at what rate, stays with the agronomist or the dealer who knows your field.",
     image: imagePaths.hero.libraryPreview,
     imageAlt: "AgroPest technical resources and agricultural knowledge center",
     panel: { eyebrow: "Agricultural knowledge", title: "Brochures, technical leaflets, visual materials, and practical agricultural knowledge." },

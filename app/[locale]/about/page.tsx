@@ -96,9 +96,6 @@ export default async function AboutPage({ params }: LocalePageProps) {
                 </RevealItem>
               ))}
             </StaggerContainer>
-            <RevealSection amount={0.2} delay={0.12}>
-              <p className="mt-7 border-s-4 border-agri-gold bg-white/5 p-5 leading-8 text-white/75">{about.checklistSection.conclusion}</p>
-            </RevealSection>
           </div>
         </RevealSection>
       </section>
@@ -132,9 +129,11 @@ export default async function AboutPage({ params }: LocalePageProps) {
             </div>
             <div className="p-5 sm:p-10">
               <p className="text-lg leading-8 text-white/80">{about.knowledgeRole.description}</p>
-              <Link href={localizeHref(locale, about.knowledgeRole.ctaHref)} className="btn-primary mt-8">
-                {about.knowledgeRole.ctaLabel}
-              </Link>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link href={localizeHref(locale, about.knowledgeRole.ctaHref)} className="btn-on-dark-outline">
+                  {about.knowledgeRole.ctaLabel}
+                </Link>
+              </div>
             </div>
           </div>
         </RevealSection>
