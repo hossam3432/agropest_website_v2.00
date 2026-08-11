@@ -9,10 +9,11 @@ import { RivalDuoSectionKicker } from "@/components/RivalDuoSectionKicker";
 import { RivalDuoTimingSection } from "@/components/RivalDuoTimingSection";
 import { RivalDuoFit } from "@/components/RivalDuoFit";
 import { RivalDuoOomyceteCards } from "@/components/RivalDuoOomyceteCards";
+import { RivalDuoMobile } from "@/components/RivalDuoMobile";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { getProductByAnySlug, getProductPath } from "@/lib/products";
-import { locales, type Locale } from "@/lib/content";
+import { localizeHref, locales, type Locale } from "@/lib/content";
 import { absoluteUrl } from "@/lib/seo";
 
 const cairo = Cairo({ subsets: ["arabic", "latin"], weight: ["400", "500", "600", "700", "800"], display: "swap" });
@@ -315,10 +316,11 @@ export async function generateMetadata({ params }: RivalDuoLandingProps): Promis
 }
 
 export default async function RivalDuoLandingPage({ params }: RivalDuoLandingProps) {
-  const { locale } = getLocalePage((await params).locale);
+  const { locale, content: site } = getLocalePage((await params).locale);
   const product = getRivalDuo(locale);
   const c = content[locale];
   const productHref = getProductPath(locale, product);
+  const brochureHref = "/brochures/rival-duo-45-sc-brochure.pdf";
   const wordmark = locale === "ar" ? "/images/products/rival-duo-wordmark-ar.png" : "/images/products/rival-duo-wordmark-en.png";
   const arabicFontCss =
     locale === "ar"
@@ -334,8 +336,26 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
     ".rival-line-trim { transform: scaleX(0); animation: rivalTrimDraw 10s ease-out infinite; } " +
     "@media (prefers-reduced-motion: reduce) { .rival-line-trim { animation: none; transform: scaleX(1); } }";
   return (
-    <main className={cairo.className + " rival-landing -mt-24 bg-white text-[" + INK + "]"}>
+    <main className={cairo.className + " rival-landing bg-white text-[" + INK + "]"}>
       <style dangerouslySetInnerHTML={{ __html: arabicFontCss + " " + animationCss }} />
+
+      {/* MOBILE (<lg) — dedicated mobile-first structure, natural document scroll. */}
+      <div className="lg:hidden">
+        <RivalDuoMobile
+          c={c}
+          locale={locale}
+          wordmark={wordmark}
+          productHref={productHref}
+          contactHref={localizeHref(locale, "/contact")}
+          brochureHref={brochureHref}
+          phone={site.company.phone}
+          whatsappHref={site.ctaActions.whatsapp.href}
+          compositionRows={product.facts.compositionRows ?? []}
+        />
+      </div>
+
+      {/* DESKTOP (lg+) — full-viewport snap panels. */}
+      <div className="-mt-24 hidden lg:block">
       <RivalDuoScrollShell>
         {/* SECTIONS 1–3 share ONE oversized umbrella line-art background (off-white) */}
         <div className="relative bg-[#F5F8FC]">
@@ -549,6 +569,7 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
           </div>
         </div>
       </RivalDuoScrollShell>
+      </div>
     </main>
   );
 }
