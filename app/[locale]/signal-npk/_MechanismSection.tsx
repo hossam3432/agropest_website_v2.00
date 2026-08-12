@@ -23,9 +23,16 @@ type MechanismSectionProps = {
     figureLabel: string;
   };
   dir: "ltr" | "rtl";
+  layout?: "desktop" | "mobile";
 };
 
-export default function MechanismSection({ mech, dir }: MechanismSectionProps) {
+function renderStepMedia(no: string, dir: "ltr" | "rtl") {
+  if (no === "01") return <FoliarAbsorptionVideo />;
+  if (no === "02") return <PhloemLoadingSVG dir={dir} />;
+  return <BidirectionalTransportSVG />;
+}
+
+export default function MechanismSection({ mech, dir, layout = "desktop" }: MechanismSectionProps) {
   const [activeStep, setActiveStep] = useState("01");
   const figureRef = useRef<HTMLDivElement>(null);
   const activeStepTitle = mech.steps.find((s) => s.no === activeStep)?.title ?? mech.steps[0].title;
@@ -34,6 +41,66 @@ export default function MechanismSection({ mech, dir }: MechanismSectionProps) {
     setActiveStep(no);
     figureRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
+
+  if (layout === "mobile") {
+    return (
+      <div className="mt-6 space-y-3.5">
+        {mech.steps.map((s) => {
+          const open = activeStep === s.no;
+          return (
+            <div
+              key={s.no}
+              className={`overflow-hidden rounded-3xl border transition-colors duration-300 ${
+                open ? "border-[#3fbf6e]/60 bg-[#3fbf6e]/10" : "border-white/10 bg-white/5"
+              }`}
+            >
+              <button
+                type="button"
+                onClick={() => setActiveStep(open ? "" : s.no)}
+                aria-expanded={open}
+                className="flex w-full items-center gap-4 p-5 text-start"
+              >
+                <span
+                  className={`${mono.className} flex h-11 w-11 shrink-0 items-center justify-center rounded-full border text-sm font-semibold transition-colors ${
+                    open ? "border-[#3fbf6e] bg-[#3fbf6e]/20 text-[#3fbf6e]" : "border-[#3fbf6e]/40 text-[#3fbf6e]"
+                  }`}
+                >
+                  {s.no}
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-base font-extrabold tracking-tight">{s.title}</span>
+                  <span className="mt-1 block text-sm leading-relaxed text-white/60">{s.text}</span>
+                </span>
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                  className={`shrink-0 transition-transform duration-300 motion-reduce:transition-none ${open ? "rotate-180" : ""}`}
+                >
+                  <path d="M6 9 L12 15 L18 9" stroke="#3fbf6e" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <div
+                className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
+                  open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                }`}
+              >
+                <div className="min-h-0 overflow-hidden">
+                  <div className="px-5 pb-5">
+                    <div className="relative flex min-h-[260px] items-center justify-center rounded-2xl border border-white/10 bg-black/20 p-4">
+                      {open ? renderStepMedia(s.no, dir) : null}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
 
   return (
     <div className="mt-14 grid gap-10 lg:grid-cols-2 lg:gap-14">

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { IBM_Plex_Mono } from "next/font/google";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import MechanismSection from "./_MechanismSection";
+import EuStarsBackground from "./_EuStarsBackground";
 import type { Locale, SignalNpkContent } from "./page";
 
 /* ————————————————————————————————————————————————————————————————
@@ -83,18 +84,20 @@ function RadiatingRings({
   );
 }
 
-function SectionHead({ index, title, dark = false, titleLeading = "leading-[1.32]" }: { index: string; title: string; dark?: boolean; titleLeading?: string }) {
+function SectionHead({ index, title, dark = false, titleLeading = "leading-[1.32]" }: { index?: string; title: string; dark?: boolean; titleLeading?: string }) {
   return (
     <div>
-      <span
-        className={`${mono.className} inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[10px] font-medium tracking-[0.2em] ${
-          dark ? "border-white/15 bg-white/5 text-[#3fbf6e]" : "border-[#008D36]/20 bg-white/70 text-[#008D36]"
-        }`}
-      >
-        <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
-        {index}
-      </span>
-      <h2 className={`mt-3.5 whitespace-pre-line text-[26px] font-black ${titleLeading} tracking-tight ${dark ? "text-white" : "text-[#17142D]"}`}>
+      {index ? (
+        <span
+          className={`${mono.className} inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[10px] font-medium tracking-[0.2em] ${
+            dark ? "border-white/15 bg-white/5 text-[#3fbf6e]" : "border-[#008D36]/20 bg-white/70 text-[#008D36]"
+          }`}
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
+          {index}
+        </span>
+      ) : null}
+      <h2 className={`${index ? "mt-3.5" : ""} whitespace-pre-line text-[26px] font-black ${titleLeading} tracking-tight ${dark ? "text-white" : "text-[#17142D]"}`}>
         {title}
       </h2>
     </div>
@@ -102,7 +105,17 @@ function SectionHead({ index, title, dark = false, titleLeading = "leading-[1.32
 }
 
 /** Clamps a section intro to 4 lines behind a full-width tap target. Text is never removed, only folded. */
-function ReadMore({ text, dark = false, labels }: { text: string; dark?: boolean; labels: { more: string; less: string } }) {
+function ReadMore({
+  text,
+  dark = false,
+  labels,
+  leading = "leading-8"
+}: {
+  text: string;
+  dark?: boolean;
+  labels: { more: string; less: string };
+  leading?: string;
+}) {
   const [open, setOpen] = useState(false);
   const [clamped, setClamped] = useState(false);
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -123,7 +136,7 @@ function ReadMore({ text, dark = false, labels }: { text: string; dark?: boolean
     <div className="mt-3">
       <p
         ref={textRef}
-        className={`text-[15px] leading-8 ${open ? "" : "line-clamp-4"} ${dark ? "text-white/65" : "text-slate-600"}`}
+        className={`text-[15px] ${leading} ${open ? "" : "line-clamp-4"} ${dark ? "text-white/65" : "text-slate-600"}`}
       >
         {text}
       </p>
@@ -220,8 +233,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
   const sections = [
     { id: "m-matrix", label: t.nav[0].label },
     { id: "m-mechanism", label: t.nav[1].label },
-    { id: "m-usage", label: t.nav[2].label },
-    { id: "m-supply", label: t.nav[3].label }
+    { id: "m-usage", label: t.nav[2].label }
   ];
 
   const [activeSection, setActiveSection] = useState(sections[0].id);
@@ -300,9 +312,10 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
           </span>
         </div>
 
-        <p className={`${mono.className} relative mt-6 text-[11px] font-medium uppercase tracking-[0.24em]`} style={{ color: GREEN }}>
+        <p className={`${mono.className} relative mt-6 text-[13px] font-medium uppercase tracking-[0.24em]`} style={{ color: GREEN }}>
           {t.hero.kicker}
         </p>
+        <span className="mt-2 block h-px w-10" style={{ backgroundColor: `${GREEN}66` }} aria-hidden="true" />
         <h1 className="relative mt-3 text-[32px] font-black !leading-[46px] tracking-tight rtl:!leading-[46px]" style={{ color: INK }}>
           {t.hero.slogan[0]}
           <br />
@@ -310,7 +323,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
           <br />
           <span style={{ color: GREEN }}>{t.hero.slogan[2]}</span>
         </h1>
-        <p className="relative mt-4 text-[15px] leading-8 text-slate-600">{t.hero.lead}</p>
+        <p className="relative mt-4 text-[15px] leading-6 text-slate-600">{t.hero.lead}</p>
 
         <div className="relative mx-auto mt-7 flex h-64 w-full max-w-xs items-center justify-center">
           <RadiatingRings className="inset-0 m-auto h-56 w-56" color={GREEN} rings={3} />
@@ -328,12 +341,15 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
           {t.hero.badges.map((b) => (
             <div
               key={b.big}
-              className="rounded-2xl border border-white bg-white/80 px-2.5 py-3 text-center shadow-sm shadow-slate-900/5 backdrop-blur-sm"
+              className="flex min-h-[104px] flex-col items-center justify-center rounded-2xl border border-white bg-white/80 px-2.5 py-3 text-center shadow-sm shadow-slate-900/5 backdrop-blur-sm"
             >
-              <span className={`${mono.className} block text-[13px] font-bold`} style={{ color: GREEN }}>
+              <span
+                className={`${mono.className} block font-extrabold leading-tight ${b.big.length > 8 ? "text-[11px]" : "text-lg"}`}
+                style={{ color: GREEN }}
+              >
                 {b.big}
               </span>
-              <span className="mt-1 block text-[10px] font-semibold leading-tight text-slate-500">{b.small}</span>
+              <span className="mt-1.5 block text-[9px] font-semibold leading-tight text-slate-500">{b.small}</span>
             </div>
           ))}
         </div>
@@ -347,24 +363,17 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
           >
             {t.hero.ctaPrimary}
           </button>
-          <Link
-            href={`/${locale}/contact`}
-            className="flex min-h-[56px] w-full items-center justify-center rounded-full border-2 px-6 text-[15px] font-bold active:scale-[0.985]"
-            style={{ borderColor: GREEN, color: GREEN }}
-          >
-            {t.hero.ctaSecondary}
-          </Link>
         </div>
       </section>
 
       {/* ------------------------------------------------- STICKY TAB STRIP */}
-      <div className="sticky top-[70px] z-30 px-4 py-1.5">
-        <div className="overflow-hidden rounded-full border border-white/70 bg-white/70 shadow-lg shadow-slate-900/10 backdrop-blur-xl">
+      <div className="sticky top-[70px] z-30 flex justify-center px-4 py-1.5">
+        <div className="w-fit max-w-full overflow-hidden rounded-full border border-white/70 bg-white/70 shadow-lg shadow-slate-900/10 backdrop-blur-xl">
           <div
             ref={tabStripRef}
             role="tablist"
             aria-label={t.brand.name}
-            className="flex gap-1.5 overflow-x-auto p-1.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex justify-center gap-1.5 overflow-x-auto p-1.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {sections.map((s) => {
               const active = activeSection === s.id;
@@ -392,7 +401,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
       {/* -------------------------------------------------------- MATRIX */}
       <section id="m-matrix" className="relative scroll-mt-[130px] bg-[#F4F8F5] px-4 pb-14 pt-10">
         <SectionHead index={t.matrix.index} title={t.matrix.title} />
-        <ReadMore text={t.matrix.intro} labels={labels} />
+        <ReadMore text={t.matrix.intro} labels={labels} leading="leading-6" />
 
         {/* horizontal variant switcher */}
         <div
@@ -556,7 +565,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
             <SectionHead dark index={t.mech.index} title={t.mech.title} titleLeading="!leading-[40px] rtl:!leading-[40px]" />
             <ReadMore dark text={t.mech.intro} labels={labels} />
             <div className="mt-6">
-              <MechanismSection mech={t.mech} dir={t.dir} />
+              <MechanismSection mech={t.mech} dir={t.dir} layout="mobile" />
             </div>
           </div>
         </div>
@@ -624,78 +633,35 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
 
       {/* -------------------------------------------------------- SUPPLY */}
       <section id="m-supply" className="relative scroll-mt-[130px] px-4 pb-8 pt-8">
-        <div className="relative overflow-hidden rounded-[2rem] bg-[#17142D] px-5 py-10 text-center text-white">
+        <div className="relative flex min-h-[480px] flex-col overflow-hidden rounded-[2rem] bg-[#17142D] px-5 py-10 text-center text-white">
           <RadiatingRings className="-bottom-32 -start-32 h-72 w-72 opacity-40" color={MINT} rings={3} duration={6} />
+          <EuStarsBackground />
 
-          <div className="relative flex flex-col items-center">
-            <div className="flex items-center gap-2.5">
-              <SignalMark size={26} color={MINT} />
-              <span className="text-xl font-black tracking-tight">{t.brand.name}</span>
-              <span className={`${mono.className} text-[10px] tracking-[0.3em]`} style={{ color: MINT }} dir="ltr">
-                NPK
-              </span>
-            </div>
-            <div className="mt-4">
-              <SectionHead dark index={t.footer.index} title={t.footer.title} />
-            </div>
-          </div>
-
-          <div className="relative mt-6 grid gap-3 text-start">
-            {t.footer.cols.map((col) => (
-              <div key={col.h} className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className={`${mono.className} text-[10px] font-medium uppercase tracking-[0.18em] text-[#3fbf6e]`}>{col.h}</p>
-                <div className="mt-2 space-y-0.5">
-                  {col.lines.map((line) => (
-                    <p key={line} className="text-sm leading-relaxed text-white/75">
-                      {line}
-                    </p>
-                  ))}
-                </div>
+          <div className="relative z-10 flex flex-1 flex-col items-center justify-between">
+            <div className="flex flex-col items-center">
+              <div className="flex items-center gap-2.5">
+                <SignalMark size={26} color={MINT} />
+                <span className="text-xl font-black tracking-tight">{t.brand.name}</span>
+                <span className={`${mono.className} text-[10px] tracking-[0.3em]`} style={{ color: MINT }} dir="ltr">
+                  NPK
+                </span>
               </div>
-            ))}
-          </div>
+              <div className="mt-4">
+                <SectionHead dark title={t.footer.title} />
+              </div>
+            </div>
 
-          <div className="relative mt-5 text-start">
-            <p className={`${mono.className} text-[10px] font-medium uppercase tracking-[0.18em] text-[#3fbf6e]`}>{t.footer.contactHead}</p>
-            <div className="mt-2.5 grid gap-2">
-              {t.footer.phones.map((phone) => (
-                <a
-                  key={phone}
-                  href={`tel:${phone.replace(/\s+/g, "")}`}
-                  dir="ltr"
-                  className="flex min-h-[52px] items-center rounded-2xl border border-white/10 bg-white/5 px-4 text-[15px] font-bold text-white active:bg-white/10"
-                >
-                  {phone}
-                </a>
-              ))}
-              <a
-                href={`mailto:${t.footer.email}`}
-                dir="ltr"
-                className="flex min-h-[52px] items-center rounded-2xl border border-white/10 bg-white/5 px-4 text-[15px] font-bold text-white active:bg-white/10"
+            <div className="flex w-full flex-col items-center">
+              <Link
+                href={`/${locale}/brochures`}
+                className="flex min-h-[56px] w-full items-center justify-center rounded-full px-6 text-[15px] font-bold text-[#17142D] shadow-lg shadow-[#3fbf6e]/30 active:scale-[0.985]"
+                style={{ backgroundColor: MINT }}
               >
-                {t.footer.email}
-              </a>
-              <a
-                href={`https://${t.footer.site}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                dir="ltr"
-                className="flex min-h-[52px] items-center rounded-2xl border border-white/10 bg-white/5 px-4 text-[15px] font-bold text-white active:bg-white/10"
-              >
-                {t.footer.site}
-              </a>
+                {t.footer.brochureCta}
+              </Link>
+              <p className="mt-4 text-[11px] leading-relaxed text-white/40">{t.footer.legal}</p>
             </div>
           </div>
-
-          <Link
-            href={`/${locale}/brochures`}
-            className="relative mt-7 flex min-h-[56px] items-center justify-center rounded-full px-6 text-[15px] font-bold text-[#17142D] shadow-lg shadow-[#3fbf6e]/30 active:scale-[0.985]"
-            style={{ backgroundColor: MINT }}
-          >
-            {t.footer.brochureCta}
-          </Link>
-
-          <p className="relative mt-6 text-[11px] leading-relaxed text-white/40">{t.footer.legal}</p>
         </div>
       </section>
     </div>

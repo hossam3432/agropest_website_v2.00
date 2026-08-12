@@ -6,6 +6,7 @@ import { Cairo, IBM_Plex_Mono } from "next/font/google";
 import CompositionMatrix, { type Variant, type MatrixLabels } from "./_CompositionMatrix";
 import MechanismSection from "./_MechanismSection";
 import MobileLanding from "./_MobileLanding";
+import EuStarsBackground from "./_EuStarsBackground";
 import { absoluteUrl } from "@/lib/seo";
 
 /* ————————————————————————————————————————————————————————————————
@@ -243,7 +244,7 @@ const content = {
       kicker: "نظام تغذية ورقي وأرضي متكامل",
       slogan: ["سيجنال..", "إشارة", "يفهمها النبات."],
       lead: "ثلاث تركيبات NPK دقيقة مبنية على خامات عالية النقاوة منخفضة الملوحة — يمتصها النبات عبر الورقة خلال ساعات. مجموعة عناصر صغرى مخلبية واحدة، ومحفّز عضوي واحد، وثلاث نسب كبرى تقود الموسم بأكمله.",
-      ctaPrimary: "استكشف سلسلة المنتجات",
+      ctaPrimary: "اكتشف مجموعة سيجنال",
       ctaSecondary: "تحدث مع مهندس زراعي",
       badges: [
         { big: "2.5%", small: "مادة عضوية نشطة" },
@@ -578,9 +579,10 @@ export default async function SignalNpkPage({ params }: PageProps) {
           <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 md:px-8 lg:grid-cols-2 lg:gap-8">
             {/* slogan */}
             <div className="relative z-10">
-              <p className={`${mono.className} text-[11px] font-medium uppercase tracking-[0.28em] text-[#008D36]`}>
+              <p className={`${mono.className} text-[14px] font-medium uppercase tracking-[0.28em] text-[#008D36]`}>
                 {t.hero.kicker}
               </p>
+              <span className="mt-2 block h-px w-10 bg-[#008D36]/40" aria-hidden="true" />
               <h1 className="mt-5 text-5xl font-black !leading-[98px] tracking-tight rtl:!leading-[98px] md:text-7xl">
                 {t.hero.slogan[0]}
                 <br />
@@ -733,7 +735,8 @@ export default async function SignalNpkPage({ params }: PageProps) {
       <footer id="supply" className="relative scroll-mt-48 px-4 pb-4">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-[#17142D] px-6 py-16 text-white md:px-14 md:py-20">
           <RadiatingRings className="-bottom-48 -start-48 h-[480px] w-[480px] opacity-40" color="#3fbf6e" rings={3} duration={6} />
-          <div className="relative flex flex-col items-center justify-center text-center">
+          <EuStarsBackground opacity="opacity-30" />
+          <div className="relative z-10 flex flex-col items-center justify-center text-center">
             <div className="mb-4 flex items-center gap-2.5">
               <SignalMark size={30} color="#3fbf6e" />
               <span className="text-2xl font-black tracking-tight">{t.brand.name}</span>
@@ -748,6 +751,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
             >
               {t.footer.brochureCta}
             </Link>
+            <p className="mt-8 text-xs leading-relaxed text-white/40">{t.footer.legal}</p>
           </div>
         </div>
       </footer>
