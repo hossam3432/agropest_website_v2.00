@@ -94,7 +94,7 @@ function SectionHead({ index, title, dark = false, titleLeading = "leading-[1.32
         <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
         {index}
       </span>
-      <h2 className={`mt-3.5 text-[26px] font-black ${titleLeading} tracking-tight ${dark ? "text-white" : "text-[#17142D]"}`}>
+      <h2 className={`mt-3.5 whitespace-pre-line text-[26px] font-black ${titleLeading} tracking-tight ${dark ? "text-white" : "text-[#17142D]"}`}>
         {title}
       </h2>
     </div>
@@ -303,7 +303,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
         <p className={`${mono.className} relative mt-6 text-[11px] font-medium uppercase tracking-[0.24em]`} style={{ color: GREEN }}>
           {t.hero.kicker}
         </p>
-        <h1 className="relative mt-3 text-[32px] font-black leading-[1.22] tracking-tight" style={{ color: INK }}>
+        <h1 className="relative mt-3 text-[32px] font-black !leading-[46px] tracking-tight rtl:!leading-[46px]" style={{ color: INK }}>
           {t.hero.slogan[0]}
           <br />
           {t.hero.slogan[1]}
@@ -553,7 +553,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
         <div className="relative overflow-hidden rounded-[2rem] bg-[#17142D] px-5 py-10 text-white">
           <RadiatingRings className="-end-28 -top-28 h-80 w-80 opacity-50" color={MINT} rings={3} duration={6} />
           <div className="relative">
-            <SectionHead dark index={t.mech.index} title={t.mech.title} titleLeading="leading-[1.7]" />
+            <SectionHead dark index={t.mech.index} title={t.mech.title} titleLeading="!leading-[40px] rtl:!leading-[40px]" />
             <ReadMore dark text={t.mech.intro} labels={labels} />
             <div className="mt-6">
               <MechanismSection mech={t.mech} dir={t.dir} />
@@ -564,7 +564,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
 
       {/* -------------------------------------------------------- USAGE */}
       <section id="m-usage" className="relative scroll-mt-[130px] bg-[#F4F8F5] px-4 pb-14 pt-10">
-        <SectionHead index={t.usage.index} title={t.usage.title} />
+        <SectionHead index={t.usage.index} title={t.usage.title} titleLeading="!leading-[40px] rtl:!leading-[40px]" />
         <p className="mt-3 text-[15px] leading-8 text-slate-600">{t.usage.intro}</p>
 
         <div className="mt-5 grid gap-4">
@@ -578,8 +578,8 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
                 {c.title}
               </h3>
               <div className="relative mt-3 flex items-baseline gap-2.5">
-                <span className={`${mono.className} text-5xl font-semibold tabular-nums tracking-tight`} style={{ color: GREEN }} dir="ltr">
-                  {c.rate}
+                <span className={`${mono.className} inline-block text-5xl font-semibold tabular-nums tracking-tight`} style={{ color: GREEN }} dir="ltr">
+                  {c.rate.includes("–") ? c.rate.split("–").map((s) => s.trim()).reverse().join(" – ") : c.rate}
                 </span>
                 <span className={`${mono.className} text-[13px] text-slate-500`}>{c.unit}</span>
               </div>

@@ -354,7 +354,7 @@ const content = {
     },
     usage: {
       index: "03 — دليل الاستخدام",
-      title: "طريقان للداخل. تنك نظيف دائمًا.",
+      title: "طريقان للداخل.\nتنك نظيف دائمًا.",
       intro: "يذوب سيجنال ذوبانًا تامًا دون أي رواسب — فتبقى البشابير وخطوط التنقيط نظيفة.",
       cards: [
         {
@@ -499,7 +499,7 @@ function SectionHead({ index, title, intro, dark = false, titleLeading = "leadin
           {index}
         </span>
       ) : null}
-      <h2 className={`mt-5 text-3xl font-black ${titleLeading} tracking-tight md:text-5xl ${dark ? "text-white" : "text-[#17142D]"}`}>
+      <h2 className={`mt-5 whitespace-pre-line text-3xl font-black ${titleLeading} tracking-tight md:text-5xl ${dark ? "text-white" : "text-[#17142D]"}`}>
         {title}
       </h2>
       {intro ? (
@@ -581,7 +581,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
               <p className={`${mono.className} text-[11px] font-medium uppercase tracking-[0.28em] text-[#008D36]`}>
                 {t.hero.kicker}
               </p>
-              <h1 className="mt-5 text-5xl font-black leading-[1.4] tracking-tight md:text-7xl">
+              <h1 className="mt-5 text-5xl font-black !leading-[98px] tracking-tight rtl:!leading-[98px] md:text-7xl">
                 {t.hero.slogan[0]}
                 <br />
                 {t.hero.slogan[1]}
@@ -646,7 +646,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
             <div className="pointer-events-none absolute -bottom-56 -start-56 h-[560px] w-[560px] rounded-full bg-[radial-gradient(closest-side,#008D3626,transparent)]" aria-hidden="true" />
 
             <div className="relative">
-              <SectionHead dark title={t.mech.title} intro={t.mech.intro} titleLeading="leading-[1.7]" />
+              <SectionHead dark title={t.mech.title} intro={t.mech.intro} titleLeading="!leading-[66px] rtl:!leading-[66px]" />
               <MechanismSection mech={t.mech} dir={t.dir} />
             </div>
           </div>
@@ -655,7 +655,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
         {/* ————— usage guide ————— */}
         <section id="usage" className="relative scroll-mt-48 py-20 md:py-28">
           <div className="mx-auto max-w-7xl px-6 md:px-8">
-            <SectionHead title={t.usage.title} intro={t.usage.intro} titleLeading="leading-[1.4]" />
+            <SectionHead title={t.usage.title} intro={t.usage.intro} titleLeading="!leading-[66px] rtl:!leading-[66px]" />
 
             {/* application cards */}
             <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -671,11 +671,11 @@ export default async function SignalNpkPage({ params }: PageProps) {
                   <h3 className="text-xl font-extrabold tracking-tight">{c.title}</h3>
                   <div className="mt-5 flex items-baseline gap-3">
                     <span
-                      className={`${mono.className} text-6xl font-semibold tabular-nums tracking-tight text-[#008D36]`}
+                      className={`${mono.className} inline-block text-6xl font-semibold tabular-nums tracking-tight text-[#008D36]`}
                       dir="ltr"
                       style={{ unicodeBidi: "bidi-override" }}
                     >
-                      {c.rate}
+                      {c.rate.includes("–") ? c.rate.split("–").map((s) => s.trim()).reverse().join(" – ") : c.rate}
                     </span>
                     <span className={`${mono.className} text-sm text-slate-500`}>{c.unit}</span>
                   </div>
