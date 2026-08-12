@@ -68,7 +68,7 @@ export default function MechanismSection({ mech, dir }: MechanismSectionProps) {
       {/* phloem animation slot */}
       <div ref={figureRef} className="flex scroll-mt-32 flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md">
         <div className="border-b border-white/10 px-6 py-4">
-          <span className={`${mono.className} text-[10px] font-medium uppercase tracking-[0.22em] text-[#3fbf6e]`}>
+          <span className="text-[15px] font-medium uppercase tracking-[0.22em] text-white">
             {mech.figureLabel}
           </span>
         </div>
