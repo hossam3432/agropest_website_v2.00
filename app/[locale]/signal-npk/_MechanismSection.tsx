@@ -73,55 +73,22 @@ export default function MechanismSection({ mech, dir }: MechanismSectionProps) {
           </span>
         </div>
         <div className="relative min-h-[380px] flex-1 flex items-center justify-center p-6">
-          {activeStep === "01" && <PhloemIntakeSVG />}
+          {activeStep === "01" && (
+            <video
+              key="foliar-absorption"
+              className="h-full w-full max-w-sm rounded-2xl object-contain"
+              src="/videos/signal-npk-foliar-absorption.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          )}
           {activeStep === "02" && <PhloemLoadingSVG dir={dir} />}
           {activeStep === "03" && <BidirectionalTransportSVG />}
         </div>
       </div>
     </div>
-  );
-}
-
-function PhloemIntakeSVG() {
-  return (
-    <svg viewBox="0 0 400 400" className="w-full h-full max-w-sm" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <style>{`
-          .leaf-surface { fill: #3fbf6e; opacity: 0.3; }
-          .cuticle { stroke: #3fbf6e; stroke-width: 2; fill: none; }
-          .stoma { fill: #3fbf6e; }
-          .particle { fill: #60a5fa; r: 4; }
-          .label { fill: #3fbf6e; font-size: 12px; font-family: Arial; text-anchor: middle; }
-        `}</style>
-      </defs>
-
-      {/* Leaf cross-section */}
-      <ellipse cx="200" cy="120" rx="80" ry="100" className="leaf-surface" stroke="#3fbf6e" strokeWidth="2" />
-
-      {/* Cuticle layer */}
-      <path d="M 140 60 Q 200 30 260 60" className="cuticle" />
-
-      {/* Stomata */}
-      <ellipse cx="180" cy="180" rx="15" ry="20" fill="none" stroke="#3fbf6e" strokeWidth="1.5" />
-      <path d="M 170 175 Q 180 185 190 175" stroke="#3fbf6e" strokeWidth="1" fill="none" />
-
-      {/* Nutrient particles entering */}
-      <circle cx="175" cy="150" className="particle" opacity="0.8" />
-      <circle cx="185" cy="165" className="particle" opacity="0.6" />
-      <circle cx="195" cy="155" className="particle" opacity="0.7" />
-      <circle cx="210" cy="170" className="particle" opacity="0.5" />
-
-      {/* Arrow showing uptake */}
-      <defs>
-        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-          <polygon points="0 0, 10 3, 0 6" fill="#3fbf6e" />
-        </marker>
-      </defs>
-      <path d="M 200 220 L 200 280" stroke="#3fbf6e" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" strokeDasharray="5,5" />
-
-      <text x="200" y="320" className="label">Foliar Intake</text>
-      <text x="200" y="340" className="label" fontSize="10" opacity="0.7">Nutrients penetrate cuticle</text>
-    </svg>
   );
 }
 
