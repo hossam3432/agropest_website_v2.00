@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 const CREAM = "#F7F2EF";
@@ -22,7 +23,13 @@ type Box = { top: number; left: number; width: number; height: number };
    that frozen footprint down to the small badge size with
    `transform-origin: top left`. The shrink therefore pivots exactly from the
    corner the box was already sitting at when it froze: nothing slides to a
-   separately-tuned position while it scales, only the size changes. */
+   separately-tuned position while it scales, only the size changes.
+
+   The floating badge itself is portaled to document.body: the hero section
+   it's measured from has `overflow-hidden` (for its own decorative content),
+   and `position: fixed` descendants are still clipped by an ancestor's
+   overflow — without the portal the badge vanishes as soon as that section
+   scrolls entirely out of view, well before the page ends. */
 export default function LogoSquare({ src, alt, dir }: Props) {
   const spacerRef = useRef<HTMLDivElement>(null);
   const restTopRef = useRef(0);
@@ -92,24 +99,26 @@ export default function LogoSquare({ src, alt, dir }: Props) {
       aria-hidden="true"
       className="relative -mt-12 mb-8 h-[152px] w-[152px] sm:-mt-16 sm:mb-10 sm:h-[230px] sm:w-[230px] md:h-[173px] md:w-[173px] lg:mt-0 lg:h-[230px] lg:w-[230px]"
     >
-      {box && (
-        <div className="lx-logo-drop fixed z-40" style={positionStyle}>
-          <div
-            className="h-full w-full transition-transform duration-500 ease-out"
-            style={{ transform: `scale(${scale})`, transformOrigin: "top left", backgroundColor: CREAM }}
-          >
-            <span aria-hidden="true" className="absolute inset-x-0 bottom-full h-[2000px]" style={{ backgroundColor: CREAM }} />
-            <ResponsiveImage
-              src={src}
-              alt={alt}
-              priority
-              sizes="230px"
-              objectFit="contain"
-              className="lx-logo-fade relative h-full w-full object-contain p-[28px] sm:p-[43px] md:p-[32px] lg:p-[43px]"
-            />
-          </div>
-        </div>
-      )}
+      {box &&
+        createPortal(
+          <div className="lx-logo-drop fixed z-40" style={positionStyle}>
+            <div
+              className="h-full w-full transition-transform duration-500 ease-out"
+              style={{ transform: `scale(${scale})`, transformOrigin: "top left", backgroundColor: CREAM }}
+            >
+              <span aria-hidden="true" className="absolute inset-x-0 bottom-full h-[2000px]" style={{ backgroundColor: CREAM }} />
+              <ResponsiveImage
+                src={src}
+                alt={alt}
+                priority
+                sizes="230px"
+                objectFit="contain"
+                className="lx-logo-fade relative h-full w-full object-contain p-[28px] sm:p-[43px] md:p-[32px] lg:p-[43px]"
+              />
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 }
