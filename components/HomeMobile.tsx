@@ -249,11 +249,55 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
   const heroStripRef = useRef<HTMLDivElement>(null);
   const productsStripRef = useRef<HTMLDivElement>(null);
   const tabStripRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const heroIndex = useSnapIndex(heroStripRef);
   const productIndex = useSnapIndex(productsStripRef);
 
   const highlights = home.commitmentSection.highlights as Array<{ title: string; description: string }>;
+
+  // Same hero video as desktop. Bail out while this tree is display:none (desktop
+  // width) so the hidden copy never fights the visible HomeHero video for playback.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !video.offsetParent) return;
+    // Safari ignores the JSX `muted` attribute on hydration and blocks autoplay
+    // unless both the `defaultMuted` and `muted` IDL properties are set explicitly
+    // before play() is requested.
+    video.defaultMuted = true;
+    video.muted = true;
+
+    const tryPlay = () => {
+      const playPromise = video.play();
+      if (playPromise) playPromise.catch(() => {});
+    };
+
+    // Safari can silently reject play() if called before enough data is buffered,
+    // so retry once metadata/frames are actually available.
+    video.addEventListener("loadedmetadata", tryPlay);
+    video.addEventListener("canplay", tryPlay);
+    tryPlay();
+
+    // Last-resort fallback: if the platform's auto-play setting still blocked it,
+    // start on the first tap/scroll so it's never stuck showing a static poster.
+    const onFirstInteraction = () => {
+      tryPlay();
+      window.removeEventListener("touchstart", onFirstInteraction);
+      window.removeEventListener("click", onFirstInteraction);
+      window.removeEventListener("scroll", onFirstInteraction);
+    };
+    window.addEventListener("touchstart", onFirstInteraction, { passive: true, once: true });
+    window.addEventListener("click", onFirstInteraction, { once: true });
+    window.addEventListener("scroll", onFirstInteraction, { passive: true, once: true });
+
+    return () => {
+      video.removeEventListener("loadedmetadata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+      window.removeEventListener("touchstart", onFirstInteraction);
+      window.removeEventListener("click", onFirstInteraction);
+      window.removeEventListener("scroll", onFirstInteraction);
+    };
+  }, []);
 
   // Scroll-spy for the sticky tab strip — bail out entirely while this tree is
   // display:none (desktop), same guard RivalDuoMobile uses.
@@ -300,18 +344,24 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
   return (
     <div className="bg-white">
       {/* ---------------------------------------------------------------- HERO */}
-      <section className="relative isolate overflow-hidden bg-[radial-gradient(circle_at_16%_10%,rgba(217,146,39,0.22),transparent_30%),linear-gradient(150deg,#06281f_0%,#0A3D2B_46%,#17324d_100%)] px-4 pb-10 pt-[104px] text-white">
-        <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-30">
-          <ResponsiveImage
-            src={home.hero.backgroundImage}
-            alt=""
-            aria-hidden="true"
-            sizes="100vw"
-            className="h-full w-full object-cover"
-            objectFit="cover"
-            priority
-          />
-        </div>
+      <section className="relative isolate overflow-hidden px-4 pb-10 pt-[104px] text-white">
+        <video
+          ref={videoRef}
+          aria-hidden="true"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/videos/hero-poster.jpg"
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_16%_10%,rgba(217,146,39,0.2),transparent_30%),linear-gradient(150deg,rgba(6,40,31,0.62)_0%,rgba(10,61,43,0.56)_46%,rgba(23,50,77,0.6)_100%)]"
+        />
         <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
 
         <div className="h-10 w-px bg-agri-gold" />
