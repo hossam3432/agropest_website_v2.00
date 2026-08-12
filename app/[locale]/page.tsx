@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { FaqSchema } from "@/components/FaqSchema";
 import { HomeHero } from "@/components/HomeHero";
+import { HomeMobile } from "@/components/HomeMobile";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -102,14 +103,21 @@ export default async function HomePage({ params }: LocalePageProps) {
   return (
     <>
       <FaqSchema items={homeFaqItems[locale]} />
-      <HomeHero content={content} locale={locale} />
-      <CommitmentSection content={content} />
-      <FeaturedProductLinesSection content={content} locale={locale} />
-      <ProductCategoriesSection content={content} locale={locale} />
-      <WhyAgropestSection content={content} />
-      <TechnicalLibraryPreview content={content} locale={locale} />
-      <PartnersSection content={content} />
-      <CTASection locale={locale} {...content.home.cta} />
+
+      <div className="-mt-24 lg:hidden">
+        <HomeMobile content={content} locale={locale} />
+      </div>
+
+      <div className="hidden lg:block">
+        <HomeHero content={content} locale={locale} />
+        <CommitmentSection content={content} />
+        <FeaturedProductLinesSection content={content} locale={locale} />
+        <ProductCategoriesSection content={content} locale={locale} />
+        <WhyAgropestSection content={content} />
+        <TechnicalLibraryPreview content={content} locale={locale} />
+        <PartnersSection content={content} />
+        <CTASection locale={locale} {...content.home.cta} />
+      </div>
     </>
   );
 }

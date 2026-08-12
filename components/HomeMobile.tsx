@@ -1,0 +1,749 @@
+"use client";
+
+import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
+import Link from "next/link";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
+
+type HomeMobileProps = {
+  content: SiteContent;
+  locale: Locale;
+};
+
+const premiumEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+// UI chrome only — affordance labels that aren't page copy (mirrors the
+// pattern used by RivalDuoMobile: everything else on this page is sourced
+// straight from lib/content so no original text is paraphrased or dropped).
+const ui = {
+  en: { more: "Read more", less: "Show less", swipe: "Swipe for more", trust: "Why AgroPest" },
+  ar: { more: "اقرأ المزيد", less: "عرض أقل", swipe: "اسحب لعرض المزيد", trust: "لماذا أجروبست" }
+} as const;
+
+/* ---------------------------------------------------------------- helpers */
+
+function scrollStripToIndex(strip: HTMLElement | null, index: number, reducedMotion: boolean | null) {
+  const child = strip?.children[index] as HTMLElement | undefined;
+  if (!strip || !child) return;
+  const stripRect = strip.getBoundingClientRect();
+  const childRect = child.getBoundingClientRect();
+  const delta = childRect.left + childRect.width / 2 - (stripRect.left + stripRect.width / 2);
+  if (Math.abs(delta) < 1) return;
+  strip.scrollBy({ left: delta, behavior: reducedMotion ? "auto" : "smooth" });
+}
+
+/** Tracks which snap-scroll child sits nearest the strip's centre. */
+function useSnapIndex(stripRef: RefObject<HTMLDivElement | null>) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const strip = stripRef.current;
+    if (!strip) return undefined;
+    let frame = 0;
+
+    function update() {
+      frame = 0;
+      const el = stripRef.current;
+      if (!el) return;
+      const stripRect = el.getBoundingClientRect();
+      const center = stripRect.left + stripRect.width / 2;
+      let nearest = 0;
+      let nearestDist = Infinity;
+      Array.from(el.children).forEach((child, i) => {
+        const rect = (child as HTMLElement).getBoundingClientRect();
+        const dist = Math.abs(rect.left + rect.width / 2 - center);
+        if (dist < nearestDist) {
+          nearestDist = dist;
+          nearest = i;
+        }
+      });
+      setIndex(nearest);
+    }
+
+    function onScroll() {
+      if (frame) return;
+      frame = window.requestAnimationFrame(update);
+    }
+
+    update();
+    strip.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      strip.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [stripRef]);
+
+  return index;
+}
+
+/* ---------------------------------------------------------------- primitives */
+
+function Eyebrow({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
+  return <p className={`eyebrow ${dark ? "text-agri-gold" : ""}`}>{children}</p>;
+}
+
+function Dots({ count, active, onSelect, dark = false }: { count: number; active: number; onSelect: (index: number) => void; dark?: boolean }) {
+  if (count <= 1) return null;
+  return (
+    <div className="flex items-center gap-2">
+      {Array.from({ length: count }).map((_, index) => (
+        <button
+          key={index}
+          type="button"
+          aria-label={`${index + 1}`}
+          onClick={() => onSelect(index)}
+          className={`h-2.5 rounded-full transition-all duration-300 ${
+            index === active ? "w-8 bg-agri-gold" : `w-2.5 ${dark ? "bg-white/35" : "bg-agri-line"}`
+          }`}
+        />
+      ))}
+    </div>
+  );
+}
+
+function Chevron({ open }: { open: boolean }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${
+        open ? "border-agri-gold bg-agri-gold" : "border-agri-line bg-white"
+      }`}
+    >
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}>
+        <path
+          d="M6 9 L12 15 L18 9"
+          stroke={open ? "#ffffff" : "#17324D"}
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
+  );
+}
+
+/** Accordion row — large tap target header, height-animated body. Nothing removed, just folded. */
+function Disclosure({
+  open,
+  onToggle,
+  header,
+  children
+}: {
+  open: boolean;
+  onToggle: () => void;
+  header: ReactNode;
+  children: ReactNode;
+}) {
+  const reducedMotion = useReducedMotion();
+
+  return (
+    <div
+      className={`overflow-hidden rounded-[1.25rem] border bg-white transition-colors duration-300 ${
+        open ? "border-agri-gold shadow-soft" : "border-agri-line"
+      }`}
+    >
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={open}
+        className="flex min-h-[64px] w-full items-center gap-3 px-4 py-3.5 text-start active:bg-agri-mist"
+      >
+        <span className="min-w-0 flex-1">{header}</span>
+        <Chevron open={open} />
+      </button>
+      <AnimatePresence initial={false}>
+        {open ? (
+          <motion.div
+            key="body"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: reducedMotion ? 0 : 0.32, ease: premiumEase }}
+            className="overflow-hidden"
+          >
+            <div className="px-4 pb-4 pt-1">{children}</div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+/** Clamps long copy behind a tap target. Full text stays in the DOM either way. */
+function ReadMore({ text, labels, dark = false }: { text: string; labels: { more: string; less: string }; dark?: boolean }) {
+  const [open, setOpen] = useState(false);
+  const [clamped, setClamped] = useState(false);
+  const textRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    function measure() {
+      const el = textRef.current;
+      if (!el || open) return;
+      setClamped(el.scrollHeight - el.clientHeight > 1);
+    }
+    measure();
+    window.addEventListener("resize", measure);
+    document.fonts?.ready.then(measure).catch(() => {});
+    return () => window.removeEventListener("resize", measure);
+  }, [open, text]);
+
+  return (
+    <div>
+      <p
+        ref={textRef}
+        className={`text-[15px] leading-8 ${dark ? "text-white/75" : "text-slate-600"} ${open ? "" : "line-clamp-4"}`}
+      >
+        {text}
+      </p>
+      {clamped ? (
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          aria-expanded={open}
+          className={`mt-1 inline-flex min-h-11 items-center gap-1.5 text-sm font-bold ${dark ? "text-agri-gold" : "text-agri-green"}`}
+        >
+          {open ? labels.less : labels.more}
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true" className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}>
+            <path d="M6 9 L12 15 L18 9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      ) : null}
+    </div>
+  );
+}
+
+function ArrowIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" className={className} aria-hidden="true">
+      <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/* ---------------------------------------------------------------- the page */
+
+export function HomeMobile({ content, locale }: HomeMobileProps) {
+  const { home, company } = content;
+  const labels = ui[locale];
+  const reducedMotion = useReducedMotion();
+  const isRtl = content.direction === "rtl";
+
+  const tabs = [
+    { id: "m-story", label: home.commitmentSection.eyebrow },
+    { id: "m-products", label: home.featuredProductLinesSection.eyebrow },
+    { id: "m-categories", label: home.productCategoriesSection.eyebrow },
+    { id: "m-why", label: home.whyAgropestSection.eyebrow },
+    { id: "m-library", label: content.technicalLibraryPreview.eyebrow },
+    { id: "m-partners", label: home.partnersSection.eyebrow },
+    { id: "m-cta", label: home.cta.eyebrow ?? "" }
+  ].filter((tab) => tab.label);
+
+  const [activeTab, setActiveTab] = useState(tabs[0]?.id);
+  const [trustOpen, setTrustOpen] = useState(false);
+  const [openHighlight, setOpenHighlight] = useState<number | null>(null);
+  const [openWhy, setOpenWhy] = useState<number | null>(0);
+  const [barVisible, setBarVisible] = useState(false);
+
+  const heroStripRef = useRef<HTMLDivElement>(null);
+  const productsStripRef = useRef<HTMLDivElement>(null);
+  const tabStripRef = useRef<HTMLDivElement>(null);
+
+  const heroIndex = useSnapIndex(heroStripRef);
+  const productIndex = useSnapIndex(productsStripRef);
+
+  const highlights = home.commitmentSection.highlights as Array<{ title: string; description: string }>;
+
+  // Scroll-spy for the sticky tab strip — bail out entirely while this tree is
+  // display:none (desktop), same guard RivalDuoMobile uses.
+  useEffect(() => {
+    const ids = tabs.map((tab) => tab.id);
+    let frame = 0;
+
+    function update() {
+      frame = 0;
+      if (!tabStripRef.current?.offsetParent) return;
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 160) current = id;
+      }
+      setActiveTab(current);
+    }
+
+    function onScroll() {
+      if (frame) return;
+      frame = window.requestAnimationFrame(update);
+    }
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    scrollStripToIndex(tabStripRef.current, tabs.findIndex((tab) => tab.id === activeTab), reducedMotion);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab, reducedMotion]);
+
+  // Sticky action bar: appears once the hero is behind us, hides once the
+  // closing CTA (which carries the same actions inline) comes into view.
+  useEffect(() => {
+    function onScroll() {
+      const closing = document.getElementById("m-cta");
+      const reachedClosing = closing ? closing.getBoundingClientRect().top < window.innerHeight - 140 : false;
+      setBarVisible(window.scrollY > 460 && !reachedClosing);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  function scrollToSection(id: string) {
+    document.getElementById(id)?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+  }
+
+  return (
+    <div className="bg-white">
+      {/* ---------------------------------------------------------------- HERO */}
+      <section className="relative isolate overflow-hidden bg-[radial-gradient(circle_at_16%_10%,rgba(217,146,39,0.22),transparent_30%),linear-gradient(150deg,#06281f_0%,#0A3D2B_46%,#17324d_100%)] px-4 pb-10 pt-8 text-white">
+        <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-30">
+          <ResponsiveImage
+            src={home.hero.backgroundImage}
+            alt=""
+            aria-hidden="true"
+            sizes="100vw"
+            className="h-full w-full object-cover"
+            objectFit="cover"
+            priority
+          />
+        </div>
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
+
+        <div className="h-10 w-px bg-agri-gold" />
+        <Eyebrow dark>{home.hero.eyebrow}</Eyebrow>
+        <h1 className="mt-4 text-[28px] font-bold leading-[1.2] tracking-normal">{home.hero.title}</h1>
+        <p className="mt-4 text-[15px] leading-8 text-white/75">{home.hero.subtitle}</p>
+
+        <div className="mt-5 inline-flex max-w-full items-center gap-2 rounded-full border border-agri-gold/35 bg-white/10 px-3 py-2.5 text-xs font-bold shadow-sm backdrop-blur">
+          <span className="inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-agri-gold" />
+          <span>{home.hero.trustBadge}</span>
+        </div>
+
+        <div className="mt-6 grid gap-2.5">
+          <Link href={localizeHref(locale, home.hero.primaryCta.href)} className="btn-hero-glass min-h-[56px] w-full">
+            {home.hero.primaryCta.label}
+          </Link>
+          <Link href={localizeHref(locale, home.hero.secondaryCta.href)} className="btn-hero-glass min-h-[56px] w-full">
+            {home.hero.secondaryCta.label}
+          </Link>
+        </div>
+
+        {/* Signature-card carousel: one card in frame, next card peeking, native scroll-snap swipe. */}
+        <div
+          ref={heroStripRef}
+          className="mt-7 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {home.hero.signatureCards.map((card, index) => (
+            <article
+              key={card.title}
+              className="w-[86%] shrink-0 snap-center rounded-[1.75rem] border border-white/20 bg-white/95 p-6 text-agri-blue shadow-soft"
+            >
+              <div className="flex items-center justify-between gap-4">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-agri-gold text-sm font-black text-white">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="h-px flex-1 bg-agri-gold/35" />
+              </div>
+              <h3 className="mt-6 text-2xl font-bold leading-tight">{card.title}</h3>
+              <p className="mt-3 text-[15px] leading-8 text-slate-600">{card.description}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-4 flex items-center justify-between gap-4">
+          <p className="text-sm font-bold text-white/70">
+            {String(heroIndex + 1).padStart(2, "0")} / {String(home.hero.signatureCards.length).padStart(2, "0")}
+          </p>
+          <Dots
+            count={home.hero.signatureCards.length}
+            active={heroIndex}
+            onSelect={(index) => scrollStripToIndex(heroStripRef.current, index, reducedMotion)}
+            dark
+          />
+        </div>
+
+        {/* Established-since credibility, folded — real content that has no other home on mobile. */}
+        <div className="mt-5">
+          <Disclosure
+            open={trustOpen}
+            onToggle={() => setTrustOpen((value) => !value)}
+            header={
+              <span className="flex items-center gap-3">
+                <span className="text-2xl font-black text-agri-gold">{home.hero.credibilityPanel.establishedYear}</span>
+                <span className="text-sm font-bold text-agri-blue">
+                  {home.hero.credibilityPanel.establishedLabel} · {labels.trust}
+                </span>
+              </span>
+            }
+          >
+            <ul className="grid gap-2.5">
+              {[...home.hero.credibilityPanel.items, ...home.hero.trustPoints].map((point) => (
+                <li key={point} className="flex items-start gap-2.5 text-[15px] leading-7 text-slate-600">
+                  <svg viewBox="0 0 20 20" fill="none" className="mt-1 h-4 w-4 shrink-0 text-agri-green" aria-hidden="true">
+                    <path d="M4 10.5 8 14.5 16 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </Disclosure>
+        </div>
+      </section>
+
+      {/* ---------------------------------------------------------- STICKY TABS */}
+      <div ref={tabStripRef} className="sticky top-[70px] z-30 bg-white/85 px-3 py-2 backdrop-blur-xl">
+        <div
+          className="flex gap-1.5 overflow-x-auto rounded-full border border-agri-line bg-white p-1.5 shadow-sm [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {tabs.map((tab) => {
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => scrollToSection(tab.id)}
+                aria-current={isActive ? "true" : undefined}
+                className={`flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-4 text-[13px] font-bold transition-colors duration-300 ${
+                  isActive ? "bg-agri-green text-white" : "text-slate-500"
+                }`}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* --------------------------------------------------------- STORY (commitment) */}
+      <section id="m-story" className="scroll-mt-[150px] bg-white px-4 pb-12 pt-10">
+        <Eyebrow>{home.commitmentSection.eyebrow}</Eyebrow>
+        <h2 className="mt-3 text-[26px] font-bold leading-tight text-agri-blue">{home.commitmentSection.title}</h2>
+
+        <div className="mt-4 rounded-[1.5rem] border-s-4 border-agri-gold bg-agri-mist p-5">
+          {home.commitmentSection.paragraphs.map((paragraph) => (
+            <p key={paragraph} className="mt-3 text-[15px] leading-8 text-slate-700 first:mt-0">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        {highlights.length ? (
+          <div className="mt-5 grid gap-2.5">
+            {highlights.map((item, index) => (
+              <Disclosure
+                key={item.title}
+                open={openHighlight === index}
+                onToggle={() => setOpenHighlight(openHighlight === index ? null : index)}
+                header={
+                  <span className="flex items-center gap-3">
+                    <span className="text-xs font-bold text-agri-gold">0{index + 1}</span>
+                    <span className="text-[15px] font-bold text-agri-blue">{item.title}</span>
+                  </span>
+                }
+              >
+                <p className="text-[15px] leading-8 text-slate-600">{item.description}</p>
+              </Disclosure>
+            ))}
+          </div>
+        ) : null}
+      </section>
+
+      {/* ----------------------------------------------------- FEATURED PRODUCTS */}
+      <section
+        id="m-products"
+        className="scroll-mt-[150px] relative overflow-hidden bg-[radial-gradient(circle_at_18%_8%,rgba(217,146,39,0.2),transparent_32%),linear-gradient(150deg,#06281f_0%,#0A3D2B_50%,#17324d_100%)] px-4 pb-12 pt-12 text-white"
+      >
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
+        <Eyebrow dark>{home.featuredProductLinesSection.eyebrow}</Eyebrow>
+        <h2 className="mt-3 text-[26px] font-bold leading-tight">{home.featuredProductLinesSection.title}</h2>
+        {home.featuredProductLinesSection.description ? (
+          <p className="mt-3 text-[15px] leading-8 text-white/75">{home.featuredProductLinesSection.description}</p>
+        ) : null}
+
+        <div
+          ref={productsStripRef}
+          className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          {home.featuredProductLinesSection.items.map((item, index) => (
+            <Link
+              key={item.title}
+              href={localizeHref(locale, item.href)}
+              aria-label={item.ctaLabel}
+              className="group relative w-[82%] shrink-0 snap-center overflow-hidden rounded-[1.75rem] bg-white text-agri-blue shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition duration-300 active:scale-[0.98]"
+            >
+              <span className="absolute start-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-agri-gold text-xs font-black text-white shadow-sm">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className="relative flex h-52 items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_50%_30%,rgba(217,146,39,0.18),transparent_60%)] p-8">
+                <ResponsiveImage
+                  src={item.image}
+                  alt={item.imageAlt}
+                  sizes="82vw"
+                  className="h-full w-full object-contain transition duration-500 group-active:scale-105"
+                  objectFit="contain"
+                />
+              </div>
+              <div className="p-5 pb-6">
+                {item.eyebrow ? (
+                  <span className="inline-flex w-fit items-center rounded-lg border border-agri-green px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-agri-green">
+                    {item.eyebrow}
+                  </span>
+                ) : null}
+                <h3 className="mt-2.5 text-xl font-bold leading-tight text-agri-blue">{item.title}</h3>
+                {item.tags.length ? (
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {item.tags.map((tag) => (
+                      <span key={tag} className="rounded-lg border border-agri-green px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-agri-green">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+                <p className="mt-3 text-[15px] leading-7 text-slate-600">{item.description}</p>
+                <span className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-agri-green px-5 text-sm font-bold text-white shadow-sm transition duration-300 group-active:bg-agri-greenDark">
+                  {item.ctaLabel}
+                  <ArrowIcon className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`} />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-4 flex items-center justify-between gap-4">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-white/50">{labels.swipe}</p>
+          <div className="flex items-center gap-3">
+            <p className="text-sm font-bold text-white/70">
+              {String(productIndex + 1).padStart(2, "0")} / {String(home.featuredProductLinesSection.items.length).padStart(2, "0")}
+            </p>
+            <Dots
+              count={home.featuredProductLinesSection.items.length}
+              active={productIndex}
+              onSelect={(index) => scrollStripToIndex(productsStripRef.current, index, reducedMotion)}
+              dark
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* -------------------------------------------------------------- CATEGORIES */}
+      <section id="m-categories" className="scroll-mt-[150px] bg-agri-mist px-4 py-12">
+        <div className="rounded-[1.5rem] border border-agri-line bg-white p-6 shadow-soft">
+          <Eyebrow>{home.productCategoriesSection.eyebrow}</Eyebrow>
+          <h2 className="mt-3 text-[24px] font-bold leading-tight text-agri-blue">{home.productCategoriesSection.title}</h2>
+          {home.productCategoriesSection.description ? (
+            <div className="mt-3">
+              <ReadMore text={home.productCategoriesSection.description} labels={labels} />
+            </div>
+          ) : null}
+          {home.productCategoriesSection.cta ? (
+            <Link href={localizeHref(locale, home.productCategoriesSection.cta.href)} className="btn-secondary mt-5 min-h-[52px] w-full">
+              {home.productCategoriesSection.cta.label}
+            </Link>
+          ) : null}
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------- WHY AGROPEST */}
+      <section id="m-why" className="scroll-mt-[150px] bg-agri-greenDark px-4 py-12 text-white">
+        <Eyebrow dark>{home.whyAgropestSection.eyebrow}</Eyebrow>
+        <h2 className="mt-3 text-[26px] font-bold leading-tight">{home.whyAgropestSection.title}</h2>
+        <p className="mt-3 text-[15px] leading-8 text-white/70">{home.whyAgropestSection.description}</p>
+
+        <div className="relative mt-5 aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-white/10 shadow-soft">
+          <ResponsiveImage
+            src="/images/backgrounds/field-day-trials.jpg"
+            alt={home.whyAgropestSection.imageAlt}
+            className="h-full w-full"
+            objectFit="cover"
+            sizes="100vw"
+          />
+        </div>
+
+        <div className="mt-5 grid gap-2.5">
+          {home.whyAgropestSection.items.map((item, index) => (
+            <Disclosure
+              key={item.title}
+              open={openWhy === index}
+              onToggle={() => setOpenWhy(openWhy === index ? null : index)}
+              header={
+                <span className="flex items-center gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-agri-gold text-xs font-black text-white">
+                    {item.eyebrow}
+                  </span>
+                  <span className="min-w-0 text-[15px] font-bold text-agri-blue">{item.title}</span>
+                </span>
+              }
+            >
+              <p className="text-[15px] leading-8 text-slate-600">{item.description}</p>
+            </Disclosure>
+          ))}
+        </div>
+      </section>
+
+      {/* --------------------------------------------------------- TECHNICAL LIBRARY */}
+      <section id="m-library" className="scroll-mt-[150px] bg-white px-4 py-12">
+        <div className="relative min-h-[190px] overflow-hidden rounded-[1.5rem] bg-agri-blue shadow-soft">
+          <ResponsiveImage
+            src={content.technicalLibraryPreview.image}
+            alt={content.technicalLibraryPreview.imageAlt}
+            sizes="100vw"
+            className="absolute inset-0 h-full w-full object-cover"
+            objectFit="cover"
+          />
+        </div>
+        <Eyebrow>{content.technicalLibraryPreview.eyebrow}</Eyebrow>
+        <h2 className="mt-2 text-[24px] font-bold leading-tight text-agri-blue">{content.technicalLibraryPreview.title}</h2>
+        <p className="mt-3 text-[15px] leading-8 text-slate-600">{content.technicalLibraryPreview.description}</p>
+        <Link href={localizeHref(locale, content.technicalLibraryPreview.cta.href)} className="btn-primary mt-5 min-h-[52px] w-full">
+          {content.technicalLibraryPreview.cta.label}
+        </Link>
+      </section>
+
+      {/* ------------------------------------------------------------------ PARTNERS */}
+      <section id="m-partners" className="scroll-mt-[150px] bg-gradient-to-br from-agri-blue via-agri-greenDark to-agri-blue px-4 py-12 text-white">
+        <Eyebrow dark>{home.partnersSection.eyebrow}</Eyebrow>
+        <h2 className="mt-3 text-[26px] font-bold leading-tight">{home.partnersSection.title}</h2>
+        <p className="mt-3 text-[15px] leading-8 text-white/80">{home.partnersSection.description}</p>
+
+        <div className="mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {home.partnersSection.items.map((partner) => (
+            <article
+              key={partner.name}
+              className="flex w-[72%] shrink-0 snap-center flex-col items-center gap-3 rounded-[1.5rem] bg-white px-5 py-6 text-center text-black shadow-sm"
+            >
+              <div className="flex h-20 w-full items-center justify-center">
+                <ResponsiveImage
+                  src={partner.logo}
+                  alt={partner.logoAlt}
+                  sizes="200px"
+                  objectFit="contain"
+                  className="max-h-16 w-full max-w-[180px] object-contain"
+                />
+              </div>
+              <p className="text-base font-black tracking-tight">{partner.name}</p>
+              <p className="text-sm font-semibold leading-6 text-slate-700">{partner.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* --------------------------------------------------------------------- CTA */}
+      <section id="m-cta" className="scroll-mt-[150px] bg-agri-mist px-4 py-12">
+        <div className="relative overflow-hidden rounded-[1.75rem] bg-agri-blue px-5 py-8 text-white shadow-soft">
+          {home.cta.backgroundImage ? (
+            <div aria-hidden="true" className="absolute inset-0 opacity-25">
+              <ResponsiveImage src={home.cta.backgroundImage} alt="" className="h-full w-full" objectFit="cover" />
+            </div>
+          ) : null}
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-agri-blue via-agri-blue/90 to-agri-green/75" />
+          <div className="relative">
+            {home.cta.eyebrow ? <Eyebrow dark>{home.cta.eyebrow}</Eyebrow> : null}
+            <h2 className="mt-3 text-[26px] font-bold leading-tight">{home.cta.title}</h2>
+            <p className="mt-3 text-[15px] leading-8 text-white/75">{home.cta.description}</p>
+
+            <div className="mt-6 grid gap-2.5">
+              <Link href={localizeHref(locale, home.cta.primaryHref)} className="btn-on-dark-outline min-h-[54px] w-full">
+                {home.cta.primaryLabel}
+              </Link>
+              {home.cta.secondaryLabel && home.cta.secondaryHref ? (
+                <Link href={localizeHref(locale, home.cta.secondaryHref)} className="btn-on-dark-outline min-h-[54px] w-full">
+                  {home.cta.secondaryLabel}
+                </Link>
+              ) : null}
+              {home.cta.tertiaryLabel && home.cta.tertiaryHref ? (
+                <a href={home.cta.tertiaryHref} className="btn-on-dark-outline min-h-[54px] w-full">
+                  {home.cta.tertiaryLabel}
+                </a>
+              ) : null}
+            </div>
+          </div>
+        </div>
+
+        {/* Direct-contact tiles — same phone/email on record everywhere else in the site. */}
+        <div className="mt-4 grid gap-2.5">
+          <a
+            href={`tel:${company.phone.replace(/\s+/g, "")}`}
+            className="flex min-h-[60px] items-center gap-3 rounded-[1.35rem] border border-agri-line bg-white px-4 shadow-sm active:scale-[0.985]"
+          >
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-agri-green/10">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5L17 13l4 1.5v3a2.5 2.5 0 0 1-2.7 2.5C10.4 19.4 4.6 13.6 4 5.7A2.5 2.5 0 0 1 6.5 3Z"
+                  stroke="#0F5A3C"
+                  strokeWidth="1.9"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+            <span dir="ltr" className={`min-w-0 flex-1 text-[15px] font-extrabold text-agri-blue ${isRtl ? "text-right" : "text-left"}`}>
+              {company.phone}
+            </span>
+          </a>
+          <a
+            href={`mailto:${company.email}`}
+            className="flex min-h-[60px] items-center gap-3 rounded-[1.35rem] border border-agri-line bg-white px-4 shadow-sm active:scale-[0.985]"
+          >
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-agri-gold/10">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 6h16v12H4z" stroke="#D99227" strokeWidth="1.9" strokeLinejoin="round" />
+                <path d="m4 7 8 6 8-6" stroke="#D99227" strokeWidth="1.9" strokeLinejoin="round" />
+              </svg>
+            </span>
+            <span dir="ltr" className={`min-w-0 flex-1 truncate text-[15px] font-extrabold text-agri-blue ${isRtl ? "text-right" : "text-left"}`}>
+              {company.email}
+            </span>
+          </a>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------ STICKY ACTION BAR */}
+      <div
+        className={`pointer-events-none fixed inset-x-0 bottom-0 z-40 transition-transform duration-300 ${
+          barVisible ? "translate-y-0" : "translate-y-[140%]"
+        }`}
+      >
+        <div className="pointer-events-auto mx-3 mb-3 flex gap-2 rounded-[1.5rem] border border-white/60 bg-white/90 p-2 shadow-[0_12px_40px_rgba(10,42,87,0.18)] backdrop-blur-xl">
+          <Link
+            href={localizeHref(locale, home.hero.primaryCta.href)}
+            className="flex min-h-[52px] flex-1 items-center justify-center rounded-[1.1rem] bg-agri-green px-3 text-center text-[13px] font-bold leading-4 text-white active:scale-[0.985]"
+          >
+            {home.hero.primaryCta.label}
+          </Link>
+          {home.cta.tertiaryHref ? (
+            <a
+              href={home.cta.tertiaryHref}
+              className="flex min-h-[52px] w-14 shrink-0 items-center justify-center rounded-[1.1rem] border-2 border-agri-green text-agri-green active:scale-[0.985]"
+              aria-label={home.cta.tertiaryLabel}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3.5 20.5 5 16.4A8.2 8.2 0 1 1 8.1 19.4L3.5 20.5Z" stroke="currentColor" strokeWidth="1.9" strokeLinejoin="round" />
+              </svg>
+            </a>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+}

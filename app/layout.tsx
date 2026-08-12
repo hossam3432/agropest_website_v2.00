@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: "ar_EG",
     type: "website",
-    images: [{ url: absoluteUrl(enContent.images.hero.home), width: 1200, height: 630, alt: company.name }]
+    images: [{ url: absoluteUrl(company.logoPath), width: 1200, height: 630, alt: "Agropest Control Logo" }]
   },
   twitter: {
     card: "summary_large_image",
     title: company.name,
     description: company.tagline,
-    images: [absoluteUrl(enContent.images.hero.home)]
+    images: [absoluteUrl(company.logoPath)]
   }
 };
 
