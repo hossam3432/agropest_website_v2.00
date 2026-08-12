@@ -469,16 +469,13 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
           ref={productsStripRef}
           className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {home.featuredProductLinesSection.items.map((item, index) => (
+          {home.featuredProductLinesSection.items.map((item) => (
             <Link
               key={item.title}
               href={localizeHref(locale, item.href)}
               aria-label={item.ctaLabel}
               className="group relative w-[82%] shrink-0 snap-center overflow-hidden rounded-[1.75rem] bg-white text-agri-blue shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition duration-300 active:scale-[0.98]"
             >
-              <span className="absolute start-4 top-4 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-agri-gold text-xs font-black text-white shadow-sm">
-                {String(index + 1).padStart(2, "0")}
-              </span>
               <div className="relative flex h-52 items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_50%_30%,rgba(217,146,39,0.18),transparent_60%)] p-8">
                 <ResponsiveImage
                   src={item.image}
