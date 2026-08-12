@@ -83,7 +83,7 @@ function RadiatingRings({
   );
 }
 
-function SectionHead({ index, title, dark = false }: { index: string; title: string; dark?: boolean }) {
+function SectionHead({ index, title, dark = false, titleLeading = "leading-[1.32]" }: { index: string; title: string; dark?: boolean; titleLeading?: string }) {
   return (
     <div>
       <span
@@ -94,7 +94,7 @@ function SectionHead({ index, title, dark = false }: { index: string; title: str
         <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
         {index}
       </span>
-      <h2 className={`mt-3.5 text-[26px] font-black leading-[1.32] tracking-tight ${dark ? "text-white" : "text-[#17142D]"}`}>
+      <h2 className={`mt-3.5 text-[26px] font-black ${titleLeading} tracking-tight ${dark ? "text-white" : "text-[#17142D]"}`}>
         {title}
       </h2>
     </div>
@@ -553,7 +553,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
         <div className="relative overflow-hidden rounded-[2rem] bg-[#17142D] px-5 py-10 text-white">
           <RadiatingRings className="-end-28 -top-28 h-80 w-80 opacity-50" color={MINT} rings={3} duration={6} />
           <div className="relative">
-            <SectionHead dark index={t.mech.index} title={t.mech.title} />
+            <SectionHead dark index={t.mech.index} title={t.mech.title} titleLeading="leading-[1.7]" />
             <ReadMore dark text={t.mech.intro} labels={labels} />
             <div className="mt-6">
               <MechanismSection mech={t.mech} dir={t.dir} />

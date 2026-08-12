@@ -26,8 +26,9 @@ type MechanismSectionProps = {
 };
 
 export default function MechanismSection({ mech, dir }: MechanismSectionProps) {
-  const [activeStep, setActiveStep] = useState("02");
+  const [activeStep, setActiveStep] = useState("01");
   const figureRef = useRef<HTMLDivElement>(null);
+  const activeStepTitle = mech.steps.find((s) => s.no === activeStep)?.title ?? mech.steps[0].title;
 
   const select = (no: string) => {
     setActiveStep(no);
@@ -69,7 +70,7 @@ export default function MechanismSection({ mech, dir }: MechanismSectionProps) {
       <div ref={figureRef} className="flex scroll-mt-32 flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md">
         <div className="border-b border-white/10 px-6 py-4">
           <span className="text-[15px] font-medium uppercase tracking-[0.22em] text-white">
-            {mech.figureLabel}
+            {dir === "rtl" ? "سيجنال" : "SIGNAL"} - {activeStepTitle}
           </span>
         </div>
         <div className="relative min-h-[380px] flex-1 flex items-center justify-center p-6">
