@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import LogoSquare from "./_LogoSquare";
 import SachetVisual from "./_SachetVisual";
+import { LasixMobile } from "@/components/LasixMobile";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
-import { locales, type Locale } from "@/lib/content";
+import { localizeHref, locales, type Locale } from "@/lib/content";
 import { absoluteUrl } from "@/lib/seo";
 
 const cairo = Cairo({ subsets: ["arabic", "latin"], weight: ["400", "500", "600", "700", "800"], display: "swap" });
@@ -328,7 +329,7 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
 }
 
 export default async function LasixLandingPage({ params }: LocalePageProps) {
-  const { locale } = getLocalePage((await params).locale);
+  const { locale, content: site } = getLocalePage((await params).locale);
   const c = content[locale];
   const rtl = locale === "ar";
 
@@ -354,6 +355,23 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
     <main dir={c.dir} className={cairo.className + " antialiased"} style={{ backgroundColor: CREAM, color: PETROL }}>
       <style dangerouslySetInnerHTML={{ __html: revealCss }} />
 
+      {/* MOBILE (<lg) — dedicated mobile-first structure, natural document
+          scroll. bg here (not on the shared <main>) keeps the unified page
+          tint off the desktop tree next to it. */}
+      <div className="-mt-24 lg:hidden">
+        <LasixMobile
+          c={c}
+          locale={locale}
+          contactHref={localizeHref(locale, "/contact")}
+          phone={site.company.phone}
+          whatsappHref={site.ctaActions.whatsapp.href}
+          brochureHref="/brochures/lasix-70-wg-brochure.pdf"
+          technicalSheetHref="/brochures/lasix-70-wg-technical-sheet.pdf"
+        />
+      </div>
+
+      {/* DESKTOP (lg+) */}
+      <div className="hidden lg:block">
       {/* ===== 1. HERO — dual-tone split with tile mosaic ===== */}
       <section className="relative overflow-hidden" style={{ backgroundColor: PETROL }}>
         {/* subtle geometric grid pattern */}
@@ -647,6 +665,7 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
           </div>
         </div>
       </section>
+      </div>
 
     </main>
   );

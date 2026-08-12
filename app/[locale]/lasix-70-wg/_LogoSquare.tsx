@@ -4,8 +4,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 const CREAM = "#F7F2EF";
-const DOCK_TOP = 70; // px — clears the site navbar (scrolled/shrunk state) with a tighter gap
-const DOCK_SIDE = 16; // px
+const DOCK_TOP = 70; // px — scroll threshold that triggers the dock (also where the frozen anchor naturally lands)
 const DOCK_SIZE = 96; // px
 const SCROLL_DELAY = 0; // px — the large logo tracks scroll immediately, so it doesn't linger over content scrolling up beneath it
 
@@ -18,26 +17,23 @@ type Props = {
 type Box = { top: number; left: number; width: number; height: number };
 
 /* Single logo + container: sits at its natural hero position and tracks the
-   page as it scrolls, then freezes into a small badge under the navbar once
-   it reaches DOCK_TOP — one continuously `fixed` element, so the flight is a
-   smooth resize instead of a jump between position types. */
+   page as it scrolls. The moment it crosses DOCK_TOP it freezes in place —
+   `update` below stops touching `box` entirely — and an inner wrapper scales
+   that frozen footprint down to the small badge size with
+   `transform-origin: top left`. The shrink therefore pivots exactly from the
+   corner the box was already sitting at when it froze: nothing slides to a
+   separately-tuned position while it scales, only the size changes. */
 export default function LogoSquare({ src, alt, dir }: Props) {
   const spacerRef = useRef<HTMLDivElement>(null);
   const restTopRef = useRef(0);
   const [box, setBox] = useState<Box | null>(null);
   const [docked, setDocked] = useState(false);
-  const [isLg, setIsLg] = useState(false);
 
   useLayoutEffect(() => {
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
     window.scrollTo(0, 0);
-
-    const mq = window.matchMedia("(min-width: 1024px)");
-    const onMq = () => setIsLg(mq.matches);
-    onMq();
-    mq.addEventListener("change", onMq);
 
     const measure = () => {
       const el = spacerRef.current;
@@ -74,16 +70,21 @@ export default function LogoSquare({ src, alt, dir }: Props) {
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onResize);
-      mq.removeEventListener("change", onMq);
     };
   }, []);
 
-  const edgeSideStyle = dir === "rtl" ? { right: DOCK_SIDE + 20 } : { left: DOCK_SIDE - 20 };
-  const dockedSideStyle = isLg && box ? { left: box.left } : edgeSideStyle;
+  // Once docked, `box` stops updating, so top/left below are exactly the
+  // position it was at the instant it crossed DOCK_TOP — never a separately
+  // tuned target position. Only the scale changes after that point.
+  const naturalSize = box?.width || DOCK_SIZE;
+  const scale = docked ? DOCK_SIZE / naturalSize : 1;
 
-  const style = docked
-    ? { backgroundColor: CREAM, top: DOCK_TOP, width: DOCK_SIZE, height: DOCK_SIZE, ...dockedSideStyle }
-    : { backgroundColor: CREAM, top: box?.top ?? 0, left: box?.left ?? 0, width: box?.width ?? 0, height: box?.height ?? 0 };
+  const positionStyle = {
+    top: box?.top ?? 0,
+    left: box?.left ?? 0,
+    width: box?.width ?? 0,
+    height: box?.height ?? 0
+  };
 
   return (
     <div
@@ -92,22 +93,21 @@ export default function LogoSquare({ src, alt, dir }: Props) {
       className="relative -mt-12 mb-8 h-[152px] w-[152px] sm:-mt-16 sm:mb-10 sm:h-[230px] sm:w-[230px] md:h-[173px] md:w-[173px] lg:mt-0 lg:h-[230px] lg:w-[230px]"
     >
       {box && (
-        <div
-          className="lx-logo-drop fixed z-40 transition-[top,left,right,width,height] duration-500 ease-out"
-          style={style}
-        >
-          <span aria-hidden="true" className="absolute inset-x-0 bottom-full h-[2000px]" style={{ backgroundColor: CREAM }} />
-          <ResponsiveImage
-            src={src}
-            alt={alt}
-            priority
-            sizes="230px"
-            objectFit="contain"
-            className={
-              "lx-logo-fade relative h-full w-full object-contain transition-[padding] duration-500 ease-out " +
-              (docked ? "p-4" : "p-[28px] sm:p-[43px] md:p-[32px] lg:p-[43px]")
-            }
-          />
+        <div className="lx-logo-drop fixed z-40" style={positionStyle}>
+          <div
+            className="h-full w-full transition-transform duration-500 ease-out"
+            style={{ transform: `scale(${scale})`, transformOrigin: "top left", backgroundColor: CREAM }}
+          >
+            <span aria-hidden="true" className="absolute inset-x-0 bottom-full h-[2000px]" style={{ backgroundColor: CREAM }} />
+            <ResponsiveImage
+              src={src}
+              alt={alt}
+              priority
+              sizes="230px"
+              objectFit="contain"
+              className="lx-logo-fade relative h-full w-full object-contain p-[28px] sm:p-[43px] md:p-[32px] lg:p-[43px]"
+            />
+          </div>
         </div>
       )}
     </div>
