@@ -226,7 +226,7 @@ function ArrowIcon({ className = "" }: { className?: string }) {
 /* ---------------------------------------------------------------- the page */
 
 export function HomeMobile({ content, locale }: HomeMobileProps) {
-  const { home, company } = content;
+  const { home } = content;
   const labels = ui[locale];
   const reducedMotion = useReducedMotion();
   const isRtl = content.direction === "rtl";
@@ -245,7 +245,6 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
   const [trustOpen, setTrustOpen] = useState(false);
   const [openHighlight, setOpenHighlight] = useState<number | null>(null);
   const [openWhy, setOpenWhy] = useState<number | null>(0);
-  const [barVisible, setBarVisible] = useState(false);
 
   const heroStripRef = useRef<HTMLDivElement>(null);
   const productsStripRef = useRef<HTMLDivElement>(null);
@@ -294,23 +293,6 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab, reducedMotion]);
 
-  // Sticky action bar: appears once the hero is behind us, hides once the
-  // closing CTA (which carries the same actions inline) comes into view.
-  useEffect(() => {
-    function onScroll() {
-      const closing = document.getElementById("m-cta");
-      const reachedClosing = closing ? closing.getBoundingClientRect().top < window.innerHeight - 140 : false;
-      setBarVisible(window.scrollY > 460 && !reachedClosing);
-    }
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
-
   function scrollToSection(id: string) {
     document.getElementById(id)?.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
   }
@@ -318,7 +300,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
   return (
     <div className="bg-white">
       {/* ---------------------------------------------------------------- HERO */}
-      <section className="relative isolate overflow-hidden bg-[radial-gradient(circle_at_16%_10%,rgba(217,146,39,0.22),transparent_30%),linear-gradient(150deg,#06281f_0%,#0A3D2B_46%,#17324d_100%)] px-4 pb-10 pt-8 text-white">
+      <section className="relative isolate overflow-hidden bg-[radial-gradient(circle_at_16%_10%,rgba(217,146,39,0.22),transparent_30%),linear-gradient(150deg,#06281f_0%,#0A3D2B_46%,#17324d_100%)] px-4 pb-10 pt-[104px] text-white">
         <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-30">
           <ResponsiveImage
             src={home.hero.backgroundImage}
@@ -390,11 +372,12 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
             open={trustOpen}
             onToggle={() => setTrustOpen((value) => !value)}
             header={
-              <span className="flex items-center gap-3">
-                <span className="text-2xl font-black text-agri-gold">{home.hero.credibilityPanel.establishedYear}</span>
+              <span className="block">
                 <span className="text-sm font-bold text-agri-blue">
-                  {home.hero.credibilityPanel.establishedLabel} · {labels.trust}
+                  {home.hero.credibilityPanel.establishedLabel}{" "}
+                  <span className="text-xl font-black text-agri-gold">{home.hero.credibilityPanel.establishedYear}</span>
                 </span>
+                <span className="mt-0.5 block text-xs font-bold text-slate-400">{labels.trust}</span>
               </span>
             }
           >
@@ -439,9 +422,9 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       {/* --------------------------------------------------------- STORY (commitment) */}
       <section id="m-story" className="scroll-mt-[150px] bg-white px-4 pb-12 pt-10">
         <Eyebrow>{home.commitmentSection.eyebrow}</Eyebrow>
-        <h2 className="mt-3 text-[26px] font-bold leading-tight text-agri-blue">{home.commitmentSection.title}</h2>
+        <h2 className="mt-5 text-[26px] font-bold leading-tight text-agri-blue">{home.commitmentSection.title}</h2>
 
-        <div className="mt-4 rounded-[1.5rem] border-s-4 border-agri-gold bg-agri-mist p-5">
+        <div className="mt-8 rounded-[1.5rem] border-s-4 border-agri-gold bg-agri-mist p-5">
           {home.commitmentSection.paragraphs.map((paragraph) => (
             <p key={paragraph} className="mt-3 text-[15px] leading-8 text-slate-700 first:mt-0">
               {paragraph}
@@ -503,6 +486,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                   sizes="82vw"
                   className="h-full w-full object-contain transition duration-500 group-active:scale-105"
                   objectFit="contain"
+                  style={{ transform: "scale(0.75)" }}
                 />
               </div>
               <div className="p-5 pb-6">
@@ -613,9 +597,11 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
             objectFit="cover"
           />
         </div>
-        <Eyebrow>{content.technicalLibraryPreview.eyebrow}</Eyebrow>
-        <h2 className="mt-2 text-[24px] font-bold leading-tight text-agri-blue">{content.technicalLibraryPreview.title}</h2>
-        <p className="mt-3 text-[15px] leading-8 text-slate-600">{content.technicalLibraryPreview.description}</p>
+        <div className="mt-7">
+          <Eyebrow>{content.technicalLibraryPreview.eyebrow}</Eyebrow>
+          <h2 className="mt-2 text-[24px] font-bold leading-tight text-agri-blue">{content.technicalLibraryPreview.title}</h2>
+        </div>
+        <p className="mt-5 text-[15px] leading-8 text-slate-600">{content.technicalLibraryPreview.description}</p>
         <Link href={localizeHref(locale, content.technicalLibraryPreview.cta.href)} className="btn-primary mt-5 min-h-[52px] w-full">
           {content.technicalLibraryPreview.cta.label}
         </Link>
@@ -680,70 +666,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
             </div>
           </div>
         </div>
-
-        {/* Direct-contact tiles — same phone/email on record everywhere else in the site. */}
-        <div className="mt-4 grid gap-2.5">
-          <a
-            href={`tel:${company.phone.replace(/\s+/g, "")}`}
-            className="flex min-h-[60px] items-center gap-3 rounded-[1.35rem] border border-agri-line bg-white px-4 shadow-sm active:scale-[0.985]"
-          >
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-agri-green/10">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5L17 13l4 1.5v3a2.5 2.5 0 0 1-2.7 2.5C10.4 19.4 4.6 13.6 4 5.7A2.5 2.5 0 0 1 6.5 3Z"
-                  stroke="#0F5A3C"
-                  strokeWidth="1.9"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-            <span dir="ltr" className={`min-w-0 flex-1 text-[15px] font-extrabold text-agri-blue ${isRtl ? "text-right" : "text-left"}`}>
-              {company.phone}
-            </span>
-          </a>
-          <a
-            href={`mailto:${company.email}`}
-            className="flex min-h-[60px] items-center gap-3 rounded-[1.35rem] border border-agri-line bg-white px-4 shadow-sm active:scale-[0.985]"
-          >
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-agri-gold/10">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 6h16v12H4z" stroke="#D99227" strokeWidth="1.9" strokeLinejoin="round" />
-                <path d="m4 7 8 6 8-6" stroke="#D99227" strokeWidth="1.9" strokeLinejoin="round" />
-              </svg>
-            </span>
-            <span dir="ltr" className={`min-w-0 flex-1 truncate text-[15px] font-extrabold text-agri-blue ${isRtl ? "text-right" : "text-left"}`}>
-              {company.email}
-            </span>
-          </a>
-        </div>
       </section>
-
-      {/* ------------------------------------------------------------ STICKY ACTION BAR */}
-      <div
-        className={`pointer-events-none fixed inset-x-0 bottom-0 z-40 transition-transform duration-300 ${
-          barVisible ? "translate-y-0" : "translate-y-[140%]"
-        }`}
-      >
-        <div className="pointer-events-auto mx-3 mb-3 flex gap-2 rounded-[1.5rem] border border-white/60 bg-white/90 p-2 shadow-[0_12px_40px_rgba(10,42,87,0.18)] backdrop-blur-xl">
-          <Link
-            href={localizeHref(locale, home.hero.primaryCta.href)}
-            className="flex min-h-[52px] flex-1 items-center justify-center rounded-[1.1rem] bg-agri-green px-3 text-center text-[13px] font-bold leading-4 text-white active:scale-[0.985]"
-          >
-            {home.hero.primaryCta.label}
-          </Link>
-          {home.cta.tertiaryHref ? (
-            <a
-              href={home.cta.tertiaryHref}
-              className="flex min-h-[52px] w-14 shrink-0 items-center justify-center rounded-[1.1rem] border-2 border-agri-green text-agri-green active:scale-[0.985]"
-              aria-label={home.cta.tertiaryLabel}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M3.5 20.5 5 16.4A8.2 8.2 0 1 1 8.1 19.4L3.5 20.5Z" stroke="currentColor" strokeWidth="1.9" strokeLinejoin="round" />
-              </svg>
-            </a>
-          ) : null}
-        </div>
-      </div>
     </div>
   );
 }
