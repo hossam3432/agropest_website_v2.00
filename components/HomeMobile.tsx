@@ -436,8 +436,9 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       </section>
 
       {/* ---------------------------------------------------------- STICKY TABS */}
-      <div ref={tabStripRef} className="sticky top-[70px] z-30 px-3 py-2">
+      <div className="sticky top-[70px] z-30 px-3 py-2">
         <div
+          ref={tabStripRef}
           className="flex gap-1.5 overflow-x-auto rounded-full border border-white/40 bg-white/20 p-1.5 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),inset_0_-1px_3px_rgba(15,23,42,0.1),inset_0_0_18px_rgba(217,146,39,0.08),0_8px_24px_rgba(15,23,42,0.12)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {tabs.map((tab) => {
