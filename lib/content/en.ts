@@ -230,7 +230,7 @@ export const enContent = {
   about: {
     hero: {
       eyebrow: "About",
-      title: "Registered Agricultural Inputs for the Egyptian Market — Since 1995",
+      title: "Registered Agricultural Inputs for the Egyptian Market",
       subtitle: "AgroPest Control for Trading · Established 1995",
       description:
         "AgroPest Control for Trading selects, registers, imports, and distributes crop protection and crop nutrition brands for the Egyptian market, with organized technical and commercial support for its wholesale and regional distribution partners.",
@@ -321,7 +321,7 @@ export const enContent = {
       eyebrow: "Technical content",
       title: "The technical material behind the portfolio",
       description:
-        "Every product in the portfolio is documented before it is offered: a product brochure, a technical leaflet, a product page, and the registration documentation that supports it. Alongside these, we publish field-facing explanations of what a product does and when it is used, written in Arabic for the grower and the agri-retailer.",
+        "Every product in the portfolio is documented before it is offered: a product brochure, a technical leaflet, a product page, and the registration documentation that supports it. Alongside these, we publish field-facing explanations of what a product does and when it is used, written in Arabic for the grower and the retailer.",
       ctaLabel: "Explore technical resources",
       ctaHref: "/technical-library"
     },
