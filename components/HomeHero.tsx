@@ -9,9 +9,16 @@ type HomeHeroProps = {
   locale: Locale;
 };
 
-type SignatureCard = SiteContent["home"]["hero"]["signatureCards"][number];
+// UI chrome only — mirrors the two extra card titles HomeMobile appends to
+// the signature deck (credibility panel + trust points), kept identical here.
+const ui = {
+  en: { trust: "Why AgroPest", established: "Thirty years in the Egyptian agricultural market" },
+  ar: { trust: "لماذا أجروبست", established: "ثلاثون عاما في السوق الزراعي المصري" }
+} as const;
 
-function HeroSignatureCard({ card, index, isActive, isMobile = false }: { card: SignatureCard; index: number; isActive: boolean; isMobile?: boolean }) {
+type HeroCard = { title: string; description?: string; points?: readonly string[] };
+
+function HeroSignatureCard({ card, index, isActive, isMobile = false }: { card: HeroCard; index: number; isActive: boolean; isMobile?: boolean }) {
   return (
     <article
       className={
@@ -27,14 +34,34 @@ function HeroSignatureCard({ card, index, isActive, isMobile = false }: { card: 
         <span className="h-px flex-1 bg-agri-gold/35" />
       </div>
       <h3 className="mt-6 text-2xl font-bold leading-tight tracking-normal text-agri-blue sm:text-3xl">{card.title}</h3>
-      <p className="mt-4 text-base leading-8 text-slate-600">{card.description}</p>
+      {card.points ? (
+        <ul className="mt-3 grid gap-2">
+          {card.points.map((point) => (
+            <li key={point} className="flex items-start gap-2 text-base leading-8 text-slate-600">
+              <svg viewBox="0 0 20 20" fill="none" className="mt-1.5 h-3.5 w-3.5 shrink-0 text-agri-green" aria-hidden="true">
+                <path d="M4 10.5 8 14.5 16 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              {point}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-4 text-base leading-8 text-slate-600">{card.description}</p>
+      )}
     </article>
   );
 }
 
 export function HomeHero({ content, locale }: HomeHeroProps) {
   const { hero } = content.home;
-  const signatureCards = hero.signatureCards;
+  const labels = ui[locale];
+  // Same deck as HomeMobile: the three signature cards plus the credibility
+  // panel and trust points, so desktop shows the identical card set.
+  const heroCards: HeroCard[] = [
+    ...hero.signatureCards,
+    { title: labels.established, points: hero.credibilityPanel.items },
+    { title: labels.trust, points: hero.trustPoints }
+  ];
   const isArabic = content.direction === "rtl";
   const [activeIndex, setActiveIndex] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -82,12 +109,12 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
   }, []);
 
   useEffect(() => {
-    if (signatureCards.length <= 1) return undefined;
+    if (heroCards.length <= 1) return undefined;
     const timer = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % signatureCards.length);
+      setActiveIndex((current) => (current + 1) % heroCards.length);
     }, 5200);
     return () => window.clearInterval(timer);
-  }, [signatureCards.length]);
+  }, [heroCards.length]);
 
   const headlineClassName = isArabic
     ? "mt-5 w-full text-[32px] font-bold leading-[1.2] tracking-normal text-white sm:text-[38px] md:text-[44px] lg:text-[48px] lg:font-semibold"
@@ -147,8 +174,8 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
         <div className="relative" dir={isArabic ? "rtl" : "ltr"}>
           <div className="hidden min-h-[560px] lg:block">
             <div className="hero-signature-deck">
-              {signatureCards.map((card, index) => {
-                const position = (index - activeIndex + signatureCards.length) % signatureCards.length;
+              {heroCards.map((card, index) => {
+                const position = (index - activeIndex + heroCards.length) % heroCards.length;
                 const state = position === 0 ? "is-active" : position === 1 ? "is-next" : "is-back";
                 return (
                   <article key={card.title} className={`hero-signature-card ${state}`}>
@@ -159,13 +186,26 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
                       <span className="h-px flex-1 bg-agri-gold/35" />
                     </div>
                     <h3 className="mt-8 text-4xl font-bold leading-tight tracking-normal text-agri-blue">{card.title}</h3>
-                    <p className="mt-5 max-w-xl text-lg leading-9 text-slate-600">{card.description}</p>
+                    {card.points ? (
+                      <ul className="mt-5 grid gap-2.5">
+                        {card.points.map((point) => (
+                          <li key={point} className="flex items-start gap-2.5 text-lg leading-9 text-slate-600">
+                            <svg viewBox="0 0 20 20" fill="none" className="mt-2 h-4 w-4 shrink-0 text-agri-green" aria-hidden="true">
+                              <path d="M4 10.5 8 14.5 16 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="mt-5 max-w-xl text-lg leading-9 text-slate-600">{card.description}</p>
+                    )}
                   </article>
                 );
               })}
             </div>
             <div className="absolute bottom-8 start-8 z-40 flex items-center gap-3">
-              {signatureCards.map((card, index) => (
+              {heroCards.map((card, index) => (
                 <button
                   key={card.title}
                   type="button"
@@ -178,13 +218,13 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
           </div>
 
           <div className="lg:hidden">
-            <HeroSignatureCard card={signatureCards[activeIndex]} index={activeIndex} isActive isMobile />
+            <HeroSignatureCard card={heroCards[activeIndex]} index={activeIndex} isActive isMobile />
             <div className="mt-5 flex items-center justify-between gap-4">
               <p className="text-sm font-bold text-white/70">
-                {String(activeIndex + 1).padStart(2, "0")} / {String(signatureCards.length).padStart(2, "0")}
+                {String(activeIndex + 1).padStart(2, "0")} / {String(heroCards.length).padStart(2, "0")}
               </p>
               <div className="flex items-center gap-2">
-                {signatureCards.map((card, index) => (
+                {heroCards.map((card, index) => (
                   <button
                     key={card.title}
                     type="button"

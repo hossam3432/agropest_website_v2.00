@@ -18,9 +18,11 @@ type FeaturedCardProps = {
   item: FeaturedItem;
   locale: Locale;
   mode: "mobile" | "desktop";
+  index?: number;
 };
 
-function FeaturedProductCard({ item, locale, mode }: FeaturedCardProps) {
+function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProps) {
+  const tiltValues = [-4, -1.5, 1.5, 4];
   const isDesktop = mode === "desktop";
   const isRtl = locale === "ar";
 
@@ -33,6 +35,7 @@ function FeaturedProductCard({ item, locale, mode }: FeaturedCardProps) {
           ? "relative rounded-lg featured-deck-card group/card flex h-full min-h-[462px] flex-col overflow-hidden bg-agri-mist shadow-sm"
           : "relative block rounded-lg group/card min-h-[198px] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)]"
       }
+      style={isDesktop ? ({ "--card-tilt": `${tiltValues[index] ?? 0}deg` } as CSSProperties) : undefined}
     >
       <div
         className={
@@ -183,7 +186,7 @@ export function FeaturedProductLinesSection({ content, locale, className = "" }:
               }`}
               hoverLift={false}
             >
-              <FeaturedProductCard item={item} locale={locale} mode="desktop" />
+              <FeaturedProductCard item={item} locale={locale} mode="desktop" index={index} />
             </RevealItem>
           ))}
         </StaggerContainer>

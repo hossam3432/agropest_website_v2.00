@@ -63,7 +63,7 @@ export function CTASection({
           <div className="relative grid gap-9 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-12">
             <div className="max-w-3xl">
               {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-              <h2 className="mt-3 text-3xl font-bold leading-tight tracking-normal sm:text-4xl lg:text-5xl">{title}</h2>
+              <h2 className="mt-3 text-2xl font-semibold leading-tight tracking-normal sm:text-3xl lg:text-4xl">{title}</h2>
               <p className="mt-4 leading-8 text-white/75">{description}</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:max-w-xs lg:flex-col">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion, type PanInfo } from "framer-motion";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
@@ -20,14 +20,12 @@ const ui = {
   en: {
     more: "Read more",
     less: "Show less",
-    swipe: "Swipe for more",
     trust: "Why AgroPest",
     established: "Thirty years in the Egyptian agricultural market"
   },
   ar: {
     more: "اقرأ المزيد",
     less: "عرض أقل",
-    swipe: "اسحب لعرض المزيد",
     trust: "لماذا أجروبست",
     established: "ثلاثون عاما في السوق الزراعي المصري"
   }
@@ -43,52 +41,6 @@ function scrollStripToIndex(strip: HTMLElement | null, index: number, reducedMot
   const delta = childRect.left + childRect.width / 2 - (stripRect.left + stripRect.width / 2);
   if (Math.abs(delta) < 1) return;
   strip.scrollBy({ left: delta, behavior: reducedMotion ? "auto" : "smooth" });
-}
-
-/** Tracks which snap-scroll child sits nearest the strip's centre. */
-function useSnapIndex(stripRef: RefObject<HTMLDivElement | null>) {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const strip = stripRef.current;
-    if (!strip) return undefined;
-    let frame = 0;
-
-    function update() {
-      frame = 0;
-      const el = stripRef.current;
-      if (!el) return;
-      const stripRect = el.getBoundingClientRect();
-      const center = stripRect.left + stripRect.width / 2;
-      let nearest = 0;
-      let nearestDist = Infinity;
-      Array.from(el.children).forEach((child, i) => {
-        const rect = (child as HTMLElement).getBoundingClientRect();
-        const dist = Math.abs(rect.left + rect.width / 2 - center);
-        if (dist < nearestDist) {
-          nearestDist = dist;
-          nearest = i;
-        }
-      });
-      setIndex(nearest);
-    }
-
-    function onScroll() {
-      if (frame) return;
-      frame = window.requestAnimationFrame(update);
-    }
-
-    update();
-    strip.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      strip.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, [stripRef]);
-
-  return index;
 }
 
 /* ---------------------------------------------------------------- primitives */
@@ -257,14 +209,11 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
   const [openHighlight, setOpenHighlight] = useState<number | null>(null);
   const [openWhy, setOpenWhy] = useState<number | null>(0);
   const [heroIndex, setHeroIndex] = useState(0);
+  const [partnerIndex, setPartnerIndex] = useState(0);
+  const [productIndex, setProductIndex] = useState(0);
 
-  const productsStripRef = useRef<HTMLDivElement>(null);
-  const partnersStripRef = useRef<HTMLDivElement>(null);
   const tabStripRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  const productIndex = useSnapIndex(productsStripRef);
-  const partnerIndex = useSnapIndex(partnersStripRef);
 
   const highlights = home.commitmentSection.highlights as Array<{ title: string; description: string }>;
 
@@ -279,6 +228,18 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
 
   function stepHero(step: number) {
     setHeroIndex((current) => (current + step + heroCards.length) % heroCards.length);
+  }
+
+  const partners = home.partnersSection.items;
+
+  function stepPartner(step: number) {
+    setPartnerIndex((current) => (current + step + partners.length) % partners.length);
+  }
+
+  const featuredProducts = home.featuredProductLinesSection.items;
+
+  function stepProduct(step: number) {
+    setProductIndex((current) => (current + step + featuredProducts.length) % featuredProducts.length);
   }
 
   // Same hero video as desktop. Bail out while this tree is display:none (desktop
@@ -544,66 +505,84 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
           <p className="mt-3 text-[15px] leading-8 text-white/75">{home.featuredProductLinesSection.description}</p>
         ) : null}
 
-        <div
-          ref={productsStripRef}
-          className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {home.featuredProductLinesSection.items.map((item) => (
-            <Link
-              key={item.title}
-              href={localizeHref(locale, item.href)}
-              aria-label={item.ctaLabel}
-              className="group relative w-[82%] shrink-0 snap-center overflow-hidden rounded-[1.75rem] bg-white text-agri-blue shadow-[0_20px_50px_rgba(0,0,0,0.35)] transition duration-300 active:scale-[0.98]"
-            >
-              <div className="relative flex h-52 items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_50%_30%,rgba(217,146,39,0.18),transparent_60%)] p-8">
-                <ResponsiveImage
-                  src={item.image}
-                  alt={item.imageAlt}
-                  sizes="82vw"
-                  className="h-full w-full object-contain transition duration-500 group-active:scale-105"
-                  objectFit="contain"
-                  style={{ transform: "scale(0.75)" }}
-                />
-              </div>
-              <div className="p-5 pb-6">
-                {item.eyebrow ? (
-                  <span className="inline-flex w-fit items-center rounded-lg border border-agri-green px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-agri-green">
-                    {item.eyebrow}
-                  </span>
-                ) : null}
-                <h3 className="mt-2.5 text-xl font-bold leading-tight text-agri-blue">{item.title}</h3>
-                {item.tags.length ? (
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {item.tags.map((tag) => (
-                      <span key={tag} className="rounded-lg border border-agri-green px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-agri-green">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                ) : null}
-                <p className="mt-3 text-[15px] leading-7 text-slate-600">{item.description}</p>
-                <span className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-agri-green px-5 text-sm font-bold text-white shadow-sm transition duration-300 group-active:bg-agri-greenDark">
-                  {item.ctaLabel}
-                  <ArrowIcon className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`} />
-                </span>
-              </div>
-            </Link>
-          ))}
+        {/* Draggable stacked deck — same mechanics as the hero signature-card deck:
+            top card is dragged/tapped to cycle, with next/back cards peeking behind. */}
+        <div className="relative mt-7 min-h-[500px]">
+          {featuredProducts.map((item, index) => {
+            const total = featuredProducts.length;
+            const position = (index - productIndex + total) % total;
+            const state = position === 0 ? "active" : position === 1 ? "next" : "back";
+            const sign = isRtl ? -1 : 1;
+            const variants = {
+              active: { x: 0, y: 0, scale: 1, rotate: sign * -1.4, opacity: 1 },
+              next: { x: sign * 14, y: 10, scale: 0.94, rotate: sign * 2.6, opacity: 0.62 },
+              back: { x: sign * -10, y: 18, scale: 0.88, rotate: sign * -3.6, opacity: 0.32 }
+            } as const;
+
+            function onDragEnd(_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
+              if (info.offset.x < -50 || info.velocity.x < -350) stepProduct(1);
+              else if (info.offset.x > 50 || info.velocity.x > 350) stepProduct(-1);
+            }
+
+            return (
+              <motion.article
+                key={item.title}
+                drag={state === "active" ? "x" : false}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.65}
+                onDragEnd={state === "active" ? onDragEnd : undefined}
+                animate={variants[state]}
+                transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
+                style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
+                className={`absolute inset-x-9 top-0 touch-pan-y overflow-hidden rounded-[1.75rem] bg-white text-agri-blue shadow-[0_20px_50px_rgba(0,0,0,0.35)] ${
+                  state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
+                }`}
+              >
+                <div className="relative flex h-52 items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_50%_30%,rgba(217,146,39,0.18),transparent_60%)] px-8 pb-6 pt-11">
+                  <ResponsiveImage
+                    src={item.image}
+                    alt={item.imageAlt}
+                    sizes="82vw"
+                    className="h-full w-full object-contain"
+                    objectFit="contain"
+                    style={{ transform: `scale(${item.image.includes("fossil-featured-logo") ? 0.82 : 0.68})` }}
+                  />
+                </div>
+                <div className="p-5 pb-6">
+                  {item.eyebrow ? (
+                    <span className="inline-flex w-fit items-center rounded-lg border border-agri-green px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-agri-green">
+                      {item.eyebrow}
+                    </span>
+                  ) : null}
+                  <h3 className="mt-2.5 text-xl font-bold leading-tight text-agri-blue">{item.title}</h3>
+                  {item.tags.length ? (
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {item.tags.map((tag) => (
+                        <span key={tag} className="rounded-lg border border-agri-green px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-agri-green">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
+                  <p className="mt-3 text-[15px] leading-7 text-slate-600">{item.description}</p>
+                  <Link
+                    href={localizeHref(locale, item.href)}
+                    className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-agri-green px-5 text-sm font-bold text-white shadow-sm transition duration-300 active:bg-agri-greenDark"
+                  >
+                    {item.ctaLabel}
+                    <ArrowIcon className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`} />
+                  </Link>
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
 
         <div className="mt-4 flex items-center justify-between gap-4">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-white/50">{labels.swipe}</p>
-          <div className="flex items-center gap-3">
-            <p className="text-sm font-bold text-white/70">
-              {String(productIndex + 1).padStart(2, "0")} / {String(home.featuredProductLinesSection.items.length).padStart(2, "0")}
-            </p>
-            <Dots
-              count={home.featuredProductLinesSection.items.length}
-              active={productIndex}
-              onSelect={(index) => scrollStripToIndex(productsStripRef.current, index, reducedMotion)}
-              dark
-            />
-          </div>
+          <p className="text-sm font-bold text-white/70">
+            {String(productIndex + 1).padStart(2, "0")} / {String(featuredProducts.length).padStart(2, "0")}
+          </p>
+          <Dots count={featuredProducts.length} active={productIndex} onSelect={setProductIndex} dark />
         </div>
       </section>
 
@@ -689,40 +668,60 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
         <h2 className="mt-3 text-[26px] font-bold leading-tight">{home.partnersSection.title}</h2>
         <p className="mt-3 text-[15px] leading-8 text-white/80">{home.partnersSection.description}</p>
 
-        <div
-          ref={partnersStripRef}
-          className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {home.partnersSection.items.map((partner) => (
-            <article
-              key={partner.name}
-              className="w-[80%] shrink-0 snap-center rounded-[1.75rem] border border-white/20 bg-white/95 p-6 text-center text-agri-blue shadow-soft"
-            >
-              <div className="flex h-20 w-full items-center justify-center">
-                <ResponsiveImage
-                  src={partner.logo}
-                  alt={partner.logoAlt}
-                  sizes="200px"
-                  objectFit="contain"
-                  className="max-h-16 w-full max-w-[180px] object-contain"
-                />
-              </div>
-              <p className="mt-4 text-base font-black tracking-tight">{partner.name}</p>
-              <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">{partner.description}</p>
-            </article>
-          ))}
+        {/* Draggable stacked deck — same mechanics as the hero signature-card deck:
+            top card is dragged/tapped to cycle, with next/back cards peeking behind. */}
+        <div className="relative mt-7 min-h-[440px]">
+          {partners.map((partner, index) => {
+            const total = partners.length;
+            const position = (index - partnerIndex + total) % total;
+            const state = position === 0 ? "active" : position === 1 ? "next" : "back";
+            const sign = isRtl ? -1 : 1;
+            const variants = {
+              active: { x: 0, y: 0, scale: 1, rotate: sign * -1.4, opacity: 1 },
+              next: { x: sign * 14, y: 10, scale: 0.94, rotate: sign * 2.6, opacity: 0.62 },
+              back: { x: sign * -10, y: 18, scale: 0.88, rotate: sign * -3.6, opacity: 0.32 }
+            } as const;
+
+            function onDragEnd(_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
+              if (info.offset.x < -50 || info.velocity.x < -350) stepPartner(1);
+              else if (info.offset.x > 50 || info.velocity.x > 350) stepPartner(-1);
+            }
+
+            return (
+              <motion.article
+                key={partner.name}
+                drag={state === "active" ? "x" : false}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.65}
+                onDragEnd={state === "active" ? onDragEnd : undefined}
+                animate={variants[state]}
+                transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
+                style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
+                className={`absolute inset-x-9 top-0 flex min-h-[420px] touch-pan-y flex-col justify-center rounded-[1.75rem] border border-white/20 bg-white/95 p-6 text-center text-agri-blue shadow-soft ${
+                  state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
+                }`}
+              >
+                <div className="flex h-24 w-full items-center justify-center">
+                  <ResponsiveImage
+                    src={partner.logo}
+                    alt={partner.logoAlt}
+                    sizes="220px"
+                    objectFit="contain"
+                    className="max-h-20 w-full max-w-[220px] object-contain"
+                  />
+                </div>
+                <p className="mt-4 text-lg font-black tracking-tight">{partner.name}</p>
+                <p className="mt-2 text-[15px] font-semibold leading-6 text-slate-600">{partner.description}</p>
+              </motion.article>
+            );
+          })}
         </div>
 
         <div className="mt-4 flex items-center justify-between gap-4">
           <p className="text-sm font-bold text-white/70">
-            {String(partnerIndex + 1).padStart(2, "0")} / {String(home.partnersSection.items.length).padStart(2, "0")}
+            {String(partnerIndex + 1).padStart(2, "0")} / {String(partners.length).padStart(2, "0")}
           </p>
-          <Dots
-            count={home.partnersSection.items.length}
-            active={partnerIndex}
-            onSelect={(index) => scrollStripToIndex(partnersStripRef.current, index, reducedMotion)}
-            dark
-          />
+          <Dots count={partners.length} active={partnerIndex} onSelect={setPartnerIndex} dark />
         </div>
       </section>
 
