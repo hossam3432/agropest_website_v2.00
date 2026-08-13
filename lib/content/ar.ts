@@ -634,6 +634,7 @@ export const arContent = {
       topicPlaceholder: "اختر الموضوع",
       message: "الاستفسار",
       submit: "إرسال الاستفسار",
+      sending: "جارٍ الإرسال...",
       whatsapp: "واتساب أجروبست",
       required: "إلزامي"
     },
@@ -656,7 +657,9 @@ export const arContent = {
       message: "تم إرسال استفسارك بنجاح. سنتواصل معك في أقرب وقت.",
       backToProducts: "العودة إلى المنتجات",
       backToHome: "العودة إلى الرئيسية"
-    }
+    },
+    sendErrorMessage: "حدث خطأ ما ولم يتم إرسال استفسارك.",
+    sendErrorFallback: "أرسله عبر البريد الإلكتروني بدلاً من ذلك"
   },
   ctaActions: {
     discussPartnership: { label: "ناقش الشراكة", href: "/partner-with-us" },

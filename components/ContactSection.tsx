@@ -120,26 +120,40 @@ export function ContactSection({
     topic: "",
     message: ""
   });
-  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [attempted, setAttempted] = useState(false);
   const [flipped, setFlipped] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [sendError, setSendError] = useState(false);
   const controls = useAnimation();
 
   const errors = validateForm(formState, contactSection.validation);
-  const showError = (field: keyof FieldErrors) => Boolean((touched[field] || attempted) && errors[field]);
+  const showError = (field: keyof FieldErrors) => Boolean(attempted && errors[field]);
 
   const updateField = <K extends keyof FormState>(key: K, value: FormState[K]) => {
     setFormState((prev) => ({ ...prev, [key]: value }));
   };
 
-  const markTouched = (field: keyof FormState) => setTouched((prev) => ({ ...prev, [field]: true }));
+  const mailtoFallbackHref = () => {
+    const topicOption = topics.find((topic) => topic.value === formState.topic);
+    const subject = `WEBSITE - ${topicOption?.label ?? formState.topic}`;
+    const bodyLines = [
+      `${labels.name}: ${formState.name}`,
+      formState.company ? `${labels.company}: ${formState.company}` : null,
+      `${labels.email}: ${formState.email}`,
+      formState.phone ? `${labels.phone}: ${formState.phone}` : null,
+      `${labels.topic}: ${topicOption?.label ?? formState.topic}`,
+      formState.message ? `${labels.message}: ${formState.message}` : null
+    ]
+      .filter(Boolean)
+      .join("\n");
+    return `mailto:${company.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines)}`;
+  };
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (Object.keys(errors).length > 0) {
       setAttempted(true);
-      setTouched({ name: true, email: true, topic: true });
       if (typeof navigator !== "undefined" && navigator.vibrate) {
         navigator.vibrate([50, 40, 50, 40, 50]);
       }
@@ -160,21 +174,36 @@ export function ContactSection({
       });
     }
 
-    const topicOption = topics.find((topic) => topic.value === formState.topic);
-    const subject = `WEBSITE - ${topicOption?.label ?? formState.topic}`;
-    const bodyLines = [
-      `${labels.name}: ${formState.name}`,
-      formState.company ? `${labels.company}: ${formState.company}` : null,
-      `${labels.email}: ${formState.email}`,
-      formState.phone ? `${labels.phone}: ${formState.phone}` : null,
-      `${labels.topic}: ${topicOption?.label ?? formState.topic}`,
-      formState.message ? `${labels.message}: ${formState.message}` : null
-    ]
-      .filter(Boolean)
-      .join("\n");
+    setSendError(false);
+    setSubmitting(true);
 
-    window.location.href = `mailto:${company.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines)}`;
-    setFlipped(true);
+    const topicOption = topics.find((topic) => topic.value === formState.topic);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          company: formState.company,
+          phone: formState.phone,
+          topic: formState.topic,
+          topicLabel: topicOption?.label ?? formState.topic,
+          message: formState.message
+        })
+      });
+
+      if (!response.ok) throw new Error("send-failed");
+      setFlipped(true);
+    } catch {
+      setSendError(true);
+      if (!reducedMotion) {
+        controls.start({ x: 0, opacity: 1, transition: { duration: 0.3, ease: premiumEase } });
+      }
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -226,16 +255,17 @@ export function ContactSection({
                   </span>
                   <input
                     className={`min-h-12 rounded-md border px-4 text-base outline-none transition focus:border-agri-gold ${
-                      showError("name") ? "border-agri-orange" : "border-agri-line"
+                      showError("name")
+                        ? "border-agri-orange placeholder:font-semibold placeholder:text-agri-orange"
+                        : "border-agri-line"
                     }`}
                     name="name"
                     type="text"
                     value={formState.name}
                     onChange={(event) => updateField("name", event.target.value)}
-                    onBlur={() => markTouched("name")}
+                    placeholder={showError("name") ? errors.name : undefined}
                     aria-invalid={showError("name")}
                   />
-                  {showError("name") ? <span className="text-xs font-semibold text-agri-orange" role="alert">{errors.name}</span> : null}
                 </label>
                 <label className="grid gap-2 text-sm font-semibold text-agri-blue">
                   {labels.company}
@@ -254,16 +284,22 @@ export function ContactSection({
                   </span>
                   <input
                     className={`min-h-12 rounded-md border px-4 text-base outline-none transition focus:border-agri-gold ${
-                      showError("email") ? "border-agri-orange" : "border-agri-line"
+                      showError("email")
+                        ? "border-agri-orange placeholder:font-semibold placeholder:text-agri-orange"
+                        : "border-agri-line"
                     }`}
                     name="email"
                     type="email"
                     value={formState.email}
                     onChange={(event) => updateField("email", event.target.value)}
-                    onBlur={() => markTouched("email")}
+                    placeholder={showError("email") ? errors.email : undefined}
                     aria-invalid={showError("email")}
                   />
-                  {showError("email") ? <span className="text-xs font-semibold text-agri-orange" role="alert">{errors.email}</span> : null}
+                  {showError("email") && formState.email.trim() ? (
+                    <span className="text-xs font-semibold text-agri-orange" role="alert">
+                      {errors.email}
+                    </span>
+                  ) : null}
                 </label>
                 <label className="grid gap-2 text-sm font-semibold text-agri-blue">
                   {labels.phone}
@@ -284,22 +320,20 @@ export function ContactSection({
                 </span>
                 <select
                   className={`min-h-12 rounded-md border bg-white px-4 text-base outline-none transition focus:border-agri-gold ${
-                    showError("topic") ? "border-agri-orange" : "border-agri-line"
+                    showError("topic") ? "border-agri-orange font-semibold text-agri-orange" : "border-agri-line"
                   }`}
                   name="topic"
                   value={formState.topic}
                   onChange={(event) => updateField("topic", event.target.value)}
-                  onBlur={() => markTouched("topic")}
                   aria-invalid={showError("topic")}
                 >
-                  <option value="">{labels.topicPlaceholder}</option>
+                  <option value="">{showError("topic") ? errors.topic : labels.topicPlaceholder}</option>
                   {topics.map((topic) => (
-                    <option key={topic.value} value={topic.value}>
+                    <option key={topic.value} value={topic.value} className="text-agri-blue">
                       {topic.label}
                     </option>
                   ))}
                 </select>
-                {showError("topic") ? <span className="text-xs font-semibold text-agri-orange" role="alert">{errors.topic}</span> : null}
               </label>
 
               <label className="mt-5 grid gap-2 text-sm font-semibold text-agri-blue">
@@ -313,10 +347,24 @@ export function ContactSection({
               </label>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <motion.button animate={controls} className="btn-primary" type="submit">
-                  {labels.submit}
+                <motion.button
+                  animate={controls}
+                  className="btn-primary disabled:opacity-70"
+                  type="submit"
+                  disabled={submitting}
+                  aria-busy={submitting}
+                >
+                  {submitting ? labels.sending : labels.submit}
                 </motion.button>
               </div>
+              {sendError ? (
+                <p className="mt-3 text-sm font-semibold text-agri-orange" role="alert">
+                  {contactSection.sendErrorMessage}{" "}
+                  <a className="underline" href={mailtoFallbackHref()}>
+                    {contactSection.sendErrorFallback}
+                  </a>
+                </p>
+              ) : null}
             </form>
 
             <div

@@ -651,6 +651,7 @@ export const enContent = {
       topicPlaceholder: "Select a topic",
       message: "Inquiry",
       submit: "Send inquiry",
+      sending: "Sending...",
       whatsapp: "WhatsApp AgroPest",
       required: "Required"
     },
@@ -673,7 +674,9 @@ export const enContent = {
       message: "Your inquiry has been sent. We will reach out to you soon.",
       backToProducts: "Back to products",
       backToHome: "Back to home"
-    }
+    },
+    sendErrorMessage: "Something went wrong and your inquiry could not be sent.",
+    sendErrorFallback: "Send it by email instead"
   },
   ctaActions: {
     discussPartnership: { label: "Discuss Partnership", href: "/partner-with-us" },
