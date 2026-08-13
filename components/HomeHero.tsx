@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
+import { HeroScrollReveal } from "@/components/HeroScrollReveal";
 
 type HomeHeroProps = {
   content: SiteContent;
@@ -150,9 +151,14 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
 
       <div className="container-shell relative grid min-h-[calc(100svh-6rem)] items-center gap-10 py-10 sm:py-12 lg:grid-cols-[0.95fr_1.05fr] lg:py-14">
         <div className={isArabic ? "text-right" : "text-left"} dir={isArabic ? "rtl" : "ltr"}>
-          <p className="eyebrow mt-6">{hero.eyebrow}</p>
-          <h1 className={headlineClassName}>{hero.title}</h1>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">{hero.subtitle}</p>
+          <HeroScrollReveal
+            eyebrow={hero.eyebrow}
+            title={hero.title}
+            subtitle={hero.subtitle}
+            eyebrowClassName="mt-6"
+            titleClassName={headlineClassName}
+            subtitleClassName="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg"
+          />
 
           <div className="mt-7 inline-flex max-w-full items-center gap-2 rounded-full border border-agri-gold/35 bg-white/10 px-3 py-2.5 text-xs font-bold text-white shadow-sm backdrop-blur sm:gap-3 sm:px-4 sm:py-3 sm:text-sm">
             <span className="inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-agri-gold" />
