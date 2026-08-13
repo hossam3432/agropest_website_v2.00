@@ -113,7 +113,7 @@ export const arContent = {
         },
         {
           eyebrow: "سلسلة NPK",
-          title: "سلسلة سيجنال NPK",
+          title: "مجموعة سيجنال NPK",
           description: "سلسلة NPK متخصصة لدعم احتياجات النبات في مراحل النمو المختلفة.",
           image: "/images/featured/signal-npk-featured-logo-ar-transparent.png",
           imageAlt: "شعار سيجنال NPK العربي",

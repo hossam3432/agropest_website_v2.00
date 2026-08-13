@@ -32,8 +32,8 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
       aria-label={item.ctaLabel}
       className={
         isDesktop
-          ? "relative rounded-lg featured-deck-card group/card flex h-full min-h-[462px] flex-col overflow-hidden border border-white/25 shadow-lg"
-          : "relative block rounded-lg group/card min-h-[198px] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)]"
+          ? "relative rounded-lg featured-deck-card group/card flex h-full min-h-[462px] flex-col overflow-hidden bg-agri-mist shadow-sm"
+          : "relative block rounded-2xl group/card min-h-[198px] overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.16)]"
       }
       style={isDesktop ? ({ "--card-tilt": `${tiltValues[index] ?? 0}deg` } as CSSProperties) : undefined}
     >
@@ -41,7 +41,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
         className={
           isDesktop
             ? "relative flex min-h-56 items-center justify-center overflow-hidden border-b border-agri-line bg-white p-8 md:min-h-64 lg:min-h-[200px] lg:p-6"
-            : "absolute inset-0 flex items-center justify-center overflow-hidden bg-white p-10"
+            : "featured-glass-card absolute inset-0 flex items-center justify-center overflow-hidden p-10"
         }
       >
         <div

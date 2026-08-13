@@ -113,7 +113,7 @@ function Disclosure({
         type="button"
         onClick={onToggle}
         aria-expanded={open}
-        className="flex min-h-[64px] w-full items-center gap-3 px-4 py-3.5 text-start active:bg-agri-mist"
+        className="flex min-h-[64px] w-full items-center gap-3 px-5 py-4 text-start active:bg-agri-mist"
       >
         <span className="min-w-0 flex-1">{header}</span>
         <Chevron open={open} />
@@ -128,7 +128,7 @@ function Disclosure({
             transition={{ duration: reducedMotion ? 0 : 0.32, ease: premiumEase }}
             className="overflow-hidden"
           >
-            <div className="px-4 pb-4 pt-1">{children}</div>
+            <div className="px-5 pb-5 pt-1.5">{children}</div>
           </motion.div>
         ) : null}
       </AnimatePresence>
@@ -330,7 +330,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
   return (
     <div className="bg-white">
       {/* ---------------------------------------------------------------- HERO */}
-      <section className="relative isolate overflow-hidden px-4 pb-10 pt-[104px] text-white">
+      <section className="relative isolate overflow-hidden px-5 pb-14 pt-[104px] text-white">
         <video
           ref={videoRef}
           aria-hidden="true"
@@ -350,17 +350,17 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
         />
         <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
 
-        <div className="h-10 w-px bg-agri-gold" />
+        <div className="h-10 w-px bg-agri-gold mb-5" />
         <Eyebrow dark>{home.hero.eyebrow}</Eyebrow>
-        <h1 className="mt-4 text-[28px] font-bold leading-[1.2] tracking-normal">{home.hero.title}</h1>
-        <p className="mt-4 text-[15px] leading-8 text-white/75">{home.hero.subtitle}</p>
+        <h1 className="mt-5 text-[28px] font-bold leading-[1.2] tracking-normal">{home.hero.title}</h1>
+        <p className="mt-5 text-[15px] leading-8 text-white/75">{home.hero.subtitle}</p>
 
-        <div className="mt-5 inline-flex max-w-full items-center gap-2 rounded-full border border-agri-gold/35 bg-white/10 px-3 py-2.5 text-xs font-bold shadow-sm backdrop-blur">
+        <div className="mt-6 inline-flex max-w-full items-center gap-2 rounded-full border border-agri-gold/35 bg-white/10 px-4 py-3 text-xs font-bold shadow-sm backdrop-blur">
           <span className="inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-agri-gold" />
           <span>{home.hero.trustBadge}</span>
         </div>
 
-        <div className="mt-6 grid gap-2.5">
+        <div className="mt-8 grid gap-3">
           <Link href={localizeHref(locale, home.hero.primaryCta.href)} className="btn-hero-glass min-h-[56px] w-full">
             {home.hero.primaryCta.label}
           </Link>
@@ -371,7 +371,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
 
         {/* Signature-card deck: stacked like the desktop version. Drag the top card
             left/right to cycle, or tap a dot. */}
-        <div className="relative mt-7 min-h-[336px]">
+        <div className="relative mt-9 min-h-[336px]">
           {heroCards.map((card, index) => {
             const total = heroCards.length;
             const position = (index - heroIndex + total) % total;
@@ -398,7 +398,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 animate={variants[state]}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
                 style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
-                className={`absolute inset-x-0 top-0 touch-pan-y rounded-[1.75rem] border border-white/20 bg-white/95 p-6 text-agri-blue shadow-soft ${
+                className={`absolute inset-x-0 top-0 touch-pan-y rounded-[1.75rem] border border-white/20 bg-white/95 p-7 text-agri-blue shadow-soft ${
                   state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
                 }`}
               >
@@ -408,9 +408,9 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                   </span>
                   <span className="h-px flex-1 bg-agri-gold/35" />
                 </div>
-                <h3 className="mt-6 text-2xl font-bold leading-tight">{card.title}</h3>
+                <h3 className="mt-7 text-2xl font-bold leading-tight">{card.title}</h3>
                 {card.points ? (
-                  <ul className="mt-3 grid gap-2">
+                  <ul className="mt-4 grid gap-2.5">
                     {card.points.map((point) => (
                       <li key={point} className="flex items-start gap-2 text-[15px] leading-7 text-slate-600">
                         <svg viewBox="0 0 20 20" fill="none" className="mt-1.5 h-3.5 w-3.5 shrink-0 text-agri-green" aria-hidden="true">
@@ -421,13 +421,13 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                     ))}
                   </ul>
                 ) : (
-                  <p className="mt-3 text-[15px] leading-8 text-slate-600">{card.description}</p>
+                  <p className="mt-4 text-[15px] leading-8 text-slate-600">{card.description}</p>
                 )}
               </motion.article>
             );
           })}
         </div>
-        <div className="mt-4 flex items-center justify-between gap-4">
+        <div className="mt-6 flex items-center justify-between gap-4">
           <p className="text-sm font-bold text-white/70">
             {String(heroIndex + 1).padStart(2, "0")} / {String(heroCards.length).padStart(2, "0")}
           </p>
@@ -460,20 +460,20 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       </div>
 
       {/* --------------------------------------------------------- STORY (commitment) */}
-      <section id="m-story" className="scroll-mt-[150px] bg-white px-4 pb-12 pt-10">
+      <section id="m-story" className="scroll-mt-[150px] bg-white px-5 pb-14 pt-12">
         <Eyebrow>{home.commitmentSection.eyebrow}</Eyebrow>
         <h2 className="mt-6 text-[26px] font-bold leading-tight text-agri-blue">{home.commitmentSection.title}</h2>
 
-        <div className="mt-9 mx-3 rounded-[1.5rem] border-s-4 border-agri-gold bg-agri-mist p-5">
+        <div className="mt-8 rounded-[1.5rem] border-s-4 border-agri-gold bg-agri-mist p-6">
           {home.commitmentSection.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="mt-4 text-[15px] leading-8 text-slate-700 first:mt-0">
+            <p key={paragraph} className="mt-5 text-[15px] leading-8 text-slate-700 first:mt-0">
               {paragraph}
             </p>
           ))}
         </div>
 
         {highlights.length ? (
-          <div className="mt-5 grid gap-2.5">
+          <div className="mt-6 grid gap-3">
             {highlights.map((item, index) => (
               <Disclosure
                 key={item.title}
@@ -496,18 +496,18 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       {/* ----------------------------------------------------- FEATURED PRODUCTS */}
       <section
         id="m-products"
-        className="scroll-mt-[150px] relative overflow-hidden bg-[radial-gradient(circle_at_18%_8%,rgba(217,146,39,0.2),transparent_32%),linear-gradient(150deg,#06281f_0%,#0A3D2B_50%,#17324d_100%)] px-4 pb-12 pt-12 text-white"
+        className="scroll-mt-[150px] relative isolate overflow-hidden bg-[radial-gradient(circle_at_18%_8%,rgba(217,146,39,0.2),transparent_32%),linear-gradient(150deg,#06281f_0%,#0A3D2B_50%,#17324d_100%)] px-5 pb-14 pt-14 text-white"
       >
         <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
         <Eyebrow dark>{home.featuredProductLinesSection.eyebrow}</Eyebrow>
-        <h2 className="mt-3 text-[26px] font-bold leading-tight">{home.featuredProductLinesSection.title}</h2>
+        <h2 className="mt-4 text-[26px] font-bold leading-tight">{home.featuredProductLinesSection.title}</h2>
         {home.featuredProductLinesSection.description ? (
-          <p className="mt-3 text-[15px] leading-8 text-white/75">{home.featuredProductLinesSection.description}</p>
+          <p className="mt-4 text-[15px] leading-8 text-white/75">{home.featuredProductLinesSection.description}</p>
         ) : null}
 
         {/* Draggable stacked deck — same mechanics as the hero signature-card deck:
             top card is dragged/tapped to cycle, with next/back cards peeking behind. */}
-        <div className="relative mt-7 min-h-[500px]">
+        <div className="relative mt-8 min-h-[500px]">
           {featuredProducts.map((item, index) => {
             const total = featuredProducts.length;
             const position = (index - productIndex + total) % total;
@@ -548,15 +548,15 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                     style={{ transform: `scale(${item.image.includes("fossil-featured-logo") ? 0.82 : 0.68})` }}
                   />
                 </div>
-                <div className="p-5 pb-6">
+                <div className="p-6 pb-7">
                   {item.eyebrow ? (
                     <span className="inline-flex w-fit items-center rounded-lg border border-agri-green px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-agri-green">
                       {item.eyebrow}
                     </span>
                   ) : null}
-                  <h3 className="mt-2.5 text-xl font-bold leading-tight text-agri-blue">{item.title}</h3>
+                  <h3 className="mt-3 text-xl font-bold leading-tight text-agri-blue">{item.title}</h3>
                   {item.tags.length ? (
-                    <div className="mt-2 flex flex-wrap gap-1.5">
+                    <div className="mt-2.5 flex flex-wrap gap-2">
                       {item.tags.map((tag) => (
                         <span key={tag} className="rounded-lg border border-agri-green px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-agri-green">
                           {tag}
@@ -564,10 +564,10 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                       ))}
                     </div>
                   ) : null}
-                  <p className="mt-3 text-[15px] leading-7 text-slate-600">{item.description}</p>
+                  <p className="mt-4 text-[15px] leading-7 text-slate-600">{item.description}</p>
                   <Link
                     href={localizeHref(locale, item.href)}
-                    className="mt-4 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-agri-green px-5 text-sm font-bold text-white shadow-sm transition duration-300 active:bg-agri-greenDark"
+                    className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-agri-green px-5 text-sm font-bold text-white shadow-sm transition duration-300 active:bg-agri-greenDark"
                   >
                     {item.ctaLabel}
                     <ArrowIcon className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`} />
@@ -578,7 +578,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
           })}
         </div>
 
-        <div className="mt-4 flex items-center justify-between gap-4">
+        <div className="mt-6 flex items-center justify-between gap-4">
           <p className="text-sm font-bold text-white/70">
             {String(productIndex + 1).padStart(2, "0")} / {String(featuredProducts.length).padStart(2, "0")}
           </p>
@@ -587,17 +587,17 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       </section>
 
       {/* -------------------------------------------------------------- CATEGORIES */}
-      <section id="m-categories" className="scroll-mt-[150px] bg-agri-mist px-4 py-12">
-        <div className="rounded-[1.5rem] border border-agri-line bg-white p-6 shadow-soft">
+      <section id="m-categories" className="scroll-mt-[150px] bg-agri-mist px-5 py-14">
+        <div className="rounded-[1.5rem] border border-agri-line bg-white p-7 shadow-soft">
           <Eyebrow>{home.productCategoriesSection.eyebrow}</Eyebrow>
-          <h2 className="mt-3 text-[24px] font-bold leading-tight text-agri-blue">{home.productCategoriesSection.title}</h2>
+          <h2 className="mt-4 text-[24px] font-bold leading-tight text-agri-blue">{home.productCategoriesSection.title}</h2>
           {home.productCategoriesSection.description ? (
-            <div className="mt-3">
+            <div className="mt-4">
               <ReadMore text={home.productCategoriesSection.description} labels={labels} />
             </div>
           ) : null}
           {home.productCategoriesSection.cta ? (
-            <Link href={localizeHref(locale, home.productCategoriesSection.cta.href)} className="btn-secondary mt-5 min-h-[52px] w-full">
+            <Link href={localizeHref(locale, home.productCategoriesSection.cta.href)} className="btn-secondary mt-6 min-h-[52px] w-full">
               {home.productCategoriesSection.cta.label}
             </Link>
           ) : null}
@@ -605,12 +605,12 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       </section>
 
       {/* ------------------------------------------------------------- WHY AGROPEST */}
-      <section id="m-why" className="scroll-mt-[150px] bg-agri-greenDark px-4 py-12 text-white">
+      <section id="m-why" className="scroll-mt-[150px] bg-agri-greenDark px-5 py-14 text-white">
         <Eyebrow dark>{home.whyAgropestSection.eyebrow}</Eyebrow>
-        <h2 className="mt-3 text-[26px] font-bold leading-tight">{home.whyAgropestSection.title}</h2>
-        <p className="mt-3 text-[15px] leading-8 text-white/70">{home.whyAgropestSection.description}</p>
+        <h2 className="mt-4 text-[26px] font-bold leading-tight">{home.whyAgropestSection.title}</h2>
+        <p className="mt-4 text-[15px] leading-8 text-white/70">{home.whyAgropestSection.description}</p>
 
-        <div className="relative mt-5 aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-white/10 shadow-soft">
+        <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-white/10 shadow-soft">
           <ResponsiveImage
             src="/images/backgrounds/field-day-trials.jpg"
             alt={home.whyAgropestSection.imageAlt}
@@ -620,7 +620,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
           />
         </div>
 
-        <div className="mt-5 grid gap-2.5">
+        <div className="mt-6 grid gap-3">
           {home.whyAgropestSection.items.map((item, index) => (
             <Disclosure
               key={item.title}
@@ -642,7 +642,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       </section>
 
       {/* --------------------------------------------------------- TECHNICAL LIBRARY */}
-      <section id="m-library" className="scroll-mt-[150px] bg-white px-4 py-12">
+      <section id="m-library" className="scroll-mt-[150px] bg-white px-5 py-14">
         <div className="relative min-h-[190px] overflow-hidden rounded-[1.5rem] bg-agri-blue shadow-soft">
           <ResponsiveImage
             src={content.technicalLibraryPreview.image}
@@ -652,25 +652,25 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
             objectFit="cover"
           />
         </div>
-        <div className="mt-7">
+        <div className="mt-8">
           <Eyebrow>{content.technicalLibraryPreview.eyebrow}</Eyebrow>
-          <h2 className="mt-2 text-[24px] font-bold leading-tight text-agri-blue">{content.technicalLibraryPreview.title}</h2>
+          <h2 className="mt-3 text-[24px] font-bold leading-tight text-agri-blue">{content.technicalLibraryPreview.title}</h2>
         </div>
-        <p className="mt-5 text-[15px] leading-8 text-slate-600">{content.technicalLibraryPreview.description}</p>
-        <Link href={localizeHref(locale, content.technicalLibraryPreview.cta.href)} className="btn-primary mt-5 min-h-[52px] w-full">
+        <p className="mt-6 text-[15px] leading-8 text-slate-600">{content.technicalLibraryPreview.description}</p>
+        <Link href={localizeHref(locale, content.technicalLibraryPreview.cta.href)} className="btn-primary mt-6 min-h-[52px] w-full">
           {content.technicalLibraryPreview.cta.label}
         </Link>
       </section>
 
       {/* ------------------------------------------------------------------ PARTNERS */}
-      <section id="m-partners" className="scroll-mt-[150px] bg-gradient-to-br from-agri-blue via-agri-greenDark to-agri-blue px-4 py-12 text-white">
+      <section id="m-partners" className="scroll-mt-[150px] relative isolate bg-gradient-to-br from-agri-blue via-agri-greenDark to-agri-blue px-5 py-14 text-white">
         <Eyebrow dark>{home.partnersSection.eyebrow}</Eyebrow>
-        <h2 className="mt-3 text-[26px] font-bold leading-tight">{home.partnersSection.title}</h2>
-        <p className="mt-3 text-[15px] leading-8 text-white/80">{home.partnersSection.description}</p>
+        <h2 className="mt-4 text-[26px] font-bold leading-tight">{home.partnersSection.title}</h2>
+        <p className="mt-4 text-[15px] leading-8 text-white/80">{home.partnersSection.description}</p>
 
         {/* Draggable stacked deck — same mechanics as the hero signature-card deck:
             top card is dragged/tapped to cycle, with next/back cards peeking behind. */}
-        <div className="relative mt-7 min-h-[440px]">
+        <div className="relative mt-8 min-h-[440px]">
           {partners.map((partner, index) => {
             const total = partners.length;
             const position = (index - partnerIndex + total) % total;
@@ -697,7 +697,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 animate={variants[state]}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
                 style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
-                className={`absolute inset-x-9 top-0 flex min-h-[420px] touch-pan-y flex-col justify-center rounded-[1.75rem] border border-white/20 bg-white/95 p-6 text-center text-agri-blue shadow-soft ${
+                className={`absolute inset-x-9 top-0 flex min-h-[420px] touch-pan-y flex-col justify-center rounded-[1.75rem] border border-white/20 bg-white/95 p-7 text-center text-agri-blue shadow-soft ${
                   state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
                 }`}
               >
@@ -710,14 +710,14 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                     className="max-h-20 w-full max-w-[220px] object-contain"
                   />
                 </div>
-                <p className="mt-4 text-lg font-black tracking-tight">{partner.name}</p>
-                <p className="mt-2 text-[15px] font-semibold leading-6 text-slate-600">{partner.description}</p>
+                <p className="mt-5 text-lg font-black tracking-tight">{partner.name}</p>
+                <p className="mt-3 text-[15px] font-semibold leading-6 text-slate-600">{partner.description}</p>
               </motion.article>
             );
           })}
         </div>
 
-        <div className="mt-4 flex items-center justify-between gap-4">
+        <div className="mt-6 flex items-center justify-between gap-4">
           <p className="text-sm font-bold text-white/70">
             {String(partnerIndex + 1).padStart(2, "0")} / {String(partners.length).padStart(2, "0")}
           </p>
@@ -726,8 +726,8 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       </section>
 
       {/* --------------------------------------------------------------------- CTA */}
-      <section id="m-cta" className="scroll-mt-[150px] bg-agri-mist px-4 py-12">
-        <div className="relative overflow-hidden rounded-[1.75rem] bg-agri-blue px-5 py-8 text-white shadow-soft">
+      <section id="m-cta" className="scroll-mt-[150px] bg-agri-mist px-5 py-14">
+        <div className="relative overflow-hidden rounded-[1.75rem] bg-agri-blue px-6 py-9 text-white shadow-soft">
           {home.cta.backgroundImage ? (
             <div aria-hidden="true" className="absolute inset-0 opacity-25">
               <ResponsiveImage src={home.cta.backgroundImage} alt="" className="h-full w-full" objectFit="cover" />
@@ -736,10 +736,10 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
           <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-agri-blue via-agri-blue/90 to-agri-green/75" />
           <div className="relative">
             {home.cta.eyebrow ? <Eyebrow dark>{home.cta.eyebrow}</Eyebrow> : null}
-            <h2 className="mt-3 text-[26px] font-bold leading-tight">{home.cta.title}</h2>
-            <p className="mt-3 text-[15px] leading-8 text-white/75">{home.cta.description}</p>
+            <h2 className="mt-4 text-[26px] font-bold leading-tight">{home.cta.title}</h2>
+            <p className="mt-4 text-[15px] leading-8 text-white/75">{home.cta.description}</p>
 
-            <div className="mt-6 grid gap-2.5">
+            <div className="mt-7 grid gap-3">
               <Link href={localizeHref(locale, home.cta.primaryHref)} className="btn-on-dark-outline min-h-[54px] w-full">
                 {home.cta.primaryLabel}
               </Link>
