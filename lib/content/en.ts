@@ -647,9 +647,32 @@ export const enContent = {
       company: "Company",
       email: "Email",
       phone: "Phone",
+      topic: "Topic",
+      topicPlaceholder: "Select a topic",
       message: "Inquiry",
       submit: "Send inquiry",
-      whatsapp: "WhatsApp AgroPest"
+      whatsapp: "WhatsApp AgroPest",
+      required: "Required"
+    },
+    topics: [
+      { value: "product-info", label: "Product information" },
+      { value: "registration-support", label: "Registration support" },
+      { value: "import-support", label: "Import support" },
+      { value: "partnership", label: "Distributor partnership" },
+      { value: "technical-support", label: "Technical support" },
+      { value: "other", label: "Other" }
+    ],
+    validation: {
+      nameRequired: "Please enter your name.",
+      emailRequired: "Please enter your email.",
+      emailInvalid: "Please enter a valid, real email address.",
+      topicRequired: "Please select a topic."
+    },
+    thankYou: {
+      title: "Thank you!",
+      message: "Your inquiry has been sent. We will reach out to you soon.",
+      backToProducts: "Back to products",
+      backToHome: "Back to home"
     }
   },
   ctaActions: {

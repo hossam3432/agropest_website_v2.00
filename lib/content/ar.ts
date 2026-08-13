@@ -630,9 +630,32 @@ export const arContent = {
       company: "الشركة",
       email: "البريد الإلكتروني",
       phone: "الهاتف",
+      topic: "الموضوع",
+      topicPlaceholder: "اختر الموضوع",
       message: "الاستفسار",
       submit: "إرسال الاستفسار",
-      whatsapp: "واتساب أجروبست"
+      whatsapp: "واتساب أجروبست",
+      required: "إلزامي"
+    },
+    topics: [
+      { value: "product-info", label: "معلومات عن منتج" },
+      { value: "registration-support", label: "دعم التسجيل" },
+      { value: "import-support", label: "دعم الاستيراد" },
+      { value: "partnership", label: "شراكة توزيع" },
+      { value: "technical-support", label: "دعم فني" },
+      { value: "other", label: "أخرى" }
+    ],
+    validation: {
+      nameRequired: "من فضلك أدخل الاسم.",
+      emailRequired: "من فضلك أدخل البريد الإلكتروني.",
+      emailInvalid: "من فضلك أدخل بريدًا إلكترونيًا صحيحًا وحقيقيًا.",
+      topicRequired: "من فضلك اختر الموضوع."
+    },
+    thankYou: {
+      title: "شكرًا لك!",
+      message: "تم إرسال استفسارك بنجاح. سنتواصل معك في أقرب وقت.",
+      backToProducts: "العودة إلى المنتجات",
+      backToHome: "العودة إلى الرئيسية"
     }
   },
   ctaActions: {

@@ -31,7 +31,7 @@ export default async function ContactPage({ params }: LocalePageProps) {
   return (
     <>
       <HeroSection compact locale={locale} backgroundVideo="/videos/agropest-flag.mp4" {...contactPage.hero} />
-      <ContactSection content={content} />
+      <ContactSection content={content} locale={locale} />
     </>
   );
 }
