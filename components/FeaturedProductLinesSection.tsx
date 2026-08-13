@@ -18,11 +18,9 @@ type FeaturedCardProps = {
   item: FeaturedItem;
   locale: Locale;
   mode: "mobile" | "desktop";
-  index?: number;
 };
 
-function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProps) {
-  const tiltValues = [-4, -1.5, 1.5, 4];
+function FeaturedProductCard({ item, locale, mode }: FeaturedCardProps) {
   const isDesktop = mode === "desktop";
   const isRtl = locale === "ar";
 
@@ -35,7 +33,6 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
           ? "relative rounded-lg featured-deck-card group/card flex h-full min-h-[462px] flex-col overflow-hidden bg-agri-mist shadow-sm"
           : "relative block rounded-lg group/card min-h-[198px] overflow-hidden bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.12)]"
       }
-      style={isDesktop ? ({ "--card-tilt": `${tiltValues[index] ?? 0}deg` } as CSSProperties) : undefined}
     >
       <div
         className={
@@ -66,7 +63,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
       <div className={isDesktop ? "flex flex-1 flex-col p-5 pb-24" : "absolute inset-0 z-10"}>
         {isDesktop ? (
           <>
-            <h3 className="text-xl font-bold tracking-normal text-agri-blue">{item.title}</h3>
+            <h3 className="line-clamp-2 min-h-[3.25rem] text-xl font-bold tracking-normal text-agri-blue">{item.title}</h3>
             <span className="mt-2 h-0.5 w-12 bg-agri-gold" />
             {item.eyebrow ? (
               <span className="mt-3 inline-flex w-fit items-center rounded-lg border border-agri-green bg-transparent px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-agri-green">
@@ -85,7 +82,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
           </>
         ) : null}
         {isDesktop ? (
-          <p className="featured-card-description flex-1 mt-3 line-clamp-3 leading-6 text-slate-600">{item.description}</p>
+          <p className="featured-card-description flex-1 mt-3 line-clamp-3 text-justify leading-6 text-slate-600">{item.description}</p>
         ) : null}
         {isDesktop ? (
           <span
@@ -186,7 +183,7 @@ export function FeaturedProductLinesSection({ content, locale, className = "" }:
               }`}
               hoverLift={false}
             >
-              <FeaturedProductCard item={item} locale={locale} mode="desktop" index={index} />
+              <FeaturedProductCard item={item} locale={locale} mode="desktop" />
             </RevealItem>
           ))}
         </StaggerContainer>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion, type PanInfo } from "framer-motion";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
 
@@ -17,8 +17,20 @@ const premiumEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 // pattern used by RivalDuoMobile: everything else on this page is sourced
 // straight from lib/content so no original text is paraphrased or dropped).
 const ui = {
-  en: { more: "Read more", less: "Show less", swipe: "Swipe for more", trust: "Why AgroPest" },
-  ar: { more: "اقرأ المزيد", less: "عرض أقل", swipe: "اسحب لعرض المزيد", trust: "لماذا أجروبست" }
+  en: {
+    more: "Read more",
+    less: "Show less",
+    swipe: "Swipe for more",
+    trust: "Why AgroPest",
+    established: "Thirty years in the Egyptian agricultural market"
+  },
+  ar: {
+    more: "اقرأ المزيد",
+    less: "عرض أقل",
+    swipe: "اسحب لعرض المزيد",
+    trust: "لماذا أجروبست",
+    established: "ثلاثون عاما في السوق الزراعي المصري"
+  }
 } as const;
 
 /* ---------------------------------------------------------------- helpers */
@@ -242,19 +254,32 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
   ].filter((tab) => tab.label);
 
   const [activeTab, setActiveTab] = useState(tabs[0]?.id);
-  const [trustOpen, setTrustOpen] = useState(false);
   const [openHighlight, setOpenHighlight] = useState<number | null>(null);
   const [openWhy, setOpenWhy] = useState<number | null>(0);
+  const [heroIndex, setHeroIndex] = useState(0);
 
-  const heroStripRef = useRef<HTMLDivElement>(null);
   const productsStripRef = useRef<HTMLDivElement>(null);
+  const partnersStripRef = useRef<HTMLDivElement>(null);
   const tabStripRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const heroIndex = useSnapIndex(heroStripRef);
   const productIndex = useSnapIndex(productsStripRef);
+  const partnerIndex = useSnapIndex(partnersStripRef);
 
   const highlights = home.commitmentSection.highlights as Array<{ title: string; description: string }>;
+
+  // The three signature cards plus the credibility content that used to live in
+  // the folded "established" accordion — now just more swipeable cards.
+  type HeroCard = { title: string; description?: string; points?: readonly string[] };
+  const heroCards: HeroCard[] = [
+    ...home.hero.signatureCards,
+    { title: labels.established, points: home.hero.credibilityPanel.items },
+    { title: labels.trust, points: home.hero.trustPoints }
+  ];
+
+  function stepHero(step: number) {
+    setHeroIndex((current) => (current + step + heroCards.length) % heroCards.length);
+  }
 
   // Same hero video as desktop. Bail out while this tree is display:none (desktop
   // width) so the hidden copy never fights the visible HomeHero video for playback.
@@ -383,65 +408,69 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
           </Link>
         </div>
 
-        {/* Signature-card carousel: one card in frame, next card peeking, native scroll-snap swipe. */}
-        <div
-          ref={heroStripRef}
-          className="mt-7 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {home.hero.signatureCards.map((card, index) => (
-            <article
-              key={card.title}
-              className="w-[86%] shrink-0 snap-center rounded-[1.75rem] border border-white/20 bg-white/95 p-6 text-agri-blue shadow-soft"
-            >
-              <div className="flex items-center justify-between gap-4">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-agri-gold text-sm font-black text-white">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span className="h-px flex-1 bg-agri-gold/35" />
-              </div>
-              <h3 className="mt-6 text-2xl font-bold leading-tight">{card.title}</h3>
-              <p className="mt-3 text-[15px] leading-8 text-slate-600">{card.description}</p>
-            </article>
-          ))}
+        {/* Signature-card deck: stacked like the desktop version. Drag the top card
+            left/right to cycle, or tap a dot. */}
+        <div className="relative mt-7 min-h-[336px]">
+          {heroCards.map((card, index) => {
+            const total = heroCards.length;
+            const position = (index - heroIndex + total) % total;
+            const state = position === 0 ? "active" : position === 1 ? "next" : "back";
+            const sign = isRtl ? -1 : 1;
+            const variants = {
+              active: { x: 0, y: 0, scale: 1, rotate: sign * -1.4, opacity: 1 },
+              next: { x: sign * 14, y: 10, scale: 0.94, rotate: sign * 2.6, opacity: 0.62 },
+              back: { x: sign * -10, y: 18, scale: 0.88, rotate: sign * -3.6, opacity: 0.32 }
+            } as const;
+
+            function onDragEnd(_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) {
+              if (info.offset.x < -50 || info.velocity.x < -350) stepHero(1);
+              else if (info.offset.x > 50 || info.velocity.x > 350) stepHero(-1);
+            }
+
+            return (
+              <motion.article
+                key={card.title}
+                drag={state === "active" ? "x" : false}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.65}
+                onDragEnd={state === "active" ? onDragEnd : undefined}
+                animate={variants[state]}
+                transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
+                style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
+                className={`absolute inset-x-0 top-0 touch-pan-y rounded-[1.75rem] border border-white/20 bg-white/95 p-6 text-agri-blue shadow-soft ${
+                  state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
+                }`}
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-agri-gold text-sm font-black text-white">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="h-px flex-1 bg-agri-gold/35" />
+                </div>
+                <h3 className="mt-6 text-2xl font-bold leading-tight">{card.title}</h3>
+                {card.points ? (
+                  <ul className="mt-3 grid gap-2">
+                    {card.points.map((point) => (
+                      <li key={point} className="flex items-start gap-2 text-[15px] leading-7 text-slate-600">
+                        <svg viewBox="0 0 20 20" fill="none" className="mt-1.5 h-3.5 w-3.5 shrink-0 text-agri-green" aria-hidden="true">
+                          <path d="M4 10.5 8 14.5 16 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="mt-3 text-[15px] leading-8 text-slate-600">{card.description}</p>
+                )}
+              </motion.article>
+            );
+          })}
         </div>
         <div className="mt-4 flex items-center justify-between gap-4">
           <p className="text-sm font-bold text-white/70">
-            {String(heroIndex + 1).padStart(2, "0")} / {String(home.hero.signatureCards.length).padStart(2, "0")}
+            {String(heroIndex + 1).padStart(2, "0")} / {String(heroCards.length).padStart(2, "0")}
           </p>
-          <Dots
-            count={home.hero.signatureCards.length}
-            active={heroIndex}
-            onSelect={(index) => scrollStripToIndex(heroStripRef.current, index, reducedMotion)}
-            dark
-          />
-        </div>
-
-        {/* Established-since credibility, folded — real content that has no other home on mobile. */}
-        <div className="mt-5">
-          <Disclosure
-            open={trustOpen}
-            onToggle={() => setTrustOpen((value) => !value)}
-            header={
-              <span className="block">
-                <span className="text-sm font-bold text-agri-blue">
-                  {home.hero.credibilityPanel.establishedLabel}{" "}
-                  <span className="text-xl font-black text-agri-gold">{home.hero.credibilityPanel.establishedYear}</span>
-                </span>
-                <span className="mt-0.5 block text-xs font-bold text-slate-400">{labels.trust}</span>
-              </span>
-            }
-          >
-            <ul className="grid gap-2.5">
-              {[...home.hero.credibilityPanel.items, ...home.hero.trustPoints].map((point) => (
-                <li key={point} className="flex items-start gap-2.5 text-[15px] leading-7 text-slate-600">
-                  <svg viewBox="0 0 20 20" fill="none" className="mt-1 h-4 w-4 shrink-0 text-agri-green" aria-hidden="true">
-                    <path d="M4 10.5 8 14.5 16 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  {point}
-                </li>
-              ))}
-            </ul>
-          </Disclosure>
+          <Dots count={heroCards.length} active={heroIndex} onSelect={setHeroIndex} dark />
         </div>
       </section>
 
@@ -472,11 +501,11 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       {/* --------------------------------------------------------- STORY (commitment) */}
       <section id="m-story" className="scroll-mt-[150px] bg-white px-4 pb-12 pt-10">
         <Eyebrow>{home.commitmentSection.eyebrow}</Eyebrow>
-        <h2 className="mt-5 text-[26px] font-bold leading-tight text-agri-blue">{home.commitmentSection.title}</h2>
+        <h2 className="mt-6 text-[26px] font-bold leading-tight text-agri-blue">{home.commitmentSection.title}</h2>
 
-        <div className="mt-8 rounded-[1.5rem] border-s-4 border-agri-gold bg-agri-mist p-5">
+        <div className="mt-9 mx-3 rounded-[1.5rem] border-s-4 border-agri-gold bg-agri-mist p-5">
           {home.commitmentSection.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="mt-3 text-[15px] leading-8 text-slate-700 first:mt-0">
+            <p key={paragraph} className="mt-4 text-[15px] leading-8 text-slate-700 first:mt-0">
               {paragraph}
             </p>
           ))}
@@ -660,11 +689,14 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
         <h2 className="mt-3 text-[26px] font-bold leading-tight">{home.partnersSection.title}</h2>
         <p className="mt-3 text-[15px] leading-8 text-white/80">{home.partnersSection.description}</p>
 
-        <div className="mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div
+          ref={partnersStripRef}
+          className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
           {home.partnersSection.items.map((partner) => (
             <article
               key={partner.name}
-              className="flex w-[72%] shrink-0 snap-center flex-col items-center gap-3 rounded-[1.5rem] bg-white px-5 py-6 text-center text-black shadow-sm"
+              className="w-[80%] shrink-0 snap-center rounded-[1.75rem] border border-white/20 bg-white/95 p-6 text-center text-agri-blue shadow-soft"
             >
               <div className="flex h-20 w-full items-center justify-center">
                 <ResponsiveImage
@@ -675,10 +707,22 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                   className="max-h-16 w-full max-w-[180px] object-contain"
                 />
               </div>
-              <p className="text-base font-black tracking-tight">{partner.name}</p>
-              <p className="text-sm font-semibold leading-6 text-slate-700">{partner.description}</p>
+              <p className="mt-4 text-base font-black tracking-tight">{partner.name}</p>
+              <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">{partner.description}</p>
             </article>
           ))}
+        </div>
+
+        <div className="mt-4 flex items-center justify-between gap-4">
+          <p className="text-sm font-bold text-white/70">
+            {String(partnerIndex + 1).padStart(2, "0")} / {String(home.partnersSection.items.length).padStart(2, "0")}
+          </p>
+          <Dots
+            count={home.partnersSection.items.length}
+            active={partnerIndex}
+            onSelect={(index) => scrollStripToIndex(partnersStripRef.current, index, reducedMotion)}
+            dark
+          />
         </div>
       </section>
 

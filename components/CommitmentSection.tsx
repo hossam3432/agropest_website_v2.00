@@ -13,15 +13,15 @@ export function CommitmentSection({ content, className = "" }: CommitmentSection
   return (
     <section className={`bg-white py-14 sm:py-16 lg:py-[84px] ${className}`}>
       <RevealSection className="container-shell" amount={0.15}>
-        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div className="lg:sticky lg:top-28">
             <p className="eyebrow">{commitmentSection.eyebrow}</p>
-            <h2 className="section-title mt-3">{commitmentSection.title}</h2>
+            <h2 className="section-title mt-4">{commitmentSection.title}</h2>
           </div>
 
           <div className="rounded-2xl border-s-4 border-agri-gold bg-agri-mist p-6 sm:p-8 lg:p-8">
             {commitmentSection.paragraphs.map((paragraph) => (
-              <p key={paragraph} className="mt-4 first:mt-0 text-lg leading-9 text-slate-700 lg:leading-8">
+              <p key={paragraph} className="mt-5 first:mt-0 text-lg leading-9 text-slate-700 lg:leading-8">
                 {paragraph}
               </p>
             ))}
