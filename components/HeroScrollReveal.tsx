@@ -64,11 +64,12 @@ export function HeroScrollReveal({
     <div ref={containerRef} className={className}>
       <p className={`hero-eyebrow ${eyebrowClassName}`}>{eyebrow}</p>
       <h1 className={titleClassName}>
-        {words.map((word, i) => (
-          <span key={`${word}-${i}`} className="me-2 inline-block overflow-hidden pb-1 align-bottom last:me-0">
+        {words.flatMap((word, i) => [
+          <span key={`word-${i}`} className="inline-block overflow-hidden pb-1 align-bottom">
             <span className="hero-word inline-block">{word}</span>
-          </span>
-        ))}
+          </span>,
+          i < words.length - 1 ? " " : null
+        ])}
       </h1>
       <p className={`hero-subtitle ${subtitleClassName}`}>{subtitle}</p>
     </div>

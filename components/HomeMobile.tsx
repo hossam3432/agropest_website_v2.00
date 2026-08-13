@@ -329,7 +329,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
   return (
     <div className="bg-white">
       {/* ---------------------------------------------------------------- HERO */}
-      <section className="relative isolate overflow-hidden px-5 pb-14 pt-[104px] text-white">
+      <section className="relative isolate overflow-hidden px-5 pb-14 pt-[136px] text-white">
         <video
           ref={videoRef}
           aria-hidden="true"
@@ -349,7 +349,6 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
         />
         <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
 
-        <div className="h-10 w-px bg-agri-gold mb-5" />
         <Eyebrow dark>{home.hero.eyebrow}</Eyebrow>
         <h1 className="mt-5 text-[28px] font-bold leading-[1.2] tracking-normal">{home.hero.title}</h1>
         <p className="mt-5 text-[15px] leading-8 text-white/75">{home.hero.subtitle}</p>
