@@ -58,9 +58,8 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
   // Same deck as HomeMobile: the three signature cards plus the credibility
   // panel and trust points, so desktop shows the identical card set.
   const heroCards: HeroCard[] = [
-    ...hero.signatureCards,
     { title: labels.established, points: hero.credibilityPanel.items },
-    { title: labels.trust, points: hero.trustPoints }
+    ...hero.signatureCards
   ];
   const isArabic = content.direction === "rtl";
   const [activeIndex, setActiveIndex] = useState(0);
@@ -151,7 +150,6 @@ export function HomeHero({ content, locale }: HomeHeroProps) {
 
       <div className="container-shell relative grid min-h-[calc(100svh-6rem)] items-center gap-10 py-10 sm:py-12 lg:grid-cols-[0.95fr_1.05fr] lg:py-14">
         <div className={isArabic ? "text-right" : "text-left"} dir={isArabic ? "rtl" : "ltr"}>
-          <div className="h-10 w-px bg-agri-gold sm:h-14" />
           <p className="eyebrow mt-6">{hero.eyebrow}</p>
           <h1 className={headlineClassName}>{hero.title}</h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">{hero.subtitle}</p>

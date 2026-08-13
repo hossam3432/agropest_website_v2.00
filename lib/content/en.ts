@@ -86,9 +86,9 @@ export const enContent = {
       backgroundImage: imagePaths.hero.home,
       visualImage: imagePaths.hero.greenhouse,
       visualAlt: "Agricultural greenhouse visual for AgroPest product commercialization",
-      primaryCta: { label: "Become a Distributor", href: "/partner-with-us" },
+      primaryCta: { label: "Become a Partner", href: "/partner-with-us" },
       secondaryCta: { label: "View the Portfolio", href: "/products" },
-      trustBadge: "Established 1995 · Al Nubariya, Beheira",
+      trustBadge: "Established 1995",
       signatureCards: [
         { title: "For the International Supplier", description: "Registration, importation, and a route into established Egyptian distribution channels, with the local technical material prepared here." },
         { title: "For the Distributor", description: "A registered portfolio, complete technical documentation, and the marketing that carries each product to the grower before your rep has to explain it." },
@@ -176,7 +176,7 @@ export const enContent = {
     },
     whyAgropestSection: {
       eyebrow: "What comes with the product",
-      title: "A product arrives as a complete file",
+      title: "Why the Farmer Trusts AgroPest",
       description:
         "More than a pack. Each product is delivered with the documentation that proves it, the material that sells it at the counter, and the published content that puts it in front of the grower first.",
       imageAlt: "AgroPest team and growers inspecting a tomato field trial beside branded AgroPest flags",
@@ -218,7 +218,7 @@ export const enContent = {
       title: "Three ways in",
       description:
         "Distributors evaluating a new supplier, international manufacturers looking for a route into the Egyptian market, and growers with a crop question all reach the same people. Tell us which you are. The full company record is on the About page.",
-      primaryLabel: "Become a Distributor",
+      primaryLabel: "Become a Partner",
       primaryHref: "/partner-with-us",
       secondaryLabel: "Talk to AgroPest",
       secondaryHref: "/contact",

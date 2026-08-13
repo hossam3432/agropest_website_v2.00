@@ -221,9 +221,8 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
   // the folded "established" accordion — now just more swipeable cards.
   type HeroCard = { title: string; description?: string; points?: readonly string[] };
   const heroCards: HeroCard[] = [
-    ...home.hero.signatureCards,
     { title: labels.established, points: home.hero.credibilityPanel.items },
-    { title: labels.trust, points: home.hero.trustPoints }
+    ...home.hero.signatureCards
   ];
 
   function stepHero(step: number) {
