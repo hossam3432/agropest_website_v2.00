@@ -175,11 +175,13 @@ export function ContactSection({
         </div>
 
         <div style={{ perspective: "1600px" }}>
-          <motion.div
-            className="relative"
-            style={{ transformStyle: "preserve-3d" }}
-            animate={{ rotateY: flipped ? 180 : 0 }}
-            transition={{ duration: 0.9, ease: premiumEase }}
+          <div
+            className="relative transition-transform duration-[900ms]"
+            style={{
+              transformStyle: "preserve-3d",
+              transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
+              transitionTimingFunction: `cubic-bezier(${premiumEase.join(",")})`
+            }}
           >
             <form
               onSubmit={handleSubmit}
@@ -308,7 +310,7 @@ export function ContactSection({
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
