@@ -122,7 +122,7 @@ export default async function AboutPage({ params }: LocalePageProps) {
 
       <section className="bg-white py-12 sm:py-20">
         <RevealSection className="container-shell" amount={0.15}>
-          <div className="grid overflow-hidden border border-agri-line bg-agri-blue text-white shadow-soft lg:grid-cols-[0.78fr_1.22fr]">
+          <div className="grid overflow-hidden rounded-3xl border border-agri-line bg-agri-blue text-white shadow-soft lg:grid-cols-[0.78fr_1.22fr]">
             <div className="bg-white/5 p-5 sm:p-10">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-agri-gold">{about.knowledgeRole.eyebrow}</p>
               <h2 className="mt-4 text-3xl font-bold tracking-normal sm:text-4xl">{about.knowledgeRole.title}</h2>

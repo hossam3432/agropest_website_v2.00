@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type CSSProperties, type FormEvent } from "react";
+import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
 import { motion, useAnimation, useReducedMotion } from "framer-motion";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
 
 const premiumEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const DRAFT_STORAGE_KEY = "agropest-contact-draft";
 
 type ContactSectionProps = {
   content: SiteContent;
@@ -126,6 +127,32 @@ export function ContactSection({
   const [sendError, setSendError] = useState(false);
   const controls = useAnimation();
 
+  // Restore a saved draft after mount (client-only, so SSR/hydration render empty fields first).
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(DRAFT_STORAGE_KEY);
+      if (!raw) return;
+      const draft = JSON.parse(raw) as Partial<FormState>;
+      setFormState((prev) => ({ ...prev, ...draft }));
+    } catch {
+      // corrupt or inaccessible storage - ignore and start blank
+    }
+  }, []);
+
+  // Keep the draft in sync as the user types; drop it once every field is empty again.
+  useEffect(() => {
+    const isEmpty = Object.values(formState).every((value) => !value);
+    try {
+      if (isEmpty) {
+        window.localStorage.removeItem(DRAFT_STORAGE_KEY);
+      } else {
+        window.localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(formState));
+      }
+    } catch {
+      // storage unavailable (private browsing, quota) - ignore
+    }
+  }, [formState]);
+
   const errors = validateForm(formState, contactSection.validation);
   const showError = (field: keyof FieldErrors) => Boolean(attempted && errors[field]);
 
@@ -195,6 +222,12 @@ export function ContactSection({
       });
 
       if (!response.ok) throw new Error("send-failed");
+      try {
+        window.localStorage.removeItem(DRAFT_STORAGE_KEY);
+      } catch {
+        // ignore storage errors
+      }
+      setFormState({ name: "", company: "", email: "", phone: "", topic: "", message: "" });
       setFlipped(true);
     } catch {
       setSendError(true);
