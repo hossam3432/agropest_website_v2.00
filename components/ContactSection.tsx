@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type FormEvent } from "react";
+import { useState, type CSSProperties, type FormEvent } from "react";
 import { motion, useAnimation, useReducedMotion } from "framer-motion";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
 
@@ -58,6 +58,34 @@ function isValidEmail(raw: string): boolean {
   if (/^(.)\1*$/.test(localPart)) return false;
 
   return true;
+}
+
+const BURST_DOT_ANGLES = [0, 45, 90, 135, 180, 225, 270, 315];
+
+function SuccessBurst() {
+  return (
+    <div className="relative flex h-20 w-20 items-center justify-center">
+      {BURST_DOT_ANGLES.map((angle, index) => (
+        <span
+          key={angle}
+          className="success-icon-dot absolute h-1.5 w-1.5 rounded-full bg-agri-gold"
+          style={{ "--burst-angle": `${angle}deg`, animationDelay: `${480 + index * 20}ms` } as CSSProperties}
+        />
+      ))}
+      <svg viewBox="0 0 52 52" className="success-icon-circle relative h-16 w-16">
+        <circle cx="26" cy="26" r="25" className="fill-agri-green" />
+        <path
+          className="success-icon-check"
+          d="M15 27 L23 35 L38 18"
+          fill="none"
+          stroke="#FFFFFF"
+          strokeWidth="4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
+  );
 }
 
 function validateForm(state: FormState, messages: SiteContent["contactSection"]["validation"]): FieldErrors {
@@ -288,9 +316,6 @@ export function ContactSection({
                 <motion.button animate={controls} className="btn-primary" type="submit">
                   {labels.submit}
                 </motion.button>
-                <a className="btn-secondary" href={whatsappHref}>
-                  {labels.whatsapp}
-                </a>
               </div>
             </form>
 
@@ -299,6 +324,7 @@ export function ContactSection({
               style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
               aria-hidden={!flipped}
             >
+              {flipped ? <SuccessBurst key="success-burst" /> : null}
               <h3 className="text-2xl font-bold text-agri-blue">{thankYou.title}</h3>
               <p className="text-slate-600">{thankYou.message}</p>
               <div className="mt-2 flex flex-col gap-3 sm:flex-row">
