@@ -144,7 +144,7 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
   return (
     <section className="bg-white py-14 sm:py-16 lg:py-20" dir={locale === "ar" ? "rtl" : "ltr"}>
       <div className="container-shell">
-        <div className="grid items-stretch gap-4 md:grid-cols-2">
+        <div className="grid items-stretch gap-4 lg:grid-cols-2">
           {content.categories.map((category, index) => {
             const isActive = category.slug === activeCategory?.slug;
             const hasActiveCategory = Boolean(activeCategory);
@@ -206,12 +206,12 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
 
             <div className="mt-9">
               {visibleProducts.length > 0 ? (
-                <div className={productGridClass}>
+                <div className={`product-grid ${productGridClass}`}>
                   {visibleProducts.map((product) => (
                     <Link
                       key={product.slug}
                       href={product.href}
-                      className={`group grid grid-cols-[5.75rem_minmax(0,1fr)] min-[420px]:grid-cols-[7rem_minmax(0,1fr)] overflow-hidden rounded-lg bg-agri-mist shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft ${
+                      className={`product-card group grid grid-cols-[5.75rem_minmax(0,1fr)] min-[420px]:grid-cols-[7rem_minmax(0,1fr)] overflow-hidden rounded-lg bg-agri-mist shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft ${
                         viewMode === "gallery"
                           ? "lg:block"
                           : viewMode === "list"

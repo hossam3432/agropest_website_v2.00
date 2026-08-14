@@ -68,8 +68,8 @@ export function Navbar({ content, locale }: NavbarProps) {
     <div className={`fixed inset-x-0 top-0 z-50 flex justify-center px-4 transition-all duration-300 ${compact ? "pt-2" : "pt-4"}`}>
       <header
         ref={headerRef}
-        className={`w-full transition-all duration-300 ${
-          compact ? "max-w-3xl" : locale === "en" ? "max-w-7xl" : "max-w-6xl"
+        className={`w-full max-w-[450px] transition-all duration-300 ${
+          compact ? "lg:max-w-3xl" : locale === "en" ? "lg:max-w-7xl" : "lg:max-w-6xl"
         }`}
       >
       <nav

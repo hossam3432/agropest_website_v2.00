@@ -426,7 +426,7 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600">{c.pillars.intro}</p>
 
-          <StaggerContainer className="mt-10 grid gap-6 md:grid-cols-3">
+          <StaggerContainer className="mt-10 grid gap-6 lg:grid-cols-3">
             {c.pillars.items.map((item) => (
               <RevealItem key={item.title}>
                 <article className="group h-full rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">

@@ -660,7 +660,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
             <SectionHead title={t.usage.title} intro={t.usage.intro} titleLeading="!leading-[66px] rtl:!leading-[66px]" />
 
             {/* application cards */}
-            <div className="mt-12 grid gap-5 md:grid-cols-2">
+            <div className="mt-12 grid gap-5 sm:grid-cols-2">
               {t.usage.cards.map((c) => (
                 <div
                   key={c.title}

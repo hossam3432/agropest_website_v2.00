@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion, type PanInfo } from "framer-motion";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
+import { HeroScrollReveal } from "@/components/HeroScrollReveal";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
 
 type HomeMobileProps = {
@@ -349,9 +350,15 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
         />
         <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
 
-        <Eyebrow dark>{home.hero.eyebrow}</Eyebrow>
-        <h1 className="mt-5 text-[28px] font-bold leading-[1.2] tracking-normal">{home.hero.title}</h1>
-        <p className="mt-5 text-[15px] leading-8 text-white/75">{home.hero.subtitle}</p>
+        <div className="mx-auto w-full max-w-[450px]">
+        <HeroScrollReveal
+          eyebrow={home.hero.eyebrow}
+          title={home.hero.title}
+          subtitle={home.hero.subtitle}
+          eyebrowClassName="text-agri-gold"
+          titleClassName="mt-5 text-2xl font-bold leading-[1.2] tracking-normal"
+          subtitleClassName="mt-5 text-[15px] leading-8 text-white/75"
+        />
 
         <div className="mt-6 inline-flex max-w-full items-center gap-2 rounded-full border border-agri-gold/35 bg-white/10 px-4 py-3 text-xs font-bold shadow-sm backdrop-blur">
           <span className="inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-agri-gold" />
@@ -369,7 +376,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
 
         {/* Signature-card deck: stacked like the desktop version. Drag the top card
             left/right to cycle, or tap a dot. */}
-        <div className="relative mt-9 min-h-[336px]">
+        <div className="relative mx-auto mt-9 min-h-[336px] w-full max-w-[450px]">
           {heroCards.map((card, index) => {
             const total = heroCards.length;
             const position = (index - heroIndex + total) % total;
@@ -396,7 +403,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 animate={variants[state]}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
                 style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
-                className={`absolute inset-x-0 top-0 touch-pan-y rounded-[1.75rem] border border-white/20 bg-white/95 p-7 text-agri-blue shadow-soft ${
+                className={`absolute inset-x-0 top-0 mx-auto w-full max-w-[450px] touch-pan-y rounded-[1.75rem] border border-white/20 bg-white/95 p-7 text-agri-blue shadow-soft ${
                   state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
                 }`}
               >
@@ -431,13 +438,14 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
           </p>
           <Dots count={heroCards.length} active={heroIndex} onSelect={setHeroIndex} dark />
         </div>
+        </div>
       </section>
 
       {/* ---------------------------------------------------------- STICKY TABS */}
-      <div className="sticky top-[70px] z-30 px-3 py-2">
+      <div className="sticky top-[70px] z-30 mx-auto w-full max-w-[450px] px-3 py-2">
         <div
           ref={tabStripRef}
-          className="flex gap-1.5 overflow-x-auto rounded-full border border-white/40 bg-white/20 p-1.5 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),inset_0_-1px_3px_rgba(15,23,42,0.1),inset_0_0_18px_rgba(217,146,39,0.08),0_8px_24px_rgba(15,23,42,0.12)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex items-center gap-1 overflow-x-auto rounded-full border border-white/40 bg-white/20 p-1 backdrop-blur-xl backdrop-saturate-150 shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),inset_0_-1px_3px_rgba(15,23,42,0.1),inset_0_0_18px_rgba(217,146,39,0.08),0_8px_24px_rgba(15,23,42,0.12)] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
@@ -447,7 +455,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 type="button"
                 onClick={() => scrollToSection(tab.id)}
                 aria-current={isActive ? "true" : undefined}
-                className={`flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full px-4 text-[13px] font-bold transition-colors duration-300 ${
+                className={`flex min-h-9 shrink-0 items-center whitespace-nowrap rounded-full px-3 text-xs font-bold transition-colors duration-300 ${
                   isActive
                     ? "bg-agri-green text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.25)]"
                     : "text-agri-blue [text-shadow:0_0_8px_rgba(255,255,255,0.9),0_1px_3px_rgba(255,255,255,0.7)]"
@@ -462,8 +470,9 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
 
       {/* --------------------------------------------------------- STORY (commitment) */}
       <section id="m-story" className="scroll-mt-[150px] bg-white px-5 pb-14 pt-12">
+        <div className="mx-auto w-full max-w-[450px]">
         <Eyebrow>{home.commitmentSection.eyebrow}</Eyebrow>
-        <h2 className="mt-6 text-[26px] font-bold leading-tight text-agri-blue">{home.commitmentSection.title}</h2>
+        <h2 className="mt-6 text-2xl font-bold leading-tight text-agri-blue">{home.commitmentSection.title}</h2>
 
         <div className="mt-8 rounded-[1.5rem] border-s-4 border-agri-gold bg-agri-mist p-6">
           {home.commitmentSection.paragraphs.map((paragraph) => (
@@ -492,6 +501,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
             ))}
           </div>
         ) : null}
+        </div>
       </section>
 
       {/* ----------------------------------------------------- FEATURED PRODUCTS */}
@@ -500,15 +510,16 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
         className="scroll-mt-[150px] relative isolate overflow-hidden bg-[radial-gradient(circle_at_18%_8%,rgba(217,146,39,0.2),transparent_32%),linear-gradient(150deg,#06281f_0%,#0A3D2B_50%,#17324d_100%)] px-5 pb-14 pt-14 text-white"
       >
         <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
+        <div className="mx-auto w-full max-w-[450px]">
         <Eyebrow dark>{home.featuredProductLinesSection.eyebrow}</Eyebrow>
-        <h2 className="mt-4 text-[26px] font-bold leading-tight">{home.featuredProductLinesSection.title}</h2>
+        <h2 className="mt-4 text-2xl font-bold leading-tight">{home.featuredProductLinesSection.title}</h2>
         {home.featuredProductLinesSection.description ? (
           <p className="mt-4 text-[15px] leading-8 text-white/75">{home.featuredProductLinesSection.description}</p>
         ) : null}
 
         {/* Draggable stacked deck — same mechanics as the hero signature-card deck:
             top card is dragged/tapped to cycle, with next/back cards peeking behind. */}
-        <div className="relative mt-8 min-h-[500px]">
+        <div className="relative mx-auto mt-8 min-h-[500px] w-full max-w-[450px]">
           {featuredProducts.map((item, index) => {
             const total = featuredProducts.length;
             const position = (index - productIndex + total) % total;
@@ -535,19 +546,21 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 animate={variants[state]}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
                 style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
-                className={`absolute inset-x-9 top-0 touch-pan-y overflow-hidden rounded-[1.75rem] bg-white text-agri-blue shadow-[0_20px_50px_rgba(0,0,0,0.35)] ${
+                className={`absolute inset-x-0 top-0 mx-auto w-full max-w-[450px] touch-pan-y overflow-hidden rounded-[1.75rem] bg-white text-agri-blue shadow-[0_20px_50px_rgba(0,0,0,0.35)] ${
                   state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
                 }`}
               >
-                <div className="relative flex h-52 items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_50%_30%,rgba(217,146,39,0.18),transparent_60%)] px-8 pb-6 pt-11">
-                  <ResponsiveImage
-                    src={item.image}
-                    alt={item.imageAlt}
-                    sizes="82vw"
-                    className="h-full w-full object-contain"
-                    objectFit="contain"
-                    style={{ transform: `scale(${item.image.includes("fossil-featured-logo") ? 0.82 : 0.68})` }}
-                  />
+                <div className="relative flex h-32 items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_50%_30%,rgba(217,146,39,0.18),transparent_60%)] px-6 py-4">
+                  <div className="relative flex h-24 w-full max-w-[180px] items-center justify-center">
+                    <ResponsiveImage
+                      src={item.image}
+                      alt={item.imageAlt}
+                      sizes="180px"
+                      className="h-full w-full object-contain"
+                      objectFit="contain"
+                      style={{ transform: `scale(${item.image.includes("fossil-featured-logo") ? 0.82 : 0.68})` }}
+                    />
+                  </div>
                 </div>
                 <div className="p-6 pb-7">
                   {item.eyebrow ? (
@@ -557,7 +570,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                   ) : null}
                   <h3 className="mt-3 text-xl font-bold leading-tight text-agri-blue">{item.title}</h3>
                   {item.tags.length ? (
-                    <div className="mt-2.5 flex flex-wrap gap-2">
+                    <div className="mt-2.5 flex flex-wrap items-center gap-2">
                       {item.tags.map((tag) => (
                         <span key={tag} className="rounded-lg border border-agri-green px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-agri-green">
                           {tag}
@@ -585,11 +598,12 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
           </p>
           <Dots count={featuredProducts.length} active={productIndex} onSelect={setProductIndex} dark />
         </div>
+        </div>
       </section>
 
       {/* -------------------------------------------------------------- CATEGORIES */}
       <section id="m-categories" className="scroll-mt-[150px] bg-agri-mist px-5 py-14">
-        <div className="rounded-[1.5rem] border border-agri-line bg-white p-7 shadow-soft">
+        <div className="mx-auto w-full max-w-[450px] rounded-[1.5rem] border border-agri-line bg-white p-7 shadow-soft">
           <Eyebrow>{home.productCategoriesSection.eyebrow}</Eyebrow>
           <h2 className="mt-4 text-[24px] font-bold leading-tight text-agri-blue">{home.productCategoriesSection.title}</h2>
           {home.productCategoriesSection.description ? (
@@ -607,11 +621,13 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
 
       {/* ------------------------------------------------------------- WHY AGROPEST */}
       <section id="m-why" className="scroll-mt-[150px] bg-agri-greenDark px-5 py-14 text-white">
+        <div className="mx-auto w-full max-w-[450px]">
         <Eyebrow dark>{home.whyAgropestSection.eyebrow}</Eyebrow>
-        <h2 className="mt-4 text-[26px] font-bold leading-tight">{home.whyAgropestSection.title}</h2>
+        <h2 className="mt-4 text-2xl font-bold leading-tight">{home.whyAgropestSection.title}</h2>
         <p className="mt-4 text-[15px] leading-8 text-white/70">{home.whyAgropestSection.description}</p>
+        </div>
 
-        <div className="relative mt-6 aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-white/10 shadow-soft">
+        <div className="relative mx-auto mt-6 aspect-[16/10] w-full max-w-[450px] overflow-hidden rounded-[1.5rem] border border-white/10 shadow-soft">
           <ResponsiveImage
             src="/images/backgrounds/field-day-trials.jpg"
             alt={home.whyAgropestSection.imageAlt}
@@ -621,6 +637,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
           />
         </div>
 
+        <div className="mx-auto w-full max-w-[450px]">
         <div className="mt-6 grid gap-3">
           {home.whyAgropestSection.items.map((item, index) => (
             <Disclosure
@@ -640,11 +657,12 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
             </Disclosure>
           ))}
         </div>
+        </div>
       </section>
 
       {/* --------------------------------------------------------- TECHNICAL LIBRARY */}
       <section id="m-library" className="scroll-mt-[150px] bg-white px-5 py-14">
-        <div className="relative min-h-[190px] overflow-hidden rounded-[1.5rem] bg-agri-blue shadow-soft">
+        <div className="relative mx-auto min-h-[190px] w-full max-w-[450px] overflow-hidden rounded-[1.5rem] bg-agri-blue shadow-soft">
           <ResponsiveImage
             src={content.technicalLibraryPreview.image}
             alt={content.technicalLibraryPreview.imageAlt}
@@ -653,6 +671,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
             objectFit="cover"
           />
         </div>
+        <div className="mx-auto w-full max-w-[450px]">
         <div className="mt-8">
           <Eyebrow>{content.technicalLibraryPreview.eyebrow}</Eyebrow>
           <h2 className="mt-3 text-[24px] font-bold leading-tight text-agri-blue">{content.technicalLibraryPreview.title}</h2>
@@ -661,17 +680,19 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
         <Link href={localizeHref(locale, content.technicalLibraryPreview.cta.href)} className="btn-primary mt-6 min-h-[52px] w-full">
           {content.technicalLibraryPreview.cta.label}
         </Link>
+        </div>
       </section>
 
       {/* ------------------------------------------------------------------ PARTNERS */}
       <section id="m-partners" className="scroll-mt-[150px] relative isolate bg-gradient-to-br from-agri-blue via-agri-greenDark to-agri-blue px-5 py-14 text-white">
+        <div className="mx-auto w-full max-w-[450px]">
         <Eyebrow dark>{home.partnersSection.eyebrow}</Eyebrow>
-        <h2 className="mt-4 text-[26px] font-bold leading-tight">{home.partnersSection.title}</h2>
+        <h2 className="mt-4 text-2xl font-bold leading-tight">{home.partnersSection.title}</h2>
         <p className="mt-4 text-[15px] leading-8 text-white/80">{home.partnersSection.description}</p>
 
         {/* Draggable stacked deck — same mechanics as the hero signature-card deck:
             top card is dragged/tapped to cycle, with next/back cards peeking behind. */}
-        <div className="relative mt-8 min-h-[440px]">
+        <div className="relative mx-auto mt-8 min-h-[440px] w-full max-w-[450px]">
           {partners.map((partner, index) => {
             const total = partners.length;
             const position = (index - partnerIndex + total) % total;
@@ -698,17 +719,17 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 animate={variants[state]}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
                 style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
-                className={`absolute inset-x-9 top-0 flex min-h-[420px] touch-pan-y flex-col justify-center rounded-[1.75rem] border border-white/20 bg-white/95 p-7 text-center text-agri-blue shadow-soft ${
+                className={`absolute inset-x-0 top-0 mx-auto w-full max-w-[450px] flex min-h-[420px] touch-pan-y flex-col items-center justify-center rounded-[1.75rem] border border-white/20 bg-white/95 p-7 text-center text-agri-blue shadow-soft ${
                   state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
                 }`}
               >
-                <div className="flex h-24 w-full items-center justify-center">
+                <div className="flex h-20 w-full items-center justify-center">
                   <ResponsiveImage
                     src={partner.logo}
                     alt={partner.logoAlt}
-                    sizes="220px"
+                    sizes="190px"
                     objectFit="contain"
-                    className="max-h-20 w-full max-w-[220px] object-contain"
+                    className="max-h-16 w-full max-w-[190px] object-contain"
                   />
                 </div>
                 <p className="mt-5 text-lg font-black tracking-tight">{partner.name}</p>
@@ -724,11 +745,12 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
           </p>
           <Dots count={partners.length} active={partnerIndex} onSelect={setPartnerIndex} dark />
         </div>
+        </div>
       </section>
 
       {/* --------------------------------------------------------------------- CTA */}
       <section id="m-cta" className="scroll-mt-[150px] bg-agri-mist px-5 py-14">
-        <div className="relative overflow-hidden rounded-[1.75rem] bg-agri-blue px-6 py-9 text-white shadow-soft">
+        <div className="relative mx-auto w-full max-w-[450px] overflow-hidden rounded-[1.75rem] bg-agri-blue px-6 py-9 text-white shadow-soft">
           {home.cta.backgroundImage ? (
             <div aria-hidden="true" className="absolute inset-0 opacity-25">
               <ResponsiveImage src={home.cta.backgroundImage} alt="" className="h-full w-full" objectFit="cover" />
@@ -737,7 +759,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
           <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-agri-blue via-agri-blue/90 to-agri-green/75" />
           <div className="relative">
             {home.cta.eyebrow ? <Eyebrow dark>{home.cta.eyebrow}</Eyebrow> : null}
-            <h2 className="mt-4 text-[26px] font-bold leading-tight">{home.cta.title}</h2>
+            <h2 className="mt-4 text-2xl font-bold leading-tight">{home.cta.title}</h2>
             <p className="mt-4 text-[15px] leading-8 text-white/75">{home.cta.description}</p>
 
             <div className="mt-7 grid gap-3">

@@ -102,7 +102,7 @@ export default async function AboutPage({ params }: LocalePageProps) {
 
       <section className="bg-agri-mist py-12 sm:py-20">
         <div className="container-shell">
-          <StaggerContainer className="grid gap-6 md:grid-cols-2" amount={0.15}>
+          <StaggerContainer className="grid gap-6 lg:grid-cols-2" amount={0.15}>
             {about.sections.slice(2, 6).map((section) => (
               <RevealItem key={section.title} hoverLift>
                 <article className="group h-full border border-t-4 border-agri-line border-t-agri-gold bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-agri-green hover:border-t-agri-gold hover:bg-agri-green hover:shadow-soft sm:p-8">

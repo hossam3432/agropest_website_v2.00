@@ -13,7 +13,7 @@ export function Footer({ content, locale }: FooterProps) {
 
   return (
     <footer className="bg-agri-blue text-white">
-      <div className="container-shell grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+      <div className="container-shell max-w-[450px] grid gap-10 py-12 lg:max-w-7xl lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
         <div>
           <div>
             <ResponsiveImage
@@ -54,7 +54,7 @@ export function Footer({ content, locale }: FooterProps) {
       </div>
       <div className="border-t border-white/10">
         <div
-          className={`container-shell flex flex-col items-center gap-3 py-5 text-center text-sm text-white/60 ${
+          className={`container-shell max-w-[450px] flex flex-col items-center gap-3 py-5 text-center text-sm text-white/60 lg:max-w-7xl ${
             footer.bottomNote ? "sm:flex-row sm:justify-between sm:text-start" : "sm:flex-col"
           }`}
         >

@@ -474,7 +474,7 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
         </div>
 
         {/* residual + WG — dual tone tiles */}
-        <div className="lx-reveal mt-1.5 grid gap-1.5 lg:grid-cols-2">
+        <div className="lx-reveal mt-1.5 grid gap-1.5 sm:grid-cols-2">
           <div className="p-7 sm:p-8" style={{ backgroundColor: TEAL }}>
             <BrandCheck size={28} />
             <h3 className="mt-4 text-xl font-extrabold text-white">{c.mech.residualTitle}</h3>
@@ -594,7 +594,7 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
         </ol>
 
         {/* tank-mix compatibility */}
-        <div className="lx-reveal mt-12 grid gap-1.5 lg:grid-cols-2">
+        <div className="lx-reveal mt-12 grid gap-1.5 sm:grid-cols-2">
           <div className="border bg-white p-7" style={{ borderColor: GREEN + "55" }}>
             <div className="flex items-center gap-3">
               <BrandCheck size={22} />

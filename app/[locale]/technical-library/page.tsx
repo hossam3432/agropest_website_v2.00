@@ -46,7 +46,7 @@ export default async function TechnicalLibraryPage({ params }: LocalePageProps) 
             </div>
           </div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {libraryPage.knowledgeSection.items.map((item) => (
               <article key={item.title} className="group card border-t-4 border-t-agri-gold p-5 transition duration-300 sm:p-6 hover:-translate-y-1 hover:border-agri-green hover:border-t-agri-gold hover:bg-agri-green hover:shadow-soft">
                 <h3 className="text-lg font-bold sm:text-xl tracking-normal text-agri-blue transition duration-300 group-hover:text-white">{item.title}</h3>

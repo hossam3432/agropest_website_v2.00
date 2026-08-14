@@ -47,7 +47,7 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
             <p className="eyebrow">{solutionsPage.audiencesSection.eyebrow}</p>
             <h2 className="section-title mt-3">{solutionsPage.audiencesSection.title}</h2>
           </RevealSection>
-          <StaggerContainer className="mt-10 grid gap-5 md:grid-cols-2" amount={0.15}>
+          <StaggerContainer className="mt-10 grid gap-5 lg:grid-cols-2" amount={0.15}>
             {solutionsPage.audiencesSection.items.map((item) => (
               <RevealItem key={item.title} hoverLift>
                 <article className="group h-full border border-t-4 border-agri-line border-t-agri-gold bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-agri-green hover:border-t-agri-gold hover:bg-agri-green hover:shadow-soft sm:p-7">

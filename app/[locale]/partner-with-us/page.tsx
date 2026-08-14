@@ -73,7 +73,7 @@ export default async function PartnerWithUsPage({ params }: LocalePageProps) {
         <div className="container-shell">
           <p className="eyebrow">{partnerPage.tracksSection.eyebrow}</p>
           <h2 className="section-title mt-3">{partnerPage.tracksSection.title}</h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {partnerTracks.map((track) => (
               <article key={track.title} className="card border-t-4 border-t-agri-gold p-5 sm:p-8">
                 <h3 className="text-xl font-semibold text-agri-blue sm:text-2xl">{track.title}</h3>

@@ -52,7 +52,7 @@ export default async function BrochuresPage({ params }: LocalePageProps) {
             <p className="section-copy">{brochuresPage.section.intro}</p>
           </RevealSection>
 
-          <StaggerContainer className="mt-10 grid gap-6 md:grid-cols-2" amount={0.15}>
+          <StaggerContainer className="mt-10 grid gap-6 lg:grid-cols-2" amount={0.15}>
             {brochuresPage.products.map((product) => (
               <RevealItem key={product.slug} hoverLift>
                 <article className="group flex h-full flex-col overflow-hidden border border-agri-line bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-agri-gold hover:shadow-soft">

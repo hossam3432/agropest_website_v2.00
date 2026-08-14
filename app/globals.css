@@ -129,7 +129,7 @@ a {
 
 @layer components {
   .container-shell {
-    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 md:max-w-4xl lg:max-w-5xl lg:px-8 xl:max-w-6xl;
+    @apply mx-auto w-full max-w-[450px] px-4 sm:px-6 lg:max-w-7xl lg:px-8;
   }
 
   .eyebrow {
