@@ -546,7 +546,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 animate={variants[state]}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
                 style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
-                className={`absolute inset-x-0 top-0 mx-auto w-full max-w-[450px] touch-pan-y overflow-hidden rounded-[1.75rem] bg-white text-agri-blue shadow-[0_20px_50px_rgba(0,0,0,0.35)] ${
+                className={`absolute inset-x-0 top-0 mx-auto w-[280px] touch-pan-y overflow-hidden rounded-[1.75rem] bg-white text-agri-blue shadow-[0_20px_50px_rgba(0,0,0,0.35)] ${
                   state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
                 }`}
               >
@@ -719,7 +719,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 animate={variants[state]}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
                 style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
-                className={`absolute inset-x-0 top-0 mx-auto w-full max-w-[450px] flex min-h-[420px] touch-pan-y flex-col items-center justify-center rounded-[1.75rem] border border-white/20 bg-white/95 p-7 text-center text-agri-blue shadow-soft ${
+                className={`absolute inset-x-0 top-0 mx-auto w-[280px] flex min-h-[420px] touch-pan-y flex-col items-center justify-center rounded-[1.75rem] border border-white/20 bg-white/95 p-7 text-center text-agri-blue shadow-soft ${
                   state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
                 }`}
               >
