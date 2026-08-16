@@ -8,7 +8,7 @@ export function RivalDuoSectionKicker({ children, light }: { children: ReactNode
     <div className="inline-flex flex-col overflow-hidden rounded-xl shadow-md">
       <span className="h-2" style={{ backgroundColor: ORANGE }} />
       <span
-        className="px-6 py-3 text-base font-normal uppercase tracking-[0.14em] text-white"
+        className="px-6 py-3 text-base font-normal uppercase tracking-[0.14em] text-white xl:px-7 xl:text-lg"
         style={{ backgroundColor: light ? "rgba(255,255,255,0.18)" : BLUE, backdropFilter: light ? "blur(6px)" : undefined }}
       >
         {children}

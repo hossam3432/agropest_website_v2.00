@@ -122,7 +122,10 @@ export function RivalDuoScrollShell({ children }: RivalDuoScrollShellProps) {
       <div
         ref={containerRef}
         className="snap-y snap-mandatory overflow-y-auto overflow-x-hidden"
-        style={{ height: "calc(100svh - 5rem)" }}
+        // Full viewport, not minus the header: the wrapper's -mt-24 already pulls
+        // this to top:0, so subtracting the header left an 80px band at the bottom
+        // of every panel where the footer showed through.
+        style={{ height: "100svh" }}
       >
         {children}
       </div>

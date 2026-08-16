@@ -362,45 +362,45 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
         {/* SECTIONS 1–3 share ONE oversized umbrella line-art background (off-white) */}
         <div className="relative bg-[#F5F8FC]">
           <div className="pointer-events-none absolute inset-0 z-0">
-            <div className="sticky top-0 flex h-[calc(100svh-5rem)] w-full items-center justify-center overflow-hidden">
+            <div className="sticky top-0 flex h-svh w-full items-center justify-center overflow-hidden">
               <ResponsiveImage src="/images/products/rival-duo-umbrella-lineart.png" alt="" aria-hidden="true" className="h-[140%] w-auto max-w-none opacity-[0.13]" objectFit="contain" sizes="100vw" priority style={locale === "ar" ? { transform: "scaleX(-1)" } : undefined} />
             </div>
           </div>
           <div className="relative z-10">
 
           {/* SECTION 1 — HERO */}
-          <section className="relative flex h-[calc(100svh-5rem)] snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
+          <section className="relative flex h-svh snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
             <RivalDuoFit>
-            <RevealSection className="container-shell relative w-full lg:mx-auto lg:max-w-5xl" amount={0.2}>
+            <RevealSection className="container-shell relative w-full lg:mx-auto lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl" amount={0.2}>
               <div className="mx-auto max-w-4xl lg:max-w-none">
                 <div className="flex flex-wrap items-center gap-5">
-                  <ResponsiveImage src={wordmark} alt={c.nav.eyebrow} className="h-24 w-auto object-contain sm:h-[120px] lg:h-36" objectFit="contain" sizes="144px" />
+                  <ResponsiveImage src={wordmark} alt={c.nav.eyebrow} className="h-24 w-auto object-contain sm:h-[120px] lg:h-36 2xl:h-44" objectFit="contain" sizes="(min-width: 1536px) 176px, 144px" />
                 </div>
                 <DoubleLine className="mt-6" rtl={locale === "ar"} />
-                <span className="mt-3 inline-block rounded-full border-2 px-5 py-2.5 text-sm font-normal uppercase tracking-[0.14em] sm:text-base" style={{ borderColor: BLUE, color: BLUE }}>{c.nav.badge}</span>
-                <h1 className="mt-4 max-w-3xl text-3xl font-extrabold leading-[1.15] tracking-normal" style={{ color: INK }}>
+                <span className="mt-3 inline-block rounded-full border-2 px-5 py-2.5 text-sm font-normal uppercase tracking-[0.14em] sm:text-base xl:px-6 xl:py-3 xl:text-lg" style={{ borderColor: BLUE, color: BLUE }}>{c.nav.badge}</span>
+                <h1 className="mt-4 max-w-3xl text-3xl font-extrabold leading-[1.15] tracking-normal xl:max-w-4xl xl:text-[2.75rem] 2xl:text-[3.25rem]" style={{ color: INK }}>
                   {c.hero.slogan}
                 </h1>
-                <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
+                <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9 xl:max-w-3xl xl:text-xl xl:leading-10">
                   {c.hero.lead}
                 </p>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-[1.25rem] border-2 bg-white/75 p-5 backdrop-blur-sm" style={{ borderColor: ORANGE + "33" }}>
-                    <p className="text-xs font-normal uppercase tracking-[0.14em] text-slate-400">{c.hero.compositionLabel}</p>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:mt-8 xl:gap-6">
+                  <div className="rounded-[1.25rem] border-2 bg-white/75 p-5 backdrop-blur-sm xl:p-7" style={{ borderColor: ORANGE + "33" }}>
+                    <p className="text-xs font-normal uppercase tracking-[0.14em] text-slate-400 xl:text-sm">{c.hero.compositionLabel}</p>
                     <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
                       {product.facts.compositionRows?.map((row, index) => (
                         <div key={row.ingredient} className="flex items-baseline gap-2">
                           {index > 0 && <span className="text-3xl font-bold text-slate-300">+</span>}
-                          <span dir="ltr" className="text-4xl font-extrabold sm:text-5xl" style={{ color: index === 0 ? BLUE : ORANGE }}>{row.concentration}</span>
-                          <span className="text-base font-bold text-slate-500">{row.ingredient}</span>
+                          <span dir="ltr" className="text-4xl font-extrabold sm:text-5xl 2xl:text-6xl" style={{ color: index === 0 ? BLUE : ORANGE }}>{row.concentration}</span>
+                          <span className="text-base font-bold text-slate-500 xl:text-lg">{row.ingredient}</span>
                         </div>
                       ))}
                     </div>
                   </div>
-                  <div className="rounded-[1.25rem] border-2 bg-white/75 p-5 backdrop-blur-sm" style={{ borderColor: BLUE + "33" }}>
-                    <p className="text-xs font-normal uppercase tracking-[0.14em] text-slate-400">{c.hero.curativeLabel}</p>
+                  <div className="rounded-[1.25rem] border-2 bg-white/75 p-5 backdrop-blur-sm xl:p-7" style={{ borderColor: BLUE + "33" }}>
+                    <p className="text-xs font-normal uppercase tracking-[0.14em] text-slate-400 xl:text-sm">{c.hero.curativeLabel}</p>
                     <div className="mt-2 flex items-baseline gap-3">
-                      <span dir="ltr" className="text-4xl font-extrabold sm:text-5xl" style={{ color: BLUE }}>{c.hero.curativeValue}</span>
+                      <span dir="ltr" className="text-4xl font-extrabold sm:text-5xl 2xl:text-6xl" style={{ color: BLUE }}>{c.hero.curativeValue}</span>
                     </div>
                   </div>
                 </div>
@@ -413,14 +413,14 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
           </section>
 
           {/* SECTION — DUAL COMPOSITION (حماية مزدوجة في منتج واحد) */}
-          <section className="relative flex h-[calc(100svh-5rem)] snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
+          <section className="relative flex h-svh snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
             <RivalDuoFit>
-            <RevealSection className="container-shell w-full lg:mx-auto lg:max-w-5xl" amount={0.2}>
+            <RevealSection className="container-shell w-full lg:mx-auto lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl" amount={0.2}>
               <div className="flex flex-wrap items-center gap-5">
                 <RivalDuoSectionKicker>{c.s3.kicker}</RivalDuoSectionKicker>
                 <ResponsiveImage src="/images/products/rival-duo-shield-logo.png" alt="" className="h-16 w-auto object-contain sm:h-20" objectFit="contain" sizes="80px" />
               </div>
-              <h2 className="mt-4 max-w-4xl text-3xl font-extrabold leading-[1.15]" style={{ color: INK }}>{c.s3.title}</h2>
+              <h2 className="mt-4 max-w-4xl text-3xl font-extrabold leading-[1.15] xl:text-[2.25rem] 2xl:text-[2.5rem]" style={{ color: INK }}>{c.s3.title}</h2>
               <RivalDuoCompositionToggle
                 card1={{ badge: c.s3.card1Badge, name: c.s3.card1Name, text: c.s3.card1Text }}
                 card2={{ badge: c.s3.card2Badge, name: c.s3.card2Name, text: c.s3.card2Text }}
@@ -440,12 +440,12 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
           />
 
           {/* SECTION — PREVENTIVE & CURATIVE OOMYCETE ACTION (منع تكوين الحوامل الجرثومية) */}
-          <section className="relative flex h-[calc(100svh-5rem)] snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
+          <section className="relative flex h-svh snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
           <RivalDuoFit>
-          <RevealSection className="container-shell relative z-10 w-full lg:mx-auto lg:max-w-5xl" amount={0.2}>
+          <RevealSection className="container-shell relative z-10 w-full lg:mx-auto lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl" amount={0.2}>
             <RivalDuoSectionKicker>{c.s2.kicker}</RivalDuoSectionKicker>
-            <h2 className="mt-4 max-w-4xl text-3xl font-extrabold leading-[1.15]" style={{ color: INK }}>{c.s2.title}</h2>
-            <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-[42px]">{c.s2.intro}</p>
+            <h2 className="mt-4 max-w-4xl text-3xl font-extrabold leading-[1.15] xl:text-[2.25rem] 2xl:text-[2.5rem]" style={{ color: INK }}>{c.s2.title}</h2>
+            <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-[42px] xl:max-w-4xl xl:text-xl">{c.s2.intro}</p>
             <RivalDuoOomyceteCards
               card1={{ image: "/images/products/rival-duo-oomycete-germinate.png", title: c.s2.stage1Title, text: c.s2.stage1Text }}
               card2={{ image: "/images/products/rival-duo-oomycete-blocked.png", title: c.s2.stage2Title, text: c.s2.stage2Text }}
@@ -455,31 +455,35 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
         </section>
 
           {/* SECTION 4 — APPLICATION RATES (توصيات محلية ودولية) */}
-          <section id="s4" className="relative flex h-[calc(100svh-5rem)] snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
+          <section id="s4" className="relative flex h-svh snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
           <RivalDuoFit>
-          <RevealSection className="container-shell relative z-10 w-full lg:mx-auto lg:max-w-5xl" amount={0.2}>
+          <RevealSection className="container-shell relative z-10 w-full lg:mx-auto lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl" amount={0.2}>
             <RivalDuoSectionKicker>{c.s4.kicker}</RivalDuoSectionKicker>
-            <h2 className="mt-4 max-w-4xl text-3xl font-extrabold leading-[1.15]" style={{ color: INK }}>{c.s4.title}</h2>
+            <h2 className="mt-4 max-w-4xl text-3xl font-extrabold leading-[1.15] xl:text-[2.25rem] 2xl:text-[2.5rem]" style={{ color: INK }}>{c.s4.title}</h2>
 
-            <div className="lg:mx-auto lg:max-w-3xl">
+            <div className="lg:mx-auto lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl">
               <div className="mt-4 overflow-hidden rounded-[1.5rem] border-2 sm:mt-5" style={{ borderColor: BLUE + "22" }}>
-                <p className="px-4 py-2.5 text-base font-normal text-white sm:px-6 sm:py-3 sm:text-lg" style={{ backgroundColor: BLUE }}>{c.s4.localTitle}</p>
+                {/* This is the tallest of the seven panels, so it scales up on 2xl
+                    only — bumping it at xl pushed it past the panel on a 1280x800
+                    laptop and RivalDuoFit shrank the whole section to compensate.
+                    Padding bumps go first: they buy no legibility. */}
+                <p className="px-4 py-2.5 text-base font-normal text-white sm:px-6 sm:py-3 sm:text-lg 2xl:text-xl" style={{ backgroundColor: BLUE }}>{c.s4.localTitle}</p>
                 <div className="grid grid-cols-2 gap-3 bg-[#F8FAFD] px-4 py-3 sm:grid-cols-4 sm:gap-4 sm:px-6 sm:py-4">
-                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">{c.s4.cropLabel}</p><p className="mt-1 text-lg font-extrabold sm:text-xl" style={{ color: INK }}>{c.s4.local.crop}</p></div>
-                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">{c.s4.diseaseLabel}</p><p className="mt-1 text-base font-bold text-slate-600">{c.s4.local.disease}</p></div>
-                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">{c.s4.rateLabel}</p><p className="mt-1 text-lg font-extrabold sm:text-xl" style={{ color: ORANGE }}>{c.s4.local.rate}</p></div>
-                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">{c.s4.phiLabel}</p><p className="mt-1 text-lg font-extrabold sm:text-xl" style={{ color: BLUE }}>{c.s4.local.phi}</p></div>
+                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400 2xl:text-sm">{c.s4.cropLabel}</p><p className="mt-1 text-lg font-extrabold sm:text-xl 2xl:text-2xl" style={{ color: INK }}>{c.s4.local.crop}</p></div>
+                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400 2xl:text-sm">{c.s4.diseaseLabel}</p><p className="mt-1 text-base font-bold text-slate-600 2xl:text-lg">{c.s4.local.disease}</p></div>
+                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400 2xl:text-sm">{c.s4.rateLabel}</p><p className="mt-1 text-lg font-extrabold sm:text-xl 2xl:text-2xl" style={{ color: ORANGE }}>{c.s4.local.rate}</p></div>
+                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400 2xl:text-sm">{c.s4.phiLabel}</p><p className="mt-1 text-lg font-extrabold sm:text-xl 2xl:text-2xl" style={{ color: BLUE }}>{c.s4.local.phi}</p></div>
                 </div>
               </div>
 
-              <p className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-slate-400 sm:mt-5">{c.s4.euTitle}</p>
+              <p className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-slate-400 sm:mt-5 2xl:text-base">{c.s4.euTitle}</p>
               <div className="mt-2.5 grid gap-2 sm:mt-3 sm:gap-3">
                 {c.s4.rows.map((row) => (
                   <div key={row.family} className="grid grid-cols-2 gap-2 rounded-[1.25rem] border-2 border-slate-100 bg-[#F8FAFD] p-3 sm:grid-cols-4 sm:items-center sm:gap-3 sm:p-4">
-                    <p className="text-sm font-extrabold sm:text-base" style={{ color: INK }}>{row.family}</p>
-                    <p className="text-sm text-slate-600">{row.disease}</p>
-                    <p className="text-sm font-extrabold sm:text-base" style={{ color: ORANGE }}>{row.rate}</p>
-                    <p className="text-sm font-extrabold sm:text-base" style={{ color: BLUE }}>{row.phi}</p>
+                    <p className="text-sm font-extrabold sm:text-base 2xl:text-lg" style={{ color: INK }}>{row.family}</p>
+                    <p className="text-sm text-slate-600 2xl:text-base">{row.disease}</p>
+                    <p className="text-sm font-extrabold sm:text-base 2xl:text-lg" style={{ color: ORANGE }}>{row.rate}</p>
+                    <p className="text-sm font-extrabold sm:text-base 2xl:text-lg" style={{ color: BLUE }}>{row.phi}</p>
                   </div>
                 ))}
               </div>
@@ -489,18 +493,18 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
         </section>
 
           {/* SECTION 7 — WHY RIVAL DUO */}
-          <section className="relative flex h-[calc(100svh-5rem)] snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
+          <section className="relative flex h-svh snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
           <RivalDuoFit>
-          <RevealSection className="container-shell relative z-10 w-full lg:mx-auto lg:max-w-5xl" amount={0.2}>
+          <RevealSection className="container-shell relative z-10 w-full lg:mx-auto lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl" amount={0.2}>
             <div className="flex flex-wrap items-center gap-4 sm:gap-5">
-              <ResponsiveImage src="/images/products/rival-duo-shield-logo.png" alt="" className="h-12 w-auto object-contain sm:h-20" objectFit="contain" sizes="80px" />
-              <h2 className="text-3xl font-extrabold leading-[1.15]" style={{ color: INK }}>{c.s7.title}</h2>
+              <ResponsiveImage src="/images/products/rival-duo-shield-logo.png" alt="" className="h-12 w-auto object-contain sm:h-20 xl:h-24" objectFit="contain" sizes="(min-width: 1280px) 96px, 80px" />
+              <h2 className="text-3xl font-extrabold leading-[1.15] xl:text-[2.25rem] 2xl:text-[2.5rem]" style={{ color: INK }}>{c.s7.title}</h2>
             </div>
-            <StaggerContainer className="mt-4 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-4" amount={0.15}>
+            <StaggerContainer className="mt-4 grid gap-3 sm:mt-6 sm:grid-cols-2 sm:gap-4 xl:mt-8 xl:gap-6" amount={0.15}>
               {c.s7.pillars.map((pillar, index) => (
                 <RevealItem key={pillar.title}>
                   <div
-                    className={`group h-full cursor-pointer rounded-[1.5rem] bg-white p-4 shadow-[0_18px_55px_rgba(14,75,159,0.1)] transition-colors duration-300 sm:p-6 ${
+                    className={`group h-full cursor-pointer rounded-[1.5rem] bg-white p-4 shadow-[0_18px_55px_rgba(14,75,159,0.1)] transition-colors duration-300 sm:p-6 xl:p-8 ${
                       index % 2 === 0 ? "hover:bg-[#0E4B9F] active:bg-[#0E4B9F]" : "hover:bg-[#F14723] active:bg-[#F14723]"
                     }`}
                   >
@@ -511,10 +515,10 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
                     >
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="mt-2 text-xl font-extrabold text-[#0A2A57] transition-colors duration-300 group-hover:text-white group-active:text-white sm:text-2xl">
+                    <h3 className="mt-2 text-xl font-extrabold text-[#0A2A57] transition-colors duration-300 group-hover:text-white group-active:text-white sm:text-2xl xl:text-[1.75rem]">
                       {pillar.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-7 text-slate-600 transition-colors duration-300 group-hover:text-white/90 group-active:text-white/90 sm:text-base">
+                    <p className="mt-2 text-sm leading-7 text-slate-600 transition-colors duration-300 group-hover:text-white/90 group-active:text-white/90 sm:text-base xl:text-lg xl:leading-8">
                       {pillar.text}
                     </p>
                   </div>
@@ -526,9 +530,9 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
         </section>
 
           {/* SECTION 8 — COMMERCIAL / CONTACT */}
-          <section className="relative flex h-[calc(100svh-5rem)] snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
+          <section className="relative flex h-svh snap-start items-center overflow-hidden px-4 pb-6 pt-24 sm:px-6 sm:pt-28 lg:px-8">
           <RivalDuoFit>
-          <RevealSection className="container-shell relative z-10 w-full lg:mx-auto lg:max-w-5xl" amount={0.2}>
+          <RevealSection className="container-shell relative z-10 w-full lg:mx-auto lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl" amount={0.2}>
             <div className="grid gap-4 sm:gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
               {/* Mobile: bleed the bottles past the container — the image is width-bound there, so max-h alone can't enlarge it. */}
               <div className="-mx-[5%] sm:mx-auto sm:w-3/4">
@@ -541,15 +545,15 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
                 />
               </div>
               <div className="ml-auto mr-[50px]">
-                <ResponsiveImage src={wordmark} alt={c.nav.eyebrow} className="h-20 w-auto object-contain sm:h-24" objectFit="contain" sizes="96px" />
-                <h2 className="mt-4 max-w-xl text-xl font-extrabold leading-[1.3] sm:text-2xl lg:text-3xl" style={{ color: INK }}>{c.s8.tagline}</h2>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">{c.s8.manufacturerLabel}</p><p className="mt-1 text-base font-bold" style={{ color: INK }}>{c.s8.manufacturer}</p></div>
-                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">{c.s8.agentLabel}</p><p className="mt-1 text-base font-bold" style={{ color: INK }}>{c.s8.agent}</p></div>
-                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">{c.s8.regLabel}</p><p className="mt-1 text-sm text-slate-600">{c.s8.reg}</p></div>
-                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">{c.s8.packLabel}</p><p className="mt-1 text-sm text-slate-600">{c.s8.pack}</p></div>
+                <ResponsiveImage src={wordmark} alt={c.nav.eyebrow} className="h-20 w-auto object-contain sm:h-24 xl:h-28" objectFit="contain" sizes="(min-width: 1280px) 112px, 96px" />
+                <h2 className="mt-4 max-w-xl text-xl font-extrabold leading-[1.3] sm:text-2xl lg:text-3xl xl:max-w-2xl xl:text-[2.25rem]" style={{ color: INK }}>{c.s8.tagline}</h2>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:mt-8 xl:gap-6">
+                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400 xl:text-sm">{c.s8.manufacturerLabel}</p><p className="mt-1 text-base font-bold xl:text-lg" style={{ color: INK }}>{c.s8.manufacturer}</p></div>
+                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400 xl:text-sm">{c.s8.agentLabel}</p><p className="mt-1 text-base font-bold xl:text-lg" style={{ color: INK }}>{c.s8.agent}</p></div>
+                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400 xl:text-sm">{c.s8.regLabel}</p><p className="mt-1 text-sm text-slate-600 xl:text-base">{c.s8.reg}</p></div>
+                  <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400 xl:text-sm">{c.s8.packLabel}</p><p className="mt-1 text-sm text-slate-600 xl:text-base">{c.s8.pack}</p></div>
                 </div>
-                <div className="mt-6 flex flex-wrap gap-4">
+                <div className="mt-6 flex flex-wrap gap-4 xl:mt-8">
                   <a
                     href="/brochures/rival-duo-45-sc-brochure.pdf"
                     target="_blank"

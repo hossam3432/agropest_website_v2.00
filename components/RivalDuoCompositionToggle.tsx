@@ -26,7 +26,7 @@ export function RivalDuoCompositionToggle({ card1, card2 }: RivalDuoCompositionT
   ];
 
   return (
-    <div className="mt-5 flex flex-col gap-5 lg:flex-row">
+    <div className="mt-5 flex flex-col gap-5 lg:flex-row xl:mt-7 xl:gap-7">
       {cards.map(({ key, content, color }) => {
         const isActive = active === key;
         return (
@@ -42,17 +42,17 @@ export function RivalDuoCompositionToggle({ card1, card2 }: RivalDuoCompositionT
                 setActive(key);
               }
             }}
-            className="flex-1 cursor-pointer select-none rounded-[1.5rem] bg-white p-6 shadow-[0_20px_60px_rgba(14,75,159,0.12)] transition-all duration-300 active:scale-[0.98] sm:p-7"
+            className="flex-1 cursor-pointer select-none rounded-[1.5rem] bg-white p-6 shadow-[0_20px_60px_rgba(14,75,159,0.12)] transition-all duration-300 active:scale-[0.98] sm:p-7 xl:p-9"
             style={{ boxShadow: isActive ? `0 20px 60px ${color}33, 0 0 0 2px ${color}` : "0 20px 60px rgba(14,75,159,0.12)" }}
           >
             <span
-              className="inline-block rounded-full px-4 py-1.5 text-xs font-normal uppercase tracking-[0.12em] text-white sm:text-sm"
+              className="inline-block rounded-full px-4 py-1.5 text-xs font-normal uppercase tracking-[0.12em] text-white sm:text-sm xl:px-5 xl:py-2 xl:text-base"
               style={{ backgroundColor: color }}
             >
               {content.badge}
             </span>
-            <h3 className="mt-3 text-xl font-extrabold sm:text-2xl" style={{ color: INK }}>{content.name}</h3>
-            <p className="mt-3 text-base leading-7 text-slate-600">{content.text}</p>
+            <h3 className="mt-3 text-xl font-extrabold sm:text-2xl xl:mt-4 xl:text-[1.75rem]" style={{ color: INK }}>{content.name}</h3>
+            <p className="mt-3 text-base leading-7 text-slate-600 xl:mt-4 xl:text-lg xl:leading-8">{content.text}</p>
           </article>
         );
       })}
