@@ -858,52 +858,52 @@ export function RivalDuoMobile({
           <Field label={c.s8.packLabel} value={c.s8.pack} />
         </div>
 
-        <div className="mt-3 grid gap-2.5">
-          <a
-            href={`tel:${phone.replace(/\s+/g, "")}`}
-            className="flex min-h-[60px] items-center gap-3 rounded-[1.35rem] border-2 border-white bg-white px-4 shadow-[0_10px_30px_rgba(14,75,159,0.07)] active:scale-[0.985]"
-          >
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: BLUE + "14" }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5L17 13l4 1.5v3a2.5 2.5 0 0 1-2.7 2.5C10.4 19.4 4.6 13.6 4 5.7A2.5 2.5 0 0 1 6.5 3Z"
-                  stroke={BLUE}
-                  strokeWidth="1.9"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-            <span className="min-w-0 flex-1">
-              <span className="block text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">{c.s8.supportLabel}</span>
-              <span dir="ltr" className="block text-[15px] font-extrabold" style={{ color: INK, textAlign: rtl ? "right" : "left" }}>
-                {phone}
+        {locale === "ar" && (
+          <div className="mt-3 grid gap-2.5">
+            <a
+              href="tel:01288543614"
+              className="flex min-h-[60px] items-center gap-3 rounded-[1.35rem] border-2 border-white bg-white px-4 shadow-[0_10px_30px_rgba(14,75,159,0.07)] active:scale-[0.985]"
+            >
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: BLUE + "14" }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M6.5 3h3l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5L17 13l4 1.5v3a2.5 2.5 0 0 1-2.7 2.5C10.4 19.4 4.6 13.6 4 5.7A2.5 2.5 0 0 1 6.5 3Z"
+                    stroke={BLUE}
+                    strokeWidth="1.9"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </span>
-            </span>
-          </a>
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex min-h-[60px] items-center gap-3 rounded-[1.35rem] border-2 border-white bg-white px-4 shadow-[0_10px_30px_rgba(14,75,159,0.07)] active:scale-[0.985]"
-          >
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: ORANGE + "14" }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  d="M3.5 20.5 5 16.4A8.2 8.2 0 1 1 8.1 19.4L3.5 20.5Z"
-                  stroke={ORANGE}
-                  strokeWidth="1.9"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-            <span className="min-w-0 flex-1">
-              <span className="block text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">{c.s8.salesLabel}</span>
-              <span dir="ltr" className="block text-[15px] font-extrabold" style={{ color: INK, textAlign: rtl ? "right" : "left" }}>
-                {phone}
+              <span className="min-w-0 flex-1">
+                <span className="block text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">{c.s8.supportLabel}</span>
+                <span dir="ltr" className="block text-[15px] font-extrabold" style={{ color: INK, textAlign: rtl ? "right" : "left" }}>
+                  01288543614
+                </span>
               </span>
-            </span>
-          </a>
-        </div>
+            </a>
+            <a
+              href="tel:01005005064"
+              className="flex min-h-[60px] items-center gap-3 rounded-[1.35rem] border-2 border-white bg-white px-4 shadow-[0_10px_30px_rgba(14,75,159,0.07)] active:scale-[0.985]"
+            >
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: ORANGE + "14" }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M3.5 20.5 5 16.4A8.2 8.2 0 1 1 8.1 19.4L3.5 20.5Z"
+                    stroke={ORANGE}
+                    strokeWidth="1.9"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-[10px] font-bold uppercase tracking-[0.12em] text-slate-400">{c.s8.salesLabel}</span>
+                <span dir="ltr" className="block text-[15px] font-extrabold" style={{ color: INK, textAlign: rtl ? "right" : "left" }}>
+                  01005005064
+                </span>
+              </span>
+            </a>
+          </div>
+        )}
 
         <div className="mt-5 grid gap-2.5">
           <a
