@@ -342,7 +342,6 @@ export function RivalDuoMobile({
   const [openRate, setOpenRate] = useState<number | null>(0);
   const [openPillar, setOpenPillar] = useState<number | null>(0);
   const [stage, setStage] = useState(0);
-  const [barVisible, setBarVisible] = useState(false);
 
   const tabStripRef = useRef<HTMLDivElement>(null);
   const stageStripRef = useRef<HTMLDivElement>(null);
@@ -408,22 +407,6 @@ export function RivalDuoMobile({
     centerInStrip(tabStripRef.current, `[data-tab="${activeTab}"]`, reducedMotion);
   }, [activeTab, reducedMotion]);
 
-  // Sticky action bar: past the hero, and out of the way once the closing
-  // section (which carries the same actions inline) is reached.
-  useEffect(() => {
-    function onScroll() {
-      const closing = document.getElementById("m-s8");
-      const reachedClosing = closing ? closing.getBoundingClientRect().top < window.innerHeight - 120 : true;
-      setBarVisible(window.scrollY > 420 && !reachedClosing);
-    }
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
 
   function selectStage(index: number) {
     setStage(index);
@@ -924,33 +907,6 @@ export function RivalDuoMobile({
           </Link>
         </div>
       </section>
-
-      {/* --------------------------------------------- STICKY ACTION BAR */}
-      <div
-        className={
-          "pointer-events-none fixed inset-x-0 bottom-0 z-40 transition-transform duration-300 " +
-          (barVisible ? "translate-y-0" : "translate-y-[140%]")
-        }
-      >
-        <div className="pointer-events-auto mx-3 mb-3 flex gap-2 rounded-[1.5rem] border border-white/60 bg-white/85 p-2 shadow-[0_12px_40px_rgba(10,42,87,0.18)] backdrop-blur-xl">
-          <a
-            href={brochureHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex min-h-[52px] flex-1 items-center justify-center rounded-[1.1rem] px-3 text-center text-[13px] font-bold leading-4 text-white active:scale-[0.985]"
-            style={{ backgroundColor: ORANGE }}
-          >
-            {c.s8.ctaBrochure}
-          </a>
-          <Link
-            href={contactHref}
-            className="flex min-h-[52px] flex-1 items-center justify-center rounded-[1.1rem] border-2 px-3 text-center text-[13px] font-bold leading-4 active:scale-[0.985]"
-            style={{ borderColor: BLUE, color: BLUE }}
-          >
-            {c.hero.ctaSecondary}
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }
