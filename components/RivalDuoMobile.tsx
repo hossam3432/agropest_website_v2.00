@@ -104,6 +104,15 @@ export type RivalDuoMobileContent = {
   };
 };
 
+// Section backgrounds stay full-bleed at every width; only the content column is
+// capped. Below 600px it fills the screen, from 600px up it holds 600px and
+// centres, so 600-1000px screens read as a phone layout rather than a stretched
+// one. Children marked data-bleed (decorative backdrops) opt out.
+// `[&>picture]:block` is needed because <picture> is inline by default, so the
+// column's max-width would not take on image children.
+const COLUMN =
+  "[&>*:not([data-bleed])]:mx-auto [&>*:not([data-bleed])]:w-full [&>*:not([data-bleed])]:max-w-[600px] [&>picture]:block";
+
 type RivalDuoMobileProps = {
   c: RivalDuoMobileContent;
   locale: "en" | "ar";
@@ -418,8 +427,8 @@ export function RivalDuoMobile({
       {/* ---------------------------------------------------------- HERO */}
       {/* pt clears the floating navbar in its tall (unscrolled) state, on top of
           the 6rem the layout already reserves. */}
-      <section className="relative overflow-hidden bg-[#F5F8FC] px-4 pb-9 pt-10">
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
+      <section className={"relative overflow-hidden bg-[#F5F8FC] px-4 pb-12 pt-10 " + COLUMN}>
+        <div data-bleed className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
           <ResponsiveImage
             src="/images/products/rival-duo-umbrella-lineart.png"
             alt=""
@@ -516,7 +525,7 @@ export function RivalDuoMobile({
       {/* ------------------------------------------------- STICKY TAB STRIP */}
       {/* Parks below the navbar's compact height with a gap, so the two glass
           pills read as separate layers instead of one merged bar. */}
-      <div className="sticky top-[70px] z-30 px-4 py-1">
+      <div className={"sticky top-[70px] z-30 px-4 py-1 " + COLUMN}>
         <div
           className="overflow-hidden rounded-full border border-white/40 bg-white/60 backdrop-blur-xl"
           style={{ boxShadow: GROOVE_SHADOW }}
@@ -549,7 +558,7 @@ export function RivalDuoMobile({
       </div>
 
       {/* --------------------------------------------- DUAL COMPOSITION (s3) */}
-      <section id="m-s3" className="scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-12 pt-12">
+      <section id="m-s3" className={"scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-[4.5rem] pt-[4.5rem] " + COLUMN}>
         <SectionHead kicker={c.s3.kicker} title={c.s3.title} logo />
         <div className="mt-4 grid gap-3">
           {[
@@ -582,7 +591,7 @@ export function RivalDuoMobile({
       </section>
 
       {/* ------------------------------------ PREVENTIVE & CURATIVE (s2) */}
-      <section id="m-s2" className="scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-12 pt-12">
+      <section id="m-s2" className={"scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-[4.5rem] pt-[4.5rem] " + COLUMN}>
         <SectionHead kicker={c.s2.kicker} title={c.s2.title} />
         <div className="mt-3">
           <ReadMore text={c.s2.intro} labels={labels} />
@@ -611,7 +620,7 @@ export function RivalDuoMobile({
       </section>
 
       {/* ------------------------------------------------------- TIMING (s5) */}
-      <section id="m-s5" className="scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-12 pt-12">
+      <section id="m-s5" className={"scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-[4.5rem] pt-[4.5rem] " + COLUMN}>
         <SectionHead kicker={c.s5.kicker} title={c.s5.title} />
 
         <div className="mt-4 overflow-hidden rounded-[1.5rem] bg-white p-2 shadow-[0_16px_44px_rgba(14,75,159,0.1)]">
@@ -719,7 +728,7 @@ export function RivalDuoMobile({
       </section>
 
       {/* ------------------------------------------- APPLICATION RATES (s4) */}
-      <section id="m-s4" className="scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-12 pt-12">
+      <section id="m-s4" className={"scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-[4.5rem] pt-[4.5rem] " + COLUMN}>
         <SectionHead kicker={c.s4.kicker} title={c.s4.title} />
 
         <div className="mt-4 overflow-hidden rounded-[1.5rem] border-2 bg-white" style={{ borderColor: BLUE + "22" }}>
@@ -769,7 +778,7 @@ export function RivalDuoMobile({
       </section>
 
       {/* ------------------------------------------------ WHY RIVAL DUO (s7) */}
-      <section id="m-s7" className="scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-12 pt-12">
+      <section id="m-s7" className={"scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-[4.5rem] pt-[4.5rem] " + COLUMN}>
         <div className="flex flex-wrap items-center gap-3">
           <ResponsiveImage
             src="/images/products/rival-duo-shield-logo.png"
@@ -814,7 +823,7 @@ export function RivalDuoMobile({
       </section>
 
       {/* ---------------------------------------------- COMMERCIAL CLOSE (s8) */}
-      <section id="m-s8" className="scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-14 pt-12">
+      <section id="m-s8" className={"scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-16 pt-[4.5rem] " + COLUMN}>
         <ResponsiveImage
           src="/images/products/rival-duo-bottles-2026.png"
           alt={c.s8.eyebrow}
