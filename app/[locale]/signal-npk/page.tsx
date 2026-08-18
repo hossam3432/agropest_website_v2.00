@@ -541,7 +541,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
   return (
     <div
       dir={t.dir}
-      className={`${cairo.className} relative min-h-screen overflow-x-clip bg-[#F4F8F5] text-[#17142D] antialiased`}
+      className={`${cairo.className} native-width-page relative min-h-screen overflow-x-clip bg-[#F4F8F5] text-[#17142D] antialiased`}
     >
       <style dangerouslySetInnerHTML={{ __html: keyframes }} />
 

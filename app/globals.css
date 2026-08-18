@@ -477,6 +477,26 @@ a {
   }
 }
 
+/* Desktop (>1000px): pages run at 80% of the viewport, leaving a 10% margin
+   on each side, capped at the width they have at a 1440px viewport (80% of
+   1440 = 1152px) so content stops stretching on wider screens. The bespoke
+   product landings (rival duo, signal, lasix) opt out via .native-width-page
+   and keep their own widths, footer included. */
+@media (min-width: 1000px) {
+  /* Doubled class beats the per-element lg:max-w-7xl utilities some shells carry. */
+  .container-shell.container-shell {
+    max-width: min(80%, 1152px);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  :has(> main .native-width-page) .container-shell.container-shell {
+    max-width: 80rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 /* Mobile landscape: keep the portrait layout's proportions instead of
    stretching containers to fill the wider viewport. */
 @media (orientation: landscape) and (max-height: 500px) {

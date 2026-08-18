@@ -352,7 +352,7 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
     "@media (prefers-reduced-motion: reduce) { .lx-step { transition: none; } .lx-step:hover, .lx-step:active { transform: none; } }";
 
   return (
-    <main dir={c.dir} className={cairo.className + " antialiased"} style={{ backgroundColor: CREAM, color: PETROL }}>
+    <main dir={c.dir} className={cairo.className + " native-width-page antialiased"} style={{ backgroundColor: CREAM, color: PETROL }}>
       <style dangerouslySetInnerHTML={{ __html: revealCss }} />
 
       {/* MOBILE (<lg) — dedicated mobile-first structure, natural document
