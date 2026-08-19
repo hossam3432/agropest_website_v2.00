@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
-import LogoSquare from "./_LogoSquare";
-import SachetVisual from "./_SachetVisual";
-import { LasixMobile } from "@/components/LasixMobile";
+import { LasixMobileV2 } from "@/components/lasix-mobile";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
-import { localizeHref, locales, type Locale } from "@/lib/content";
+import { locales, type Locale } from "@/lib/content";
 import { absoluteUrl } from "@/lib/seo";
 
 const cairo = Cairo({ subsets: ["arabic", "latin"], weight: ["400", "500", "600", "700", "800"], display: "swap" });
 
-/* Brand palette sampled from the Lasix 70 WG leaflet & logo assets */
+/* Brand palette sampled from the Lasix 70 WG leaflet & logo assets. The
+   section colours now live with the layout, in components/lasix-mobile/tokens;
+   what stays here is only what dresses the page shell itself. */
 const PETROL = "#0B4B67"; // wordmark / headings
-const ORANGE = "#F07728"; // checkmark / accents
-const CYAN = "#3FC8E4"; // checkmark offset shadow
-const GREEN = "#2B9646"; // field-green tiles
-const TEAL = "#0C594F"; // deep teal tiles
 const CREAM = "#F7F2EF"; // warm paper background
-const YELLOW = "#F2CE1B"; // sachet yellow
 
 const content = {
   en: {
@@ -271,38 +266,6 @@ const content = {
   }
 } as const;
 
-/* Double checkmark — the core brand motif (orange over cyan offset) */
-function BrandCheck({ size = 40, className }: { size?: number; className?: string }) {
-  return (
-    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 48 48" fill="none" className={className}>
-      <path d="M6 26 L17 42 L44 8 L40 5 L17 32 L10 23 Z" fill={CYAN} transform="translate(-1.5 1.5)" />
-      <path d="M6 26 L17 42 L44 8 L40 5 L17 32 L10 23 Z" fill={ORANGE} />
-    </svg>
-  );
-}
-
-/* Small orange square marker used across the leaflet */
-function Marker({ className }: { className?: string }) {
-  return <span aria-hidden="true" className={"inline-block h-2.5 w-2.5 shrink-0 " + (className ?? "")} style={{ backgroundColor: ORANGE }} />;
-}
-
-function Kicker({ text, nowrap }: { text: string; nowrap?: boolean }) {
-  return (
-    <p
-      className={
-        "flex items-center gap-3 font-bold uppercase " +
-        (nowrap
-          ? "whitespace-nowrap text-[11px] tracking-[0.06em] sm:text-sm sm:tracking-[0.18em]"
-          : "text-sm tracking-[0.18em]")
-      }
-      style={{ color: ORANGE }}
-    >
-      <Marker />
-      {text}
-    </p>
-  );
-}
-
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -329,344 +292,24 @@ export async function generateMetadata({ params }: LocalePageProps): Promise<Met
 }
 
 export default async function LasixLandingPage({ params }: LocalePageProps) {
-  const { locale, content: site } = getLocalePage((await params).locale);
+  const { locale } = getLocalePage((await params).locale);
   const c = content[locale];
-  const rtl = locale === "ar";
-
-  const revealCss =
-    "@keyframes lxReveal { from { opacity: 0; transform: translateY(14px) scale(0.99); } to { opacity: 1; transform: none; } } " +
-    "@supports (animation-timeline: view()) { .lx-reveal { animation: lxReveal 1ms linear both; animation-timeline: view(); animation-range: entry 0% entry 55%; } } " +
-    "@media (prefers-reduced-motion: reduce) { .lx-reveal { animation: none; } } " +
-    ".lx-tile { transition: transform 300ms ease, filter 300ms ease, box-shadow 300ms ease; } " +
-    ".lx-tile:hover { transform: scale(1.08); filter: brightness(1.15); box-shadow: 0 10px 24px rgba(0,0,0,0.28); z-index: 2; } " +
-    "@media (prefers-reduced-motion: reduce) { .lx-tile { transition: none; } .lx-tile:hover { transform: none; } } " +
-    "@keyframes lxLogoDrop { from { transform: translateY(-160px); opacity: 0; } to { transform: translateY(0); opacity: 1; } } " +
-    ".lx-logo-drop { animation: lxLogoDrop 650ms cubic-bezier(0.16,1,0.3,1) both; } " +
-    "@keyframes lxLogoFade { from { opacity: 0; } to { opacity: 1; } } " +
-    ".lx-logo-fade { animation: lxLogoFade 500ms ease-out 550ms both; } " +
-    "@media (prefers-reduced-motion: reduce) { .lx-logo-drop, .lx-logo-fade { animation: none; } } " +
-    ".lx-step { transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease; } " +
-    ".lx-step:hover, .lx-step:active { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(11,75,103,0.18); border-color: " +
-    ORANGE +
-    "; } " +
-    "@media (prefers-reduced-motion: reduce) { .lx-step { transition: none; } .lx-step:hover, .lx-step:active { transform: none; } }";
 
   return (
+    /* One layout at every width. What was a phone-only build is now the page:
+       the leaflet's block-and-gap grid, stacked on a narrow screen and dealt
+       onto twelve columns from lg. The previous desktop build — a separate
+       set of sections with its own hero, mosaic and table — is gone rather
+       than hidden, so there is a single rendering of this product to maintain
+       and no chance of the two drifting apart. It is in git if it is wanted
+       back. */
     <main dir={c.dir} className={cairo.className + " native-width-page antialiased"} style={{ backgroundColor: CREAM, color: PETROL }}>
-      <style dangerouslySetInnerHTML={{ __html: revealCss }} />
-
-      {/* MOBILE (<lg) — dedicated mobile-first structure, natural document
-          scroll. bg here (not on the shared <main>) keeps the unified page
-          tint off the desktop tree next to it. */}
-      <div className="-mt-24 lg:hidden">
-        <LasixMobile
-          c={c}
-          locale={locale}
-          contactHref={localizeHref(locale, "/contact")}
-          phone={site.company.phone}
-          whatsappHref={site.ctaActions.whatsapp.href}
-          brochureHref="/brochures/lasix-70-wg-brochure.pdf"
-          technicalSheetHref="/brochures/lasix-70-wg-technical-sheet.pdf"
-        />
-      </div>
-
-      {/* DESKTOP (lg+) */}
-      <div className="hidden lg:block">
-      {/* ===== 1. HERO — dual-tone split with tile mosaic ===== */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: PETROL }}>
-        {/* subtle geometric grid pattern */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.06]"
-          style={{
-            backgroundImage:
-              "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
-            backgroundSize: "56px 56px"
-          }}
-        />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14 lg:py-24">
-          <div className="flex flex-col justify-center lg:justify-start">
-            <LogoSquare src={c.logo.src} alt={c.nav.name} dir={c.dir} />
-            <div className="lx-reveal">
-              <Kicker text={c.hero.kicker} nowrap />
-              <h1 className="mt-5 text-4xl font-extrabold leading-[1.45] text-white sm:text-5xl lg:text-6xl">{c.hero.slogan}</h1>
-              <div className="mt-9 flex items-center gap-3">
-                <BrandCheck size={30} />
-                <p className="text-xl font-bold sm:text-2xl" style={{ color: CYAN }}>
-                  {c.hero.sub}
-                </p>
-              </div>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">{c.hero.lead}</p>
-            </div>
-          </div>
-
-          {/* mosaic of solid tiles — echoes the leaflet collage */}
-          <div
-            className="lx-reveal hidden gap-1.5 self-center lg:grid lg:w-full lg:grid-cols-3 lg:self-start"
-            aria-hidden="true"
-          >
-            <div className="lx-tile col-start-1 row-start-1 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: GREEN }} />
-            <div className="lx-tile col-start-1 row-start-2 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: TEAL }} />
-            <div className="lx-tile col-start-1 row-start-3 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: "#ffffff14" }} />
-            <div className="lx-tile col-start-2 row-start-1 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: "#ffffff14" }} />
-            <div
-              className="lx-tile relative col-span-2 col-start-2 row-span-2 row-start-2 flex items-center justify-center lg:col-start-auto lg:row-start-auto"
-              style={{ backgroundColor: TEAL }}
-            >
-              <BrandCheck size={96} />
-            </div>
-            <div className="lx-tile col-start-3 row-start-1 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: GREEN }} />
-            <div
-              className="lx-tile col-start-4 row-start-1 aspect-square flex items-center justify-center lg:col-start-auto lg:row-start-auto"
-              style={{ backgroundColor: YELLOW }}
-            >
-              <span className="text-[10px] font-extrabold tracking-widest" style={{ color: PETROL }}>
-                70 WG
-              </span>
-            </div>
-            <div className="lx-tile col-start-4 row-start-2 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: "#ffffff14" }} />
-            <div className="lx-tile col-start-4 row-start-3 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: ORANGE }} />
-            <div className="lx-tile col-start-5 row-start-1 aspect-square lg:col-start-auto lg:row-start-auto" style={{ backgroundColor: GREEN }} />
-          </div>
-        </div>
-
-        {/* stat band */}
-        <div className="relative border-t" style={{ borderColor: "#ffffff22", backgroundColor: "#083A50" }}>
-          <div className="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-white/10 lg:grid-cols-4" dir={c.dir}>
-            {c.hero.stats.map((s) => (
-              <div key={s.label} className="px-5 py-6">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white/50">{s.label}</p>
-                <p className="mt-1.5 text-2xl font-extrabold text-white">{s.value}</p>
-                <p className="text-xs font-semibold" style={{ color: CYAN }}>
-                  {s.unit}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 2. MECHANISM OF ACTION ===== */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
-        <div className="lx-reveal max-w-3xl">
-          <Kicker text={c.mech.kicker} />
-          <h2 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">{c.mech.title}</h2>
-          <p className="mt-4 text-base leading-relaxed sm:text-lg" style={{ color: PETROL + "B3" }}>
-            {c.mech.intro}
-          </p>
-        </div>
-
-        <div className="lx-reveal mt-10 grid gap-px sm:grid-cols-2" style={{ backgroundColor: "#0B4B6722" }}>
-          {c.mech.items.map((m) => (
-            <article key={m.no} className="group bg-white p-7 transition-colors duration-300 hover:bg-[#FDFAF7] sm:p-8">
-              <div className="flex items-baseline justify-between">
-                <span className="text-sm font-extrabold tracking-widest" style={{ color: ORANGE }}>
-                  {m.no}
-                </span>
-                <span className="h-px w-10 transition-all duration-300 group-hover:w-16" style={{ backgroundColor: ORANGE }} />
-              </div>
-              <h3 className="mt-4 text-xl font-extrabold">{m.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed sm:text-base" style={{ color: PETROL + "B3" }}>
-                {m.text}
-              </p>
-            </article>
-          ))}
-        </div>
-
-        {/* residual + WG — dual tone tiles */}
-        <div className="lx-reveal mt-1.5 grid gap-1.5 sm:grid-cols-2">
-          <div className="p-7 sm:p-8" style={{ backgroundColor: TEAL }}>
-            <BrandCheck size={28} />
-            <h3 className="mt-4 text-xl font-extrabold text-white">{c.mech.residualTitle}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-white/80 sm:text-base">{c.mech.residualText}</p>
-          </div>
-          <div className="p-7 sm:p-8" style={{ backgroundColor: GREEN }}>
-            <BrandCheck size={28} />
-            <h3 className="mt-4 text-xl font-extrabold text-white">{c.mech.wgTitle}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-white/80 sm:text-base">{c.mech.wgText}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 3. APPLICATION RATES ===== */}
-      <section id="rates" className="border-y bg-white" style={{ borderColor: "#0B4B6722" }}>
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
-          <div className="lx-reveal max-w-3xl">
-            <Kicker text={c.rates.kicker} />
-            <h2 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">{c.rates.title}</h2>
-          </div>
-
-          {/* Egypt registration callout */}
-          <div className="lx-reveal mt-10 grid lg:grid-cols-[6px_1fr]" style={{ backgroundColor: CREAM }}>
-            <div style={{ backgroundColor: ORANGE }} />
-            <div className="p-6 sm:p-8">
-              <h3 className="text-lg font-extrabold sm:text-xl">{c.rates.egyptTitle}</h3>
-              <p className="mt-2 text-sm leading-relaxed sm:text-base" style={{ color: PETROL + "B3" }}>
-                {c.rates.egyptText}
-              </p>
-            </div>
-          </div>
-
-          {/* rates table */}
-          <div className="lx-reveal mt-10">
-            <div className="flex items-center gap-3 px-6 py-4" style={{ backgroundColor: TEAL }}>
-              <Marker />
-              <h3 className="text-base font-extrabold text-white sm:text-lg">{c.rates.tableTitle}</h3>
-            </div>
-            <div className="overflow-x-auto border border-t-0" style={{ borderColor: "#0B4B6722" }}>
-              <table className="w-full min-w-[720px] border-collapse text-start">
-                <thead>
-                  <tr style={{ backgroundColor: CREAM }}>
-                    {[c.rates.cols.crop, c.rates.cols.pests, c.rates.cols.rate, c.rates.cols.notes].map((h) => (
-                      <th
-                        key={h}
-                        className="border-b px-6 py-4 text-start text-xs font-extrabold uppercase tracking-[0.12em]"
-                        style={{ borderColor: "#0B4B6722", color: ORANGE }}
-                      >
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {c.rates.rows.map((r) => (
-                    <tr key={r.crop} className="align-top transition-colors duration-200 hover:bg-[#FDFAF7]">
-                      <td className="border-b px-6 py-5 text-base font-extrabold" style={{ borderColor: "#0B4B6715" }}>
-                        {r.crop}
-                      </td>
-                      <td className="border-b px-6 py-5 text-sm leading-relaxed sm:text-base" style={{ borderColor: "#0B4B6715", color: PETROL + "B3" }}>
-                        {r.pests}
-                      </td>
-                      <td className="whitespace-nowrap border-b px-6 py-5 text-base font-extrabold" style={{ borderColor: "#0B4B6715", color: GREEN }}>
-                        {r.rate}
-                      </td>
-                      <td className="border-b px-6 py-5 text-sm leading-relaxed" style={{ borderColor: "#0B4B6715", color: PETROL + "B3" }}>
-                        {r.notes}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="border border-t-0 px-6 py-4 text-xs leading-relaxed sm:text-sm" style={{ borderColor: "#0B4B6722", color: PETROL + "99" }}>
-              {c.rates.note}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 4. TIMING / PROGRESSION TIMELINE ===== */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
-        <div className="lx-reveal max-w-3xl">
-          <Kicker text={c.timing.kicker} />
-          <h2 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">{c.timing.title}</h2>
-        </div>
-
-        <ol className="lx-reveal mt-12 grid gap-1.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-          {c.timing.steps.map((s, i) => (
-            <li key={s.tag} className="lx-step group relative flex flex-col border bg-white p-6" style={{ borderColor: "#0B4B6722" }}>
-              <div className="flex items-center justify-between">
-                <span
-                  className="px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-widest text-white"
-                  style={{ backgroundColor: i === c.timing.steps.length - 1 ? GREEN : PETROL }}
-                >
-                  {s.tag}
-                </span>
-                <span className="text-2xl font-extrabold text-[#0B4B6726] transition-colors duration-300 group-hover:text-[#F07728] group-active:text-[#F07728]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <h3 className="mt-4 text-base font-extrabold leading-snug">{s.title}</h3>
-              <p className="mt-2.5 text-sm leading-relaxed" style={{ color: PETROL + "B3" }}>
-                {s.text}
-              </p>
-              <span aria-hidden="true" className="mt-auto block pt-5">
-                <span
-                  className={
-                    "block h-1 w-8 transition-transform duration-300 " +
-                    (rtl ? "group-hover:-translate-x-3 group-active:-translate-x-3" : "group-hover:translate-x-3 group-active:translate-x-3")
-                  }
-                  style={{ backgroundColor: ORANGE }}
-                />
-              </span>
-            </li>
-          ))}
-        </ol>
-
-        {/* tank-mix compatibility */}
-        <div className="lx-reveal mt-12 grid gap-1.5 sm:grid-cols-2">
-          <div className="border bg-white p-7" style={{ borderColor: GREEN + "55" }}>
-            <div className="flex items-center gap-3">
-              <BrandCheck size={22} />
-              <h3 className="text-lg font-extrabold">{c.timing.mixTitle}</h3>
-            </div>
-            <p className="mt-3 text-sm leading-relaxed sm:text-base" style={{ color: PETROL + "B3" }}>
-              {c.timing.mixOk}
-            </p>
-          </div>
-          <div className="border bg-white p-7" style={{ borderColor: ORANGE + "66" }}>
-            <div className="flex items-center gap-3">
-              <span aria-hidden="true" className="flex h-[22px] w-[22px] items-center justify-center text-sm font-extrabold text-white" style={{ backgroundColor: ORANGE }}>
-                !
-              </span>
-              <h3 className="text-lg font-extrabold">{rtl ? "تحذيرات الخلط" : "Mixing cautions"}</h3>
-            </div>
-            <p className="mt-3 text-sm leading-relaxed sm:text-base" style={{ color: PETROL + "B3" }}>
-              {c.timing.mixNo}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== 5. FOOTER / COMMERCIAL ===== */}
-      <section className="text-white" style={{ backgroundColor: PETROL }}>
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-20">
-          <div className="lx-reveal grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-            {/* sachet visual */}
-            <div className="flex flex-col items-start gap-8">
-              <div>
-                <Kicker text={c.footer.kicker} />
-                <h2 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">{c.footer.title}</h2>
-              </div>
-              <SachetVisual />
-            </div>
-
-            {/* commercial data grid */}
-            <div className="flex flex-col content-start gap-12">
-              <div className="grid gap-px sm:grid-cols-2" style={{ backgroundColor: "#ffffff1f" }}>
-                {[
-                  { label: c.footer.packLabel, value: c.footer.pack },
-                  { label: c.footer.formLabel, value: c.footer.form },
-                  { label: c.footer.regLabel, value: c.footer.reg }
-                ].map((f) => (
-                  <div key={f.label} className="p-6" style={{ backgroundColor: PETROL }}>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.15em]" style={{ color: CYAN }}>
-                      {f.label}
-                    </p>
-                    <p className="mt-2 text-sm font-semibold leading-relaxed text-white/90 sm:text-base">{f.value}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="p-6" style={{ backgroundColor: "#083A50" }}>
-                <p className="text-xs leading-relaxed text-white/60">{c.footer.safety}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t" style={{ borderColor: "#ffffff22" }}>
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-4 py-6 sm:px-6">
-            <div className={"flex items-center gap-3" + (rtl ? " -ml-8 sm:-ml-12" : "")}>
-              <BrandCheck size={20} />
-              <p className="text-sm font-extrabold" style={{ color: CYAN }}>
-                {c.footer.slogan}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      </div>
-
+      <LasixMobileV2
+        c={c}
+        locale={locale}
+        brochureHref="/brochures/lasix-70-wg-brochure.pdf"
+        technicalSheetHref="/brochures/lasix-70-wg-technical-sheet.pdf"
+      />
     </main>
   );
 }

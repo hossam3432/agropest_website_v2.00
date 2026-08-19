@@ -5052,5 +5052,677 @@
         "path": "/images/optimized/brand/agropest-logo-1266.png"
       }
     ]
+  },
+  "/images/lasix/lasix-check.png": {
+    "width": 2000,
+    "height": 1969,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-check-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-check-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-check-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/lasix/lasix-check-1600.avif"
+      },
+      {
+        "width": 2000,
+        "path": "/images/optimized/lasix/lasix-check-2000.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-check-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-check-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-check-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/lasix/lasix-check-1600.webp"
+      },
+      {
+        "width": 2000,
+        "path": "/images/optimized/lasix/lasix-check-2000.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-check-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-check-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-check-1200.png"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/lasix/lasix-check-1600.png"
+      },
+      {
+        "width": 2000,
+        "path": "/images/optimized/lasix/lasix-check-2000.png"
+      }
+    ]
+  },
+  "/images/lasix/lasix-crossroads-wide.jpg": {
+    "width": 1493,
+    "height": 2000,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-crossroads-wide-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-crossroads-wide-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-crossroads-wide-1200.avif"
+      },
+      {
+        "width": 1493,
+        "path": "/images/optimized/lasix/lasix-crossroads-wide-1493.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-crossroads-wide-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-crossroads-wide-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-crossroads-wide-1200.webp"
+      },
+      {
+        "width": 1493,
+        "path": "/images/optimized/lasix/lasix-crossroads-wide-1493.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-crossroads-wide-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-crossroads-wide-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-crossroads-wide-1200.jpg"
+      },
+      {
+        "width": 1493,
+        "path": "/images/optimized/lasix/lasix-crossroads-wide-1493.jpg"
+      }
+    ]
+  },
+  "/images/lasix/lasix-crossroads.jpg": {
+    "width": 1493,
+    "height": 2000,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-crossroads-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-crossroads-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-crossroads-1200.avif"
+      },
+      {
+        "width": 1493,
+        "path": "/images/optimized/lasix/lasix-crossroads-1493.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-crossroads-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-crossroads-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-crossroads-1200.webp"
+      },
+      {
+        "width": 1493,
+        "path": "/images/optimized/lasix/lasix-crossroads-1493.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-crossroads-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-crossroads-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-crossroads-1200.jpg"
+      },
+      {
+        "width": 1493,
+        "path": "/images/optimized/lasix/lasix-crossroads-1493.jpg"
+      }
+    ]
+  },
+  "/images/lasix/lasix-farmer-check.jpg": {
+    "width": 1493,
+    "height": 2000,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-farmer-check-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-farmer-check-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-farmer-check-1200.avif"
+      },
+      {
+        "width": 1493,
+        "path": "/images/optimized/lasix/lasix-farmer-check-1493.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-farmer-check-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-farmer-check-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-farmer-check-1200.webp"
+      },
+      {
+        "width": 1493,
+        "path": "/images/optimized/lasix/lasix-farmer-check-1493.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-farmer-check-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-farmer-check-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-farmer-check-1200.jpg"
+      },
+      {
+        "width": 1493,
+        "path": "/images/optimized/lasix/lasix-farmer-check-1493.jpg"
+      }
+    ]
+  },
+  "/images/lasix/lasix-logo-ar.png": {
+    "width": 946,
+    "height": 438,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-logo-ar-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-logo-ar-800.avif"
+      },
+      {
+        "width": 946,
+        "path": "/images/optimized/lasix/lasix-logo-ar-946.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-logo-ar-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-logo-ar-800.webp"
+      },
+      {
+        "width": 946,
+        "path": "/images/optimized/lasix/lasix-logo-ar-946.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-logo-ar-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-logo-ar-800.png"
+      },
+      {
+        "width": 946,
+        "path": "/images/optimized/lasix/lasix-logo-ar-946.png"
+      }
+    ]
+  },
+  "/images/lasix/lasix-logo-en.png": {
+    "width": 710,
+    "height": 289,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-logo-en-400.avif"
+      },
+      {
+        "width": 710,
+        "path": "/images/optimized/lasix/lasix-logo-en-710.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-logo-en-400.webp"
+      },
+      {
+        "width": 710,
+        "path": "/images/optimized/lasix/lasix-logo-en-710.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-logo-en-400.png"
+      },
+      {
+        "width": 710,
+        "path": "/images/optimized/lasix/lasix-logo-en-710.png"
+      }
+    ]
+  },
+  "/images/lasix/lasix-tomato-close.jpg": {
+    "width": 1408,
+    "height": 768,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-tomato-close-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-tomato-close-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-tomato-close-1200.avif"
+      },
+      {
+        "width": 1408,
+        "path": "/images/optimized/lasix/lasix-tomato-close-1408.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-tomato-close-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-tomato-close-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-tomato-close-1200.webp"
+      },
+      {
+        "width": 1408,
+        "path": "/images/optimized/lasix/lasix-tomato-close-1408.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-tomato-close-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-tomato-close-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-tomato-close-1200.jpg"
+      },
+      {
+        "width": 1408,
+        "path": "/images/optimized/lasix/lasix-tomato-close-1408.jpg"
+      }
+    ]
+  },
+  "/images/lasix/lasix-tomato-row.jpg": {
+    "width": 1408,
+    "height": 768,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-tomato-row-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-tomato-row-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-tomato-row-1200.avif"
+      },
+      {
+        "width": 1408,
+        "path": "/images/optimized/lasix/lasix-tomato-row-1408.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-tomato-row-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-tomato-row-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-tomato-row-1200.webp"
+      },
+      {
+        "width": 1408,
+        "path": "/images/optimized/lasix/lasix-tomato-row-1408.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-tomato-row-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-tomato-row-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-tomato-row-1200.jpg"
+      },
+      {
+        "width": 1408,
+        "path": "/images/optimized/lasix/lasix-tomato-row-1408.jpg"
+      }
+    ]
+  },
+  "/images/lasix/lasix-tylcv.jpg": {
+    "width": 2000,
+    "height": 1143,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-tylcv-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-tylcv-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-tylcv-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/lasix/lasix-tylcv-1600.avif"
+      },
+      {
+        "width": 2000,
+        "path": "/images/optimized/lasix/lasix-tylcv-2000.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-tylcv-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-tylcv-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-tylcv-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/lasix/lasix-tylcv-1600.webp"
+      },
+      {
+        "width": 2000,
+        "path": "/images/optimized/lasix/lasix-tylcv-2000.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-tylcv-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-tylcv-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-tylcv-1200.jpg"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/lasix/lasix-tylcv-1600.jpg"
+      },
+      {
+        "width": 2000,
+        "path": "/images/optimized/lasix/lasix-tylcv-2000.jpg"
+      }
+    ]
+  },
+  "/images/lasix/lasix-wedges.png": {
+    "width": 1476,
+    "height": 2000,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-wedges-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-wedges-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-wedges-1200.avif"
+      },
+      {
+        "width": 1476,
+        "path": "/images/optimized/lasix/lasix-wedges-1476.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-wedges-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-wedges-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-wedges-1200.webp"
+      },
+      {
+        "width": 1476,
+        "path": "/images/optimized/lasix/lasix-wedges-1476.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-wedges-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-wedges-800.png"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-wedges-1200.png"
+      },
+      {
+        "width": 1476,
+        "path": "/images/optimized/lasix/lasix-wedges-1476.png"
+      }
+    ]
+  },
+  "/images/lasix/lasix-whitefly.jpg": {
+    "width": 1032,
+    "height": 2000,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-whitefly-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-whitefly-800.avif"
+      },
+      {
+        "width": 1032,
+        "path": "/images/optimized/lasix/lasix-whitefly-1032.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-whitefly-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-whitefly-800.webp"
+      },
+      {
+        "width": 1032,
+        "path": "/images/optimized/lasix/lasix-whitefly-1032.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-whitefly-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-whitefly-800.jpg"
+      },
+      {
+        "width": 1032,
+        "path": "/images/optimized/lasix/lasix-whitefly-1032.jpg"
+      }
+    ]
+  },
+  "/images/lasix/lasix-mixing.jpg": {
+    "width": 1344,
+    "height": 768,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-mixing-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-mixing-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-mixing-1200.avif"
+      },
+      {
+        "width": 1344,
+        "path": "/images/optimized/lasix/lasix-mixing-1344.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-mixing-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-mixing-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-mixing-1200.webp"
+      },
+      {
+        "width": 1344,
+        "path": "/images/optimized/lasix/lasix-mixing-1344.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/lasix/lasix-mixing-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/lasix/lasix-mixing-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/lasix/lasix-mixing-1200.jpg"
+      },
+      {
+        "width": 1344,
+        "path": "/images/optimized/lasix/lasix-mixing-1344.jpg"
+      }
+    ]
   }
 }

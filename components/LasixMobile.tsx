@@ -300,7 +300,7 @@ export function LasixMobile({ c, locale, contactHref, phone, whatsappHref, broch
           its full hero size (same as desktop) instead of snapping straight
           into the small docked badge. The section's own background still
           bleeds up behind the navbar. */}
-      <section className="relative overflow-hidden px-4 pb-9 pt-36" style={{ backgroundColor: PETROL }}>
+      <section className="relative overflow-hidden px-4 pb-16 pt-36" style={{ backgroundColor: PETROL }}>
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-[0.06]"
@@ -374,7 +374,7 @@ export function LasixMobile({ c, locale, contactHref, phone, whatsappHref, broch
       </section>
 
       {/* ---------------------------------------------- MECHANISM OF ACTION */}
-      <section id="m-mech" className="scroll-mt-[140px] px-4 pb-12 pt-9" style={{ backgroundColor: "#F7F2EF" }}>
+      <section id="m-mech" className="scroll-mt-[140px] px-4 pb-20 pt-16" style={{ backgroundColor: "#F7F2EF" }}>
         <SectionHead kicker={c.mech.kicker} title={c.mech.title} />
         <p className="mt-3 text-[15px] leading-8 text-slate-600">{c.mech.intro}</p>
 
@@ -402,7 +402,7 @@ export function LasixMobile({ c, locale, contactHref, phone, whatsappHref, broch
         </div>
 
         {/* residual + WG — dual tone tiles, same as desktop */}
-        <div className="mt-4 grid gap-2.5">
+        <div className="mt-6 grid gap-2.5">
           <div className=" p-5" style={{ backgroundColor: TEAL }}>
             <BrandCheck size={24} />
             <h3 className="mt-3 text-lg font-extrabold text-white">{c.mech.residualTitle}</h3>
@@ -417,7 +417,7 @@ export function LasixMobile({ c, locale, contactHref, phone, whatsappHref, broch
       </section>
 
       {/* ------------------------------------------------- APPLICATION RATES */}
-      <section id="m-rates" className="scroll-mt-[140px] bg-white px-4 pb-12 pt-9">
+      <section id="m-rates" className="scroll-mt-[140px] px-4 pb-20 pt-16">
         <SectionHead kicker={c.rates.kicker} title={c.rates.title} />
 
         <div className="mt-4 overflow-hidden border-2" style={{ borderColor: "#0B4B6722" }}>
@@ -434,7 +434,7 @@ export function LasixMobile({ c, locale, contactHref, phone, whatsappHref, broch
           </div>
         </div>
 
-        <p className="mt-6 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400">{c.rates.tableTitle}</p>
+        <p className="mt-10 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400">{c.rates.tableTitle}</p>
         <div className="mt-2.5 grid gap-2.5">
           {c.rates.rows.map((row, index) => (
             <Disclosure
@@ -467,13 +467,13 @@ export function LasixMobile({ c, locale, contactHref, phone, whatsappHref, broch
           ))}
         </div>
 
-        <div className="mt-4 p-3.5" style={{ backgroundColor: "#F7F2EF" }}>
+        <div className="mt-4 bg-white p-3.5">
           <ReadMore text={c.rates.note} labels={labels} />
         </div>
       </section>
 
       {/* ------------------------------------------------ TIMING & METHOD */}
-      <section id="m-timing" className="scroll-mt-[140px] px-4 pb-12 pt-9" style={{ backgroundColor: "#F7F2EF" }}>
+      <section id="m-timing" className="scroll-mt-[140px] px-4 pb-20 pt-16" style={{ backgroundColor: "#F7F2EF" }}>
         <SectionHead kicker={c.timing.kicker} title={c.timing.title} />
 
         <ol className="mt-4 grid gap-2.5">
@@ -513,7 +513,7 @@ export function LasixMobile({ c, locale, contactHref, phone, whatsappHref, broch
         </ol>
 
         {/* tank-mix compatibility */}
-        <div className="mt-5 grid gap-2.5">
+        <div className="mt-8 grid gap-2.5">
           <div className=" border-2 bg-white p-4" style={{ borderColor: GREEN + "55" }}>
             <div className="flex items-center gap-2.5">
               <BrandCheck size={20} />
@@ -538,7 +538,7 @@ export function LasixMobile({ c, locale, contactHref, phone, whatsappHref, broch
       </section>
 
       {/* ------------------------------------------ PACKAGING & REGISTRATION */}
-      <section id="m-footer" className="scroll-mt-[140px] px-4 pb-28 pt-9 text-white" style={{ backgroundColor: PETROL }}>
+      <section id="m-footer" className="scroll-mt-[140px] px-4 pb-28 pt-16 text-white" style={{ backgroundColor: PETROL }}>
         <SectionHead kicker={c.footer.kicker} title={c.footer.title} tone="dark" />
 
         <div className="mt-12 flex justify-center">
