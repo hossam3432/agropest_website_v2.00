@@ -147,25 +147,25 @@ export default async function AboutPage({ params }: LocalePageProps) {
               </div>
             </div>
 
-            <div className="rounded-md bg-agri-blue p-6 text-white sm:p-8">
-              <h3 className="text-lg font-bold leading-8 sm:text-xl">{proof.registration.marksTitle}</h3>
+            <div className="field-panel rounded-md p-6 sm:p-8">
+              <h3 className="text-lg font-bold leading-8 text-agri-blue sm:text-xl">{proof.registration.marksTitle}</h3>
               <StaggerContainer className="mt-6 grid gap-4" amount={0.2} stagger={0.07}>
                 {proof.registration.marks.map((mark, index) => {
                   const MarkIcon = registrationMarkIcons[index] ?? LabelIcon;
 
                   return (
                     <RevealItem key={mark}>
-                      <div className="flex items-center gap-4 border-b border-white/12 pb-4 last:border-b-0 last:pb-0">
-                        <span className="flex h-11 w-11 flex-none items-center justify-center rounded-sm border border-agri-gold/60 text-agri-gold">
+                      <div className="flex items-center gap-4 border-b border-agri-line pb-4 last:border-b-0 last:pb-0">
+                        <span className="flex h-11 w-11 flex-none items-center justify-center rounded-sm border border-agri-goldInk/40 text-agri-goldInk">
                           <MarkIcon className="h-5 w-5" />
                         </span>
-                        <p className="text-base leading-7 text-white/90">{mark}</p>
+                        <p className="text-base leading-7 text-slate-700">{mark}</p>
                       </div>
                     </RevealItem>
                   );
                 })}
               </StaggerContainer>
-              <p className="mt-6 border-t border-white/12 pt-5 text-sm leading-7 text-agri-gold">
+              <p className="mt-6 border-t border-agri-line pt-5 text-sm leading-7 text-agri-goldInk">
                 {proof.registration.authority}
               </p>
             </div>
@@ -253,9 +253,12 @@ export default async function AboutPage({ params }: LocalePageProps) {
         </RevealSection>
       </section>
 
-      {/* Coverage and direction — one dark band, the page's second and final weight. */}
-      <section className="relative isolate overflow-hidden bg-agri-greenDark py-16 text-white sm:py-24">
-        <div aria-hidden="true" className="absolute inset-0 opacity-20">
+      {/* Coverage and direction — the page's second weight. It was a dark slab;
+          it is now the band that burns hardest, which is the same job done with
+          light instead of ink. The coverage photograph survives as the faintest
+          layer under it rather than as a 20% ghost over navy. */}
+      <section className="field-bloom field-bloom-dusk relative isolate overflow-hidden py-16 sm:py-24">
+        <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-[0.09]">
           <ResponsiveImage
             src={proof.coverage.image}
             alt=""
@@ -264,13 +267,12 @@ export default async function AboutPage({ params }: LocalePageProps) {
             sizes="100vw"
           />
         </div>
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-agri-greenDark via-agri-greenDark/90 to-agri-blue" />
 
         <RevealSection className="container-shell relative" amount={0.15}>
           <div className="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:gap-14">
             <div>
-              <h2 className="text-2xl font-bold leading-[1.25] tracking-normal sm:text-4xl">{coverageSection.title}</h2>
-              <div className="mt-6 grid gap-5 leading-8 text-white/75">
+              <h2 className="text-2xl font-bold leading-[1.25] tracking-normal text-agri-blue sm:text-4xl">{coverageSection.title}</h2>
+              <div className="mt-6 grid gap-5 leading-8 text-slate-600">
                 {coverageSection.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -280,20 +282,20 @@ export default async function AboutPage({ params }: LocalePageProps) {
             <StaggerContainer className="grid gap-0 self-start" amount={0.15} stagger={0.07}>
               {proof.coverage.regions.map((region) => (
                 <RevealItem key={region}>
-                  <div className="flex items-center gap-4 border-b border-white/15 py-4 first:border-t first:border-white/15">
-                    <RegionIcon className="h-5 w-5 flex-none text-agri-gold" />
-                    <p className="text-base leading-7 text-white sm:text-lg">{region}</p>
+                  <div className="flex items-center gap-4 border-b border-agri-line py-4 first:border-t first:border-agri-line">
+                    <RegionIcon className="h-5 w-5 flex-none text-agri-goldInk" />
+                    <p className="text-base leading-7 text-agri-blue sm:text-lg">{region}</p>
                   </div>
                 </RevealItem>
               ))}
             </StaggerContainer>
           </div>
 
-          <div className="mt-14 border-t border-white/15 pt-10 sm:mt-16 sm:pt-12">
-            <h2 className="max-w-4xl text-2xl font-bold leading-[1.3] tracking-normal sm:text-[2.125rem] sm:leading-[1.28]">
+          <div className="mt-14 border-t border-agri-line pt-10 sm:mt-16 sm:pt-12">
+            <h2 className="max-w-4xl text-2xl font-bold leading-[1.3] tracking-normal text-agri-blue sm:text-[2.125rem] sm:leading-[1.28]">
               {directionSection.title}
             </h2>
-            <div className="mt-6 grid max-w-3xl gap-5 text-base leading-8 text-white/75 sm:text-lg">
+            <div className="mt-6 grid max-w-3xl gap-5 text-base leading-8 text-slate-600 sm:text-lg">
               {directionSection.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}

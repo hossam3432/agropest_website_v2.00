@@ -46,11 +46,11 @@ function scrollStripToIndex(strip: HTMLElement | null, index: number, reducedMot
 
 /* ---------------------------------------------------------------- primitives */
 
-function Eyebrow({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
-  return <p className={`eyebrow ${dark ? "text-agri-gold" : ""}`}>{children}</p>;
+function Eyebrow({ children }: { children: ReactNode }) {
+  return <p className="eyebrow">{children}</p>;
 }
 
-function Dots({ count, active, onSelect, dark = false }: { count: number; active: number; onSelect: (index: number) => void; dark?: boolean }) {
+function Dots({ count, active, onSelect }: { count: number; active: number; onSelect: (index: number) => void }) {
   if (count <= 1) return null;
   return (
     <div className="flex items-center gap-2">
@@ -61,7 +61,7 @@ function Dots({ count, active, onSelect, dark = false }: { count: number; active
           aria-label={`${index + 1}`}
           onClick={() => onSelect(index)}
           className={`h-2.5 rounded-full transition-all duration-300 ${
-            index === active ? "w-8 bg-agri-gold" : `w-2.5 ${dark ? "bg-white/35" : "bg-agri-line"}`
+            index === active ? "w-8 bg-agri-goldInk" : "w-2.5 bg-agri-line"
           }`}
         />
       ))}
@@ -436,7 +436,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
           <p className="text-sm font-bold text-white/70">
             {String(heroIndex + 1).padStart(2, "0")} / {String(heroCards.length).padStart(2, "0")}
           </p>
-          <Dots count={heroCards.length} active={heroIndex} onSelect={setHeroIndex} dark />
+          <Dots count={heroCards.length} active={heroIndex} onSelect={setHeroIndex} />
         </div>
         </div>
       </section>
@@ -507,14 +507,14 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       {/* ----------------------------------------------------- FEATURED PRODUCTS */}
       <section
         id="m-products"
-        className="scroll-mt-[150px] relative isolate overflow-hidden bg-[radial-gradient(circle_at_18%_8%,rgba(217,146,39,0.2),transparent_32%),linear-gradient(150deg,#06281f_0%,#0A3D2B_50%,#17324d_100%)] px-5 pb-14 pt-14 text-white"
+        className="scroll-mt-[150px] field-bloom field-bloom-dusk relative isolate overflow-hidden px-5 pb-14 pt-14"
       >
         <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
         <div className="mx-auto w-full max-w-[450px]">
-        <Eyebrow dark>{home.featuredProductLinesSection.eyebrow}</Eyebrow>
-        <h2 className="mt-4 text-2xl font-bold leading-tight">{home.featuredProductLinesSection.title}</h2>
+        <Eyebrow>{home.featuredProductLinesSection.eyebrow}</Eyebrow>
+        <h2 className="mt-4 text-2xl font-bold leading-tight text-agri-blue">{home.featuredProductLinesSection.title}</h2>
         {home.featuredProductLinesSection.description ? (
-          <p className="mt-4 text-[15px] leading-8 text-white/75">{home.featuredProductLinesSection.description}</p>
+          <p className="mt-4 text-[15px] leading-8 text-slate-600">{home.featuredProductLinesSection.description}</p>
         ) : null}
 
         {/* Draggable stacked deck — same mechanics as the hero signature-card deck:
@@ -546,7 +546,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 animate={variants[state]}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
                 style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
-                className={`absolute inset-x-0 top-0 mx-auto w-[280px] touch-pan-y overflow-hidden rounded-lg bg-white text-agri-blue shadow-[0_20px_50px_rgba(0,0,0,0.35)] ${
+                className={`absolute inset-x-0 top-0 mx-auto w-[280px] touch-pan-y overflow-hidden rounded-lg border border-agri-line bg-white text-agri-blue shadow-[0_20px_50px_rgb(23_50_77_/_0.16)] ${
  state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
  }`}
               >
@@ -593,10 +593,10 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
         </div>
 
         <div className="mt-6 flex items-center justify-between gap-4">
-          <p className="text-sm font-bold text-white/70">
+          <p className="text-sm font-bold text-slate-600">
             {String(productIndex + 1).padStart(2, "0")} / {String(featuredProducts.length).padStart(2, "0")}
           </p>
-          <Dots count={featuredProducts.length} active={productIndex} onSelect={setProductIndex} dark />
+          <Dots count={featuredProducts.length} active={productIndex} onSelect={setProductIndex} />
         </div>
         </div>
       </section>
@@ -620,14 +620,14 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       </section>
 
       {/* ------------------------------------------------------------- WHY AGROPEST */}
-      <section id="m-why" className="scroll-mt-[150px] bg-agri-greenDark px-5 py-14 text-white">
+      <section id="m-why" className="scroll-mt-[150px] field-bloom px-5 py-14">
         <div className="mx-auto w-full max-w-[450px]">
-        <Eyebrow dark>{home.whyAgropestSection.eyebrow}</Eyebrow>
-        <h2 className="mt-4 text-2xl font-bold leading-tight">{home.whyAgropestSection.title}</h2>
-        <p className="mt-4 text-[15px] leading-8 text-white/70">{home.whyAgropestSection.description}</p>
+        <Eyebrow>{home.whyAgropestSection.eyebrow}</Eyebrow>
+        <h2 className="mt-4 text-2xl font-bold leading-tight text-agri-blue">{home.whyAgropestSection.title}</h2>
+        <p className="mt-4 text-[15px] leading-8 text-slate-600">{home.whyAgropestSection.description}</p>
         </div>
 
-        <div className="relative mx-auto mt-6 aspect-[16/10] w-full max-w-[450px] overflow-hidden rounded-lg border border-white/10 shadow-soft">
+        <div className="relative mx-auto mt-6 aspect-[16/10] w-full max-w-[450px] overflow-hidden rounded-lg border border-agri-line shadow-soft">
           <ResponsiveImage
             src="/images/backgrounds/field-day-trials.jpg"
             alt={home.whyAgropestSection.imageAlt}
@@ -646,7 +646,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
               onToggle={() => setOpenWhy(openWhy === index ? null : index)}
               header={
                 <span className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-agri-gold text-xs font-black text-white">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-agri-gold text-xs font-black text-agri-blue">
                     {item.eyebrow}
                   </span>
                   <span className="min-w-0 text-[15px] font-bold text-agri-blue">{item.title}</span>
@@ -662,7 +662,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
 
       {/* --------------------------------------------------------- TECHNICAL LIBRARY */}
       <section id="m-library" className="scroll-mt-[150px] field-clear px-5 py-14">
-        <div className="relative mx-auto min-h-[190px] w-full max-w-[450px] overflow-hidden rounded-lg bg-agri-blue shadow-soft">
+        <div className="relative mx-auto min-h-[190px] w-full max-w-[450px] overflow-hidden rounded-lg border border-agri-line bg-agri-mist shadow-soft">
           <ResponsiveImage
             src={content.technicalLibraryPreview.image}
             alt={content.technicalLibraryPreview.imageAlt}
@@ -684,11 +684,11 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       </section>
 
       {/* ------------------------------------------------------------------ PARTNERS */}
-      <section id="m-partners" className="scroll-mt-[150px] relative isolate bg-gradient-to-br from-agri-blue via-agri-greenDark to-agri-blue px-5 py-14 text-white">
+      <section id="m-partners" className="scroll-mt-[150px] field-bloom field-bloom-flip relative isolate px-5 py-14">
         <div className="mx-auto w-full max-w-[450px]">
-        <Eyebrow dark>{home.partnersSection.eyebrow}</Eyebrow>
-        <h2 className="mt-4 text-2xl font-bold leading-tight">{home.partnersSection.title}</h2>
-        <p className="mt-4 text-[15px] leading-8 text-white/80">{home.partnersSection.description}</p>
+        <Eyebrow>{home.partnersSection.eyebrow}</Eyebrow>
+        <h2 className="mt-4 text-2xl font-bold leading-tight text-agri-blue">{home.partnersSection.title}</h2>
+        <p className="mt-4 text-[15px] leading-8 text-slate-600">{home.partnersSection.description}</p>
 
         {/* Draggable stacked deck — same mechanics as the hero signature-card deck:
             top card is dragged/tapped to cycle, with next/back cards peeking behind. */}
@@ -719,7 +719,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 animate={variants[state]}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
                 style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
-                className={`absolute inset-x-0 top-0 mx-auto w-[280px] flex min-h-[420px] touch-pan-y flex-col items-center justify-center rounded-lg border border-white/20 bg-white/95 p-7 text-center text-agri-blue shadow-soft ${
+                className={`absolute inset-x-0 top-0 mx-auto w-[280px] flex min-h-[420px] touch-pan-y flex-col items-center justify-center rounded-lg border border-agri-line bg-white/95 p-7 text-center text-agri-blue shadow-soft ${
  state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
  }`}
               >
@@ -740,39 +740,39 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
         </div>
 
         <div className="mt-6 flex items-center justify-between gap-4">
-          <p className="text-sm font-bold text-white/70">
+          <p className="text-sm font-bold text-slate-600">
             {String(partnerIndex + 1).padStart(2, "0")} / {String(partners.length).padStart(2, "0")}
           </p>
-          <Dots count={partners.length} active={partnerIndex} onSelect={setPartnerIndex} dark />
+          <Dots count={partners.length} active={partnerIndex} onSelect={setPartnerIndex} />
         </div>
         </div>
       </section>
 
       {/* --------------------------------------------------------------------- CTA */}
       <section id="m-cta" className="scroll-mt-[150px] field-veil px-5 py-14">
-        <div className="relative mx-auto w-full max-w-[450px] overflow-hidden rounded-lg bg-agri-blue px-6 py-9 text-white shadow-soft">
+        <div className="field-panel relative mx-auto w-full max-w-[450px] overflow-hidden rounded-lg px-6 py-9">
           {home.cta.backgroundImage ? (
-            <div aria-hidden="true" className="absolute inset-0 opacity-25">
+            <div aria-hidden="true" className="absolute inset-0 opacity-[0.07]">
               <ResponsiveImage src={home.cta.backgroundImage} alt="" className="h-full w-full" objectFit="cover" />
             </div>
           ) : null}
-          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-agri-blue via-agri-blue/90 to-agri-green/75" />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/45 to-transparent" />
           <div className="relative">
-            {home.cta.eyebrow ? <Eyebrow dark>{home.cta.eyebrow}</Eyebrow> : null}
-            <h2 className="mt-4 text-2xl font-bold leading-tight">{home.cta.title}</h2>
-            <p className="mt-4 text-[15px] leading-8 text-white/75">{home.cta.description}</p>
+            {home.cta.eyebrow ? <Eyebrow>{home.cta.eyebrow}</Eyebrow> : null}
+            <h2 className="mt-4 text-2xl font-bold leading-tight text-agri-blue">{home.cta.title}</h2>
+            <p className="mt-4 text-[15px] leading-8 text-slate-600">{home.cta.description}</p>
 
             <div className="mt-7 grid gap-3">
-              <Link href={localizeHref(locale, home.cta.primaryHref)} className="btn-on-dark-outline min-h-[54px] w-full">
+              <Link href={localizeHref(locale, home.cta.primaryHref)} className="btn-primary min-h-[54px] w-full">
                 {home.cta.primaryLabel}
               </Link>
               {home.cta.secondaryLabel && home.cta.secondaryHref ? (
-                <Link href={localizeHref(locale, home.cta.secondaryHref)} className="btn-on-dark-outline min-h-[54px] w-full">
+                <Link href={localizeHref(locale, home.cta.secondaryHref)} className="btn-primary min-h-[54px] w-full">
                   {home.cta.secondaryLabel}
                 </Link>
               ) : null}
               {home.cta.tertiaryLabel && home.cta.tertiaryHref ? (
-                <a href={home.cta.tertiaryHref} className="btn-on-dark-outline min-h-[54px] w-full">
+                <a href={home.cta.tertiaryHref} className="btn-primary min-h-[54px] w-full">
                   {home.cta.tertiaryLabel}
                 </a>
               ) : null}

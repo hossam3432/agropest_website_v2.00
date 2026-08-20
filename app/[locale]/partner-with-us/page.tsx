@@ -47,21 +47,21 @@ export default async function PartnerWithUsPage({ params }: LocalePageProps) {
         </div>
       </section>
 
-      <section className="bg-agri-blue py-10 text-white sm:py-12 lg:py-14">
+      <section className="field-bloom field-bloom-flip py-10 sm:py-12 lg:py-14">
         <div className="container-shell">
           <RevealSection className="max-w-4xl" amount={0.15}>
             <p className="eyebrow">{partnerPage.servicesSection.eyebrow}</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-normal sm:text-4xl">{partnerPage.servicesSection.title}</h2>
+            <h2 className="mt-3 text-3xl font-bold tracking-normal text-agri-blue sm:text-4xl">{partnerPage.servicesSection.title}</h2>
           </RevealSection>
 
-          <StaggerContainer className="mt-8 grid gap-0 border-s border-white/20 sm:mt-12 lg:mt-14 lg:grid-cols-5 lg:border-s-0 lg:border-t" amount={0.15}>
+          <StaggerContainer className="mt-8 grid gap-0 border-s border-agri-line sm:mt-12 lg:mt-14 lg:grid-cols-5 lg:border-s-0 lg:border-t" amount={0.15}>
             {partnerPage.servicesSection.items.map((item, index) => (
               <RevealItem key={item.title}>
-                <article className="relative border-b border-white/15 py-6 ps-6 sm:py-7 sm:ps-7 lg:border-b-0 lg:border-e lg:px-6 lg:pb-0 lg:pt-11 lg:last:border-e-0">
+                <article className="relative border-b border-agri-line py-6 ps-6 sm:py-7 sm:ps-7 lg:border-b-0 lg:border-e lg:px-6 lg:pb-0 lg:pt-11 lg:last:border-e-0">
                   <span className="absolute -start-[7px] top-8 h-3.5 w-3.5 rounded-full bg-agri-gold lg:-top-[7px] lg:start-5" />
-                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-gold">{String(index + 1).padStart(2, "0")}</p>
-                  <h3 className="mt-4 text-xl font-bold tracking-normal">{item.title}</h3>
-                  <p className="mt-4 leading-7 text-white/70">{item.description}</p>
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-goldInk">{String(index + 1).padStart(2, "0")}</p>
+                  <h3 className="mt-4 text-xl font-bold tracking-normal text-agri-blue">{item.title}</h3>
+                  <p className="mt-4 leading-7 text-slate-600">{item.description}</p>
                 </article>
               </RevealItem>
             ))}

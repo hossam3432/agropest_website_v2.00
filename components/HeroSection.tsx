@@ -114,7 +114,7 @@ export function HeroSection({
 
       <div className="container-shell relative flex min-h-[inherit] items-center py-20">
         <div className={`max-w-3xl text-white ${splitOnLarge ? "lg:me-auto lg:text-start" : ""}`}>
-          {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+          {eyebrow ? <p className="eyebrow eyebrow-on-dark">{eyebrow}</p> : null}
           <h1
             className={`mt-5 max-w-4xl text-3xl font-bold leading-[1.22] tracking-normal sm:text-4xl sm:leading-[1.18] lg:text-5xl lg:leading-[1.16] ${
               locale === "ar" ? "lg:font-semibold" : ""

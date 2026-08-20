@@ -144,17 +144,17 @@ export function FeaturedProductLinesSection({ content, locale, className = "" }:
   }
 
   return (
-    <section className={`relative overflow-hidden bg-[radial-gradient(circle_at_12%_10%,rgba(217,146,39,0.18),transparent_28%),linear-gradient(135deg,#06281f_0%,#0A3D2B_48%,#17324d_100%)] py-16 text-white sm:py-20 lg:py-[108px] ${className}`} dir={content.direction}>
-      <div className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
-      <div className="absolute inset-x-0 top-0 hidden h-32 border-b border-white/10 bg-white/5 lg:block" />
+    <section className={`field-bloom field-bloom-dusk relative overflow-hidden py-16 sm:py-20 lg:py-[108px] ${className}`} dir={content.direction}>
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 hidden h-32 border-b border-agri-line bg-white/45 lg:block" />
       <RevealSection className="container-shell" amount={0.15}>
         <div className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
           <div>
-            <p className="eyebrow text-agri-gold">{featuredProductLinesSection.eyebrow}</p>
-            <h2 className="section-title mt-3 text-white">{featuredProductLinesSection.title}</h2>
+            <p className="eyebrow">{featuredProductLinesSection.eyebrow}</p>
+            <h2 className="section-title mt-3">{featuredProductLinesSection.title}</h2>
           </div>
           {featuredProductLinesSection.description ? (
-            <p className="section-copy text-white/75 lg:justify-self-end">{featuredProductLinesSection.description}</p>
+            <p className="section-copy lg:justify-self-end">{featuredProductLinesSection.description}</p>
           ) : null}
         </div>
 

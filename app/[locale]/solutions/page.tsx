@@ -90,20 +90,20 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
         </div>
       </section>
 
-      <section className="bg-agri-blue py-16 text-white sm:py-20">
+      <section className="field-bloom field-bloom-deep py-16 sm:py-20">
         <div className="container-shell">
           <RevealSection className="max-w-3xl" amount={0.15}>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-gold">{solutionsPage.valueSection.eyebrow}</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-normal sm:text-4xl">{solutionsPage.valueSection.title}</h2>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-goldInk">{solutionsPage.valueSection.eyebrow}</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-normal text-agri-blue sm:text-4xl">{solutionsPage.valueSection.title}</h2>
           </RevealSection>
-          <StaggerContainer className="mt-8 grid gap-0 border-s border-white/20 sm:mt-10 lg:grid-cols-5 lg:border-s-0 lg:border-t" amount={0.15}>
+          <StaggerContainer className="mt-8 grid gap-0 border-s border-agri-line sm:mt-10 lg:grid-cols-5 lg:border-s-0 lg:border-t" amount={0.15}>
             {solutionsPage.valueSection.items.map((item, index) => (
               <RevealItem key={item.title}>
-                <article className="relative border-b border-white/15 py-6 ps-6 sm:py-7 sm:ps-7 lg:border-b-0 lg:border-e lg:px-5 lg:pb-0 lg:pt-10 lg:last:border-e-0">
+                <article className="relative border-b border-agri-line py-6 ps-6 sm:py-7 sm:ps-7 lg:border-b-0 lg:border-e lg:px-5 lg:pb-0 lg:pt-10 lg:last:border-e-0">
                   <span className="absolute -start-[7px] top-8 h-3.5 w-3.5 bg-agri-gold lg:-top-[7px] lg:start-5" />
-                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-gold">{String(index + 1).padStart(2, "0")}</p>
-                  <h3 className="mt-4 text-xl font-bold tracking-normal">{item.title}</h3>
-                  <p className="mt-3 leading-7 text-white/70">{item.description}</p>
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-goldInk">{String(index + 1).padStart(2, "0")}</p>
+                  <h3 className="mt-4 text-xl font-bold tracking-normal text-agri-blue">{item.title}</h3>
+                  <p className="mt-3 leading-7 text-slate-600">{item.description}</p>
                 </article>
               </RevealItem>
             ))}
@@ -140,13 +140,15 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
 
       <section className="field-clear py-12 sm:py-20">
         <RevealSection className="container-shell" amount={0.15}>
-          <div className="grid overflow-hidden rounded-lg border border-agri-line bg-agri-blue text-white shadow-soft lg:grid-cols-[0.78fr_1.22fr]">
-            <div className="bg-white/5 p-5 sm:p-10">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-agri-gold">{solutionsPage.contentSupportSection.eyebrow}</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-normal sm:text-4xl">{solutionsPage.contentSupportSection.title}</h2>
+          <div className="field-panel grid overflow-hidden rounded-lg lg:grid-cols-[0.78fr_1.22fr]">
+            {/* The heading cell used to be a lift on navy; on the bloom it is the
+                opposite move — a clearer pane that lets the light through less. */}
+            <div className="bg-white/55 p-5 sm:p-10 lg:border-e lg:border-agri-line">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-agri-goldInk">{solutionsPage.contentSupportSection.eyebrow}</p>
+              <h2 className="mt-4 text-3xl font-bold tracking-normal text-agri-blue sm:text-4xl">{solutionsPage.contentSupportSection.title}</h2>
             </div>
             <div className="p-5 sm:p-10">
-              <div className="grid gap-4 text-lg leading-8 text-white/80">
+              <div className="grid gap-4 text-lg leading-8 text-slate-600">
                 {solutionsPage.contentSupportSection.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}

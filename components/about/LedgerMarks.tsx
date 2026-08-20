@@ -22,8 +22,12 @@ const BASELINE = 34;
 const BAND_TOP = 8;
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const GOLD = "#D99227";
-const SUBSTRATE = "rgba(255,255,255,0.24)";
+/* The marks are drawn in 1–2.5px strokes on a light band. Full #D99227 reads at
+   2.6:1 there and the hairlines disappear; goldInk is the same hue carried down
+   to 5.9:1. The substrate rules are navy at low alpha for the same reason —
+   white at 24% was legible only because the ground used to be navy. */
+const GOLD = "#7E5111";
+const SUBSTRATE = "rgba(23,50,77,0.20)";
 
 type MarkProps = {
   /** The figure the mark is drawn from. */

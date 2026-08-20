@@ -15,12 +15,12 @@ export function PartnersSection({ content, className = "" }: PartnersSectionProp
   const [activePartner, setActivePartner] = useState<string | null>(null);
 
   return (
-    <section className={`bg-gradient-to-br from-agri-blue via-agri-greenDark to-agri-blue py-12 text-white sm:py-14 lg:py-[105px] ${className}`}>
+    <section className={`field-bloom field-bloom-flip py-12 sm:py-14 lg:py-[105px] ${className}`}>
       <RevealSection className="container-shell" amount={0.15}>
         <div className="max-w-3xl">
           <p className="eyebrow">{partnersSection.eyebrow}</p>
-          <h2 className="section-title mt-3 text-white">{partnersSection.title}</h2>
-          <p className="section-copy mt-4 text-white/80">{partnersSection.description}</p>
+          <h2 className="section-title mt-3">{partnersSection.title}</h2>
+          <p className="section-copy mt-4">{partnersSection.description}</p>
         </div>
 
         <StaggerContainer className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:mt-7" amount={0.15}>
@@ -31,7 +31,7 @@ export function PartnersSection({ content, className = "" }: PartnersSectionProp
               <RevealItem key={partner.name} hoverLift>
                 <button
                   aria-pressed={isActive}
-                  className={`group grid min-h-[308px] w-full grid-rows-[8.25rem_auto_auto] rounded-md bg-white px-4 py-5 text-center shadow-sm transition duration-300 hover:shadow-soft focus:outline-none focus:ring-2 focus:ring-agri-gold focus:ring-offset-2 focus:ring-offset-agri-blue sm:min-h-[345px] sm:grid-rows-[9.75rem_2.25rem_3.75rem] sm:px-6 sm:py-7 ${
+                  className={`group grid min-h-[308px] w-full grid-rows-[8.25rem_auto_auto] rounded-md border border-agri-line bg-white px-4 py-5 text-center shadow-sm transition duration-300 hover:shadow-soft focus:outline-none focus:ring-2 focus:ring-agri-goldInk focus:ring-offset-2 focus:ring-offset-white sm:min-h-[345px] sm:grid-rows-[9.75rem_2.25rem_3.75rem] sm:px-6 sm:py-7 ${
  isActive ? "shadow-soft" : ""
  }`}
                   onClick={() => setActivePartner(isActive ? null : partner.name)}

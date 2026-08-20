@@ -283,7 +283,14 @@ a {
   }
 
   .eyebrow {
-    @apply text-xs font-bold uppercase tracking-[0.2em] text-agri-gold sm:text-sm;
+    @apply text-xs font-bold uppercase tracking-[0.2em] text-agri-goldInk sm:text-sm;
+  }
+
+  /* The same label where the ground is still dark — the hero, the footer. Full
+     gold clears 5:1 on navy and dies on white; goldInk is exactly the reverse.
+     One class each; never one class asked to do both. */
+  .eyebrow-on-dark {
+    @apply text-agri-gold;
   }
 
   .section-title {
@@ -294,16 +301,125 @@ a {
     @apply mt-4 max-w-3xl text-base leading-8 text-slate-600;
   }
 
-  /* ── Section bands ──────────────────────────────────────────────────────
-     Pages alternate two grounds. Both are now openings onto the field rather
-     than paint laid over it: the clear band shows it whole, the veil mutes it
-     with a mist wash so the alternation still reads as rhythm. */
+  /* ── Grounds ────────────────────────────────────────────────
+     Six rungs on one ladder, ordered light to heavy. A page reads by stepping
+     between them, never by repeating one — the eye finds a section boundary
+     because the paper changed value, not because a rule was drawn on it.
+
+       clear   L .98   the ambient field itself, undressed — densest reading
+       veil    L .92   mist paper
+       bloom   L .89   leaf-tinted paper
+       flip    L .88   warm paper, composition mirrored
+       deep    L .85   cool paper, weight sunk toward the foot
+       dusk    L .78   the heaviest ground — one per page, no more
+
+     Every rung stays light enough that ordinary dark ink clears 4.5:1 on it:
+     the ladder buys rhythm and rest from the white, not contrast from the
+     reader. Only .field-clear lets the page's gutter blooms through; every
+     other rung is its own opaque paper, which is what makes the step legible.
+
+     Long reading belongs on clear or veil. dusk is a punctuation mark. */
   .field-clear {
     background-color: transparent;
   }
 
   .field-veil {
-    background-color: rgb(244 247 245 / 0.72);
+    background-color: #f4f7f5;
+  }
+
+  /* ── Bloom bands ────────────────────────────────────────────
+     What used to be a solid navy or green slab. Same three lights as an
+     action capsule, built the same way — leaf up one shoulder, gold across
+     the other, navy weighting the foot — at section scale, over tinted paper
+     rather than white. The paper carries the rung; the lights carry the
+     variation, so no two bands hold the same air even at the same value.
+
+     .field-panel is the same construction on an inset, rounded surface — the
+     CTA block, the support panel, the mobile cards. It sits a rung below
+     whatever it is placed on, which is what makes it read as a panel.
+
+     Both set dark ink; contents use the ordinary light-ground tokens
+     (text-agri-blue, text-slate-600, border-agri-line), never white ones. */
+  .field-bloom,
+  .field-panel {
+    /* Where the three lights sit across the band, as percentages of its width. */
+    --band-lx: 13;
+    --band-gx: 87;
+    --band-nx: 55;
+    --band-lume: 0.2;
+    --band-paper: #eff4ec;
+    /* The navy foot-light used to supply the band's weight over white paper.
+       Tinted paper supplies it now, so the light is cut back to a shadow of
+       itself — at its old share it dragged the foot of every band under 4.5:1
+       for secondary text and for goldInk. */
+    --band-navy-share: 0.45;
+
+    position: relative;
+    isolation: isolate;
+    color: #17324d;
+    background-color: var(--band-paper);
+    background-image:
+      radial-gradient(
+        56% 88% at calc(var(--band-lx) * 1%) -10%,
+        rgb(var(--lume-leaf) / var(--band-lume)),
+        rgb(var(--lume-leaf) / 0) 70%
+      ),
+      radial-gradient(
+        52% 80% at calc(var(--band-gx) * 1%) -4%,
+        rgb(var(--lume-gold) / calc(var(--band-lume) * 0.8)),
+        rgb(var(--lume-gold) / 0) 68%
+      ),
+      radial-gradient(
+        96% 70% at calc(var(--band-nx) * 1%) 114%,
+        rgb(var(--lume-navy) / calc(var(--band-lume) * var(--band-navy-share))),
+        rgb(var(--lume-navy) / 0) 72%
+      );
+  }
+
+  /* The seam. A hairline alone reads as a drawn rule; a hairline under a white
+     rim reads as one surface starting where the last one stopped, which is the
+     cue the eye already knows from paper. */
+  .field-bloom {
+    border-block: 1px solid rgb(var(--lume-navy) / 0.07);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.65);
+  }
+
+  .field-bloom-flip {
+    --band-lx: 86;
+    --band-gx: 12;
+    --band-nx: 44;
+    --band-paper: #f7f2e8;
+  }
+
+  .field-bloom-deep {
+    --band-lx: 24;
+    --band-gx: 78;
+    --band-nx: 64;
+    --band-lume: 0.22;
+    --band-paper: #e8eef2;
+  }
+
+  /* The page's one heavy ground. It replaced a navy slab and does the same job
+     — stop the scroll, carry the section that matters most — with value rather
+     than with ink, so nothing on it has to turn white to stay readable. */
+  .field-bloom-dusk {
+    --band-lx: 20;
+    --band-gx: 82;
+    --band-nx: 50;
+    --band-lume: 0.14;
+    --band-paper: #dee7e1;
+
+    border-block-color: rgb(var(--lume-navy) / 0.11);
+  }
+
+  .field-panel {
+    --band-lume: 0.22;
+    --band-paper: #e8eef2;
+
+    border: 1px solid rgb(var(--lume-navy) / 0.1);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.6),
+      0 18px 60px rgb(23 50 77 / 0.07);
   }
 
   /* ── Actions ────────────────────────────────────────────────────────────
@@ -639,12 +755,15 @@ a {
     transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms ease, border-color 320ms ease;
   }
 
+  /* The glass card now sits on a light band, so its edge is a navy hairline
+     rather than a white rim — the white one only ever showed against navy. */
   .featured-glass-card {
-    @apply relative border border-white/45 backdrop-blur-xl;
+    @apply relative border backdrop-blur-xl;
+    border-color: rgb(var(--lume-navy) / 0.12);
     background: linear-gradient(160deg, rgb(255 255 255 / 0.85), rgb(244 247 245 / 0.62));
     box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.55),
-      0 14px 34px rgb(6 40 31 / 0.22);
+      inset 0 1px 0 rgb(255 255 255 / 0.7),
+      0 14px 34px rgb(23 50 77 / 0.12);
   }
 
   .featured-glass-card::after {

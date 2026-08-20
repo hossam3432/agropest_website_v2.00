@@ -44,6 +44,10 @@ const config: Config = {
           greenDark: "#0A3D2B",
           blue: "#17324D",
           gold: "#D99227",
+          /* The gold that survives a light ground. #D99227 reads at 2.6:1 on
+             white — fine as a fill or a rule, illegible as small text. Same
+             hue, dropped in value until eyebrows and labels clear 4.5:1. */
+          goldInk: "#7E5111",
           orange: "#E56F2E",
           leaf: "#4F8F45",
           mist: "#F4F7F5",

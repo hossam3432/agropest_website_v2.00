@@ -40,7 +40,7 @@ function GateStep({ index, question, stepLabel, forceOpen }: GateStepProps) {
       <motion.div
         aria-hidden="true"
         className={`relative z-10 flex h-[var(--gate-node)] w-[var(--gate-node)] items-center justify-center rounded-md border text-sm font-bold transition-colors duration-500 ease-out ${
-          open ? "border-agri-gold bg-agri-gold text-agri-blue" : "border-white/25 bg-agri-blue text-white/40"
+          open ? "border-agri-gold bg-agri-gold text-agri-blue" : "border-agri-line bg-white text-slate-400"
         }`}
         initial={false}
         animate={{ scale: open ? 1 : 0.92 }}
@@ -51,20 +51,20 @@ function GateStep({ index, question, stepLabel, forceOpen }: GateStepProps) {
 
       <motion.div
         className={`min-w-0 rounded-md border p-4 transition-colors duration-500 ease-out sm:p-5 ${
-          open ? "border-agri-gold/45 bg-white/[0.07]" : "border-white/12 bg-white/[0.03]"
+          open ? "border-agri-goldInk/40 bg-white/70" : "border-agri-line bg-white/40"
         }`}
         initial={false}
         animate={{ opacity: open ? 1 : 0.85, y: open ? 0 : 8 }}
         transition={{ duration: 0.6, ease: premiumEase }}
       >
-        <p className="text-[0.6875rem] font-bold uppercase text-agri-gold/85 sm:text-xs">
+        <p className="text-[0.6875rem] font-bold uppercase text-agri-goldInk sm:text-xs">
           {stepLabel} {number}
         </p>
         {/* An unreached step is signalled by its node, border, and panel tint — never by
-            making its text hard to read. The dimmed state still clears 4.5:1 on navy. */}
+            making its text hard to read. The dimmed state still clears 4.5:1 on the band. */}
         <p
           className={`mt-2 text-base leading-8 transition-colors duration-500 ease-out sm:text-[1.0625rem] ${
-            open ? "text-white" : "text-white/75"
+            open ? "text-agri-blue" : "text-slate-600"
           }`}
         >
           {question}
@@ -102,18 +102,18 @@ export function SelectionGate({
 
   // No overflow-hidden on the section: it would silently disable the sticky heading below.
   return (
-    <section className="selection-gate relative bg-agri-blue py-16 text-white sm:py-24">
+    <section className="selection-gate field-bloom field-bloom-flip relative py-16 sm:py-24">
       <div className="container-shell relative grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         <div className="lg:sticky lg:top-32 lg:self-start">
-          <h2 className="text-2xl font-bold leading-[1.25] tracking-normal sm:text-4xl">{title}</h2>
-          <p className="mt-4 text-lg font-semibold leading-8 text-white/85">{subtitle}</p>
-          <p className="mt-5 leading-8 text-white/70">{intro}</p>
+          <h2 className="text-2xl font-bold leading-[1.25] tracking-normal text-agri-blue sm:text-4xl">{title}</h2>
+          <p className="mt-4 text-lg font-semibold leading-8 text-slate-700">{subtitle}</p>
+          <p className="mt-5 leading-8 text-slate-600">{intro}</p>
 
           <div className="mt-8 hidden items-center gap-4 lg:flex">
-            <span className="text-[0.6875rem] font-bold uppercase text-white/45">{progressLabel}</span>
-            <span aria-hidden="true" className="relative h-px flex-1 bg-white/15">
+            <span className="text-[0.6875rem] font-bold uppercase text-slate-600">{progressLabel}</span>
+            <span aria-hidden="true" className="relative h-px flex-1 bg-agri-line">
               <motion.span
-                className="absolute inset-y-0 start-0 block w-full origin-[left_center] bg-agri-gold rtl:origin-[right_center]"
+                className="absolute inset-y-0 start-0 block w-full origin-[left_center] bg-agri-goldInk rtl:origin-[right_center]"
                 style={reducedMotion ? { scaleX: 1 } : { scaleX: progress }}
               />
             </span>
@@ -124,11 +124,11 @@ export function SelectionGate({
           <div ref={railRef} className="gate-rail relative">
             <span
               aria-hidden="true"
-              className="absolute top-[var(--gate-node-half)] bottom-[var(--gate-node-half)] start-[var(--gate-rail-x)] w-px bg-white/15"
+              className="absolute top-[var(--gate-node-half)] bottom-[var(--gate-node-half)] start-[var(--gate-rail-x)] w-px bg-agri-line"
             />
             <motion.span
               aria-hidden="true"
-              className="absolute top-[var(--gate-node-half)] bottom-[var(--gate-node-half)] start-[var(--gate-rail-x)] block w-px origin-top bg-agri-gold"
+              className="absolute top-[var(--gate-node-half)] bottom-[var(--gate-node-half)] start-[var(--gate-rail-x)] block w-px origin-top bg-agri-goldInk"
               style={reducedMotion ? { scaleY: 1 } : { scaleY: progress }}
             />
 
@@ -154,7 +154,7 @@ export function SelectionGate({
                 gold as the rail above so the line reads as one continuous run. */}
             <motion.span
               aria-hidden="true"
-              className="absolute top-[calc(var(--gate-node)*-1)] h-[calc(var(--gate-node)*1.5)] start-[var(--gate-rail-x)] w-px origin-top bg-agri-gold"
+              className="absolute top-[calc(var(--gate-node)*-1)] h-[calc(var(--gate-node)*1.5)] start-[var(--gate-rail-x)] w-px origin-top bg-agri-goldInk"
               initial={false}
               animate={{ scaleY: outcomeOpen ? 1 : 0 }}
               transition={{ duration: 0.55, ease: premiumEase }}
@@ -162,7 +162,7 @@ export function SelectionGate({
             <motion.div
               aria-hidden="true"
               className={`relative z-10 flex h-[var(--gate-node)] w-[var(--gate-node)] items-center justify-center rounded-md border transition-colors duration-500 ease-out ${
-                outcomeOpen ? "border-agri-gold bg-agri-gold text-agri-blue" : "border-white/25 bg-agri-blue text-white/40"
+                outcomeOpen ? "border-agri-gold bg-agri-gold text-agri-blue" : "border-agri-line bg-white text-slate-400"
               }`}
               initial={false}
               animate={{ scale: outcomeOpen ? 1 : 0.92 }}
@@ -171,10 +171,10 @@ export function SelectionGate({
               <ClearedIcon className="h-6 w-6 sm:h-7 sm:w-7" />
             </motion.div>
 
-            <div className="min-w-0 rounded-md border border-agri-gold/45 bg-agri-green/25 p-5 sm:p-6">
-              <p className="text-lg font-bold leading-8 text-white sm:text-xl">{outcomeTitle}</p>
-              <p className="mt-2 leading-7 text-white/70">{outcomeDetail}</p>
-              <Link href={localizeHref(locale, outcomeHref)} className="btn-on-dark-outline mt-5">
+            <div className="min-w-0 rounded-md border border-agri-goldInk/40 bg-white/70 p-5 sm:p-6">
+              <p className="text-lg font-bold leading-8 text-agri-blue sm:text-xl">{outcomeTitle}</p>
+              <p className="mt-2 leading-7 text-slate-600">{outcomeDetail}</p>
+              <Link href={localizeHref(locale, outcomeHref)} className="btn-primary mt-5">
                 {outcomeLink}
               </Link>
             </div>

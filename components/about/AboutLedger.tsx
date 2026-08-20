@@ -47,10 +47,10 @@ export function AboutLedger({ locale, entries }: AboutLedgerProps) {
   return (
     <section
       ref={ref}
-      className="about-ledger relative bg-agri-blue"
+      className="about-ledger field-bloom relative"
       aria-label={locale === "ar" ? "بيانات الشركة" : "Company record"}
     >
-      <div className="container-shell border-t border-white/12 py-9 sm:py-11">
+      <div className="container-shell py-9 sm:py-11">
         {/* Fixed columns rather than flex-wrap: English labels are long enough to wrap
             the row, and a wrapped item would drag its inline-start divider to the head
             of the next line. Equal columns keep every rule where it belongs. */}
@@ -58,15 +58,15 @@ export function AboutLedger({ locale, entries }: AboutLedgerProps) {
           {entries.map((entry, index) => (
             <li
               key={entry.label}
-              className={`min-w-0 lg:px-6 ${index === 0 ? "lg:ps-0" : "lg:border-s lg:border-white/15"}`}
+              className={`min-w-0 lg:px-6 ${index === 0 ? "lg:ps-0" : "lg:border-s lg:border-agri-line"}`}
             >
               <div className="flex h-9 items-end sm:h-11">
                 <Mark kind={entry.mark} count={entry.count ?? 0} delay={index * 0.12} active={inView} />
               </div>
-              <span className="about-ledger-value mt-4 block text-lg font-bold leading-tight text-white sm:text-xl">
+              <span className="about-ledger-value mt-4 block text-lg font-bold leading-tight text-agri-blue sm:text-xl">
                 {entry.value}
               </span>
-              <span className="mt-1 block text-[0.8125rem] leading-6 text-white/65 sm:text-sm">{entry.label}</span>
+              <span className="mt-1 block text-[0.8125rem] leading-6 text-slate-600 sm:text-sm">{entry.label}</span>
             </li>
           ))}
         </ul>
