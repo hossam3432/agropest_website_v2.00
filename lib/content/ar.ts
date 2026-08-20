@@ -305,9 +305,7 @@ export const arContent = {
         sinceLabel: "بداية العمل في السوق المصري",
         yearsLabel: "عامًا من العمل المتصل",
         productsLabel: "منتجًا في المحفظة",
-        suppliersLabel: "موردين دوليين",
-        baseValue: "النوبارية",
-        baseLabel: "المقر والمخازن"
+        suppliersLabel: "موردين دوليين"
       },
       gate: {
         stepLabel: "سؤال",

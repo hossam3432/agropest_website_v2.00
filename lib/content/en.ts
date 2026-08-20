@@ -337,9 +337,7 @@ export const enContent = {
         sinceLabel: "trading in the Egyptian market since",
         yearsLabel: "years of continuous trading",
         productsLabel: "products in the portfolio",
-        suppliersLabel: "international suppliers",
-        baseValue: "Al Nubariya",
-        baseLabel: "head office and warehouses"
+        suppliersLabel: "international suppliers"
       },
       gate: {
         stepLabel: "Question",

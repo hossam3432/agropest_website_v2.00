@@ -71,8 +71,7 @@ export default async function AboutPage({ params }: LocalePageProps) {
       label: proof.ledger.suppliersLabel,
       mark: "suppliers",
       count: proof.suppliers.items.length
-    },
-    { value: proof.ledger.baseValue, label: proof.ledger.baseLabel, mark: "place" }
+    }
   ];
 
   return (
