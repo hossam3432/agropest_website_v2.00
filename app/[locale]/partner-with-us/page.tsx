@@ -33,7 +33,7 @@ export default async function PartnerWithUsPage({ params }: LocalePageProps) {
     <>
       <HeroSection compact locale={locale} {...partnerPage.hero} />
 
-      <section className="bg-white py-12 sm:py-20">
+      <section className="field-clear py-12 sm:py-20">
         <div className="container-shell">
           <div className="rounded-md border-s-4 border-agri-gold bg-agri-mist p-5 shadow-sm sm:p-8 lg:p-10">
             <p className="eyebrow">{partnerPage.bridgeSection.eyebrow}</p>
@@ -69,7 +69,7 @@ export default async function PartnerWithUsPage({ params }: LocalePageProps) {
         </div>
       </section>
 
-      <section className="bg-white py-12 sm:py-20">
+      <section className="field-clear py-12 sm:py-20">
         <div className="container-shell">
           <p className="eyebrow">{partnerPage.tracksSection.eyebrow}</p>
           <h2 className="section-title mt-3">{partnerPage.tracksSection.title}</h2>

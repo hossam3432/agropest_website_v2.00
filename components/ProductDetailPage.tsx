@@ -419,7 +419,7 @@ export function ProductDetailPage({ content, locale, product }: ProductDetailPag
         </div>
       </section>
 
-      <section className="bg-agri-mist py-10 sm:py-12 lg:py-16">
+      <section className="field-veil py-10 sm:py-12 lg:py-16">
         <div
           className={
             "mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 lg:px-8 " +

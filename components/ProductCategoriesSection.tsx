@@ -19,7 +19,7 @@ export function ProductCategoriesSection({
   title = content.home.productCategoriesSection.title,
   description = content.home.productCategoriesSection.description,
   cta = content.home.productCategoriesSection.cta,
-  className = "bg-agri-mist"
+  className = "field-veil"
 }: ProductCategoriesSectionProps) {
   return (
     <section className={`${className} py-12 sm:py-14 lg:py-[100px]`}>

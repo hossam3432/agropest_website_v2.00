@@ -336,7 +336,7 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
     ".rival-line-trim { transform: scaleX(0); animation: rivalTrimDraw 10s ease-out infinite; } " +
     "@media (prefers-reduced-motion: reduce) { .rival-line-trim { animation: none; transform: scaleX(1); } }";
   return (
-    <main className={cairo.className + " native-width-page rival-landing bg-white text-[" + INK + "]"}>
+    <main className={cairo.className + " own-ground native-width-page rival-landing bg-white text-[" + INK + "]"}>
       <style dangerouslySetInnerHTML={{ __html: arabicFontCss + " " + animationCss }} />
 
       {/* MOBILE (<lg) — dedicated mobile-first structure, natural document scroll.

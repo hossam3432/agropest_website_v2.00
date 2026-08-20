@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Readex_Pro } from "next/font/google";
 import "./globals.css";
 import { enContent } from "@/lib/content/en";
+import { ActionLight } from "@/components/ActionLight";
 import { AnalyticsScripts } from "@/components/consent/AnalyticsScripts";
 import { ConsentProvider } from "@/components/consent/ConsentProvider";
 import { CookieConsentBanner } from "@/components/consent/CookieConsentBanner";
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <StructuredData />
         <ConsentProvider>
           {children}
+          <ActionLight />
           <AnalyticsScripts />
           <CookieConsentBanner />
         </ConsentProvider>

@@ -240,7 +240,7 @@ export function ContactSection({
   }
 
   return (
-    <section className="bg-agri-mist py-16" id="contact">
+    <section className="field-veil py-16" id="contact">
       <div className="container-shell grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <div>
           <p className="eyebrow">{contactSection.eyebrow}</p>

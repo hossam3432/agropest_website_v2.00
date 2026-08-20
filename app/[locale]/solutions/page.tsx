@@ -41,7 +41,7 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
       />
       <HeroSection compact leading={false} locale={locale} {...solutionsPage.hero} />
 
-      <section className="bg-agri-mist py-12 sm:py-20">
+      <section className="field-veil py-12 sm:py-20">
         <div className="container-shell">
           <RevealSection className="max-w-3xl" amount={0.15}>
             <p className="eyebrow">{solutionsPage.audiencesSection.eyebrow}</p>
@@ -65,7 +65,7 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
         </div>
       </section>
 
-      <section className="bg-white py-12 sm:py-20">
+      <section className="field-clear py-12 sm:py-20">
         <div className="container-shell">
           <RevealSection className="max-w-3xl" amount={0.15}>
             <p className="eyebrow">{solutionsPage.solutionTracksSection.eyebrow}</p>
@@ -111,7 +111,7 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
         </div>
       </section>
 
-      <section className="bg-agri-mist py-12 sm:py-20">
+      <section className="field-veil py-12 sm:py-20">
         <RevealSection className="container-shell grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start" amount={0.15}>
           <div>
             <p className="eyebrow">{solutionsPage.needsSection.eyebrow}</p>
@@ -138,7 +138,7 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
         </RevealSection>
       </section>
 
-      <section className="bg-white py-12 sm:py-20">
+      <section className="field-clear py-12 sm:py-20">
         <RevealSection className="container-shell" amount={0.15}>
           <div className="grid overflow-hidden rounded-lg border border-agri-line bg-agri-blue text-white shadow-soft lg:grid-cols-[0.78fr_1.22fr]">
             <div className="bg-white/5 p-5 sm:p-10">

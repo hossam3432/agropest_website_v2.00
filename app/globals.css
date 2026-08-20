@@ -4,6 +4,49 @@
 
 :root {
   color-scheme: light;
+
+  /* ── The field ──────────────────────────────────────────────────────────
+     Three lights over a white core. One definition, shared by the page
+     atmosphere and by every action sitting on it, so a button reads as a
+     small window onto the same air the page is made of rather than as a
+     separately-styled object. */
+  --lume-core: 255 255 255;
+  --lume-leaf: 79 143 69; /* agri.leaf — the light green   */
+  --lume-gold: 217 146 39; /* agri.gold — the edge accent   */
+  --lume-navy: 23 50 77; /* agri.blue — the page blue     */
+}
+
+/* Registered so the pointer coordinates and the burn of the lights are typed
+   numbers rather than raw tokens: invalid values fall back instead of breaking
+   the gradient, and --btn-lume can be transitioned. */
+@property --btn-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 50;
+}
+
+@property --btn-py {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 50;
+}
+
+@property --btn-bx {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 50;
+}
+
+@property --btn-by {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 50;
+}
+
+@property --btn-lume {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0.38;
 }
 
 * {
@@ -16,8 +59,48 @@ html {
 
 body {
   min-height: 100vh;
-  background: #f4f7f5;
+  background: #ffffff;
   color: #17324d;
+}
+
+/* The ambient field. Every bloom is centred off-canvas so only its falloff
+   reaches the frame — that is what keeps the middle white and the colour in
+   the gutters, which above 1000px is exactly where .container-shell is not.
+   Fixed, and deliberately still: the page holds one breath of light and the
+   buttons are the only thing in it that answers the pointer.
+   Interpolating to `rgb(… / 0)` rather than `transparent` matters — the
+   keyword is transparent *black*, and fading through it greys the bloom. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(48vw 44vh at -2% -10%, rgb(var(--lume-leaf) / 0.4), rgb(var(--lume-leaf) / 0) 66%),
+    radial-gradient(44vw 40vh at 100% -12%, rgb(var(--lume-gold) / 0.36), rgb(var(--lume-gold) / 0) 64%),
+    radial-gradient(30vw 46vh at 106% 42%, rgb(var(--lume-gold) / 0.16), rgb(var(--lume-gold) / 0) 62%),
+    radial-gradient(50vw 46vh at 104% 108%, rgb(var(--lume-navy) / 0.3), rgb(var(--lume-navy) / 0) 62%),
+    radial-gradient(46vw 42vh at -6% 106%, rgb(var(--lume-navy) / 0.22), rgb(var(--lume-navy) / 0) 60%),
+    radial-gradient(34vw 34vh at -4% 78%, rgb(var(--lume-leaf) / 0.2), rgb(var(--lume-leaf) / 0) 58%);
+}
+
+/* The bespoke product landings own their air — Rival Duo's orange, Signal's
+   #17142D, Edegal's navy, Lasix's cream. They opt out wholesale. */
+body:has(.own-ground)::before {
+  content: none;
+}
+
+/* Below the shell breakpoint the content column runs edge to edge, so the
+   blooms retreat rather than sit under body copy. */
+@media (max-width: 999px) {
+  body::before {
+    background-image:
+      radial-gradient(72vw 32vh at -10% -8%, rgb(var(--lume-leaf) / 0.26), rgb(var(--lume-leaf) / 0) 68%),
+      radial-gradient(68vw 30vh at 110% -6%, rgb(var(--lume-gold) / 0.22), rgb(var(--lume-gold) / 0) 66%),
+      radial-gradient(78vw 36vh at 106% 106%, rgb(var(--lume-navy) / 0.2), rgb(var(--lume-navy) / 0) 64%),
+      radial-gradient(66vw 32vh at -12% 102%, rgb(var(--lume-leaf) / 0.16), rgb(var(--lume-leaf) / 0) 62%);
+  }
 }
 
 /* Arabic is a joined script: any positive letter-spacing visually breaks the
@@ -122,6 +205,23 @@ a {
   }
 }
 
+/* The press bloom on an action. Scales about its own centre, which the
+   ::after rule has already translated onto the contact point, so the light
+   grows out of the finger rather than out of the middle of the pill. */
+@keyframes action-burst {
+  from {
+    opacity: 0.95;
+    scale: 0.06;
+  }
+  60% {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 0;
+    scale: 1;
+  }
+}
+
 ::selection {
   background: #d99227;
   color: #ffffff;
@@ -144,20 +244,37 @@ a {
     @apply mt-4 max-w-3xl text-base leading-8 text-slate-600;
   }
 
-  /* ── Actions ──────────────────────────────────────────────────────────────
-     Every action on the site is the same object: a capsule of frosted glass
-     carrying a light-to-dark green gradient tint. Shape, glass and motion never
-     vary from one button to the next — only the polarity, which follows the
-     ground the button sits on:
+  /* ── Section bands ──────────────────────────────────────────────────────
+     Pages alternate two grounds. Both are now openings onto the field rather
+     than paint laid over it: the clear band shows it whole, the veil mutes it
+     with a mist wash so the alternation still reads as rhythm. */
+  .field-clear {
+    background-color: transparent;
+  }
+
+  .field-veil {
+    background-color: rgb(244 247 245 / 0.72);
+  }
+
+  /* ── Actions ────────────────────────────────────────────────────────────
+     A button is a window onto the field: the same three lights over the same
+     white core, at capsule scale — green anchored to the leading top corner,
+     gold to the trailing one, navy hugging the foot, white in the middle.
+
+     It is also the only place the field answers you. ActionLight writes the
+     pointer into --btn-px/--btn-py; the green light chases it while gold and
+     navy counter-move, so the capsule reads as light shifting behind glass
+     rather than a highlight sliding across it. A press releases a gold bloom
+     from the exact contact point (--btn-bx/--btn-by) and flares the rim.
 
        light ground  →  green ink   .btn .btn-primary .btn-secondary .btn-accent
        dark ground   →  white ink   .btn-invert .btn-on-dark
                                     .btn-on-dark-outline .btn-hero-glass
 
      Sizes: .btn-sm, .btn-lg, .btn-block. Padding and type are fluid, so one
-     class covers every breakpoint. To retint a bespoke product landing,
-     override --btn-light / --btn-dark / --btn-ink on the element; never
-     re-declare the capsule itself. */
+     class covers every breakpoint. To retint a bespoke landing, override
+     --btn-leaf / --btn-gold / --btn-navy / --btn-ink on the element; never
+     re-declare the capsule. */
   .btn,
   .btn-primary,
   .btn-secondary,
@@ -165,22 +282,24 @@ a {
   .btn-on-dark,
   .btn-on-dark-outline,
   .btn-hero-glass {
-    --btn-light: 79 143 69;     /* agri.leaf      — light end of the tint */
-    --btn-dark: 10 61 43;       /* agri.greenDark — dark end of the tint  */
-    --btn-tint: 0.22;           /* how much tint the glass carries        */
-    --btn-pane: 255 255 255;    /* the pane the tint is laid over         */
-    --btn-pane-a: 0.45;
-    --btn-pane-hot: 0.52;       /* the pane firms up under the pointer    */
+    --btn-leaf: var(--lume-leaf);
+    --btn-gold: var(--lume-gold);
+    --btn-navy: var(--lume-navy);
+    --btn-lume: 0.38; /* how hard the three lights burn */
+    --btn-burst: 0.62; /* the core of the press bloom      */
+    --btn-pane: 255 255 255;
+    --btn-pane-a: 0.4;
+    --btn-pane-hot: 0.46;
     --btn-ink: #0a3d2b;
-    --btn-edge: rgb(var(--btn-dark) / 0.3);
-    --btn-edge-hot: rgb(var(--btn-dark) / 0.62);
-    --btn-cast: rgb(var(--btn-dark) / 0.16);
-    --btn-rim: rgb(255 255 255 / 0.55);
-    --btn-sheen: rgb(255 255 255 / 0.55);
+    --btn-edge: rgb(var(--lume-navy) / 0.24);
+    --btn-edge-hot: rgb(var(--lume-gold) / 0.8);
+    --btn-cast: rgb(var(--lume-navy) / 0.16);
+    --btn-rim: rgb(255 255 255 / 0.65);
     --btn-focus: #0f5a3c;
 
     position: relative;
     isolation: isolate;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -206,57 +325,73 @@ a {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
     transition:
-      transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
       box-shadow 260ms ease,
-      border-color 260ms ease,
-      background-color 260ms ease,
-      color 200ms ease;
+      border-color 200ms ease,
+      background-color 240ms ease,
+      color 200ms ease,
+      --btn-lume 240ms ease;
   }
 
-  /* The tint rides on its own layer so hover can deepen it smoothly — a
-     gradient cannot be transitioned, an opacity can. */
+  /* The three lights. Each anchor is a fixed corner plus a share of the
+     pointer offset, so the composition holds at rest and parallaxes in use. */
   :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass)::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: -1;
-    border-radius: inherit;
-    background-image: linear-gradient(
-      135deg,
-      rgb(var(--btn-light) / var(--btn-tint)),
-      rgb(var(--btn-dark) / calc(var(--btn-tint) * 1.9))
-    );
-    opacity: 0.85;
-    transition: opacity 260ms ease;
+    background-image:
+      radial-gradient(
+        72% 190% at calc(17% + (var(--btn-px) - 50) * 1%) calc(15% + (var(--btn-py) - 50) * 0.9%),
+        rgb(var(--btn-leaf) / var(--btn-lume)),
+        rgb(var(--btn-leaf) / 0) 68%
+      ),
+      radial-gradient(
+        66% 175% at calc(83% - (var(--btn-px) - 50) * 0.55%) calc(20% + (var(--btn-py) - 50) * 0.4%),
+        rgb(var(--btn-gold) / calc(var(--btn-lume) * 0.86)),
+        rgb(var(--btn-gold) / 0) 66%
+      ),
+      radial-gradient(
+        110% 165% at calc(52% + (var(--btn-px) - 50) * 0.3%) calc(104% - (var(--btn-py) - 50) * 0.5%),
+        rgb(var(--btn-navy) / calc(var(--btn-lume) * 0.6)),
+        rgb(var(--btn-navy) / 0) 70%
+      );
     pointer-events: none;
   }
 
-  /* Specular sweep — the glass catches the light as the pointer arrives. */
+  /* The press bloom. Sized to reach any corner from any contact point and
+     clipped by the capsule's own overflow, so it reads as the pill filling
+     with light rather than as a circle drawn on top of it. */
   :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass)::after {
     content: "";
     position: absolute;
-    inset: 0;
+    left: calc(var(--btn-bx) * 1%);
+    top: calc(var(--btn-by) * 1%);
     z-index: -1;
-    border-radius: inherit;
-    background-image: linear-gradient(112deg, transparent 34%, var(--btn-sheen) 50%, transparent 66%);
-    background-size: 280% 100%;
-    background-position: 150% 0;
-    background-repeat: no-repeat;
+    width: 240%;
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: radial-gradient(
+      closest-side circle,
+      rgb(var(--btn-gold) / var(--btn-burst)),
+      rgb(var(--btn-gold) / calc(var(--btn-burst) * 0.45)) 40%,
+      rgb(var(--btn-gold) / 0) 72%
+    );
     opacity: 0;
-    transition:
-      background-position 700ms cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 200ms ease;
     pointer-events: none;
   }
 
-  [dir="rtl"] :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass)::after {
-    background-position: -50% 0;
+  :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass).is-bursting::after {
+    animation: action-burst 420ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   /* Hover is gated on a real pointer: on touch it would stick after the tap,
-     so phones get the press state below and nothing else. */
+     so phones get the press below and nothing else. */
   @media (hover: hover) and (pointer: fine) {
     :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover {
+      --btn-lume: 0.52;
+
       transform: translateY(-2px);
       border-color: var(--btn-edge-hot);
       background-color: rgb(var(--btn-pane) / var(--btn-pane-hot));
@@ -264,33 +399,17 @@ a {
         inset 0 1px 0 var(--btn-rim),
         0 14px 30px var(--btn-cast);
     }
-
-    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover::before {
-      opacity: 1;
-    }
-
-    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover::after {
-      opacity: 1;
-      background-position: -40% 0;
-    }
-
-    [dir="rtl"] :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover::after {
-      background-position: 190% 0;
-    }
   }
 
-  /* Press — fires on click and on touch alike, fast enough to feel physical. */
   :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):active {
+    --btn-lume: 0.6;
+
     transform: translateY(0) scale(0.965);
-    border-color: var(--btn-edge-hot);
+    border-color: rgb(var(--btn-gold) / 0.92);
     box-shadow:
-      inset 0 2px 7px rgb(var(--btn-dark) / 0.22),
+      inset 0 2px 8px rgb(var(--lume-navy) / 0.2),
       0 2px 8px var(--btn-cast);
     transition-duration: 90ms;
-  }
-
-  :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):active::before {
-    opacity: 1;
   }
 
   :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):focus-visible {
@@ -306,40 +425,38 @@ a {
     box-shadow: inset 0 1px 0 var(--btn-rim);
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass),
-    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass)::before {
-      transition: none;
-    }
-
-    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover,
-    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):active {
-      transform: none;
-    }
-
-    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass)::after {
-      display: none;
-    }
-  }
-
-  /* Inverted polarity — the same capsule read against a dark ground. The tint
-     lightens so the green still registers, and the ink goes white. */
+  /* Inverted polarity — the same three lights read against a dark ground.
+     The tints stay mid-toned rather than pastel and the lights burn lower:
+     pastel blooms lift the pane far enough that the white label falls under
+     4.5:1 at the peak of the green. Colour here comes from hue, not from
+     lightness, which keeps the label at ~5.9:1 even mid-press. */
   .btn-invert,
   .btn-on-dark,
   .btn-on-dark-outline,
   .btn-hero-glass {
-    --btn-light: 154 219 163;
-    --btn-dark: 16 104 70;
-    --btn-tint: 0.32;
+    --btn-leaf: 74 156 92;
+    --btn-gold: 206 150 52;
+    --btn-navy: 72 128 190;
+    --btn-lume: 0.26;
+    --btn-burst: 0.32;
     --btn-pane-a: 0.1;
-    --btn-pane-hot: 0.24;
+    --btn-pane-hot: 0.2;
     --btn-ink: #ffffff;
     --btn-edge: rgb(255 255 255 / 0.4);
-    --btn-edge-hot: rgb(255 255 255 / 0.85);
+    --btn-edge-hot: rgb(240 191 108 / 0.95);
     --btn-cast: rgb(0 0 0 / 0.3);
-    --btn-rim: rgb(255 255 255 / 0.3);
-    --btn-sheen: rgb(255 255 255 / 0.4);
+    --btn-rim: rgb(255 255 255 / 0.32);
     --btn-focus: #ffffff;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    :is(.btn-invert, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover {
+      --btn-lume: 0.34;
+    }
+  }
+
+  :is(.btn-invert, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):active {
+    --btn-lume: 0.4;
   }
 
   .btn-sm {
@@ -359,6 +476,31 @@ a {
   .btn-block {
     display: flex;
     width: 100%;
+  }
+
+  /* Reduced motion keeps the feedback and drops the travel: the lights hold
+     their rest composition, the capsule does not move, and the press reads as
+     a colour step and a gold rim instead of a bloom. */
+  @media (prefers-reduced-motion: reduce) {
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass) {
+      transition:
+        background-color 140ms ease,
+        border-color 140ms ease,
+        color 140ms ease;
+    }
+
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover,
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):active {
+      transform: none;
+    }
+
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass).is-bursting::after {
+      animation: none;
+    }
+
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):active {
+      background-color: rgb(var(--btn-pane) / calc(var(--btn-pane-a) + 0.22));
+    }
   }
 
   .card {
@@ -498,6 +640,23 @@ a {
   .featured-card-cta {
     max-height: 18rem;
     transition: opacity 260ms ease, max-height 320ms ease, margin-top 320ms ease;
+  }
+
+  /* The CTA in this deck is an action capsule as well as a collapsing card
+     row, so it needs both transition sets. Declaring only the collapse above
+     would replace the capsule's own, leaving the one button on the page that
+     snaps between its states instead of easing. */
+  .featured-card-cta {
+    transition:
+      opacity 260ms ease,
+      max-height 320ms ease,
+      margin-top 320ms ease,
+      transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 260ms ease,
+      border-color 200ms ease,
+      background-color 240ms ease,
+      color 200ms ease,
+      --btn-lume 240ms ease;
   }
 }
 

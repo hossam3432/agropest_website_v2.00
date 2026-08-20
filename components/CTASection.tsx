@@ -50,7 +50,7 @@ export function CTASection({
   className = ""
 }: CTASectionProps) {
   return (
-    <section className={`bg-agri-mist py-16 sm:py-20 lg:py-[93px] ${className}`}>
+    <section className={`field-veil py-16 sm:py-20 lg:py-[93px] ${className}`}>
       <div className="container-shell">
         <RevealSection className="relative overflow-hidden rounded-lg bg-agri-blue px-6 py-12 text-white shadow-soft sm:px-10 sm:py-14 lg:px-12 lg:py-12" amount={0.15}>
           {backgroundImage ? (

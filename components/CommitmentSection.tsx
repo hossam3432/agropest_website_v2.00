@@ -11,7 +11,7 @@ export function CommitmentSection({ content, className = "" }: CommitmentSection
   const highlights = commitmentSection.highlights as Array<{ title: string; description: string }>;
 
   return (
-    <section className={`bg-white py-14 sm:py-16 lg:py-[84px] ${className}`}>
+    <section className={`field-clear py-14 sm:py-16 lg:py-[84px] ${className}`}>
       <RevealSection className="container-shell" amount={0.15}>
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div className="lg:sticky lg:top-28">
