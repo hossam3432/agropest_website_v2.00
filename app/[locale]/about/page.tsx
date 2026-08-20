@@ -11,7 +11,6 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
@@ -218,8 +217,8 @@ export default async function AboutPage({ params }: LocalePageProps) {
               <ResponsiveImage
                 src={proof.distributor.image}
                 alt={proof.distributor.imageAlt}
-                className="h-[280px] w-full sm:h-[400px] lg:h-[520px]"
-                objectFit="cover"
+                className="aspect-[2752/1536] h-auto w-full"
+                objectFit="contain"
                 sizes="(min-width: 1024px) 34vw, 100vw"
               />
               <figcaption className="absolute inset-x-0 bottom-0 bg-agri-blue/85 px-4 py-3 text-[0.8125rem] leading-6 text-white/85 backdrop-blur-sm sm:px-5">
@@ -265,8 +264,6 @@ export default async function AboutPage({ params }: LocalePageProps) {
           </div>
         </RevealSection>
       </section>
-
-      <CTASection locale={locale} {...about.cta} />
     </div>
   );
 }

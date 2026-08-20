@@ -277,8 +277,7 @@ export const enContent = {
         title: "What a distribution partnership includes",
         paragraphs: [
           "We publish organized technical content on our products and the crops they serve — to support the distributor, and to make the product's ideal use clear to the retailer and the grower.",
-          "Alongside it: product technical sheets and registration documentation, brochures and product pages, and a clear use case for each product — the crop, the stage it serves, and the problem it addresses.",
-          "Follow-up is organized and personal. A named point of contact, not a call center."
+          "Alongside it: product technical sheets and registration documentation, brochures and product pages, and a clear use case for each product — the crop, the stage it serves, and the problem it addresses."
         ]
       },
       {
