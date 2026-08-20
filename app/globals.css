@@ -301,6 +301,13 @@ a {
     @apply mt-4 max-w-3xl text-base leading-8 text-slate-600;
   }
 
+  /* Inline link inside running prose — the legal pages. Underlined rather than
+     colour-only, since the gold that clears 4.5:1 on white is dark enough to
+     read as ordinary ink on its own. */
+  .legal-link {
+    @apply font-semibold text-agri-goldInk underline decoration-agri-gold underline-offset-4 transition hover:text-agri-blue hover:decoration-agri-blue;
+  }
+
   /* ── Grounds ────────────────────────────────────────────────
      Six rungs on one ladder, ordered light to heavy. A page reads by stepping
      between them, never by repeating one — the eye finds a section boundary
@@ -629,6 +636,38 @@ a {
 
   :is(.btn-invert, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):active {
     --btn-lume: 0.2;
+  }
+
+  /* Solid green commit — one action in a cluster that must read as the answer
+     rather than another pane of glass (cookie consent "Accept All"). The three
+     lights and the press bloom are dropped: on an opaque ground they muddy the
+     fill instead of moving through it. */
+  .btn-solid {
+    --btn-ink: #ffffff;
+    --btn-edge: #0f5a3c;
+    --btn-edge-hot: #0a3d2b;
+    --btn-rim: rgb(255 255 255 / 0.16);
+    --btn-cast: rgb(10 61 43 / 0.28);
+    --btn-focus: #0a3d2b;
+
+    background-color: #0f5a3c;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .btn-solid::before,
+  .btn-solid::after {
+    display: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .btn-solid:hover {
+      background-color: #0a3d2b;
+    }
+  }
+
+  .btn-solid:active {
+    background-color: #0a3d2b;
   }
 
   .btn-sm {

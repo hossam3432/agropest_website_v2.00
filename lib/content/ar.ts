@@ -31,7 +31,8 @@ export const arContent = {
     phone: "+20 128 88 16352",
     whatsapp: "201288816352",
     email: "info@agropestcontrol.com",
-    address: "الكيلو 80 طريق القاهرة الإسكندرية الصحراوي، النوبارية، البحيرة، مصر",
+    headquartersAddress: "80 شارع الطيران، مدينة نصر، القاهرة، مصر",
+    warehousesAddress: "الكيلو 80 طريق القاهرة الإسكندرية الصحراوي، النوبارية، البحيرة، مصر",
     workingHours: "الأحد إلى الخميس، 9:00 صباحا - 5:00 مساء"
   },
   navigation: [
@@ -200,8 +201,7 @@ export const arContent = {
       description:
         "تقوم أجروبست كنترول للتجارة باختيار وتسجيل واستيراد وتوزيع علامات وقاية المحاصيل وتغذية النبات في السوق المصري، مع دعم فني وتجاري منظم لشركائها من تجار الجملة والموزعين الإقليميين.",
       backgroundImage: imagePaths.hero.about,
-      backgroundPosition: "center 50%",
-      backgroundScale: 1.25,
+      backgroundPosition: "center top",
       primaryCta: { label: "كن موزعًا", href: "/partner-with-us" },
       secondaryCta: { label: "تواصل معنا", href: "/contact" }
     },
@@ -319,7 +319,7 @@ export const arContent = {
         imageAlt: "خطوط زراعية في نطاق الأراضي المستصلحة المصرية"
       },
       heritage: {
-        image: "/images/hero/about-warehouse.jpg",
+        image: imagePaths.hero.about,
         imageAlt: "مقر أجروبست ومخازنها"
       }
     }
@@ -644,7 +644,9 @@ export const arContent = {
     methods: {
       whatsapp: "واتساب",
       email: "البريد الإلكتروني",
-      office: "المكتب"
+      office: "المكتب",
+      headquarters: "المقر الرئيسي",
+      warehouses: "المخازن"
     },
     formLabels: {
       name: "الاسم",

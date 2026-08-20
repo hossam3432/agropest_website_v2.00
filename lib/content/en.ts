@@ -4,7 +4,7 @@
     greenhouse: "/images/hero/agropest-greenhouse.jpg",
     about: "/images/backgrounds/agropest-showroom-facade.jpg",
     solutions: "/images/hero/solutions-logistics.jpg",
-    products: "/images/hero/products-crop-inputs.jpg",
+    products: "/images/hero/products-warehouse-pallets.jpg",
     library: "/images/hero/library-documents.jpg",
     libraryPreview: "/images/hero/library-brochures-stack.jpg",
     partner: "/images/hero/about-partnership.jpg",
@@ -57,7 +57,8 @@ export const enContent = {
     phone: "+20 128 88 16352",
     whatsapp: "201288816352",
     email: "info@agropestcontrol.com",
-    address: "80th km Cairo-Alexandria desert road, Al Nubariya, Behera, Egypt",
+    headquartersAddress: "80 Al Tayaran St., Nasr City, Cairo, Egypt",
+    warehousesAddress: "80th km Cairo-Alexandria desert road, Al Nubariya, Behera, Egypt",
     workingHours: "Sunday to Thursday, 9:00 AM - 5:00 PM"
   },
   navigation: [
@@ -231,8 +232,7 @@ export const enContent = {
       description:
         "AgroPest Control for Trading selects, registers, imports, and distributes crop protection and crop nutrition brands for the Egyptian market, with organized technical and commercial support for its wholesale and regional distribution partners.",
       backgroundImage: imagePaths.hero.about,
-      backgroundPosition: "center 50%",
-      backgroundScale: 1.25,
+      backgroundPosition: "center top",
       primaryCta: { label: "Become a Distributor", href: "/partner-with-us" },
       secondaryCta: { label: "Contact Us", href: "/contact" }
     },
@@ -351,7 +351,7 @@ export const enContent = {
         imageAlt: "Field rows in the Egyptian reclaimed-land belt"
       },
       heritage: {
-        image: "/images/hero/about-warehouse.jpg",
+        image: imagePaths.hero.about,
         imageAlt: "AgroPest's premises and warehouses"
       }
     }
@@ -662,7 +662,9 @@ export const enContent = {
     methods: {
       whatsapp: "WhatsApp",
       email: "Email",
-      office: "Office"
+      office: "Office",
+      headquarters: "Headquarters",
+      warehouses: "Warehouses"
     },
     formLabels: {
       name: "Name",

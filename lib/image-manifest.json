@@ -3561,6 +3561,76 @@
       }
     ]
   },
+  "/images/hero/products-warehouse-pallets.jpg": {
+    "width": 4032,
+    "height": 3024,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/products-warehouse-pallets-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/products-warehouse-pallets-800.avif"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/products-warehouse-pallets-1200.avif"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/hero/products-warehouse-pallets-1600.avif"
+      },
+      {
+        "width": 4032,
+        "path": "/images/optimized/hero/products-warehouse-pallets-4032.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/products-warehouse-pallets-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/products-warehouse-pallets-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/products-warehouse-pallets-1200.webp"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/hero/products-warehouse-pallets-1600.webp"
+      },
+      {
+        "width": 4032,
+        "path": "/images/optimized/hero/products-warehouse-pallets-4032.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/hero/products-warehouse-pallets-400.jpg"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/hero/products-warehouse-pallets-800.jpg"
+      },
+      {
+        "width": 1200,
+        "path": "/images/optimized/hero/products-warehouse-pallets-1200.jpg"
+      },
+      {
+        "width": 1600,
+        "path": "/images/optimized/hero/products-warehouse-pallets-1600.jpg"
+      },
+      {
+        "width": 4032,
+        "path": "/images/optimized/hero/products-warehouse-pallets-4032.jpg"
+      }
+    ]
+  },
   "/images/hero/solutions-logistics.jpg": {
     "width": 1400,
     "height": 920,

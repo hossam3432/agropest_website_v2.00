@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { localizeHref, type Locale, type SiteContent } from "@/lib/content";
+import { getLegalContent, legalPaths } from "@/lib/content/legal";
 
 type FooterProps = {
   content: SiteContent;
@@ -8,8 +9,14 @@ type FooterProps = {
 };
 
 export function Footer({ content, locale }: FooterProps) {
-  const { company, footer, navigation } = content;
+  const { company, contactSection, footer, navigation } = content;
   const whatsappHref = content.ctaActions.whatsapp.href;
+  // The legal pages title themselves; the footer reuses those titles as its labels.
+  const legal = getLegalContent(locale);
+  const legalLinks = [
+    { href: legalPaths.privacy, label: legal.privacy.title },
+    { href: legalPaths.terms, label: legal.terms.title }
+  ];
 
   return (
     <footer className="bg-agri-blue text-white">
@@ -48,22 +55,32 @@ export function Footer({ content, locale }: FooterProps) {
             <a className="text-start transition hover:text-white" href={whatsappHref}>
               <bdi dir="ltr">{company.phone}</bdi>
             </a>
-            <p>{company.address}</p>
+            <p>
+              <span className="block text-xs font-bold uppercase tracking-[0.14em] text-white/50">{contactSection.methods.headquarters}</span>
+              {company.headquartersAddress}
+            </p>
+            <p>
+              <span className="block text-xs font-bold uppercase tracking-[0.14em] text-white/50">{contactSection.methods.warehouses}</span>
+              {company.warehousesAddress}
+            </p>
           </div>
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div
-          className={`container-shell max-w-[450px] flex flex-col items-center gap-3 py-5 text-center text-sm text-white/60 lg:max-w-7xl ${
-            footer.bottomNote ? "sm:flex-row sm:justify-between sm:text-start" : "sm:flex-col"
-          }`}
-        >
+        <div className="container-shell max-w-[450px] flex flex-col items-center gap-4 py-5 text-center text-sm text-white/60 lg:max-w-7xl sm:flex-row sm:flex-wrap sm:justify-between sm:text-start">
           <p>
             <span className="block">
               {footer.copyrightPrefix} {new Date().getFullYear()} {company.name}.
             </span>
             <span className="block">{footer.rightsReserved}</span>
           </p>
+          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {legalLinks.map((item) => (
+              <Link key={item.href} href={localizeHref(locale, item.href)} className="transition hover:text-white">
+                {item.label}
+              </Link>
+            ))}
+          </nav>
           {footer.bottomNote ? <p>{footer.bottomNote}</p> : null}
         </div>
       </div>

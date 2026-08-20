@@ -257,9 +257,13 @@ export function ContactSection({
               <p className="mt-2 text-lg font-semibold text-agri-blue">{company.email}</p>
             </a>
             <div className="card p-4 sm:p-5">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-gold">{methods.office}</p>
-              <p className="mt-2 text-lg font-semibold text-agri-blue">{company.address}</p>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-gold">{methods.headquarters}</p>
+              <p className="mt-2 text-lg font-semibold text-agri-blue">{company.headquartersAddress}</p>
               <p className="mt-2 text-sm text-slate-600">{company.workingHours}</p>
+            </div>
+            <div className="card p-4 sm:p-5">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-gold">{methods.warehouses}</p>
+              <p className="mt-2 text-lg font-semibold text-agri-blue">{company.warehousesAddress}</p>
             </div>
           </div>
         </div>

@@ -81,7 +81,7 @@ export function CookieConsentBanner() {
             <button
               type="button"
               onClick={acceptAll}
-              className="btn btn-sm"
+              className="btn btn-sm btn-solid"
             >
               {t.accept}
             </button>

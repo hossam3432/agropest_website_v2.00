@@ -7,6 +7,8 @@ export const dynamic = "force-static";
 
 const marketingPaths = ["", "about", "solutions", "products", "technical-library", "brochures", "partner-with-us", "contact"];
 
+const legalPathSegments = ["privacy-policy", "terms"];
+
 const campaignPaths = ["signal-npk", "edegal-72-2-sl", "lasix-70-wg", "rival-duo-45-sc", "fossil-400-sl"];
 
 function localePath(locale: Locale, path: string) {
@@ -33,6 +35,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified,
         changeFrequency: path === "" ? "weekly" : "monthly",
         priority: path === "" ? 1 : 0.8,
+        alternates: alternatesFor(path)
+      });
+    }
+  }
+
+  for (const path of legalPathSegments) {
+    for (const locale of locales) {
+      entries.push({
+        url: absoluteUrl(localePath(locale, path)),
+        lastModified,
+        changeFrequency: "yearly",
+        priority: 0.3,
         alternates: alternatesFor(path)
       });
     }

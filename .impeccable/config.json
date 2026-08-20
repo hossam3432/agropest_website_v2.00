@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "components/legal/LegalDocumentView.tsx"
+        ],
+        "createdAt": "2026-08-20T21:11:04.097Z",
+        "reason": "house pattern: identical border-s-4 border-agri-gold bg-agri-mist callout already ships in app/[locale]/brochures/page.tsx and app/[locale]/about"
+      }
+    ]
+  }
+}
