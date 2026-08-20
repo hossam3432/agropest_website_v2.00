@@ -679,6 +679,48 @@ export const productNavigationByLocale: Record<Locale, ProductNavigationContent>
                 "slug": "fossil"
               },
               {
+                "label": "FoliQ AscoVigor",
+                "slug": "foliq-ascovigor"
+              }
+            ]
+          },
+          {
+            "label": "Calcium, Boron & Micronutrients",
+            "filterValue": "Calcium, Boron & Micronutrients",
+            "products": [
+              {
+                "label": "Chrome CaB",
+                "slug": "chrome-ca-b"
+              },
+              {
+                "label": "FoliQ Amical",
+                "slug": "foliq-amical"
+              },
+              {
+                "label": "FoliQ Boron",
+                "slug": "foliq-boron"
+              }
+            ]
+          },
+          {
+            "label": "Potassium & Silicon",
+            "filterValue": "Potassium & Silicon",
+            "products": [
+              {
+                "label": "Tesla Potassium Silicate",
+                "slug": "tesla"
+              },
+              {
+                "label": "FoliQ K Potassium",
+                "slug": "foliq-k-potassium"
+              }
+            ]
+          },
+          {
+            "label": "Amino Acid Formulations",
+            "filterValue": "Amino Acid Formulations",
+            "products": [
+              {
                 "label": "FoliQ AminoVigor",
                 "slug": "foliq-aminovigor"
               }

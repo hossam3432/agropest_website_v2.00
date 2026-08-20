@@ -246,20 +246,6 @@ export const enContent = {
         "We work with a carefully selected portfolio. Each product in it is followed in market and supported technically and commercially."
       ]
     },
-    checklistSection: {
-      eyebrow: "Selection",
-      title: "How a product enters our portfolio",
-      subtitle: "The questions we answer before selection, registration, and importation",
-      intro: "Before AgroPest takes on a product, it must pass a fixed set of questions:",
-      items: [
-        "Does the product address a real, current need in the Egyptian market?",
-        "Does it suit Egyptian crops and conditions — Delta clay and reclaimed sand behave differently?",
-        "Is the source reliable, and is the technical documentation complete?",
-        "Can it be registered and introduced in an organized way?",
-        "Can the distributor explain it to a retailer with confidence?",
-        "Can the grower understand what it does and when to use it?"
-      ]
-    },
     sections: [
       {
         eyebrow: "Our partners",
@@ -338,14 +324,6 @@ export const enContent = {
         yearsLabel: "years of continuous trading",
         productsLabel: "products in the portfolio",
         suppliersLabel: "international suppliers"
-      },
-      gate: {
-        stepLabel: "Question",
-        outcomeTitle: "What clears all six enters the portfolio",
-        outcomeDetail: "The portfolio today holds {count} products across two pillars: crop protection and plant nutrition.",
-        outcomeLink: "See the portfolio",
-        outcomeHref: "/products",
-        progressLabel: "Selection progress"
       },
       registration: {
         marksTitle: "What a registered product carries",

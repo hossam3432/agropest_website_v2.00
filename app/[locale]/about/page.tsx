@@ -16,7 +16,6 @@ import { HeroSection } from "@/components/HeroSection";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
 import { AboutLedger, type LedgerEntry } from "@/components/about/AboutLedger";
-import { SelectionGate } from "@/components/about/SelectionGate";
 import { DocumentIcon, RegionIcon } from "@/components/about/icons";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { localizeHref } from "@/lib/content";
@@ -80,8 +79,6 @@ export default async function AboutPage({ params }: LocalePageProps) {
         <HeroSection locale={locale} {...hero} fadeToMist={false} />
       </div>
 
-      <AboutLedger locale={locale} entries={ledgerEntries} />
-
       {/* Heritage — the place and the span, anchored to a real photograph of it. */}
       <section className="field-veil py-14 sm:py-24">
         <RevealSection
@@ -114,20 +111,9 @@ export default async function AboutPage({ params }: LocalePageProps) {
         </RevealSection>
       </section>
 
-      {/* The gate — the page's spine and its one authored motion. */}
-      <SelectionGate
-        locale={locale}
-        title={about.checklistSection.title}
-        subtitle={about.checklistSection.subtitle}
-        intro={about.checklistSection.intro}
-        items={about.checklistSection.items}
-        stepLabel={proof.gate.stepLabel}
-        progressLabel={proof.gate.progressLabel}
-        outcomeTitle={proof.gate.outcomeTitle}
-        outcomeDetail={proof.gate.outcomeDetail.replace("{count}", String(portfolioSize))}
-        outcomeLink={proof.gate.outcomeLink}
-        outcomeHref={proof.gate.outcomeHref}
-      />
+      {/* The record behind the passage above — figures at display size, each drawn from
+          the number it carries and counted up as its mark is struck. */}
+      <AboutLedger locale={locale} entries={ledgerEntries} />
 
       {/* Registration — the heaviest single proof on the page, so it gets its own weight. */}
       <section className="field-clear py-14 sm:py-24">
