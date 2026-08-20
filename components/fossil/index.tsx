@@ -117,7 +117,7 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
   return (
     <div ref={root} className="fossil-page-root">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative -mt-24 overflow-hidden pt-24" style={{ backgroundColor: FOSSIL.marine }}>
+      <section className="relative -mt-24 flex min-h-[92svh] flex-col justify-end overflow-hidden pt-24" style={{ backgroundColor: FOSSIL.marine }}>
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-24 end-[-10%] h-[560px] w-[560px] rounded-full opacity-[0.16] blur-[2px]"
@@ -154,15 +154,17 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
           <div className="relative flex justify-center lg:col-span-5 lg:justify-end">
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute bottom-[6%] h-[46%] w-[78%] rounded-full opacity-40 blur-2xl"
+              className="pointer-events-none absolute bottom-[4%] h-[42%] w-[62%] rounded-full opacity-40 blur-2xl"
               style={{ background: `radial-gradient(ellipse at center, ${FOSSIL.aqua} 0%, transparent 70%)` }}
             />
+            {/* Sized by height, not width: the pack is 1:2.8, so a width-driven
+                image drives the hero grid to 1200px tall. */}
             <ResponsiveImage
               src="/images/fossil/fossil-500cc.png"
               alt={isArabic ? "عبوة فوسيل 400 SL سعة 500 سم³" : "The 500 cm³ Fossil 400 SL pack"}
               priority
-              sizes="(min-width: 1024px) 420px, 62vw"
-              className="fossil-hero-bottle relative w-[62vw] max-w-[290px] translate-y-[8%] lg:w-full lg:max-w-[420px] lg:translate-y-[10%]"
+              sizes="(min-width: 1024px) 260px, 150px"
+              className="fossil-hero-bottle relative h-[clamp(270px,40vh,360px)] w-auto translate-y-[7%] lg:h-[clamp(430px,64vh,640px)] lg:translate-y-[9%]"
             />
           </div>
         </div>
