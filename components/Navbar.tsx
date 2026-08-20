@@ -69,19 +69,19 @@ export function Navbar({ content, locale }: NavbarProps) {
       <header
         ref={headerRef}
         className={`w-full max-w-[450px] transition-all duration-300 ${
-          compact ? "lg:max-w-3xl" : locale === "en" ? "lg:max-w-7xl" : "lg:max-w-6xl"
-        }`}
+ compact ? "lg:max-w-3xl" : locale === "en" ? "lg:max-w-7xl" : "lg:max-w-6xl"
+ }`}
       >
       <nav
         className={`flex items-center justify-between gap-4 rounded-full border border-white/60 bg-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_30px_rgba(15,23,42,0.12)] backdrop-blur-xl transition-all duration-300 ${
-          compact ? "px-4 py-1.5" : "px-6 py-3"
-        }`}
+ compact ? "px-4 py-1.5" : "px-6 py-3"
+ }`}
       >
         <Link href={localizeHref(locale, "/")} className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
           <span
             className={`flex shrink-0 items-center justify-center transition-all duration-300 ${
-              compact ? "h-9 w-9" : "h-12 w-12"
-            }`}
+ compact ? "h-9 w-9" : "h-12 w-12"
+ }`}
           >
             <ResponsiveImage src={company.logoPath} alt={company.logoAlt} className="h-full w-full object-contain" objectFit="contain" sizes="48px" priority />
           </span>
@@ -103,9 +103,9 @@ export function Navbar({ content, locale }: NavbarProps) {
           type="button"
         >
           <span className="flex w-5 flex-col gap-1">
-            <span className="h-0.5 rounded bg-agri-blue" />
-            <span className="h-0.5 rounded bg-agri-blue" />
-            <span className="h-0.5 rounded bg-agri-blue" />
+            <span className="h-0.5 rounded-sm bg-agri-blue" />
+            <span className="h-0.5 rounded-sm bg-agri-blue" />
+            <span className="h-0.5 rounded-sm bg-agri-blue" />
           </span>
         </button>
 
@@ -117,9 +117,9 @@ export function Navbar({ content, locale }: NavbarProps) {
               <Link
                 key={item.href}
                 href={href}
-                className={`whitespace-nowrap rounded-md px-2.5 py-2 text-[13px] font-semibold transition ${
-                  active ? "bg-agri-mist text-agri-green" : "text-slate-600 hover:bg-agri-mist hover:text-agri-green"
-                }`}
+                className={`whitespace-nowrap rounded-sm px-2.5 py-2 text-[13px] font-semibold transition ${
+ active ? "bg-agri-mist text-agri-green" : "text-slate-600 hover:bg-agri-mist hover:text-agri-green"
+ }`}
               >
                 {item.label}
               </Link>
@@ -134,8 +134,8 @@ export function Navbar({ content, locale }: NavbarProps) {
                 key={option.locale}
                 href={switchLocalePath(pathname, option.locale)}
                 className={`rounded-full px-3 py-1.5 text-xs font-bold transition ${
-                  option.locale === locale ? "bg-agri-green text-white" : "text-slate-600 hover:text-agri-green"
-                }`}
+ option.locale === locale ? "bg-agri-green text-white" : "text-slate-600 hover:text-agri-green"
+ }`}
                 hrefLang={option.locale}
                 onClick={() => saveLanguagePreference(option.locale)}
               >
@@ -144,9 +144,9 @@ export function Navbar({ content, locale }: NavbarProps) {
             ))}
           </div>
           <a
-            className={`inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#008D36] font-bold text-white transition hover:bg-[#00722c] ${
-              compact ? "h-9 w-9 p-0" : "px-4 py-2 text-sm"
-            }`}
+            className={`btn whitespace-nowrap ${
+ compact ? "h-9 min-h-0 w-9 p-0" : "btn-sm"
+ }`}
             href={navCta.href}
             aria-label={navCta.label}
           >
@@ -162,7 +162,7 @@ export function Navbar({ content, locale }: NavbarProps) {
       </nav>
 
       {isOpen ? (
-        <div className="mx-2 mb-2 mt-2 rounded-3xl border border-white/60 bg-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_30px_rgba(15,23,42,0.12)] backdrop-blur-xl xl:hidden">
+        <div className="mx-2 mb-2 mt-2 rounded-lg border border-white/60 bg-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_8px_30px_rgba(15,23,42,0.12)] backdrop-blur-xl xl:hidden">
           <div className="px-4 py-4">
             <div className="grid gap-1">
               {navigation.map((item) => {
@@ -173,8 +173,8 @@ export function Navbar({ content, locale }: NavbarProps) {
                     key={item.href}
                     href={href}
                     className={`rounded-full px-3 py-3 text-sm font-semibold ${
-                      active ? "bg-agri-mist text-agri-green" : "text-slate-600"
-                    }`}
+ active ? "bg-agri-mist text-agri-green" : "text-slate-600"
+ }`}
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
@@ -187,8 +187,8 @@ export function Navbar({ content, locale }: NavbarProps) {
                     key={option.locale}
                     href={switchLocalePath(pathname, option.locale)}
                     className={`rounded-full px-3 py-2 text-center text-sm font-bold ${
-                      option.locale === locale ? "bg-agri-green text-white" : "text-slate-600"
-                    }`}
+ option.locale === locale ? "bg-agri-green text-white" : "text-slate-600"
+ }`}
                     hrefLang={option.locale}
                     onClick={() => saveLanguagePreference(option.locale)}
                   >
@@ -197,7 +197,7 @@ export function Navbar({ content, locale }: NavbarProps) {
                 ))}
               </div>
               <a
-                className="mt-3 rounded-full bg-[#008D36] px-4 py-3 text-center text-sm font-bold text-white transition hover:bg-[#00722c]"
+                className="btn btn-block mt-3"
                 href={navCta.href}
                 onClick={() => setIsOpen(false)}
               >

@@ -67,7 +67,7 @@ export default async function TechnicalLibraryPage({ params }: LocalePageProps) 
             </div>
             <div className="grid gap-4">
               {technicalLibraryPreview.documents.map((document) => (
-                <article key={document.type} className="group grid gap-3 border border-t-4 border-agri-line border-t-agri-gold bg-white p-4 shadow-sm sm:p-5 transition duration-300 hover:-translate-y-1 hover:border-agri-green hover:border-t-agri-gold hover:bg-agri-green hover:shadow-soft sm:grid-cols-[11rem_1fr]">
+                <article key={document.type} className="group grid gap-3 rounded-md border border-t-4 border-agri-line border-t-agri-gold bg-white p-4 shadow-sm sm:p-5 transition duration-300 hover:-translate-y-1 hover:border-agri-green hover:border-t-agri-gold hover:bg-agri-green hover:shadow-soft sm:grid-cols-[11rem_1fr]">
                   <p className="text-sm font-bold uppercase tracking-[0.16em] text-agri-gold transition duration-300 group-hover:text-white/80">{document.type}</p>
                   <div>
                     <h3 className="text-lg font-bold sm:text-xl tracking-normal text-agri-blue transition duration-300 group-hover:text-white">{document.title}</h3>

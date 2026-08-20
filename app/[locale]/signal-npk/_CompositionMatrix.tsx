@@ -66,7 +66,7 @@ export default function CompositionMatrix({
       <div
         role="tablist"
         aria-label="Signal NPK variants"
-        className="grid gap-3 rounded-3xl border border-white/70 bg-white/50 p-3 shadow-lg shadow-slate-900/5 backdrop-blur-md sm:grid-cols-3"
+        className="grid gap-3 rounded-lg border border-white/70 bg-white/50 p-3 shadow-lg shadow-slate-900/5 backdrop-blur-md sm:grid-cols-3"
       >
         {variants.map((item, i) => {
           const selected = i === active;
@@ -76,7 +76,7 @@ export default function CompositionMatrix({
               role="tab"
               aria-selected={selected}
               onClick={() => select(i)}
-              className="group relative overflow-hidden rounded-2xl p-5 text-start transition-all duration-300"
+              className="group relative overflow-hidden rounded-md p-5 text-start transition-all duration-300"
               style={{
                 backgroundColor: selected ? item.soft : "transparent",
                 boxShadow: selected ? `inset 0 0 0 1.5px ${item.color}, 0 12px 32px -12px ${item.color}66` : "inset 0 0 0 1px transparent"
@@ -118,7 +118,7 @@ export default function CompositionMatrix({
       <div ref={detailRef} key={v.id} className="sg-fade-up mt-5 grid scroll-mt-32 gap-5 lg:grid-cols-[0.95fr_1.05fr]">
         {/* pack visual */}
         <div
-          className="relative overflow-hidden rounded-3xl border border-white/70 p-8 shadow-xl shadow-slate-900/5 backdrop-blur-md"
+          className="relative overflow-hidden rounded-lg border border-white/70 p-8 shadow-xl shadow-slate-900/5 backdrop-blur-md"
           style={{ background: `linear-gradient(160deg, ${v.soft} 0%, #ffffffcc 55%, ${v.soft} 100%)` }}
         >
           {/* radiating rings behind the pack */}
@@ -152,7 +152,7 @@ export default function CompositionMatrix({
         {/* data panels */}
         <div className="flex flex-col gap-5">
           {/* macro trio */}
-          <div className="rounded-3xl border border-white/70 bg-white/60 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-md sm:p-7">
+          <div className="rounded-lg border border-white/70 bg-white/60 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-md sm:p-7">
             <h3 className="text-xs font-extrabold uppercase tracking-[0.18em]" style={{ color: v.color }}>
               {labels.macroTitle}
             </h3>
@@ -160,7 +160,7 @@ export default function CompositionMatrix({
               {v.macro.map((m) => (
                 <div
                   key={m.symbol}
-                  className="rounded-2xl border p-4 text-center transition-colors duration-300"
+                  className="rounded-md border p-4 text-center transition-colors duration-300"
                   style={{ borderColor: v.color + "26", backgroundColor: v.soft + "80" }}
                 >
                   <p className="font-mono text-[11px] font-bold uppercase tracking-widest" style={{ color: INK + "73" }} dir="ltr">
@@ -178,7 +178,7 @@ export default function CompositionMatrix({
           </div>
 
           {/* micro deck */}
-          <div className="rounded-3xl border border-white/70 bg-white/60 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-md sm:p-7">
+          <div className="rounded-lg border border-white/70 bg-white/60 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-md sm:p-7">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <h3 className="text-xs font-extrabold uppercase tracking-[0.18em]" style={{ color: INK }}>
                 {labels.microTitle}
@@ -189,7 +189,7 @@ export default function CompositionMatrix({
             </div>
             <div className="mt-5 grid grid-cols-3 gap-2.5 sm:grid-cols-6">
               {labels.micro.map((m) => (
-                <div key={m.symbol} className="rounded-2xl border border-slate-200/70 bg-white/70 p-3 text-center">
+                <div key={m.symbol} className="rounded-md border border-slate-200/70 bg-white/70 p-3 text-center">
                   <p className="font-mono text-sm font-extrabold" style={{ color: v.color }} dir="ltr">
                     {m.symbol}
                   </p>
@@ -206,11 +206,11 @@ export default function CompositionMatrix({
 
           {/* organic catalyst */}
           <div
-            className="flex items-start gap-5 rounded-3xl border p-6 shadow-lg shadow-slate-900/5 backdrop-blur-md sm:p-7"
+            className="flex items-start gap-5 rounded-lg border p-6 shadow-lg shadow-slate-900/5 backdrop-blur-md sm:p-7"
             style={{ borderColor: v.color + "40", backgroundColor: v.soft + "B3" }}
           >
             <span
-              className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-lg font-extrabold text-white shadow-lg transition-colors duration-300"
+              className="flex h-16 w-16 shrink-0 items-center justify-center rounded-md text-lg font-extrabold text-white shadow-lg transition-colors duration-300"
               style={{ backgroundColor: v.color, boxShadow: `0 12px 28px -10px ${v.color}` }}
               dir="ltr"
             >

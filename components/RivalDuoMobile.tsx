@@ -136,7 +136,7 @@ const ui = {
 
 function Kicker({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex flex-col overflow-hidden rounded-[0.7rem] shadow-sm">
+    <span className="inline-flex flex-col overflow-hidden rounded-md shadow-sm">
       <span className="h-1.5" style={{ backgroundColor: ORANGE }} />
       <span
         className="px-3.5 py-2 text-[11px] font-normal uppercase leading-4 tracking-[0.12em] text-white"
@@ -209,7 +209,7 @@ function Disclosure({
 
   return (
     <div
-      className="overflow-hidden rounded-[1.35rem] border-2 bg-white transition-colors duration-300"
+      className="overflow-hidden rounded-lg border-2 bg-white transition-colors duration-300"
       style={{
         borderColor: open ? accent : "#E8EEF7",
         boxShadow: open ? `0 16px 40px ${accent}1F` : "0 8px 24px rgba(10,42,87,0.05)"
@@ -473,7 +473,7 @@ export function RivalDuoMobile({
           </h1>
           <p className="mt-3 text-[15px] leading-8 text-slate-600">{c.hero.lead}</p>
 
-          <div className="mt-5 rounded-[1.35rem] border-2 bg-white/85 p-4 backdrop-blur-sm" style={{ borderColor: ORANGE + "33" }}>
+          <div className="mt-5 rounded-lg border-2 bg-white/85 p-4 backdrop-blur-sm" style={{ borderColor: ORANGE + "33" }}>
             <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-400">{c.hero.compositionLabel}</p>
             <div className="mt-2 grid gap-1.5">
               {compositionRows.map((row, index) => (
@@ -488,13 +488,13 @@ export function RivalDuoMobile({
           </div>
 
           <div className="mt-3 grid grid-cols-2 gap-3">
-            <div className="rounded-[1.35rem] border-2 bg-white/85 p-4 backdrop-blur-sm" style={{ borderColor: BLUE + "33" }}>
+            <div className="rounded-lg border-2 bg-white/85 p-4 backdrop-blur-sm" style={{ borderColor: BLUE + "33" }}>
               <p className="text-[10px] font-bold uppercase leading-4 tracking-[0.12em] text-slate-400">{c.hero.curativeLabel}</p>
               <p dir="ltr" className="mt-1.5 text-2xl font-extrabold" style={{ color: BLUE, textAlign: rtl ? "right" : "left" }}>
                 {c.hero.curativeValue}
               </p>
             </div>
-            <div className="rounded-[1.35rem] border-2 bg-white/85 p-4 backdrop-blur-sm" style={{ borderColor: ORANGE + "33" }}>
+            <div className="rounded-lg border-2 bg-white/85 p-4 backdrop-blur-sm" style={{ borderColor: ORANGE + "33" }}>
               <p className="text-[10px] font-bold uppercase leading-4 tracking-[0.12em] text-slate-400">{c.hero.phiLabel}</p>
               <p dir="ltr" className="mt-1.5 text-2xl font-extrabold" style={{ color: ORANGE, textAlign: rtl ? "right" : "left" }}>
                 {c.hero.phiValue}
@@ -506,15 +506,13 @@ export function RivalDuoMobile({
             <button
               type="button"
               onClick={() => scrollToSection("m-s4")}
-              className="flex min-h-[56px] w-full items-center justify-center rounded-full px-6 text-[15px] font-bold text-white shadow-[0_14px_30px_rgba(241,71,35,0.3)] active:scale-[0.985]"
-              style={{ backgroundColor: ORANGE }}
+              className="btn btn-block btn-lg"
             >
               {c.hero.ctaPrimary}
             </button>
             <Link
               href={contactHref}
-              className="flex min-h-[56px] w-full items-center justify-center rounded-full border-[3px] px-6 text-[15px] font-bold active:scale-[0.985]"
-              style={{ borderColor: BLUE, color: BLUE }}
+              className="btn btn-block btn-lg"
             >
               {c.hero.ctaSecondary}
             </Link>
@@ -601,7 +599,7 @@ export function RivalDuoMobile({
             { image: "/images/products/rival-duo-oomycete-germinate.png", title: c.s2.stage1Title, text: c.s2.stage1Text, number: "01", color: ORANGE },
             { image: "/images/products/rival-duo-oomycete-blocked.png", title: c.s2.stage2Title, text: c.s2.stage2Text, number: "02", color: BLUE }
           ].map((card) => (
-            <article key={card.number} className="overflow-hidden rounded-[1.5rem] bg-white shadow-[0_16px_44px_rgba(14,75,159,0.1)]">
+            <article key={card.number} className="overflow-hidden rounded-lg bg-white shadow-[0_16px_44px_rgba(14,75,159,0.1)]">
               <div className="h-52 w-full overflow-hidden">
                 <ResponsiveImage src={card.image} alt="" aria-hidden="true" className="h-full w-full object-cover" objectFit="cover" sizes="100vw" />
               </div>
@@ -623,7 +621,7 @@ export function RivalDuoMobile({
       <section id="m-s5" className={"scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-[4.5rem] pt-[4.5rem] " + COLUMN}>
         <SectionHead kicker={c.s5.kicker} title={c.s5.title} />
 
-        <div className="mt-4 overflow-hidden rounded-[1.5rem] bg-white p-2 shadow-[0_16px_44px_rgba(14,75,159,0.1)]">
+        <div className="mt-4 overflow-hidden rounded-lg bg-white p-2 shadow-[0_16px_44px_rgba(14,75,159,0.1)]">
           {/* Bands are percentages of the artwork, so they anchor to the image box
               itself — not the padded card, which would shift them by the padding. */}
           <div className="relative overflow-hidden">
@@ -674,7 +672,7 @@ export function RivalDuoMobile({
                 onClick={() => selectStage(index)}
                 aria-pressed={isActive}
                 className={
-                  "flex min-h-[62px] shrink-0 snap-center flex-col justify-center rounded-[1.1rem] border-2 px-4 text-start transition-colors duration-300 " +
+                  "flex min-h-[62px] shrink-0 snap-center flex-col justify-center rounded-md border-2 px-4 text-start transition-colors duration-300 " +
                   (isActive ? "" : "border-slate-100 bg-white")
                 }
                 style={isActive ? { borderColor: accent, backgroundColor: item.highlighted ? "#FFF6F3" : "#EEF4FF" } : undefined}
@@ -697,7 +695,7 @@ export function RivalDuoMobile({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: reducedMotion ? 0 : 0.32, ease: premiumEase }}
-            className="mt-3 rounded-[1.5rem] border-2 p-4"
+            className="mt-3 rounded-lg border-2 p-4"
             style={{
               borderColor: activeStage.highlighted ? ORANGE + "55" : BLUE + "22",
               backgroundColor: activeStage.highlighted ? "#FFF6F3" : "#F8FAFD"
@@ -711,7 +709,7 @@ export function RivalDuoMobile({
             </h3>
             <p className="mt-2 text-[15px] leading-8 text-slate-600">{activeStage.text}</p>
 
-            <div className="mt-3.5 rounded-[1.15rem] bg-white p-3.5">
+            <div className="mt-3.5 rounded-md bg-white p-3.5">
               <p className="text-[11px] font-bold uppercase tracking-[0.12em]" style={{ color: BLUE }}>
                 {c.s5.timingTitle} · {activeStage.day}
               </p>
@@ -719,7 +717,7 @@ export function RivalDuoMobile({
             </div>
 
             {activeStage.note ? (
-              <div className="mt-2.5 rounded-[1.15rem] border-2 p-3.5" style={{ borderColor: ORANGE + "55", backgroundColor: "#FFFFFF" }}>
+              <div className="mt-2.5 rounded-md border-2 p-3.5" style={{ borderColor: ORANGE + "55", backgroundColor: "#FFFFFF" }}>
                 <p className="text-[15px] leading-8 text-slate-700">{activeStage.note}</p>
               </div>
             ) : null}
@@ -731,7 +729,7 @@ export function RivalDuoMobile({
       <section id="m-s4" className={"scroll-mt-[140px] bg-[#F5F8FC] px-4 pb-[4.5rem] pt-[4.5rem] " + COLUMN}>
         <SectionHead kicker={c.s4.kicker} title={c.s4.title} />
 
-        <div className="mt-4 overflow-hidden rounded-[1.5rem] border-2 bg-white" style={{ borderColor: BLUE + "22" }}>
+        <div className="mt-4 overflow-hidden rounded-lg border-2 bg-white" style={{ borderColor: BLUE + "22" }}>
           <p className="px-4 py-3 text-[13px] font-normal leading-5 text-white" style={{ backgroundColor: BLUE }}>
             {c.s4.localTitle}
           </p>
@@ -843,7 +841,7 @@ export function RivalDuoMobile({
           {c.s8.tagline}
         </h2>
 
-        <div className="mt-5 grid gap-3.5 rounded-[1.5rem] border-2 border-white bg-white p-4 shadow-[0_16px_44px_rgba(14,75,159,0.08)]">
+        <div className="mt-5 grid gap-3.5 rounded-lg border-2 border-white bg-white p-4 shadow-[0_16px_44px_rgba(14,75,159,0.08)]">
           <Field label={c.s8.manufacturerLabel} value={c.s8.manufacturer} color={INK} large />
           <Field label={c.s8.agentLabel} value={c.s8.agent} color={INK} large />
           <Field label={c.s8.regLabel} value={c.s8.reg} />
@@ -854,7 +852,7 @@ export function RivalDuoMobile({
           <div className="mt-3 grid gap-2.5">
             <a
               href="tel:01288543614"
-              className="flex min-h-[60px] items-center gap-3 rounded-[1.35rem] border-2 border-white bg-white px-4 shadow-[0_10px_30px_rgba(14,75,159,0.07)] active:scale-[0.985]"
+              className="flex min-h-[60px] items-center gap-3 rounded-lg border-2 border-white bg-white px-4 shadow-[0_10px_30px_rgba(14,75,159,0.07)] active:scale-[0.985]"
             >
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: BLUE + "14" }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -875,7 +873,7 @@ export function RivalDuoMobile({
             </a>
             <a
               href="tel:01005005064"
-              className="flex min-h-[60px] items-center gap-3 rounded-[1.35rem] border-2 border-white bg-white px-4 shadow-[0_10px_30px_rgba(14,75,159,0.07)] active:scale-[0.985]"
+              className="flex min-h-[60px] items-center gap-3 rounded-lg border-2 border-white bg-white px-4 shadow-[0_10px_30px_rgba(14,75,159,0.07)] active:scale-[0.985]"
             >
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: ORANGE + "14" }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -902,15 +900,13 @@ export function RivalDuoMobile({
             href={brochureHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex min-h-[56px] items-center justify-center rounded-full px-6 text-[15px] font-bold text-white shadow-[0_14px_30px_rgba(241,71,35,0.3)] active:scale-[0.985]"
-            style={{ backgroundColor: ORANGE }}
+            className="btn btn-block btn-lg"
           >
             {c.s8.ctaBrochure}
           </a>
           <Link
             href={productHref}
-            className="flex min-h-[56px] items-center justify-center rounded-full border-[3px] px-6 text-[15px] font-bold active:scale-[0.985]"
-            style={{ borderColor: BLUE, color: BLUE }}
+            className="btn btn-block btn-lg"
           >
             {c.s8.ctaPrimary}
           </Link>

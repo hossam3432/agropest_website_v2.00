@@ -5856,3 +5856,22 @@ export function filterProducts(
 
 
 
+
+/**
+ * Size of the published portfolio, derived from the navigation tree rather than
+ * hardcoded, so anything the About page states about portfolio size stays true
+ * as products are added. Counts distinct product entries across both pillars.
+ */
+export function getPortfolioSize(locale: Locale): number {
+  const slugs = new Set<string>();
+
+  for (const category of productNavigationByLocale[locale].categories) {
+    for (const subcategory of category.subcategories) {
+      for (const product of subcategory.products ?? []) {
+        slugs.add(product.slug ?? product.label);
+      }
+    }
+  }
+
+  return slugs.size;
+}

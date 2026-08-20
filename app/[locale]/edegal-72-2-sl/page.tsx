@@ -304,8 +304,7 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
                 href="/brochures/edegal-72-2-sl-brochure.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-bold text-[#141C55] shadow-lg transition hover:-translate-y-0.5"
-                style={{ backgroundColor: GREEN }}
+                className="btn btn-invert mt-6"
               >
                 {c.hero.brochureCta}
               </a>
@@ -314,7 +313,7 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
                 {c.hero.stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-2xl border border-white/15 bg-white/[0.07] p-4 backdrop-blur-sm"
+                    className="rounded-md border border-white/15 bg-white/[0.07] p-4 backdrop-blur-sm"
                   >
                     <dt className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-white/50">{stat.label}</dt>
                     <dd dir="ltr" className="mt-1 text-2xl font-extrabold text-white" style={{ textAlign: isRtl ? "right" : "left" }}>
@@ -328,7 +327,7 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
 
             {/* Oversized media container — 3D render slot */}
             <RevealSection className="relative" amount={0.2}>
-              <div className="relative aspect-square overflow-hidden rounded-[2rem] border border-white/15 bg-gradient-to-br from-white/15 via-white/5 to-transparent shadow-[inset_0_2px_40px_rgba(0,0,0,0.35)]">
+              <div className="relative aspect-square overflow-hidden rounded-lg border border-white/15 bg-gradient-to-br from-white/15 via-white/5 to-transparent shadow-[inset_0_2px_40px_rgba(0,0,0,0.35)]">
                 <div
                   aria-hidden="true"
                   className="absolute inset-x-0 bottom-0 h-2/3"
@@ -362,7 +361,7 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
           </h2>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm">
+            <div className="rounded-lg border border-slate-200 bg-white p-7 shadow-sm">
               <span
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em]"
                 style={{ backgroundColor: ORANGE + "14", color: ORANGE }}
@@ -373,7 +372,7 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
                 {c.challenge.riskTitle}
               </h3>
               <p className="mt-3 text-base leading-8 text-slate-600">{c.challenge.riskBody}</p>
-              <div className="mt-6 aspect-video overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-orange-50 via-amber-50 to-white shadow-[inset_0_2px_24px_rgba(230,81,0,0.10)]">
+              <div className="mt-6 aspect-video overflow-hidden rounded-md border border-slate-200 bg-gradient-to-br from-orange-50 via-amber-50 to-white shadow-[inset_0_2px_24px_rgba(230,81,0,0.10)]">
                 <div className="flex h-full w-full items-center justify-center">
                   <DropIcon className="h-16 w-16" style={{ color: ORANGE }} />
                 </div>
@@ -388,7 +387,7 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
               </ul>
             </div>
 
-            <div className="rounded-3xl border p-7 text-white shadow-lg" style={{ borderColor: BLUE, backgroundColor: BLUE }}>
+            <div className="rounded-lg border p-7 text-white shadow-lg" style={{ borderColor: BLUE, backgroundColor: BLUE }}>
               <span
                 className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em]"
                 style={{ backgroundColor: GREEN + "26", color: GREEN }}
@@ -397,7 +396,7 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
               </span>
               <h3 className="mt-4 text-xl font-bold">{c.challenge.solutionTitle}</h3>
               <p className="mt-3 text-base leading-8 text-white/75">{c.challenge.solutionBody}</p>
-              <div className="mt-6 aspect-video overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-white/15 via-white/5 to-transparent shadow-[inset_0_2px_24px_rgba(0,0,0,0.35)]">
+              <div className="mt-6 aspect-video overflow-hidden rounded-md border border-white/15 bg-gradient-to-br from-white/15 via-white/5 to-transparent shadow-[inset_0_2px_24px_rgba(0,0,0,0.35)]">
                 <div className="flex h-full w-full items-center justify-center">
                   <ShieldMark className="h-16 w-16" style={{ color: GREEN }} />
                 </div>
@@ -429,10 +428,10 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
           <StaggerContainer className="mt-10 grid gap-6 lg:grid-cols-3">
             {c.pillars.items.map((item) => (
               <RevealItem key={item.title}>
-                <article className="group h-full rounded-3xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <article className="group h-full rounded-lg border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
                   <div className="flex items-center justify-between gap-4">
                     <span
-                      className="flex h-12 w-12 items-center justify-center rounded-2xl text-lg font-extrabold text-white"
+                      className="flex h-12 w-12 items-center justify-center rounded-md text-lg font-extrabold text-white"
                       style={{ backgroundColor: BLUE }}
                     >
                       {item.index}
@@ -450,7 +449,7 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
                   </p>
                   <p className="mt-3 text-sm leading-7 text-slate-600">{item.text}</p>
                   <div
-                    className="mt-6 aspect-video rounded-2xl border border-slate-200 shadow-[inset_0_2px_20px_rgba(40,53,147,0.10)]"
+                    className="mt-6 aspect-video rounded-md border border-slate-200 shadow-[inset_0_2px_20px_rgba(40,53,147,0.10)]"
                     style={{ background: "linear-gradient(135deg, " + GREEN + "1F, " + BLUE + "14)" }}
                   >
                     <div className="flex h-full w-full items-center justify-center">
@@ -475,7 +474,7 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
           </h2>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-[1.35fr_1fr]">
-            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+            <div className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
               <dl>
                 {c.usage.rows.map((row, index) => (
                   <div
@@ -502,11 +501,11 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
                   {c.usage.methods.map((method, index) => (
                     <div
                       key={method.title}
-                      className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
+                      className="rounded-md border border-slate-200 bg-white p-5 shadow-sm"
                     >
                       <div className="flex items-center gap-3">
                         <span
-                          className="flex h-11 w-11 items-center justify-center rounded-xl"
+                          className="flex h-11 w-11 items-center justify-center rounded-md"
                           style={{ backgroundColor: (index === 0 ? GREEN : BLUE) + "1A", color: index === 0 ? "#5E8F26" : BLUE }}
                         >
                           {index === 0 ? <LeafIcon className="h-6 w-6" /> : <DropIcon className="h-6 w-6" />}

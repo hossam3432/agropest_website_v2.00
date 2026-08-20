@@ -186,7 +186,7 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
   function cardVisual(stage: RivalDuoTimingStage, isActive: boolean, index: number) {
     return {
       className:
-        "flex flex-col h-[150px] w-full rounded-[1.25rem] border-2 p-3 text-start transition-all duration-300 xl:h-[180px] xl:p-4 " +
+        "flex flex-col h-[150px] w-full rounded-lg border-2 p-3 text-start transition-all duration-300 xl:h-[180px] xl:p-4 " +
         (isActive ? "shadow-[0_18px_45px_rgba(14,75,159,0.18)]" : "border-slate-100 bg-white hover:border-slate-200") +
         (index === 0 && !hasInteracted ? " animate-pulse" : ""),
       style: isActive
@@ -208,7 +208,7 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
       // that keeps the label readable at lg wastes room at 2xl, and vice versa.
       itemStyle: { flexGrow: isActive ? 5 : 1, flexBasis: 0 },
       className:
-        "flex w-full min-h-0 flex-col rounded-[1.25rem] border-2 text-start transition-all duration-500 " +
+        "flex w-full min-h-0 flex-col rounded-lg border-2 text-start transition-all duration-500 " +
         // Active scrolls rather than clips: on a short laptop the 40% share can be
         // less than the longest stage's text needs, and a centred overflow would
         // cut off the top and bottom of it.
@@ -259,7 +259,7 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
           <div className="flex items-center justify-center lg:min-h-0">
           <motion.div
             ref={imageBoxRef}
-            className="relative mx-auto flex w-fit max-w-full items-center overflow-hidden rounded-[1.75rem] bg-white p-2 shadow-[0_20px_60px_rgba(14,75,159,0.10)] sm:p-3 [&_picture]:contents"
+            className="relative mx-auto flex w-fit max-w-full items-center overflow-hidden rounded-lg bg-white p-2 shadow-[0_20px_60px_rgba(14,75,159,0.10)] sm:p-3 [&_picture]:contents"
             initial={{ opacity: reducedMotion ? 1 : 0, y: reducedMotion ? 0 : 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -490,7 +490,7 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
 
         {/* Mobile only — on desktop this content is folded into the open card. */}
         <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:hidden">
-          <div className="rounded-[1.25rem] border-2 border-slate-100 bg-white p-3">
+          <div className="rounded-lg border-2 border-slate-100 bg-white p-3">
             <p className="text-xs font-bold uppercase tracking-[0.12em]" style={{ color: BLUE }}>
               {timingTitle} · {activeStage.day}
             </p>
@@ -515,7 +515,7 @@ export function RivalDuoTimingSection({ kicker, title, imageSrc, imageAlt, rtl, 
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="rounded-[1.25rem] border-2 p-3"
+                className="rounded-lg border-2 p-3"
                 style={{ borderColor: ORANGE + "55", backgroundColor: "#FFF6F3" }}
               >
                 <p className="text-sm leading-6 text-slate-700">{activeStage.note}</p>

@@ -152,20 +152,20 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
             return (
               <button
                 key={category.slug}
-                className={`group relative min-h-[180px] overflow-hidden rounded-2xl text-start transition duration-300 sm:min-h-[220px] md:transform ${
-                  isActive
-                    ? "z-10 scale-100 border-agri-green bg-agri-green p-5 text-white shadow-soft sm:p-8 md:scale-[1.03]"
-                    : hasActiveCategory
-                      ? "scale-[0.96] border-[0.5px] border-agri-line bg-white p-5 text-agri-blue opacity-80 shadow-sm hover:scale-100 hover:border-agri-gold hover:opacity-100 hover:shadow-soft sm:p-6"
-                      : "border-[0.5px] border-agri-line bg-white p-5 text-agri-blue shadow-sm hover:-translate-y-1 hover:border-agri-gold hover:shadow-soft sm:p-7"
-                }`}
+                className={`group relative min-h-[180px] overflow-hidden rounded-md text-start transition duration-300 sm:min-h-[220px] md:transform ${
+ isActive
+ ? "z-10 scale-100 border-agri-green bg-agri-green p-5 text-white shadow-soft sm:p-8 md:scale-[1.03]"
+ : hasActiveCategory
+ ? "scale-[0.96] border-[0.5px] border-agri-line bg-white p-5 text-agri-blue opacity-80 shadow-sm hover:scale-100 hover:border-agri-gold hover:opacity-100 hover:shadow-soft sm:p-6"
+ : "border-[0.5px] border-agri-line bg-white p-5 text-agri-blue shadow-sm hover:-translate-y-1 hover:border-agri-gold hover:shadow-soft sm:p-7"
+ }`}
                 onClick={() => handleCategoryChange(category.slug)}
                 type="button"
               >
                 <span
                   className={`absolute end-5 top-5 text-5xl font-black leading-none opacity-10 transition ${
-                    isActive ? "text-white" : "text-agri-green group-hover:text-agri-gold"
-                  }`}
+ isActive ? "text-white" : "text-agri-green group-hover:text-agri-gold"
+ }`}
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -190,10 +190,10 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
                     <button
                       key={filter.label}
                       className={`min-h-11 rounded-full px-3 py-2 text-center text-xs font-bold leading-5 transition duration-300 sm:px-4 sm:text-sm ${
-                        isActive
-                          ? "bg-agri-green text-white"
-                          : "bg-white text-agri-blue hover:text-agri-green"
-                      }`}
+ isActive
+ ? "bg-agri-green text-white"
+ : "bg-white text-agri-blue hover:text-agri-green"
+ }`}
                       onClick={() => handleFilterChange(index)}
                       type="button"
                     >
@@ -211,23 +211,23 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
                     <Link
                       key={product.slug}
                       href={product.href}
-                      className={`product-card group grid grid-cols-[5.75rem_minmax(0,1fr)] min-[420px]:grid-cols-[7rem_minmax(0,1fr)] overflow-hidden rounded-lg bg-agri-mist shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft ${
-                        viewMode === "gallery"
-                          ? "lg:block"
-                          : viewMode === "list"
-                            ? "grid sm:grid-cols-[13rem_minmax(0,1fr)] lg:grid-cols-[15rem_minmax(0,1fr)]"
-                            : "grid sm:grid-cols-[0.42fr_1fr]"
-                      }`}
+                      className={`product-card group grid grid-cols-[5.75rem_minmax(0,1fr)] min-[420px]:grid-cols-[7rem_minmax(0,1fr)] overflow-hidden rounded-sm bg-agri-mist shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft ${
+ viewMode === "gallery"
+ ? "lg:block"
+ : viewMode === "list"
+ ? "grid sm:grid-cols-[13rem_minmax(0,1fr)] lg:grid-cols-[15rem_minmax(0,1fr)]"
+ : "grid sm:grid-cols-[0.42fr_1fr]"
+ }`}
                     >
                       <ProductVisual
                         alt={product.galleryImageAlt}
                         className={`h-full min-h-[8.5rem] w-full min-[420px]:min-h-[10rem] ${
-                          viewMode === "gallery"
-                            ? "lg:h-72 xl:h-80"
-                            : viewMode === "list"
-                              ? "sm:h-full"
-                              : "sm:h-full"
-                        }`}
+ viewMode === "gallery"
+ ? "lg:h-72 xl:h-80"
+ : viewMode === "list"
+ ? "sm:h-full"
+ : "sm:h-full"
+ }`}
                         eyebrow={activeCategory.label}
                         label={product.name}
                         src={product.galleryImage}
@@ -237,14 +237,14 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
                           {product.name}
                         </h3>
                         <div className={`flex flex-wrap gap-2 ${viewMode === "list" ? "mt-2 sm:mt-3" : "mt-2 sm:mt-4"}`}>
-                          <span className="rounded-lg border-[0.1px] border-agri-line bg-transparent px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-agri-blue sm:px-3 sm:text-xs sm:tracking-[0.14em]">
+                          <span className="rounded-sm border-[0.1px] border-agri-line bg-transparent px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-agri-blue sm:px-3 sm:text-xs sm:tracking-[0.14em]">
                             {product.subcategory}
                           </span>
                         </div>
                         <p className={`${viewMode === "gallery" ? "mt-2 sm:mt-3" : "mt-2"} me-[67px] line-clamp-3 ${locale === "ar" ? "text-right" : "text-left"} text-sm leading-6 text-slate-600 sm:me-[75px] sm:text-base sm:leading-7`}>{product.positioning}</p>
                         <div className="mt-5 hidden flex-wrap gap-2 sm:flex">
                           {product.crops.slice(0, 3).map((crop) => (
-                            <span key={crop} className="rounded-lg border-[0.1px] border-agri-line bg-transparent px-3 py-1 text-xs font-bold text-agri-blue">
+                            <span key={crop} className="rounded-sm border-[0.1px] border-agri-line bg-transparent px-3 py-1 text-xs font-bold text-agri-blue">
                               {crop}
                             </span>
                           ))}

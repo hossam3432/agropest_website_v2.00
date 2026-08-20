@@ -144,32 +144,225 @@ a {
     @apply mt-4 max-w-3xl text-base leading-8 text-slate-600;
   }
 
-  .btn-primary {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full border-[0.5px] border-agri-greenDark bg-transparent px-6 py-3 text-sm font-bold text-agri-greenDark shadow-sm transition duration-300 hover:border-transparent hover:bg-agri-green hover:text-white active:border-transparent active:bg-agri-green active:text-white focus:outline-none focus:ring-2 focus:ring-agri-greenDark focus:ring-offset-2;
-  }
+  /* ── Actions ──────────────────────────────────────────────────────────────
+     Every action on the site is the same object: a capsule of frosted glass
+     carrying a light-to-dark green gradient tint. Shape, glass and motion never
+     vary from one button to the next — only the polarity, which follows the
+     ground the button sits on:
 
-  .btn-accent {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full border-[0.5px] border-agri-greenDark bg-transparent px-6 py-3 text-sm font-bold text-agri-greenDark shadow-sm transition duration-300 hover:border-transparent hover:bg-agri-green hover:text-white active:border-transparent active:bg-agri-green active:text-white focus:outline-none focus:ring-2 focus:ring-agri-greenDark focus:ring-offset-2;
-  }
+       light ground  →  green ink   .btn .btn-primary .btn-secondary .btn-accent
+       dark ground   →  white ink   .btn-invert .btn-on-dark
+                                    .btn-on-dark-outline .btn-hero-glass
 
-  .btn-on-dark {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full border-[0.5px] border-agri-greenDark bg-transparent px-6 py-3 text-sm font-bold text-agri-greenDark shadow-sm transition duration-300 hover:border-transparent hover:bg-agri-green hover:text-white active:border-transparent active:bg-agri-green active:text-white focus:outline-none focus:ring-2 focus:ring-agri-greenDark focus:ring-offset-2 focus:ring-offset-agri-blue;
-  }
-
-  .btn-secondary {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full border-[0.5px] border-agri-greenDark bg-transparent px-6 py-3 text-sm font-bold text-agri-greenDark shadow-sm transition duration-300 hover:border-transparent hover:bg-agri-green hover:text-white active:border-transparent active:bg-agri-green active:text-white focus:outline-none focus:ring-2 focus:ring-agri-greenDark focus:ring-offset-2;
-  }
-
+     Sizes: .btn-sm, .btn-lg, .btn-block. Padding and type are fluid, so one
+     class covers every breakpoint. To retint a bespoke product landing,
+     override --btn-light / --btn-dark / --btn-ink on the element; never
+     re-declare the capsule itself. */
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-accent,
+  .btn-on-dark,
+  .btn-on-dark-outline,
   .btn-hero-glass {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 bg-white/10 px-6 py-3 text-center text-sm font-bold text-white shadow-sm backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-agri-gold hover:bg-white/15 hover:shadow-md active:translate-y-0 active:scale-[0.97] active:border-agri-gold active:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-agri-gold focus-visible:ring-offset-2 focus-visible:ring-offset-agri-blue motion-reduce:transform-none motion-reduce:transition-none;
+    --btn-light: 79 143 69;     /* agri.leaf      — light end of the tint */
+    --btn-dark: 10 61 43;       /* agri.greenDark — dark end of the tint  */
+    --btn-tint: 0.22;           /* how much tint the glass carries        */
+    --btn-pane: 255 255 255;    /* the pane the tint is laid over         */
+    --btn-pane-a: 0.45;
+    --btn-pane-hot: 0.52;       /* the pane firms up under the pointer    */
+    --btn-ink: #0a3d2b;
+    --btn-edge: rgb(var(--btn-dark) / 0.3);
+    --btn-edge-hot: rgb(var(--btn-dark) / 0.62);
+    --btn-cast: rgb(var(--btn-dark) / 0.16);
+    --btn-rim: rgb(255 255 255 / 0.55);
+    --btn-sheen: rgb(255 255 255 / 0.55);
+    --btn-focus: #0f5a3c;
+
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding-block: 0.75rem;
+    padding-inline: clamp(1.15rem, 0.85rem + 1vw, 1.75rem);
+    border: 1px solid var(--btn-edge);
+    border-radius: 9999px;
+    font-size: clamp(0.8125rem, 0.78rem + 0.16vw, 0.9375rem);
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--btn-ink);
+    background-color: rgb(var(--btn-pane) / var(--btn-pane-a));
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    backdrop-filter: blur(14px) saturate(150%);
+    box-shadow:
+      inset 0 1px 0 var(--btn-rim),
+      0 6px 18px var(--btn-cast);
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 260ms ease,
+      border-color 260ms ease,
+      background-color 260ms ease,
+      color 200ms ease;
   }
 
-  .btn-on-dark-outline {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full border-[0.5px] border-white bg-transparent px-6 py-3 text-sm font-bold text-white shadow-sm backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-agri-gold hover:bg-white/15 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-agri-gold focus:ring-offset-2 focus:ring-offset-agri-blue;
+  /* The tint rides on its own layer so hover can deepen it smoothly — a
+     gradient cannot be transitioned, an opacity can. */
+  :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--btn-light) / var(--btn-tint)),
+      rgb(var(--btn-dark) / calc(var(--btn-tint) * 1.9))
+    );
+    opacity: 0.85;
+    transition: opacity 260ms ease;
+    pointer-events: none;
+  }
+
+  /* Specular sweep — the glass catches the light as the pointer arrives. */
+  :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-image: linear-gradient(112deg, transparent 34%, var(--btn-sheen) 50%, transparent 66%);
+    background-size: 280% 100%;
+    background-position: 150% 0;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition:
+      background-position 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 200ms ease;
+    pointer-events: none;
+  }
+
+  [dir="rtl"] :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass)::after {
+    background-position: -50% 0;
+  }
+
+  /* Hover is gated on a real pointer: on touch it would stick after the tap,
+     so phones get the press state below and nothing else. */
+  @media (hover: hover) and (pointer: fine) {
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover {
+      transform: translateY(-2px);
+      border-color: var(--btn-edge-hot);
+      background-color: rgb(var(--btn-pane) / var(--btn-pane-hot));
+      box-shadow:
+        inset 0 1px 0 var(--btn-rim),
+        0 14px 30px var(--btn-cast);
+    }
+
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover::before {
+      opacity: 1;
+    }
+
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover::after {
+      opacity: 1;
+      background-position: -40% 0;
+    }
+
+    [dir="rtl"] :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover::after {
+      background-position: 190% 0;
+    }
+  }
+
+  /* Press — fires on click and on touch alike, fast enough to feel physical. */
+  :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):active {
+    transform: translateY(0) scale(0.965);
+    border-color: var(--btn-edge-hot);
+    box-shadow:
+      inset 0 2px 7px rgb(var(--btn-dark) / 0.22),
+      0 2px 8px var(--btn-cast);
+    transition-duration: 90ms;
+  }
+
+  :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):active::before {
+    opacity: 1;
+  }
+
+  :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):focus-visible {
+    outline: 2px solid var(--btn-focus);
+    outline-offset: 3px;
+  }
+
+  :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):disabled,
+  :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass)[aria-disabled="true"] {
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.55;
+    box-shadow: inset 0 1px 0 var(--btn-rim);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass),
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass)::before {
+      transition: none;
+    }
+
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover,
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):active {
+      transform: none;
+    }
+
+    :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass)::after {
+      display: none;
+    }
+  }
+
+  /* Inverted polarity — the same capsule read against a dark ground. The tint
+     lightens so the green still registers, and the ink goes white. */
+  .btn-invert,
+  .btn-on-dark,
+  .btn-on-dark-outline,
+  .btn-hero-glass {
+    --btn-light: 154 219 163;
+    --btn-dark: 16 104 70;
+    --btn-tint: 0.32;
+    --btn-pane-a: 0.1;
+    --btn-pane-hot: 0.24;
+    --btn-ink: #ffffff;
+    --btn-edge: rgb(255 255 255 / 0.4);
+    --btn-edge-hot: rgb(255 255 255 / 0.85);
+    --btn-cast: rgb(0 0 0 / 0.3);
+    --btn-rim: rgb(255 255 255 / 0.3);
+    --btn-sheen: rgb(255 255 255 / 0.4);
+    --btn-focus: #ffffff;
+  }
+
+  .btn-sm {
+    min-height: 2.25rem;
+    padding-block: 0.45rem;
+    padding-inline: 0.95rem;
+    font-size: 0.75rem;
+  }
+
+  .btn-lg {
+    min-height: 3.5rem;
+    padding-block: 1rem;
+    padding-inline: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
+    font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
+  }
+
+  .btn-block {
+    display: flex;
+    width: 100%;
   }
 
   .card {
-    @apply min-w-0 border-[0.5px] border-agri-line bg-white shadow-sm;
+    @apply min-w-0 rounded-md border-[0.5px] border-agri-line bg-white shadow-sm;
   }
 
   .card h2,
@@ -329,7 +522,7 @@ a {
     inset-inline: 2rem;
     top: 4.4rem;
     min-height: 370px;
-    border-radius: 1.75rem;
+    border-radius: 24px;
     border: 1px solid rgb(255 255 255 / 0.62);
     background: linear-gradient(135deg, rgb(255 255 255 / 0.96), rgb(244 247 245 / 0.92));
     padding: 2.25rem;
@@ -412,6 +605,34 @@ a {
     100% {
       transform: translate3d(0, 0, 0) rotate(1.4deg) scale(1);
     }
+  }
+}
+
+/* About page — the selection gate. The rail, the number nodes, and the outcome
+   marker all derive from one node size so the vertical line stays centred through
+   every breakpoint and in both directions. */
+@layer components {
+  .selection-gate,
+  .about-page .gate-outcome {
+    --gate-node: 3rem;
+    --gate-node-half: 1.5rem;
+    --gate-rail-x: calc(1.5rem - 0.5px);
+  }
+
+  @media (min-width: 640px) {
+    .selection-gate,
+    .about-page .gate-outcome {
+      --gate-node: 4rem;
+      --gate-node-half: 2rem;
+      --gate-rail-x: calc(2rem - 0.5px);
+    }
+  }
+
+  /* Figures on the ledger are compared column to column, so they get real
+     tabular numerals rather than the proportional defaults. */
+  .about-ledger-value {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
   }
 }
 

@@ -50,7 +50,7 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
           <StaggerContainer className="mt-10 grid gap-5 lg:grid-cols-2" amount={0.15}>
             {solutionsPage.audiencesSection.items.map((item) => (
               <RevealItem key={item.title} hoverLift>
-                <article className="group h-full border border-t-4 border-agri-line border-t-agri-gold bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-agri-green hover:border-t-agri-gold hover:bg-agri-green hover:shadow-soft sm:p-7">
+                <article className="group h-full rounded-md border border-t-4 border-agri-line border-t-agri-gold bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-agri-green hover:border-t-agri-gold hover:bg-agri-green hover:shadow-soft sm:p-7">
                   <h3 className="text-lg font-bold tracking-normal text-agri-blue sm:text-xl transition duration-300 group-hover:text-white">{item.title}</h3>
                   <p className="mt-3 leading-7 text-slate-600 transition duration-300 group-hover:text-white/80">{item.description}</p>
                 </article>
@@ -74,7 +74,7 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
           <StaggerContainer className="mt-10 grid gap-6 lg:grid-cols-2" amount={0.15}>
             {solutionsPage.solutionTracksSection.tracks.map((track, index) => (
               <RevealItem key={track.title} hoverLift>
-                <article className="relative h-full overflow-hidden border border-agri-line bg-agri-mist p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-agri-gold hover:bg-white hover:shadow-soft sm:p-8">
+                <article className="relative h-full overflow-hidden rounded-md border border-agri-line bg-agri-mist p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-agri-gold hover:bg-white hover:shadow-soft sm:p-8">
                   <div className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
                   <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-gold">{String(index + 1).padStart(2, "0")}</p>
                   <h3 className="mt-4 text-xl font-bold tracking-normal text-agri-blue sm:text-2xl">{track.title}</h3>
@@ -123,24 +123,24 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
               {solutionsPage.needsSection.questions.map((question, index) => (
                 <RevealItem key={question}>
                   <div className="group relative grid gap-3 ps-14 sm:ps-16 sm:grid-cols-[4.5rem_1fr] sm:items-center sm:ps-0">
-                    <div className="absolute start-0 top-0 z-10 flex h-10 w-10 items-center justify-center border border-agri-gold bg-agri-gold text-sm font-black text-agri-blue shadow-sm transition duration-300 group-hover:bg-white sm:relative sm:h-14 sm:w-14">
+                    <div className="absolute start-0 top-0 z-10 flex h-10 w-10 items-center justify-center rounded-md border border-agri-gold bg-agri-gold text-sm font-black text-agri-blue shadow-sm transition duration-300 group-hover:bg-white sm:relative sm:h-14 sm:w-14">
                       {String(index + 1).padStart(2, "0")}
                     </div>
-                    <div className="border border-agri-line bg-white p-4 shadow-sm transition duration-300 group-hover:-translate-y-0.5 group-hover:border-agri-gold sm:p-5">
+                    <div className="rounded-md border border-agri-line bg-white p-4 shadow-sm transition duration-300 group-hover:-translate-y-0.5 group-hover:border-agri-gold sm:p-5">
                       <p className="leading-7 text-slate-700">{question}</p>
                     </div>
                   </div>
                 </RevealItem>
               ))}
             </StaggerContainer>
-            <p className="mt-7 border-s-4 border-agri-gold bg-white p-5 leading-8 text-slate-700 shadow-sm">{solutionsPage.needsSection.conclusion}</p>
+            <p className="mt-7 rounded-md border-s-4 border-agri-gold bg-white p-5 leading-8 text-slate-700 shadow-sm">{solutionsPage.needsSection.conclusion}</p>
           </div>
         </RevealSection>
       </section>
 
       <section className="bg-white py-12 sm:py-20">
         <RevealSection className="container-shell" amount={0.15}>
-          <div className="grid overflow-hidden border border-agri-line bg-agri-blue text-white shadow-soft lg:grid-cols-[0.78fr_1.22fr]">
+          <div className="grid overflow-hidden rounded-lg border border-agri-line bg-agri-blue text-white shadow-soft lg:grid-cols-[0.78fr_1.22fr]">
             <div className="bg-white/5 p-5 sm:p-10">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-agri-gold">{solutionsPage.contentSupportSection.eyebrow}</p>
               <h2 className="mt-4 text-3xl font-bold tracking-normal sm:text-4xl">{solutionsPage.contentSupportSection.title}</h2>

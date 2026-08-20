@@ -287,11 +287,11 @@ export function ContactSection({
                     <span className="sr-only"> ({labels.required})</span>
                   </span>
                   <input
-                    className={`min-h-12 rounded-md border px-4 text-base outline-none transition focus:border-agri-gold ${
-                      showError("name")
-                        ? "border-agri-orange placeholder:font-semibold placeholder:text-agri-orange"
-                        : "border-agri-line"
-                    }`}
+                    className={`min-h-12 rounded-sm border px-4 text-base outline-none transition focus:border-agri-gold ${
+ showError("name")
+ ? "border-agri-orange placeholder:font-semibold placeholder:text-agri-orange"
+ : "border-agri-line"
+ }`}
                     name="name"
                     type="text"
                     value={formState.name}
@@ -303,7 +303,7 @@ export function ContactSection({
                 <label className="grid gap-2 text-sm font-semibold text-agri-blue">
                   {labels.company}
                   <input
-                    className="min-h-12 rounded-md border border-agri-line px-4 text-base outline-none transition focus:border-agri-gold"
+                    className="min-h-12 rounded-sm border border-agri-line px-4 text-base outline-none transition focus:border-agri-gold"
                     name="company"
                     type="text"
                     value={formState.company}
@@ -316,11 +316,11 @@ export function ContactSection({
                     <span className="sr-only"> ({labels.required})</span>
                   </span>
                   <input
-                    className={`min-h-12 rounded-md border px-4 text-base outline-none transition focus:border-agri-gold ${
-                      showError("email")
-                        ? "border-agri-orange placeholder:font-semibold placeholder:text-agri-orange"
-                        : "border-agri-line"
-                    }`}
+                    className={`min-h-12 rounded-sm border px-4 text-base outline-none transition focus:border-agri-gold ${
+ showError("email")
+ ? "border-agri-orange placeholder:font-semibold placeholder:text-agri-orange"
+ : "border-agri-line"
+ }`}
                     name="email"
                     type="email"
                     value={formState.email}
@@ -337,7 +337,7 @@ export function ContactSection({
                 <label className="grid gap-2 text-sm font-semibold text-agri-blue">
                   {labels.phone}
                   <input
-                    className="min-h-12 rounded-md border border-agri-line px-4 text-base outline-none transition focus:border-agri-gold"
+                    className="min-h-12 rounded-sm border border-agri-line px-4 text-base outline-none transition focus:border-agri-gold"
                     name="phone"
                     type="tel"
                     value={formState.phone}
@@ -352,9 +352,9 @@ export function ContactSection({
                   <span className="sr-only"> ({labels.required})</span>
                 </span>
                 <select
-                  className={`min-h-12 rounded-md border bg-white px-4 text-base outline-none transition focus:border-agri-gold ${
-                    showError("topic") ? "border-agri-orange font-semibold text-agri-orange" : "border-agri-line"
-                  }`}
+                  className={`min-h-12 rounded-sm border bg-white px-4 text-base outline-none transition focus:border-agri-gold ${
+ showError("topic") ? "border-agri-orange font-semibold text-agri-orange" : "border-agri-line"
+ }`}
                   name="topic"
                   value={formState.topic}
                   onChange={(event) => updateField("topic", event.target.value)}
@@ -372,7 +372,7 @@ export function ContactSection({
               <label className="mt-5 grid gap-2 text-sm font-semibold text-agri-blue">
                 {labels.message}
                 <textarea
-                  className="min-h-36 rounded-md border border-agri-line px-4 py-3 text-base outline-none transition focus:border-agri-gold"
+                  className="min-h-36 rounded-sm border border-agri-line px-4 py-3 text-base outline-none transition focus:border-agri-gold"
                   name="message"
                   value={formState.message}
                   onChange={(event) => updateField("message", event.target.value)}

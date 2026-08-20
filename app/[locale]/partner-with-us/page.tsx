@@ -35,7 +35,7 @@ export default async function PartnerWithUsPage({ params }: LocalePageProps) {
 
       <section className="bg-white py-12 sm:py-20">
         <div className="container-shell">
-          <div className="border-s-4 border-agri-gold bg-agri-mist p-5 shadow-sm sm:p-8 lg:p-10">
+          <div className="rounded-md border-s-4 border-agri-gold bg-agri-mist p-5 shadow-sm sm:p-8 lg:p-10">
             <p className="eyebrow">{partnerPage.bridgeSection.eyebrow}</p>
             <h2 className="section-title mt-3">{partnerPage.bridgeSection.title}</h2>
             <div className="mt-5 grid gap-4 text-base leading-8 text-slate-600 sm:mt-6 sm:text-lg lg:grid-cols-2">
@@ -58,7 +58,7 @@ export default async function PartnerWithUsPage({ params }: LocalePageProps) {
             {partnerPage.servicesSection.items.map((item, index) => (
               <RevealItem key={item.title}>
                 <article className="relative border-b border-white/15 py-6 ps-6 sm:py-7 sm:ps-7 lg:border-b-0 lg:border-e lg:px-6 lg:pb-0 lg:pt-11 lg:last:border-e-0">
-                  <span className="absolute -start-[7px] top-8 h-3.5 w-3.5 bg-agri-gold lg:-top-[7px] lg:start-5" />
+                  <span className="absolute -start-[7px] top-8 h-3.5 w-3.5 rounded-full bg-agri-gold lg:-top-[7px] lg:start-5" />
                   <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-gold">{String(index + 1).padStart(2, "0")}</p>
                   <h3 className="mt-4 text-xl font-bold tracking-normal">{item.title}</h3>
                   <p className="mt-4 leading-7 text-white/70">{item.description}</p>

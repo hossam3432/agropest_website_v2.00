@@ -74,8 +74,8 @@ function Chevron({ open }: { open: boolean }) {
     <span
       aria-hidden="true"
       className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${
-        open ? "border-agri-gold bg-agri-gold" : "border-agri-line bg-white"
-      }`}
+ open ? "border-agri-gold bg-agri-gold" : "border-agri-line bg-white"
+ }`}
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}>
         <path
@@ -106,9 +106,9 @@ function Disclosure({
 
   return (
     <div
-      className={`overflow-hidden rounded-[1.25rem] border bg-white transition-colors duration-300 ${
-        open ? "border-agri-gold shadow-soft" : "border-agri-line"
-      }`}
+      className={`overflow-hidden rounded-lg border bg-white transition-colors duration-300 ${
+ open ? "border-agri-gold shadow-soft" : "border-agri-line"
+ }`}
     >
       <button
         type="button"
@@ -403,9 +403,9 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 animate={variants[state]}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
                 style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
-                className={`absolute inset-x-0 top-0 mx-auto w-full max-w-[450px] touch-pan-y rounded-[1.75rem] border border-white/20 bg-white/95 p-7 text-agri-blue shadow-soft ${
-                  state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
-                }`}
+                className={`absolute inset-x-0 top-0 mx-auto w-full max-w-[450px] touch-pan-y rounded-lg border border-white/20 bg-white/95 p-7 text-agri-blue shadow-soft ${
+ state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
+ }`}
               >
                 <div className="flex items-center justify-between gap-4">
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-agri-gold text-sm font-black text-white">
@@ -456,10 +456,10 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 onClick={() => scrollToSection(tab.id)}
                 aria-current={isActive ? "true" : undefined}
                 className={`flex min-h-9 shrink-0 items-center whitespace-nowrap rounded-full px-3 text-xs font-bold transition-colors duration-300 ${
-                  isActive
-                    ? "bg-agri-green text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.25)]"
-                    : "text-agri-blue [text-shadow:0_0_8px_rgba(255,255,255,0.9),0_1px_3px_rgba(255,255,255,0.7)]"
-                }`}
+ isActive
+ ? "bg-agri-green text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.25)]"
+ : "text-agri-blue [text-shadow:0_0_8px_rgba(255,255,255,0.9),0_1px_3px_rgba(255,255,255,0.7)]"
+ }`}
               >
                 {tab.label}
               </button>
@@ -474,7 +474,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
         <Eyebrow>{home.commitmentSection.eyebrow}</Eyebrow>
         <h2 className="mt-6 text-2xl font-bold leading-tight text-agri-blue">{home.commitmentSection.title}</h2>
 
-        <div className="mt-8 rounded-[1.5rem] border-s-4 border-agri-gold bg-agri-mist p-6">
+        <div className="mt-8 rounded-lg border-s-4 border-agri-gold bg-agri-mist p-6">
           {home.commitmentSection.paragraphs.map((paragraph) => (
             <p key={paragraph} className="mt-5 text-[15px] leading-8 text-slate-700 first:mt-0">
               {paragraph}
@@ -546,9 +546,9 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 animate={variants[state]}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
                 style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
-                className={`absolute inset-x-0 top-0 mx-auto w-[280px] touch-pan-y overflow-hidden rounded-[1.75rem] bg-white text-agri-blue shadow-[0_20px_50px_rgba(0,0,0,0.35)] ${
-                  state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
-                }`}
+                className={`absolute inset-x-0 top-0 mx-auto w-[280px] touch-pan-y overflow-hidden rounded-lg bg-white text-agri-blue shadow-[0_20px_50px_rgba(0,0,0,0.35)] ${
+ state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
+ }`}
               >
                 <div className="relative flex h-32 items-center justify-center overflow-hidden bg-[radial-gradient(circle_at_50%_30%,rgba(217,146,39,0.18),transparent_60%)] px-6 py-4">
                   <div className="relative flex h-24 w-full max-w-[180px] items-center justify-center">
@@ -564,7 +564,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 </div>
                 <div className="p-6 pb-7">
                   {item.eyebrow ? (
-                    <span className="inline-flex w-fit items-center rounded-lg border border-agri-green px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-agri-green">
+                    <span className="inline-flex w-fit items-center rounded-sm border border-agri-green px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-agri-green">
                       {item.eyebrow}
                     </span>
                   ) : null}
@@ -572,7 +572,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                   {item.tags.length ? (
                     <div className="mt-2.5 flex flex-wrap items-center gap-2">
                       {item.tags.map((tag) => (
-                        <span key={tag} className="rounded-lg border border-agri-green px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-agri-green">
+                        <span key={tag} className="rounded-sm border border-agri-green px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-agri-green">
                           {tag}
                         </span>
                       ))}
@@ -581,7 +581,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                   <p className="mt-4 text-[15px] leading-7 text-slate-600">{item.description}</p>
                   <Link
                     href={localizeHref(locale, item.href)}
-                    className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-agri-green px-5 text-sm font-bold text-white shadow-sm transition duration-300 active:bg-agri-greenDark"
+                    className="btn btn-block mt-5"
                   >
                     {item.ctaLabel}
                     <ArrowIcon className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`} />
@@ -603,7 +603,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
 
       {/* -------------------------------------------------------------- CATEGORIES */}
       <section id="m-categories" className="scroll-mt-[150px] bg-agri-mist px-5 py-14">
-        <div className="mx-auto w-full max-w-[450px] rounded-[1.5rem] border border-agri-line bg-white p-7 shadow-soft">
+        <div className="mx-auto w-full max-w-[450px] rounded-lg border border-agri-line bg-white p-7 shadow-soft">
           <Eyebrow>{home.productCategoriesSection.eyebrow}</Eyebrow>
           <h2 className="mt-4 text-[24px] font-bold leading-tight text-agri-blue">{home.productCategoriesSection.title}</h2>
           {home.productCategoriesSection.description ? (
@@ -627,7 +627,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
         <p className="mt-4 text-[15px] leading-8 text-white/70">{home.whyAgropestSection.description}</p>
         </div>
 
-        <div className="relative mx-auto mt-6 aspect-[16/10] w-full max-w-[450px] overflow-hidden rounded-[1.5rem] border border-white/10 shadow-soft">
+        <div className="relative mx-auto mt-6 aspect-[16/10] w-full max-w-[450px] overflow-hidden rounded-lg border border-white/10 shadow-soft">
           <ResponsiveImage
             src="/images/backgrounds/field-day-trials.jpg"
             alt={home.whyAgropestSection.imageAlt}
@@ -662,7 +662,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
 
       {/* --------------------------------------------------------- TECHNICAL LIBRARY */}
       <section id="m-library" className="scroll-mt-[150px] bg-white px-5 py-14">
-        <div className="relative mx-auto min-h-[190px] w-full max-w-[450px] overflow-hidden rounded-[1.5rem] bg-agri-blue shadow-soft">
+        <div className="relative mx-auto min-h-[190px] w-full max-w-[450px] overflow-hidden rounded-lg bg-agri-blue shadow-soft">
           <ResponsiveImage
             src={content.technicalLibraryPreview.image}
             alt={content.technicalLibraryPreview.imageAlt}
@@ -719,9 +719,9 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
                 animate={variants[state]}
                 transition={{ duration: reducedMotion ? 0 : 0.45, ease: premiumEase }}
                 style={{ zIndex: position === 0 ? 30 : position === 1 ? 20 : 10 }}
-                className={`absolute inset-x-0 top-0 mx-auto w-[280px] flex min-h-[420px] touch-pan-y flex-col items-center justify-center rounded-[1.75rem] border border-white/20 bg-white/95 p-7 text-center text-agri-blue shadow-soft ${
-                  state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
-                }`}
+                className={`absolute inset-x-0 top-0 mx-auto w-[280px] flex min-h-[420px] touch-pan-y flex-col items-center justify-center rounded-lg border border-white/20 bg-white/95 p-7 text-center text-agri-blue shadow-soft ${
+ state === "active" ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
+ }`}
               >
                 <div className="flex h-20 w-full items-center justify-center">
                   <ResponsiveImage
@@ -750,7 +750,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
 
       {/* --------------------------------------------------------------------- CTA */}
       <section id="m-cta" className="scroll-mt-[150px] bg-agri-mist px-5 py-14">
-        <div className="relative mx-auto w-full max-w-[450px] overflow-hidden rounded-[1.75rem] bg-agri-blue px-6 py-9 text-white shadow-soft">
+        <div className="relative mx-auto w-full max-w-[450px] overflow-hidden rounded-lg bg-agri-blue px-6 py-9 text-white shadow-soft">
           {home.cta.backgroundImage ? (
             <div aria-hidden="true" className="absolute inset-0 opacity-25">
               <ResponsiveImage src={home.cta.backgroundImage} alt="" className="h-full w-full" objectFit="cover" />

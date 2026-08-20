@@ -12,7 +12,7 @@ type RivalDuoOomyceteCardsProps = {
 export function RivalDuoOomyceteCards({ card1, card2 }: RivalDuoOomyceteCardsProps) {
   return (
     <div className="mt-4 grid gap-4 sm:mt-5 sm:grid-cols-2 sm:gap-5 xl:mt-7 xl:gap-7">
-      <article className="relative mx-auto w-[68%] overflow-hidden rounded-[1.75rem] shadow-[0_20px_60px_rgba(14,75,159,0.12)] sm:w-full lg:w-[78%] xl:w-[86%] 2xl:w-[92%]">
+      <article className="relative mx-auto w-[68%] overflow-hidden rounded-lg shadow-[0_20px_60px_rgba(14,75,159,0.12)] sm:w-full lg:w-[78%] xl:w-[86%] 2xl:w-[92%]">
         {/* The caption strip below is h/3 of this box — keep the two clamps in sync. */}
         <div className="h-72 w-full overflow-hidden bg-white sm:h-[clamp(280px,36vh,400px)] xl:h-[clamp(280px,40vh,520px)]">
           <ResponsiveImage src={card1.image} alt="" className="h-full w-full object-cover" objectFit="cover" sizes="(min-width: 640px) 50vw, 68vw" />
@@ -27,7 +27,7 @@ export function RivalDuoOomyceteCards({ card1, card2 }: RivalDuoOomyceteCardsPro
           <p className="mt-1.5 text-xs leading-5 text-slate-600 sm:text-sm sm:leading-6 xl:text-[0.9375rem] xl:leading-6">{card1.text}</p>
         </div>
       </article>
-      <article className="relative mx-auto w-[68%] overflow-hidden rounded-[1.75rem] shadow-[0_20px_60px_rgba(14,75,159,0.12)] sm:w-full lg:w-[78%] xl:w-[86%] 2xl:w-[92%]">
+      <article className="relative mx-auto w-[68%] overflow-hidden rounded-lg shadow-[0_20px_60px_rgba(14,75,159,0.12)] sm:w-full lg:w-[78%] xl:w-[86%] 2xl:w-[92%]">
         {/* The caption strip below is h/3 of this box — keep the two clamps in sync. */}
         <div className="h-72 w-full overflow-hidden bg-white sm:h-[clamp(280px,36vh,400px)] xl:h-[clamp(280px,40vh,520px)]">
           <ResponsiveImage src={card2.image} alt="" className="h-full w-full object-cover" objectFit="cover" sizes="(min-width: 640px) 50vw, 68vw" />

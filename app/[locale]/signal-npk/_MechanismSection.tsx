@@ -50,9 +50,9 @@ export default function MechanismSection({ mech, dir, layout = "desktop" }: Mech
           return (
             <div
               key={s.no}
-              className={`overflow-hidden rounded-3xl border transition-colors duration-300 ${
-                open ? "border-[#3fbf6e]/60 bg-[#3fbf6e]/10" : "border-white/10 bg-white/5"
-              }`}
+              className={`overflow-hidden rounded-lg border transition-colors duration-300 ${
+ open ? "border-[#3fbf6e]/60 bg-[#3fbf6e]/10" : "border-white/10 bg-white/5"
+ }`}
             >
               <button
                 type="button"
@@ -62,8 +62,8 @@ export default function MechanismSection({ mech, dir, layout = "desktop" }: Mech
               >
                 <span
                   className={`${mono.className} flex h-11 w-11 shrink-0 items-center justify-center rounded-full border text-sm font-semibold transition-colors ${
-                    open ? "border-[#3fbf6e] bg-[#3fbf6e]/20 text-[#3fbf6e]" : "border-[#3fbf6e]/40 text-[#3fbf6e]"
-                  }`}
+ open ? "border-[#3fbf6e] bg-[#3fbf6e]/20 text-[#3fbf6e]" : "border-[#3fbf6e]/40 text-[#3fbf6e]"
+ }`}
                 >
                   {s.no}
                 </span>
@@ -84,12 +84,12 @@ export default function MechanismSection({ mech, dir, layout = "desktop" }: Mech
               </button>
               <div
                 className={`grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none ${
-                  open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                }`}
+ open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+ }`}
               >
                 <div className="min-h-0 overflow-hidden">
                   <div className="px-5 pb-5">
-                    <div className="relative flex min-h-[260px] items-center justify-center rounded-2xl border border-white/10 bg-black/20 p-4">
+                    <div className="relative flex min-h-[260px] items-center justify-center rounded-md border border-white/10 bg-black/20 p-4">
                       {open ? renderStepMedia(s.no, dir) : null}
                     </div>
                   </div>
@@ -110,18 +110,18 @@ export default function MechanismSection({ mech, dir, layout = "desktop" }: Mech
           <li
             key={s.no}
             onClick={() => select(s.no)}
-            className={`flex gap-5 rounded-3xl border p-6 backdrop-blur-md transition-all cursor-pointer md:p-7 ${
-              activeStep === s.no
-                ? "border-[#3fbf6e]/60 bg-[#3fbf6e]/10"
-                : "border-white/10 bg-white/5 hover:border-[#3fbf6e]/40"
-            }`}
+            className={`flex gap-5 rounded-lg border p-6 backdrop-blur-md transition-all cursor-pointer md:p-7 ${
+ activeStep === s.no
+ ? "border-[#3fbf6e]/60 bg-[#3fbf6e]/10"
+ : "border-white/10 bg-white/5 hover:border-[#3fbf6e]/40"
+ }`}
           >
             <span
               className={`${mono.className} flex h-11 w-11 shrink-0 items-center justify-center rounded-full border text-sm font-semibold transition-colors ${
-                activeStep === s.no
-                  ? "border-[#3fbf6e] bg-[#3fbf6e]/20 text-[#3fbf6e]"
-                  : "border-[#3fbf6e]/40 text-[#3fbf6e]"
-              }`}
+ activeStep === s.no
+ ? "border-[#3fbf6e] bg-[#3fbf6e]/20 text-[#3fbf6e]"
+ : "border-[#3fbf6e]/40 text-[#3fbf6e]"
+ }`}
             >
               {s.no}
             </span>
@@ -134,7 +134,7 @@ export default function MechanismSection({ mech, dir, layout = "desktop" }: Mech
       </ol>
 
       {/* phloem animation slot */}
-      <div ref={figureRef} className="flex scroll-mt-32 flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md">
+      <div ref={figureRef} className="flex scroll-mt-32 flex-col overflow-hidden rounded-lg border border-white/10 bg-white/5 backdrop-blur-md">
         <div className="border-b border-white/10 px-6 py-4">
           <span className="text-[15px] font-medium uppercase tracking-[0.22em] text-white">
             {dir === "rtl" ? "سيجنال" : "SIGNAL"} - {activeStepTitle}
@@ -198,7 +198,7 @@ function FoliarAbsorptionVideo() {
   return (
     <video
       ref={videoRef}
-      className="h-full w-full max-w-sm rounded-2xl object-contain"
+      className="h-full w-full max-w-sm rounded-md object-contain"
       autoPlay
       loop
       muted

@@ -32,8 +32,8 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
       aria-label={item.ctaLabel}
       className={
         isDesktop
-          ? "relative rounded-lg featured-deck-card group/card flex h-full min-h-[462px] flex-col overflow-hidden bg-agri-mist shadow-sm"
-          : "relative block rounded-2xl group/card min-h-[198px] overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.16)]"
+          ? "relative rounded-sm featured-deck-card group/card flex h-full min-h-[462px] flex-col overflow-hidden bg-agri-mist shadow-sm"
+          : "relative block rounded-md group/card min-h-[198px] overflow-hidden transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgb(23_50_77_/_0.16)]"
       }
       style={isDesktop ? ({ "--card-tilt": `${tiltValues[index] ?? 0}deg` } as CSSProperties) : undefined}
     >
@@ -46,8 +46,8 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
       >
         <div
           className={`relative z-10 flex items-center justify-center ${
-            isDesktop ? "h-24 w-full max-w-[220px] md:h-28 md:max-w-[240px]" : "h-24 w-full max-w-[180px]"
-          }`}
+ isDesktop ? "h-24 w-full max-w-[220px] md:h-28 md:max-w-[240px]" : "h-24 w-full max-w-[180px]"
+ }`}
         >
           <ResponsiveImage
             src={item.image}
@@ -69,14 +69,14 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
             <h3 className="line-clamp-2 min-h-[3.25rem] text-xl font-bold tracking-normal text-agri-blue">{item.title}</h3>
             <span className="mt-2 h-0.5 w-12 bg-agri-gold" />
             {item.eyebrow ? (
-              <span className="mt-3 inline-flex w-fit items-center rounded-lg border border-agri-green bg-transparent px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-agri-green">
+              <span className="mt-3 inline-flex w-fit items-center rounded-sm border border-agri-green bg-transparent px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-agri-green">
                 {item.eyebrow}
               </span>
             ) : null}
             {item.tags.length ? (
               <div className="featured-card-tags mt-4 flex flex-wrap gap-2">
                 {item.tags.map((tag) => (
-                  <span key={tag} className="rounded-lg border border-agri-green bg-transparent px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-agri-green">
+                  <span key={tag} className="rounded-sm border border-agri-green bg-transparent px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-agri-green">
                     {tag}
                   </span>
                 ))}
@@ -98,8 +98,8 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
           <span
             aria-hidden="true"
             className={`featured-card-cta absolute bottom-3 flex h-8 w-8 items-center justify-center rounded-full border border-agri-green bg-white text-agri-green transition group-hover/card:bg-agri-green group-hover/card:text-white ${
-              isRtl ? "left-3 rotate-180" : "right-3"
-            }`}
+ isRtl ? "left-3 rotate-180" : "right-3"
+ }`}
           >
             <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4" aria-hidden="true">
               <path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
@@ -182,8 +182,8 @@ export function FeaturedProductLinesSection({ content, locale, className = "" }:
             <RevealItem
               key={item.title}
               className={`featured-deck-item ${
-                activeDesktopIndex === index ? "is-pointer-active" : activeDesktopIndex === null ? "" : "is-pointer-muted"
-              }`}
+ activeDesktopIndex === index ? "is-pointer-active" : activeDesktopIndex === null ? "" : "is-pointer-muted"
+ }`}
               hoverLift={false}
             >
               <FeaturedProductCard item={item} locale={locale} mode="desktop" index={index} />

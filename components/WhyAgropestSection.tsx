@@ -19,7 +19,7 @@ export function WhyAgropestSection({ content, className = "" }: WhyAgropestSecti
             <h2 className="mt-3 text-3xl font-bold leading-tight tracking-normal sm:text-4xl">{whyAgropestSection.title}</h2>
             <p className="section-copy mt-4 max-w-3xl text-white/70">{whyAgropestSection.description}</p>
           </div>
-          <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 shadow-soft">
+          <div className="relative aspect-[16/10] overflow-hidden rounded-md border border-white/10 shadow-soft">
             <ResponsiveImage
               src="/images/backgrounds/field-day-trials.jpg"
               alt={whyAgropestSection.imageAlt}
@@ -33,7 +33,7 @@ export function WhyAgropestSection({ content, className = "" }: WhyAgropestSecti
         <StaggerContainer className="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4 lg:mt-7" amount={0.15}>
           {whyAgropestSection.items.map((item) => (
             <RevealItem key={item.title} hoverLift>
-              <article className="h-full rounded-2xl bg-white/[0.06] p-6 backdrop-blur-sm transition duration-300 hover:bg-white/[0.1]">
+              <article className="h-full rounded-md bg-white/[0.06] p-6 backdrop-blur-sm transition duration-300 hover:bg-white/[0.1]">
                 <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-gold">{item.eyebrow}</p>
                 <h3 className="mt-4 text-xl font-bold tracking-normal">{item.title}</h3>
                 <p className="mt-3 leading-7 text-white/70">{item.description}</p>

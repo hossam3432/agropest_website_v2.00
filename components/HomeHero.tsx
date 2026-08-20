@@ -24,7 +24,7 @@ function HeroSignatureCard({ card, index, isActive, isMobile = false }: { card: 
     <article
       className={
         isMobile
-          ? "rounded-[1.75rem] border border-white/20 bg-white/95 p-6 shadow-soft"
+          ? "rounded-lg border border-white/20 bg-white/95 p-6 shadow-soft"
           : `hero-signature-card ${isActive ? "is-active" : ""}`
       }
     >

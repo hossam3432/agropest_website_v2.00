@@ -385,7 +385,7 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
                   {c.hero.lead}
                 </p>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:mt-8 xl:gap-6">
-                  <div className="rounded-[1.25rem] border-2 bg-white/75 p-5 backdrop-blur-sm xl:p-7" style={{ borderColor: ORANGE + "33" }}>
+                  <div className="rounded-lg border-2 bg-white/75 p-5 backdrop-blur-sm xl:p-7" style={{ borderColor: ORANGE + "33" }}>
                     <p className="text-xs font-normal uppercase tracking-[0.14em] text-slate-400 xl:text-sm">{c.hero.compositionLabel}</p>
                     <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
                       {product.facts.compositionRows?.map((row, index) => (
@@ -397,7 +397,7 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
                       ))}
                     </div>
                   </div>
-                  <div className="rounded-[1.25rem] border-2 bg-white/75 p-5 backdrop-blur-sm xl:p-7" style={{ borderColor: BLUE + "33" }}>
+                  <div className="rounded-lg border-2 bg-white/75 p-5 backdrop-blur-sm xl:p-7" style={{ borderColor: BLUE + "33" }}>
                     <p className="text-xs font-normal uppercase tracking-[0.14em] text-slate-400 xl:text-sm">{c.hero.curativeLabel}</p>
                     <div className="mt-2 flex items-baseline gap-3">
                       <span dir="ltr" className="text-4xl font-extrabold sm:text-5xl 2xl:text-6xl" style={{ color: BLUE }}>{c.hero.curativeValue}</span>
@@ -462,7 +462,7 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
             <h2 className="mt-4 max-w-4xl text-3xl font-extrabold leading-[1.15] xl:text-[2.25rem] 2xl:text-[2.5rem]" style={{ color: INK }}>{c.s4.title}</h2>
 
             <div className="lg:mx-auto lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl">
-              <div className="mt-4 overflow-hidden rounded-[1.5rem] border-2 sm:mt-5" style={{ borderColor: BLUE + "22" }}>
+              <div className="mt-4 overflow-hidden rounded-lg border-2 sm:mt-5" style={{ borderColor: BLUE + "22" }}>
                 {/* This is the tallest of the seven panels, so it scales up on 2xl
                     only — bumping it at xl pushed it past the panel on a 1280x800
                     laptop and RivalDuoFit shrank the whole section to compensate.
@@ -479,7 +479,7 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
               <p className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-slate-400 sm:mt-5 2xl:text-base">{c.s4.euTitle}</p>
               <div className="mt-2.5 grid gap-2 sm:mt-3 sm:gap-3">
                 {c.s4.rows.map((row) => (
-                  <div key={row.family} className="grid grid-cols-2 gap-2 rounded-[1.25rem] border-2 border-slate-100 bg-[#F8FAFD] p-3 sm:grid-cols-4 sm:items-center sm:gap-3 sm:p-4">
+                  <div key={row.family} className="grid grid-cols-2 gap-2 rounded-lg border-2 border-slate-100 bg-[#F8FAFD] p-3 sm:grid-cols-4 sm:items-center sm:gap-3 sm:p-4">
                     <p className="text-sm font-extrabold sm:text-base 2xl:text-lg" style={{ color: INK }}>{row.family}</p>
                     <p className="text-sm text-slate-600 2xl:text-base">{row.disease}</p>
                     <p className="text-sm font-extrabold sm:text-base 2xl:text-lg" style={{ color: ORANGE }}>{row.rate}</p>
@@ -504,14 +504,14 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
               {c.s7.pillars.map((pillar, index) => (
                 <RevealItem key={pillar.title}>
                   <div
-                    className={`group h-full cursor-pointer rounded-[1.5rem] bg-white p-4 shadow-[0_18px_55px_rgba(14,75,159,0.1)] transition-colors duration-300 sm:p-6 xl:p-8 ${
-                      index % 2 === 0 ? "hover:bg-[#0E4B9F] active:bg-[#0E4B9F]" : "hover:bg-[#F14723] active:bg-[#F14723]"
-                    }`}
+                    className={`group h-full cursor-pointer rounded-lg bg-white p-4 shadow-[0_18px_55px_rgba(14,75,159,0.1)] transition-colors duration-300 sm:p-6 xl:p-8 ${
+ index % 2 === 0 ? "hover:bg-[#0E4B9F] active:bg-[#0E4B9F]" : "hover:bg-[#F14723] active:bg-[#F14723]"
+ }`}
                   >
                     <span
                       className={`text-base font-bold transition-colors duration-300 group-hover:text-white group-active:text-white ${
-                        index % 2 === 0 ? "text-[#0E4B9F]" : "text-[#F14723]"
-                      }`}
+ index % 2 === 0 ? "text-[#0E4B9F]" : "text-[#F14723]"
+ }`}
                     >
                       {String(index + 1).padStart(2, "0")}
                     </span>
@@ -558,12 +558,11 @@ export default async function RivalDuoLandingPage({ params }: RivalDuoLandingPro
                     href="/brochures/rival-duo-45-sc-brochure.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full px-7 py-4 text-base font-normal text-white transition hover:opacity-90"
-                    style={{ backgroundColor: ORANGE }}
+                    className="btn btn-lg"
                   >
                     {c.s8.ctaBrochure}
                   </a>
-                  <Link href={productHref} className="rounded-full border-[3px] px-7 py-4 text-base font-normal transition hover:text-white" style={{ borderColor: BLUE, color: BLUE }}>
+                  <Link href={productHref} className="btn btn-lg">
                     {c.s8.ctaPrimary}
                   </Link>
                 </div>

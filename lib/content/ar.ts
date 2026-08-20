@@ -301,6 +301,74 @@ export const arContent = {
       primaryHref: "/partner-with-us",
       secondaryLabel: "تواصل مع أجروبست",
       secondaryHref: "/contact"
+    },
+    /* عناوين بنائية لصفحة «من نحن». كل قيمة معروضة إما محسوبة من بيانات فعلية
+       (عدد المحفظة، سنوات العمل) أو مكرّرة من النص أعلاها — لا رقم جديد هنا. */
+    proof: {
+      ledger: {
+        sinceLabel: "بداية العمل في السوق المصري",
+        yearsLabel: "عامًا من العمل المتصل",
+        productsLabel: "منتجًا في المحفظة",
+        suppliersLabel: "موردين دوليين",
+        baseValue: "النوبارية",
+        baseLabel: "المقر والمخازن"
+      },
+      gate: {
+        stepLabel: "سؤال",
+        outcomeTitle: "ما يجتاز الأسئلة الستة يدخل المحفظة",
+        outcomeDetail: "المحفظة اليوم {count} منتجًا، عبر ركيزتين: وقاية المحاصيل وتغذية النبات.",
+        outcomeLink: "استعرض المحفظة",
+        outcomeHref: "/products",
+        progressLabel: "مسار الاختيار"
+      },
+      registration: {
+        marksTitle: "ما الذي يحمله المنتج المسجل",
+        marks: ["بطاقة استدلالية", "عينة قياسية", "جهة مسؤولة"],
+        authority: "وزارة الزراعة · لجنة مبيدات الآفات الزراعية"
+      },
+      suppliers: {
+        items: [
+          {
+            name: "Agria",
+            origin: "بلغاريا · وقاية المحاصيل",
+            logo: "/images/partners/agria-bulgaria-logo-supplied.png",
+            logoAlt: "لوجو Agria Bulgaria"
+          },
+          {
+            name: "EuroGro",
+            origin: "اليونان · تغذية نباتية ومحفزات حيوية",
+            logo: "/images/partners/eurogro-logo-supplied.png",
+            logoAlt: "لوجو EuroGro Greece"
+          },
+          {
+            /* The logo file reads "Star CropScience", so the card is labelled to match
+               the mark it shows, with the supplier named in the About copy alongside it.
+               This mirrors the wording already published in en.ts. */
+            name: "Star CropScience",
+            origin: "الصين · يورَّد عبر Agri Unitech",
+            logo: "/images/partners/star-cropscience-logo-supplied.png",
+            logoAlt: "لوجو Star CropScience"
+          }
+        ]
+      },
+      distributor: {
+        image: "/images/backgrounds/field-day-trials.jpg",
+        imageAlt: "يوم حقلي لأجروبست في الحقل المصري"
+      },
+      coverage: {
+        regions: [
+          "محور الطريق الصحراوي بالإسكندرية",
+          "الدلتا",
+          "محافظات الصعيد",
+          "الأراضي المستصلحة بالشمال الغربي"
+        ],
+        image: "/images/backgrounds/egypt-field-rows.jpg",
+        imageAlt: "خطوط زراعية في نطاق الأراضي المستصلحة المصرية"
+      },
+      heritage: {
+        image: "/images/hero/about-warehouse.jpg",
+        imageAlt: "مقر أجروبست ومخازنها — النوبارية، البحيرة"
+      }
     }
   },
   solutionsPage: {

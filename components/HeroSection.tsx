@@ -22,6 +22,8 @@ type HeroSectionProps = {
   leading?: boolean;
   /** On lg+ screens, confine the image to the inline-end panel with a solid/gradient panel on the inline-start side for the text; falls back to full-bleed cover below lg. */
   splitOnLarge?: boolean;
+  /** Set false when a dark section is welded to the hero's base; the mist fade only reads correctly against a mist section. */
+  fadeToMist?: boolean;
 };
 
 export function HeroSection({
@@ -38,7 +40,8 @@ export function HeroSection({
   secondaryCta,
   compact = false,
   leading = true,
-  splitOnLarge = false
+  splitOnLarge = false,
+  fadeToMist = true
 }: HeroSectionProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -107,7 +110,7 @@ export function HeroSection({
         </>
       ) : null}
       <div className={`absolute inset-0 bg-gradient-to-r from-agri-blue via-agri-blue/80 to-agri-green/40 ${splitOnLarge ? "lg:hidden" : ""}`} />
-      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-agri-mist to-transparent" />
+      {fadeToMist ? <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-agri-mist to-transparent" /> : null}
 
       <div className="container-shell relative flex min-h-[inherit] items-center py-20">
         <div className={`max-w-3xl text-white ${splitOnLarge ? "lg:me-auto lg:text-start" : ""}`}>

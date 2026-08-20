@@ -90,8 +90,8 @@ function SectionHead({ index, title, dark = false, titleLeading = "leading-[1.32
       {index ? (
         <span
           className={`${mono.className} inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-[10px] font-medium tracking-[0.2em] ${
-            dark ? "border-white/15 bg-white/5 text-[#3fbf6e]" : "border-[#008D36]/20 bg-white/70 text-[#008D36]"
-          }`}
+ dark ? "border-white/15 bg-white/5 text-[#3fbf6e]" : "border-[#008D36]/20 bg-white/70 text-[#008D36]"
+ }`}
         >
           <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
           {index}
@@ -200,7 +200,7 @@ function Disclosure({
 }) {
   return (
     <div
-      className="overflow-hidden rounded-[1.5rem] border bg-white transition-colors duration-300"
+      className="overflow-hidden rounded-lg border bg-white transition-colors duration-300"
       style={{ borderColor: open ? accent : "#E7EEE9", boxShadow: open ? `0 16px 36px ${accent}1F` : "none" }}
     >
       <button
@@ -341,7 +341,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
           {t.hero.badges.map((b) => (
             <div
               key={b.big}
-              className="flex min-h-[104px] flex-col items-center justify-center rounded-2xl border border-white bg-white/80 px-2.5 py-3 text-center shadow-sm shadow-slate-900/5 backdrop-blur-sm"
+              className="flex min-h-[104px] flex-col items-center justify-center rounded-md border border-white bg-white/80 px-2.5 py-3 text-center shadow-sm shadow-slate-900/5 backdrop-blur-sm"
             >
               <span
                 className={`${mono.className} block font-extrabold leading-tight ${b.big.length > 8 ? "text-[11px]" : "text-lg"}`}
@@ -358,8 +358,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
           <button
             type="button"
             onClick={() => scrollToId("m-matrix")}
-            className="flex min-h-[56px] w-full items-center justify-center rounded-full px-6 text-[15px] font-bold text-white shadow-lg shadow-[#008D36]/30 active:scale-[0.985]"
-            style={{ backgroundColor: GREEN }}
+            className="btn btn-block btn-lg"
           >
             {t.hero.ctaPrimary}
           </button>
@@ -386,8 +385,8 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
                   aria-selected={active}
                   onClick={() => scrollToId(s.id)}
                   className={`flex min-h-[44px] shrink-0 items-center whitespace-nowrap rounded-full px-4 text-[13px] font-bold transition-colors duration-300 ${
-                    active ? "text-white" : "text-slate-500"
-                  }`}
+ active ? "text-white" : "text-slate-500"
+ }`}
                   style={active ? { backgroundColor: GREEN } : undefined}
                 >
                   {s.label}
@@ -420,7 +419,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
                 aria-selected={selected}
                 type="button"
                 onClick={() => selectVariant(i)}
-                className="min-h-[92px] w-[168px] shrink-0 snap-center rounded-[1.5rem] p-4 text-start transition-all duration-300"
+                className="min-h-[92px] w-[168px] shrink-0 snap-center rounded-lg p-4 text-start transition-all duration-300"
                 style={{
                   backgroundColor: selected ? item.soft : "#FFFFFF",
                   boxShadow: selected ? `inset 0 0 0 2px ${item.color}, 0 14px 30px -14px ${item.color}66` : "inset 0 0 0 1px #E7EEE9"
@@ -447,7 +446,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
         {/* active variant detail */}
         <div key={v.id} ref={variantDetailRef} className="sg-fade-up mt-5 scroll-mt-[130px]">
           <div
-            className="relative overflow-hidden rounded-[1.75rem] border border-white p-6"
+            className="relative overflow-hidden rounded-lg border border-white p-6"
             style={{ background: `linear-gradient(165deg, ${v.soft} 0%, #ffffff 60%)` }}
           >
             <RadiatingRings className="inset-0 m-auto h-48 w-48" color={v.color} rings={3} />
@@ -482,13 +481,13 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
           </div>
 
           {/* macro trio */}
-          <div className="mt-4 rounded-[1.5rem] border border-slate-100 bg-white p-5">
+          <div className="mt-4 rounded-lg border border-slate-100 bg-white p-5">
             <h3 className="text-xs font-extrabold uppercase tracking-[0.16em]" style={{ color: v.color }}>
               {ml.macroTitle}
             </h3>
             <div className="mt-4 grid grid-cols-3 gap-2.5">
               {v.macro.map((m) => (
-                <div key={m.symbol} className="rounded-2xl border p-3 text-center" style={{ borderColor: v.color + "26", backgroundColor: v.soft + "80" }}>
+                <div key={m.symbol} className="rounded-md border p-3 text-center" style={{ borderColor: v.color + "26", backgroundColor: v.soft + "80" }}>
                   <p className={`${mono.className} text-[10px] font-bold uppercase tracking-widest`} style={{ color: INK + "73" }} dir="ltr">
                     {m.symbol}
                   </p>
@@ -504,9 +503,9 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
           </div>
 
           {/* organic catalyst */}
-          <div className="mt-4 flex items-start gap-4 rounded-[1.5rem] border p-5" style={{ borderColor: v.color + "40", backgroundColor: v.soft + "B3" }}>
+          <div className="mt-4 flex items-start gap-4 rounded-lg border p-5" style={{ borderColor: v.color + "40", backgroundColor: v.soft + "B3" }}>
             <span
-              className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-sm font-extrabold text-white"
+              className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md text-sm font-extrabold text-white"
               style={{ backgroundColor: v.color, boxShadow: `0 10px 24px -8px ${v.color}` }}
               dir="ltr"
             >
@@ -540,7 +539,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
           >
             <div className="grid grid-cols-3 gap-2.5 border-t border-slate-100 pt-4">
               {ml.micro.map((m) => (
-                <div key={m.symbol} className="rounded-2xl border border-slate-100 bg-[#F8FBF9] p-3 text-center">
+                <div key={m.symbol} className="rounded-md border border-slate-100 bg-[#F8FBF9] p-3 text-center">
                   <p className={`${mono.className} text-sm font-extrabold`} style={{ color: GREEN }} dir="ltr">
                     {m.symbol}
                   </p>
@@ -559,7 +558,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
 
       {/* ---------------------------------------------------- MECHANISM */}
       <section id="m-mechanism" className="relative scroll-mt-[130px] px-4 py-8">
-        <div className="relative overflow-hidden rounded-[2rem] bg-[#17142D] px-5 py-10 text-white">
+        <div className="relative overflow-hidden rounded-lg bg-[#17142D] px-5 py-10 text-white">
           <RadiatingRings className="-end-28 -top-28 h-80 w-80 opacity-50" color={MINT} rings={3} duration={6} />
           <div className="relative">
             <SectionHead dark index={t.mech.index} title={t.mech.title} titleLeading="!leading-[40px] rtl:!leading-[40px]" />
@@ -578,7 +577,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
 
         <div className="mt-5 grid gap-4">
           {t.usage.cards.map((c) => (
-            <div key={c.title} className="relative overflow-hidden rounded-[1.5rem] border border-white bg-white p-5 shadow-sm shadow-slate-900/5">
+            <div key={c.title} className="relative overflow-hidden rounded-lg border border-white bg-white p-5 shadow-sm shadow-slate-900/5">
               <div
                 className="pointer-events-none absolute -end-10 -top-10 h-32 w-32 rounded-full bg-[radial-gradient(closest-side,#008D3618,transparent)]"
                 aria-hidden="true"
@@ -601,7 +600,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
           <h3 className={`${mono.className} text-[11px] font-medium uppercase tracking-[0.22em] text-slate-400`}>{t.usage.timingHead}</h3>
           <div className="mt-3 grid gap-2.5">
             {t.usage.timing.map((row) => (
-              <div key={row.stage + row.window} className="rounded-2xl border border-slate-100 bg-white p-4">
+              <div key={row.stage + row.window} className="rounded-md border border-slate-100 bg-white p-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="flex-1 text-[15px] font-bold" style={{ color: INK }}>
                     {row.stage}
@@ -620,7 +619,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
           <h3 className={`${mono.className} text-[11px] font-medium uppercase tracking-[0.22em] text-slate-400`}>{t.usage.practiceHead}</h3>
           <ol className="mt-3 space-y-3.5">
             {t.usage.practice.map((p, i) => (
-              <li key={p} className="flex gap-3.5 rounded-2xl border border-slate-100 bg-white p-4">
+              <li key={p} className="flex gap-3.5 rounded-md border border-slate-100 bg-white p-4">
                 <span className={`${mono.className} text-xs font-semibold`} style={{ color: GREEN }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -633,7 +632,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
 
       {/* -------------------------------------------------------- SUPPLY */}
       <section id="m-supply" className="relative scroll-mt-[130px] px-4 pb-8 pt-8">
-        <div className="relative flex min-h-[480px] flex-col overflow-hidden rounded-[2rem] bg-[#17142D] px-5 py-10 text-center text-white">
+        <div className="relative flex min-h-[480px] flex-col overflow-hidden rounded-lg bg-[#17142D] px-5 py-10 text-center text-white">
           <RadiatingRings className="-bottom-32 -start-32 h-72 w-72 opacity-40" color={MINT} rings={3} duration={6} />
           <EuStarsBackground />
 
@@ -654,8 +653,7 @@ export default function MobileLanding({ t, locale }: { t: SignalNpkContent; loca
             <div className="flex w-full flex-col items-center">
               <Link
                 href={`/${locale}/brochures`}
-                className="flex min-h-[56px] w-full items-center justify-center rounded-full px-6 text-[15px] font-bold text-[#17142D] shadow-lg shadow-[#3fbf6e]/30 active:scale-[0.985]"
-                style={{ backgroundColor: MINT }}
+                className="btn btn-invert btn-block btn-lg"
               >
                 {t.footer.brochureCta}
               </Link>

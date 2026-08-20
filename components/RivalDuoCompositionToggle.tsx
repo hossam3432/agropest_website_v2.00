@@ -42,7 +42,7 @@ export function RivalDuoCompositionToggle({ card1, card2 }: RivalDuoCompositionT
                 setActive(key);
               }
             }}
-            className="flex-1 cursor-pointer select-none rounded-[1.5rem] bg-white p-6 shadow-[0_20px_60px_rgba(14,75,159,0.12)] transition-all duration-300 active:scale-[0.98] sm:p-7 xl:p-9"
+            className="flex-1 cursor-pointer select-none rounded-lg bg-white p-6 shadow-[0_20px_60px_rgba(14,75,159,0.12)] transition-all duration-300 active:scale-[0.98] sm:p-7 xl:p-9"
             style={{ boxShadow: isActive ? `0 20px 60px ${color}33, 0 0 0 2px ${color}` : "0 20px 60px rgba(14,75,159,0.12)" }}
           >
             <span

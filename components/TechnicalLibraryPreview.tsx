@@ -16,7 +16,7 @@ export function TechnicalLibraryPreview({ content, locale, className = "" }: Tec
     <section className={`bg-white py-16 sm:py-20 lg:py-[86px] ${className}`}>
       <div className="container-shell grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-14">
         <RevealSection amount={0.15}>
-          <div className="relative min-h-[195px] overflow-hidden rounded-2xl bg-agri-blue shadow-soft sm:min-h-[255px] lg:min-h-[330px]">
+          <div className="relative min-h-[195px] overflow-hidden rounded-md bg-agri-blue shadow-soft sm:min-h-[255px] lg:min-h-[330px]">
             <ResponsiveImage
               src={technicalLibraryPreview.image}
               alt={technicalLibraryPreview.imageAlt}

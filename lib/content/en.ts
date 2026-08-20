@@ -332,6 +332,72 @@ export const enContent = {
       primaryHref: "/partner-with-us",
       secondaryLabel: "Contact AgroPest",
       secondaryHref: "/contact"
+    },
+    /* Structural labels for the About page. Every value shown on the page is either
+       computed from real data (portfolio count, years in market) or repeated from the
+       prose above it — no figure here is a new claim. */
+    proof: {
+      ledger: {
+        sinceLabel: "trading in the Egyptian market since",
+        yearsLabel: "years of continuous trading",
+        productsLabel: "products in the portfolio",
+        suppliersLabel: "international suppliers",
+        baseValue: "Al Nubariya",
+        baseLabel: "head office and warehouses"
+      },
+      gate: {
+        stepLabel: "Question",
+        outcomeTitle: "What clears all six enters the portfolio",
+        outcomeDetail: "The portfolio today holds {count} products across two pillars: crop protection and plant nutrition.",
+        outcomeLink: "See the portfolio",
+        outcomeHref: "/products",
+        progressLabel: "Selection progress"
+      },
+      registration: {
+        marksTitle: "What a registered product carries",
+        marks: ["An official label", "A reference standard", "An accountable party"],
+        authority: "Ministry of Agriculture · Agricultural Pesticides Committee"
+      },
+      suppliers: {
+        items: [
+          {
+            name: "Agria",
+            origin: "Bulgaria · Crop protection",
+            logo: "/images/partners/agria-bulgaria-logo-supplied.png",
+            logoAlt: "Agria Bulgaria logo"
+          },
+          {
+            name: "EuroGro",
+            origin: "Greece · Crop nutrition and biostimulants",
+            logo: "/images/partners/eurogro-logo-supplied.png",
+            logoAlt: "EuroGro Greece logo"
+          },
+          {
+            name: "Star CropScience",
+            origin: "China · supplied via Agri Unitech",
+            logo: "/images/partners/star-cropscience-logo-supplied.png",
+            logoAlt: "Star CropScience logo"
+          }
+        ]
+      },
+      distributor: {
+        image: "/images/backgrounds/field-day-trials.jpg",
+        imageAlt: "An AgroPest field day in the Egyptian field"
+      },
+      coverage: {
+        regions: [
+          "The Alexandria desert road corridor",
+          "The Delta",
+          "The Upper Egypt governorates",
+          "Reclaimed land in the north-west"
+        ],
+        image: "/images/backgrounds/egypt-field-rows.jpg",
+        imageAlt: "Field rows in the Egyptian reclaimed-land belt"
+      },
+      heritage: {
+        image: "/images/hero/about-warehouse.jpg",
+        imageAlt: "AgroPest's premises and warehouses — Al Nubariya, Beheira"
+      }
     }
   },
   solutionsPage: {

@@ -493,8 +493,8 @@ function SectionHead({ index, title, intro, dark = false, titleLeading = "leadin
       {index ? (
         <span
           className={`${mono.className} inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-medium tracking-[0.22em] ${
-            dark ? "border-white/15 bg-white/5 text-[#3fbf6e]" : "border-[#008D36]/20 bg-white/60 text-[#008D36] backdrop-blur-md"
-          }`}
+ dark ? "border-white/15 bg-white/5 text-[#3fbf6e]" : "border-[#008D36]/20 bg-white/60 text-[#008D36] backdrop-blur-md"
+ }`}
         >
           <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
           {index}
@@ -607,9 +607,9 @@ export default async function SignalNpkPage({ params }: PageProps) {
               {t.hero.badges.map((b, i) => (
                 <div
                   key={b.big}
-                  className={`sg-float absolute z-20 rounded-2xl border border-white/70 bg-white/60 px-4 py-3 shadow-xl shadow-slate-900/10 backdrop-blur-md ${
-                    i === 0 ? "start-0 top-10" : i === 1 ? "bottom-16 end-0" : "-start-2 bottom-24 sm:start-2"
-                  }`}
+                  className={`sg-float absolute z-20 rounded-md border border-white/70 bg-white/60 px-4 py-3 shadow-xl shadow-slate-900/10 backdrop-blur-md ${
+ i === 0 ? "start-0 top-10" : i === 1 ? "bottom-16 end-0" : "-start-2 bottom-24 sm:start-2"
+ }`}
                   style={{ animationDelay: `${i * 1.4}s` }}
                 >
                   <span className={`${mono.className} block text-sm font-semibold text-[#008D36]`} dir="ltr">
@@ -638,7 +638,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
 
         {/* ————— mechanism showcase ————— */}
         <section id="mechanism" className="relative scroll-mt-48 px-4 py-8">
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-[#17142D] px-6 py-20 text-white md:px-14 md:py-24">
+          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-lg bg-[#17142D] px-6 py-20 text-white md:px-14 md:py-24">
             <RadiatingRings
               className="-end-40 -top-40 h-[520px] w-[520px] opacity-60"
               color="#3fbf6e"
@@ -664,7 +664,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
               {t.usage.cards.map((c) => (
                 <div
                   key={c.title}
-                  className="group relative overflow-hidden rounded-3xl border border-white/70 bg-white/60 p-8 shadow-lg shadow-slate-900/5 backdrop-blur-md transition-shadow hover:shadow-xl"
+                  className="group relative overflow-hidden rounded-lg border border-white/70 bg-white/60 p-8 shadow-lg shadow-slate-900/5 backdrop-blur-md transition-shadow hover:shadow-xl"
                 >
                   <div
                     className="pointer-events-none absolute -end-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(closest-side,#008D3620,transparent)] transition-transform duration-500 group-hover:scale-125"
@@ -688,7 +688,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
 
             {/* season program + best practice */}
             <div className="mt-5 grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="rounded-3xl border border-white/70 bg-white/60 p-7 shadow-lg shadow-slate-900/5 backdrop-blur-md md:p-8">
+              <div className="rounded-lg border border-white/70 bg-white/60 p-7 shadow-lg shadow-slate-900/5 backdrop-blur-md md:p-8">
                 <h3 className={`${mono.className} text-[11px] font-medium uppercase tracking-[0.22em] text-slate-500`}>
                   {t.usage.timingHead}
                 </h3>
@@ -696,7 +696,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
                   {t.usage.timing.map((row) => (
                     <div
                       key={row.stage + row.window}
-                      className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl border border-slate-200/70 bg-white/70 px-5 py-4"
+                      className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-md border border-slate-200/70 bg-white/70 px-5 py-4"
                     >
                       <span className="min-w-40 flex-1 text-sm font-bold">{row.stage}</span>
                       <span
@@ -711,7 +711,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
                   ))}
                 </div>
               </div>
-              <div className="rounded-3xl border border-white/70 bg-white/60 p-7 shadow-lg shadow-slate-900/5 backdrop-blur-md md:p-8">
+              <div className="rounded-lg border border-white/70 bg-white/60 p-7 shadow-lg shadow-slate-900/5 backdrop-blur-md md:p-8">
                 <h3 className={`${mono.className} text-[11px] font-medium uppercase tracking-[0.22em] text-slate-500`}>
                   {t.usage.practiceHead}
                 </h3>
@@ -733,7 +733,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
 
       {/* ————— footer ————— */}
       <footer id="supply" className="relative scroll-mt-48 px-4 pb-4">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-[#17142D] px-6 py-16 text-white md:px-14 md:py-20">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-lg bg-[#17142D] px-6 py-16 text-white md:px-14 md:py-20">
           <RadiatingRings className="-bottom-48 -start-48 h-[480px] w-[480px] opacity-40" color="#3fbf6e" rings={3} duration={6} />
           <EuStarsBackground opacity="opacity-30" />
           <div className="relative z-10 flex flex-col items-center justify-center text-center">
@@ -747,7 +747,7 @@ export default async function SignalNpkPage({ params }: PageProps) {
             <SectionHead dark title={t.footer.title} />
             <Link
               href={`/${locale}/brochures`}
-              className="mt-20 rounded-full bg-[#3fbf6e] px-8 py-4 text-sm font-bold text-[#17142D] shadow-lg shadow-[#3fbf6e]/30 transition-colors hover:bg-[#2fa856]"
+              className="btn btn-invert btn-lg mt-20"
             >
               {t.footer.brochureCta}
             </Link>

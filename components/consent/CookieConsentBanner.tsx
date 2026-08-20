@@ -67,21 +67,21 @@ export function CookieConsentBanner() {
               type="button"
               onClick={() => setExpanded((v) => !v)}
               aria-expanded={expanded}
-              className="rounded-md border border-agri-line px-4 py-2 text-sm font-medium text-agri-blue transition hover:bg-agri-mist"
+              className="btn btn-sm"
             >
               {t.customize}
             </button>
             <button
               type="button"
               onClick={rejectNonEssential}
-              className="rounded-md border border-agri-line px-4 py-2 text-sm font-medium text-agri-blue transition hover:bg-agri-mist"
+              className="btn btn-sm"
             >
               {t.reject}
             </button>
             <button
               type="button"
               onClick={acceptAll}
-              className="rounded-md bg-agri-green px-4 py-2 text-sm font-medium text-white transition hover:bg-agri-greenDark"
+              className="btn btn-sm"
             >
               {t.accept}
             </button>
@@ -125,7 +125,7 @@ export function CookieConsentBanner() {
               <button
                 type="button"
                 onClick={() => savePreferences({ analytics, marketing })}
-                className="rounded-md bg-agri-green px-4 py-2 text-sm font-medium text-white transition hover:bg-agri-greenDark"
+                className="btn btn-sm"
               >
                 {t.save}
               </button>
