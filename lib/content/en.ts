@@ -195,7 +195,7 @@ export const enContent = {
       items: [
         { name: "Agria Bulgaria", logo: "/images/partners/agria-bulgaria-logo-supplied.png", logoAlt: "Agria Bulgaria logo", description: "Bulgaria · Crop protection" },
         { name: "EuroGro Greece", logo: "/images/partners/eurogro-logo-supplied.png", logoAlt: "EuroGro Greece logo", description: "Greece · Crop nutrition and biostimulants" },
-        { name: "Star CropScience", logo: "/images/partners/star-cropscience-logo-supplied.png", logoAlt: "Star CropScience logo", description: "Manufacturer · supplied via Agri Unitech (China)" },
+        { name: "Star CropScience", logo: "/images/partners/star-cropscience-logo-supplied.png", logoAlt: "Star CropScience logo", description: "China · Crop protection solutions" },
         { name: "Agrii Poland", logo: "/images/partners/agrii-logo-supplied.png", logoAlt: "Agrii Poland logo", description: "Poland · Partnership in development" }
       ]
     },
@@ -218,12 +218,8 @@ export const enContent = {
       title: "Three ways in",
       description:
         "Distributors evaluating a new supplier, international manufacturers looking for a route into the Egyptian market, and growers with a crop question all reach the same people. Tell us which you are. The full company record is on the About page.",
-      primaryLabel: "Become a Partner",
-      primaryHref: "/partner-with-us",
-      secondaryLabel: "Talk to AgroPest",
-      secondaryHref: "/contact",
-      tertiaryLabel: "WhatsApp",
-      tertiaryHref: whatsappHref,
+      primaryLabel: "Talk to AgroPest",
+      primaryHref: "/contact",
       backgroundImage: imagePaths.backgrounds.fieldRows
     }
   },

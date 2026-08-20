@@ -164,7 +164,7 @@ export const arContent = {
       items: [
         { name: "Agria Bulgaria", logo: "/images/partners/agria-bulgaria-logo-supplied.png", logoAlt: "لوجو Agria Bulgaria", description: "بلغاريا · وقاية المحاصيل" },
         { name: "EuroGro Greece", logo: "/images/partners/eurogro-logo-supplied.png", logoAlt: "لوجو EuroGro Greece", description: "اليونان · تغذية نباتية ومحفزات حيوية" },
-        { name: "Agri Unitech", logo: "/images/partners/star-cropscience-logo-supplied.png", logoAlt: "لوجو Agri Unitech", description: "الصين - حلول وقاية المزروعات" },
+        { name: "Star CropScience", logo: "/images/partners/star-cropscience-logo-supplied.png", logoAlt: "لوجو Star CropScience", description: "الصين · حلول وقاية المزروعات" },
         { name: "Agrii Poland", logo: "/images/partners/agrii-logo-supplied.png", logoAlt: "لوجو Agrii Poland", description: "بولندا - تغذية ورقية واسمدة متخصصة" }
       ]
     },
@@ -184,15 +184,11 @@ export const arContent = {
     },
     cta: {
       eyebrow: "الخطوة التالية",
-      title: "هل تبحث عن الحل المناسب لمحصولك أو خط منتجاتك أو فرصة سوقية جديدة؟",
+      title: "هل تبحث عن الحل المناسب لمحصولك أو  توزيع منتجات مسجلة أو فرصة تسوقية جديدة؟",
       description:
         "استعرض محفظة المنتجات أو تواصل مع أجروبست لمناقشة احتياج محصول، طلب موزع، فرصة مورد، أو معلومات فنية خاصة بأحد المنتجات.",
-      primaryLabel: "كن موزعا",
-      primaryHref: "/partner-with-us",
-      secondaryLabel: "تحدث مع أجروبست",
-      secondaryHref: "/contact",
-      tertiaryLabel: "واتساب",
-      tertiaryHref: whatsappHref,
+      primaryLabel: "تحدث مع أجروبست",
+      primaryHref: "/contact",
       backgroundImage: imagePaths.backgrounds.fieldRows
     }
   },
