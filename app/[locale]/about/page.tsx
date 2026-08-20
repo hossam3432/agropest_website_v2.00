@@ -17,15 +17,13 @@ import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
 import { AboutLedger, type LedgerEntry } from "@/components/about/AboutLedger";
 import { SelectionGate } from "@/components/about/SelectionGate";
-import { AccountableIcon, DocumentIcon, LabelIcon, RegionIcon, SampleIcon } from "@/components/about/icons";
+import { DocumentIcon, RegionIcon } from "@/components/about/icons";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { localizeHref } from "@/lib/content";
 import { getPortfolioSize } from "@/lib/products";
 import { buildPageMetadata } from "@/lib/seo";
 
 const FOUNDING_YEAR = 1995;
-
-const registrationMarkIcons = [LabelIcon, SampleIcon, AccountableIcon];
 
 export async function generateMetadata({ params }: LocalePageProps): Promise<Metadata> {
   const { content, locale } = getLocalePage((await params).locale);
@@ -135,39 +133,14 @@ export default async function AboutPage({ params }: LocalePageProps) {
       {/* Registration — the heaviest single proof on the page, so it gets its own weight. */}
       <section className="field-clear py-14 sm:py-24">
         <RevealSection className="container-shell" amount={0.15}>
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-14">
-            <div>
-              <h2 className="section-title">{registrationSection.title}</h2>
-              <div className="mt-6 grid gap-5 text-base leading-8 text-slate-600 sm:text-lg">
-                {registrationSection.paragraphs.map((paragraph) => (
-                  <p key={paragraph} className="max-w-[68ch]">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            <div className="field-panel rounded-md p-6 sm:p-8">
-              <h3 className="text-lg font-bold leading-8 text-agri-blue sm:text-xl">{proof.registration.marksTitle}</h3>
-              <StaggerContainer className="mt-6 grid gap-4" amount={0.2} stagger={0.07}>
-                {proof.registration.marks.map((mark, index) => {
-                  const MarkIcon = registrationMarkIcons[index] ?? LabelIcon;
-
-                  return (
-                    <RevealItem key={mark}>
-                      <div className="flex items-center gap-4 border-b border-agri-line pb-4 last:border-b-0 last:pb-0">
-                        <span className="flex h-11 w-11 flex-none items-center justify-center rounded-sm border border-agri-goldInk/40 text-agri-goldInk">
-                          <MarkIcon className="h-5 w-5" />
-                        </span>
-                        <p className="text-base leading-7 text-slate-700">{mark}</p>
-                      </div>
-                    </RevealItem>
-                  );
-                })}
-              </StaggerContainer>
-              <p className="mt-6 border-t border-agri-line pt-5 text-sm leading-7 text-agri-goldInk">
-                {proof.registration.authority}
-              </p>
+          <div className="field-panel rounded-md p-6 sm:p-8 lg:p-10">
+            <h2 className="section-title">{registrationSection.title}</h2>
+            <div className="mt-6 grid gap-5 text-base leading-8 text-slate-600 sm:text-lg">
+              {registrationSection.paragraphs.map((paragraph) => (
+                <p key={paragraph} className="max-w-[68ch]">
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </div>
         </RevealSection>

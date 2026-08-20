@@ -138,7 +138,7 @@ export const arContent = {
           image: "/images/featured/fossil-featured-logo-ar-transparent.png",
           imageAlt: "شعار فوسيل 400 SL العربي",
           tags: [],
-          href: "/products/specialty-fertilizers/fossil",
+          href: "/fossil-400-sl",
           ctaLabel: "استعرض فوسيل"
         }
       ]
@@ -214,7 +214,7 @@ export const arContent = {
       eyebrow: "إرثنا",
       title: "ثلاثة عقود داخل سوق المستلزمات الزراعية المصري",
       paragraphs: [
-        "تعمل أجروبست كنترول للتجارة في سوق المستلزمات الزراعية المصري منذ عام 1995، من مقرها في النوبارية بمحافظة البحيرة — على طريق مصر إسكندرية الصحراوي، داخل نطاق الأراضي المستصلحة التي نخدمها.",
+        "تعمل أجروبست كنترول للتجارة في سوق المستلزمات الزراعية المصري منذ عام 1995، داخل نطاق الأراضي المستصلحة التي نخدمها.",
         "نعمل عبر ركيزتين تجاريتين: وقاية المحاصيل، وتغذية النبات وتحسين الإنتاجية. كل منتج في المحفظة تم اختياره وتسجيله واستيراده ودعمه من خلال عملية اختيار دقيقة — من تقييم المصدر وحتى تصميم وإنشاء المادة الفنية التي تحمله داخل السوق.",
         "نعتمد محفظة منتجات مختارة بعناية، نتابع كل منتج فيها داخل السوق ونوفر له الدعم الفني والتجاري اللازم."
       ]
@@ -341,11 +341,8 @@ export const arContent = {
             logoAlt: "لوجو EuroGro Greece"
           },
           {
-            /* The logo file reads "Star CropScience", so the card is labelled to match
-               the mark it shows, with the supplier named in the About copy alongside it.
-               This mirrors the wording already published in en.ts. */
             name: "Star CropScience",
-            origin: "الصين · يورَّد عبر Agri Unitech",
+            origin: "الصين · حلول وقاية المزروعات",
             logo: "/images/partners/star-cropscience-logo-supplied.png",
             logoAlt: "لوجو Star CropScience"
           }
@@ -367,7 +364,7 @@ export const arContent = {
       },
       heritage: {
         image: "/images/hero/about-warehouse.jpg",
-        imageAlt: "مقر أجروبست ومخازنها — النوبارية، البحيرة"
+        imageAlt: "مقر أجروبست ومخازنها"
       }
     }
   },

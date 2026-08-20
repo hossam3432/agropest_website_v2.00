@@ -169,7 +169,7 @@ export const enContent = {
           image: "/images/featured/fossil-featured-logo-en-transparent.png",
           imageAlt: "Fossil 400 SL English logo",
           tags: [],
-          href: "/products/specialty-fertilizers/fossil",
+          href: "/fossil-400-sl",
           ctaLabel: "View Fossil"
         }
       ]
@@ -245,7 +245,7 @@ export const enContent = {
       eyebrow: "Our legacy",
       title: "Three decades in the Egyptian input market",
       paragraphs: [
-        "AgroPest Control for Trading has operated in the Egyptian agricultural input market since 1995, from a base in Al Nubariya, Beheira — on the Cairo–Alexandria desert road, inside the reclaimed-land farming belt we supply.",
+        "AgroPest Control for Trading has operated in the Egyptian agricultural input market since 1995, inside the reclaimed-land farming belt we supply.",
         "We work across two commercial pillars: crop protection, and crop nutrition and yield enhancement. Every product in the portfolio was selected, registered, imported, and supported through a deliberate selection process — from source evaluation through to the design and production of the technical material that carries it in market.",
         "We work with a carefully selected portfolio. Each product in it is followed in market and supported technically and commercially."
       ]
@@ -374,7 +374,7 @@ export const enContent = {
           },
           {
             name: "Star CropScience",
-            origin: "China · supplied via Agri Unitech",
+            origin: "China · Crop protection solutions",
             logo: "/images/partners/star-cropscience-logo-supplied.png",
             logoAlt: "Star CropScience logo"
           }
@@ -396,7 +396,7 @@ export const enContent = {
       },
       heritage: {
         image: "/images/hero/about-warehouse.jpg",
-        imageAlt: "AgroPest's premises and warehouses — Al Nubariya, Beheira"
+        imageAlt: "AgroPest's premises and warehouses"
       }
     }
   },

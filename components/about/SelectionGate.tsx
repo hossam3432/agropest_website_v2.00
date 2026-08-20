@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useInView, useReducedMotion, useScroll, useSpring } from "framer-motion";
 import { ClearedIcon } from "@/components/about/icons";
@@ -36,7 +36,7 @@ function GateStep({ index, question, stepLabel, forceOpen }: GateStepProps) {
   const number = String(index + 1).padStart(2, "0");
 
   return (
-    <li ref={ref} className="gate-step relative grid grid-cols-[var(--gate-node)_1fr] items-start gap-4 sm:gap-6">
+    <li ref={ref} className="gate-step relative grid grid-cols-[var(--gate-node)_1fr] items-center gap-4 sm:gap-6">
       <motion.div
         aria-hidden="true"
         className={`relative z-10 flex h-[var(--gate-node)] w-[var(--gate-node)] items-center justify-center rounded-md border text-sm font-bold transition-colors duration-500 ease-out ${
@@ -89,8 +89,44 @@ export function SelectionGate({
 }: SelectionGateProps) {
   const reducedMotion = useReducedMotion();
   const railRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLOListElement>(null);
   const outcomeRef = useRef<HTMLDivElement>(null);
   const outcomeInView = useInView(outcomeRef, { once: true, amount: 0.6 });
+
+  // Nodes sit at the vertical centre of the panel beside them, so the rail can no
+  // longer be inset by a fixed half-node: it has to start and stop at the centre of
+  // the first and last rows, whatever height their text takes. Measured rather than
+  // guessed, and re-measured whenever the questions reflow.
+  const [rail, setRail] = useState<{ top: number; bottom: number; linkTop: number; linkHeight: number } | null>(null);
+
+  useLayoutEffect(() => {
+    const list = listRef.current;
+    const outcome = outcomeRef.current;
+    if (!list || !outcome) return;
+
+    const measure = () => {
+      const steps = Array.from(list.children) as HTMLElement[];
+      const first = steps[0];
+      const last = steps[steps.length - 1];
+      if (!first || !last) return;
+
+      const gap = outcome.getBoundingClientRect().top - last.getBoundingClientRect().bottom;
+      const lastHalf = last.offsetHeight / 2;
+
+      setRail({
+        top: first.offsetHeight / 2,
+        bottom: lastHalf,
+        linkTop: -(gap + lastHalf),
+        linkHeight: gap + lastHalf + outcome.offsetHeight / 2
+      });
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(list);
+    observer.observe(outcome);
+    return () => observer.disconnect();
+  }, [items.length]);
 
   const { scrollYProgress } = useScroll({
     target: railRef,
@@ -125,14 +161,18 @@ export function SelectionGate({
             <span
               aria-hidden="true"
               className="absolute top-[var(--gate-node-half)] bottom-[var(--gate-node-half)] start-[var(--gate-rail-x)] w-px bg-agri-line"
+              style={rail ? { top: rail.top, bottom: rail.bottom } : undefined}
             />
             <motion.span
               aria-hidden="true"
               className="absolute top-[var(--gate-node-half)] bottom-[var(--gate-node-half)] start-[var(--gate-rail-x)] block w-px origin-top bg-agri-goldInk"
-              style={reducedMotion ? { scaleY: 1 } : { scaleY: progress }}
+              style={{
+                ...(rail ? { top: rail.top, bottom: rail.bottom } : null),
+                ...(reducedMotion ? { scaleY: 1 } : { scaleY: progress })
+              }}
             />
 
-            <ol className="relative grid gap-4 sm:gap-5">
+            <ol ref={listRef} className="relative grid gap-4 sm:gap-5">
               {items.map((question, index) => (
                 <GateStep
                   key={question}
@@ -147,7 +187,7 @@ export function SelectionGate({
 
           <div
             ref={outcomeRef}
-            className="gate-outcome relative mt-4 grid grid-cols-[var(--gate-node)_1fr] items-start gap-4 sm:mt-5 sm:gap-6"
+            className="gate-outcome relative mt-4 grid grid-cols-[var(--gate-node)_1fr] items-center gap-4 sm:mt-5 sm:gap-6"
           >
             {/* Connector from the last question down to the outcome node's centre —
                 it stops at the node, it does not run past it, and it carries the same
@@ -155,6 +195,7 @@ export function SelectionGate({
             <motion.span
               aria-hidden="true"
               className="absolute top-[calc(var(--gate-node)*-1)] h-[calc(var(--gate-node)*1.5)] start-[var(--gate-rail-x)] w-px origin-top bg-agri-goldInk"
+              style={rail ? { top: rail.linkTop, height: rail.linkHeight } : undefined}
               initial={false}
               animate={{ scaleY: outcomeOpen ? 1 : 0 }}
               transition={{ duration: 0.55, ease: premiumEase }}
