@@ -5,11 +5,22 @@ import { useEffect } from "react";
 /**
  * Drives the light inside every action capsule.
  *
- * The page's ambient field is fixed; a button is the one place it answers the
- * pointer. This writes the pointer position into `--btn-px` / `--btn-py` on the
- * hovered capsule (globals.css turns those into the anchor points of the green,
- * gold and navy blooms) and the contact point into `--btn-bx` / `--btn-by` for
- * the press bloom.
+ * Two jobs.
+ *
+ * Seeding: every capsule is stamped once, on sight, with its own rest
+ * composition — where its three lights sit (`--btn-s1`…`--btn-s5`), how hard
+ * they burn (`--btn-sg`) and how far they spread (`--btn-ss`). Without it a
+ * row of buttons is the same gradient printed four times; with it they read as
+ * one family lit slightly differently. The ranges are narrow on purpose: the
+ * variation should be felt, not spotted. Seeding is client-side and idempotent
+ * (an already-stamped node is skipped), so it never fights hydration and a
+ * button keeps its look for the life of the page.
+ *
+ * Tracking: the page's ambient field is fixed; a button is the one place it
+ * answers the pointer. This writes the pointer position into `--btn-px` /
+ * `--btn-py` on the hovered capsule — an offset the seeded anchors above are
+ * displaced by — and the contact point into `--btn-bx` / `--btn-by` for the
+ * press bloom.
  *
  * One delegated listener set, one rAF loop, and only ever one capsule tracked
  * at a time — hovering is exclusive, so there is nothing to iterate.
@@ -19,6 +30,8 @@ const ACTION_SELECTOR =
   ".btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass";
 
 const CENTER = 50;
+/* Marks a capsule as already seeded. */
+const SEEDED = "data-lume-seeded";
 /* Chase rate per frame. Low enough to lag the cursor visibly — the light has
    weight — high enough to arrive before the eye calls it slow. */
 const EASE = 0.22;
@@ -34,6 +47,51 @@ export function ActionLight() {
     let currentX = CENTER;
     let currentY = CENTER;
     let frame = 0;
+
+    /* ── Seeding ───────────────────────────────────────────────────────── */
+
+    const pick = (min: number, max: number) => min + Math.random() * (max - min);
+
+    function seed(el: HTMLElement) {
+      if (el.hasAttribute(SEEDED)) return;
+      el.setAttribute(SEEDED, "");
+
+      // A third of the capsules run the composition the other way round — gold
+      // leading, green trailing. It is the one variation big enough to notice,
+      // so it stays rare.
+      const flipped = Math.random() < 0.34;
+      const leafX = flipped ? pick(64, 90) : pick(10, 36);
+      const goldX = flipped ? pick(10, 36) : pick(64, 90);
+
+      el.style.setProperty("--btn-s1", leafX.toFixed(1));
+      el.style.setProperty("--btn-s2", pick(2, 30).toFixed(1));
+      el.style.setProperty("--btn-s3", goldX.toFixed(1));
+      el.style.setProperty("--btn-s4", pick(6, 34).toFixed(1));
+      el.style.setProperty("--btn-s5", pick(38, 64).toFixed(1));
+      el.style.setProperty("--btn-sg", pick(0.82, 1.2).toFixed(3));
+      el.style.setProperty("--btn-ss", pick(0.86, 1.16).toFixed(3));
+    }
+
+    function seedWithin(root: ParentNode) {
+      if (root instanceof HTMLElement && root.matches(ACTION_SELECTOR)) seed(root);
+      root.querySelectorAll<HTMLElement>(ACTION_SELECTOR).forEach(seed);
+    }
+
+    seedWithin(document);
+
+    // Navigations and deferred sections bring in capsules that were not here on
+    // mount. Batched into one pass per frame so a burst of mutations costs one.
+    let seedFrame = 0;
+    const observer = new MutationObserver(() => {
+      if (seedFrame) return;
+      seedFrame = requestAnimationFrame(() => {
+        seedFrame = 0;
+        seedWithin(document);
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    /* ── Tracking ──────────────────────────────────────────────────────── */
 
     function paint(el: HTMLElement, x: number, y: number) {
       el.style.setProperty("--btn-px", x.toFixed(2));
@@ -167,6 +225,8 @@ export function ActionLight() {
       document.removeEventListener("animationend", onAnimationEnd);
       document.removeEventListener("pointerleave", release);
       window.removeEventListener("blur", release);
+      observer.disconnect();
+      if (seedFrame) cancelAnimationFrame(seedFrame);
       if (frame) cancelAnimationFrame(frame);
       if (tracked) {
         tracked.style.removeProperty("--btn-px");

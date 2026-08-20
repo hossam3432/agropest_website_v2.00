@@ -46,7 +46,57 @@
 @property --btn-lume {
   syntax: "<number>";
   inherits: true;
-  initial-value: 0.38;
+  initial-value: 0.19;
+}
+
+/* Per-capsule seeds. ActionLight stamps each button once with its own set, so
+   no two capsules hold their lights in quite the same place; the initial
+   values below are the rest composition every button falls back to before the
+   stamp lands (and forever, without JS). They must inherit -- the ::before
+   that reads them is a pseudo-element of the stamped node. */
+@property --btn-s1 {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 17;
+}
+
+@property --btn-s2 {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 15;
+}
+
+@property --btn-s3 {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 83;
+}
+
+@property --btn-s4 {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 20;
+}
+
+@property --btn-s5 {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 52;
+}
+
+/* Gain -- how hard this particular capsule burns, against the shared
+   --btn-lume that carries the hover and press steps. */
+@property --btn-sg {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+/* Spread -- the size of this capsule's lights. */
+@property --btn-ss {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
 }
 
 * {
@@ -258,14 +308,17 @@ a {
 
   /* ── Actions ────────────────────────────────────────────────────────────
      A button is a window onto the field: the same three lights over the same
-     white core, at capsule scale — green anchored to the leading top corner,
-     gold to the trailing one, navy hugging the foot, white in the middle.
+     white core, at capsule scale — green up one top corner, gold across the
+     other, navy hugging the foot, white in the middle. Where exactly, and how
+     hard, is per-capsule: ActionLight stamps --btn-s1…--btn-s5 (anchors),
+     --btn-sg (gain) and --btn-ss (spread) once per button, so a row of them
+     reads as one family in different light rather than one image repeated.
 
      It is also the only place the field answers you. ActionLight writes the
      pointer into --btn-px/--btn-py; the green light chases it while gold and
      navy counter-move, so the capsule reads as light shifting behind glass
      rather than a highlight sliding across it. A press releases a gold bloom
-     from the exact contact point (--btn-bx/--btn-by) and flares the rim.
+     from the exact contact point (--btn-bx/--btn-by) and firms the rim.
 
        light ground  →  green ink   .btn .btn-primary .btn-secondary .btn-accent
        dark ground   →  white ink   .btn-invert .btn-on-dark
@@ -285,14 +338,14 @@ a {
     --btn-leaf: var(--lume-leaf);
     --btn-gold: var(--lume-gold);
     --btn-navy: var(--lume-navy);
-    --btn-lume: 0.38; /* how hard the three lights burn */
+    --btn-lume: 0.19; /* how hard the three lights burn */
     --btn-burst: 0.62; /* the core of the press bloom      */
     --btn-pane: 255 255 255;
     --btn-pane-a: 0.4;
     --btn-pane-hot: 0.46;
     --btn-ink: #0a3d2b;
-    --btn-edge: rgb(var(--lume-navy) / 0.24);
-    --btn-edge-hot: rgb(var(--lume-gold) / 0.8);
+    --btn-edge: rgb(var(--lume-navy) / 0.12);
+    --btn-edge-hot: rgb(var(--lume-navy) / 0.26);
     --btn-cast: rgb(var(--lume-navy) / 0.16);
     --btn-rim: rgb(255 255 255 / 0.65);
     --btn-focus: #0f5a3c;
@@ -333,8 +386,9 @@ a {
       --btn-lume 240ms ease;
   }
 
-  /* The three lights. Each anchor is a fixed corner plus a share of the
-     pointer offset, so the composition holds at rest and parallaxes in use. */
+  /* The three lights. Each anchor is this capsule's own seed plus a share of
+     the pointer offset, so the composition holds at rest, differs from the
+     button beside it, and parallaxes in use. */
   :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass)::before {
     content: "";
     position: absolute;
@@ -342,18 +396,20 @@ a {
     z-index: -1;
     background-image:
       radial-gradient(
-        72% 190% at calc(17% + (var(--btn-px) - 50) * 1%) calc(15% + (var(--btn-py) - 50) * 0.9%),
-        rgb(var(--btn-leaf) / var(--btn-lume)),
+        calc(72% * var(--btn-ss)) calc(190% * var(--btn-ss))
+          at calc(var(--btn-s1) * 1% + (var(--btn-px) - 50) * 1%) calc(var(--btn-s2) * 1% + (var(--btn-py) - 50) * 0.9%),
+        rgb(var(--btn-leaf) / calc(var(--btn-lume) * var(--btn-sg))),
         rgb(var(--btn-leaf) / 0) 68%
       ),
       radial-gradient(
-        66% 175% at calc(83% - (var(--btn-px) - 50) * 0.55%) calc(20% + (var(--btn-py) - 50) * 0.4%),
-        rgb(var(--btn-gold) / calc(var(--btn-lume) * 0.86)),
+        calc(66% * var(--btn-ss)) calc(175% * var(--btn-ss))
+          at calc(var(--btn-s3) * 1% - (var(--btn-px) - 50) * 0.55%) calc(var(--btn-s4) * 1% + (var(--btn-py) - 50) * 0.4%),
+        rgb(var(--btn-gold) / calc(var(--btn-lume) * var(--btn-sg) * 0.86)),
         rgb(var(--btn-gold) / 0) 66%
       ),
       radial-gradient(
-        110% 165% at calc(52% + (var(--btn-px) - 50) * 0.3%) calc(104% - (var(--btn-py) - 50) * 0.5%),
-        rgb(var(--btn-navy) / calc(var(--btn-lume) * 0.6)),
+        110% 165% at calc(var(--btn-s5) * 1% + (var(--btn-px) - 50) * 0.3%) calc(104% - (var(--btn-py) - 50) * 0.5%),
+        rgb(var(--btn-navy) / calc(var(--btn-lume) * var(--btn-sg) * 0.6)),
         rgb(var(--btn-navy) / 0) 70%
       );
     pointer-events: none;
@@ -390,7 +446,7 @@ a {
      so phones get the press below and nothing else. */
   @media (hover: hover) and (pointer: fine) {
     :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover {
-      --btn-lume: 0.52;
+      --btn-lume: 0.26;
 
       transform: translateY(-2px);
       border-color: var(--btn-edge-hot);
@@ -402,10 +458,10 @@ a {
   }
 
   :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):active {
-    --btn-lume: 0.6;
+    --btn-lume: 0.3;
 
     transform: translateY(0) scale(0.965);
-    border-color: rgb(var(--btn-gold) / 0.92);
+    border-color: var(--btn-edge-hot);
     box-shadow:
       inset 0 2px 8px rgb(var(--lume-navy) / 0.2),
       0 2px 8px var(--btn-cast);
@@ -437,13 +493,13 @@ a {
     --btn-leaf: 74 156 92;
     --btn-gold: 206 150 52;
     --btn-navy: 72 128 190;
-    --btn-lume: 0.26;
+    --btn-lume: 0.13;
     --btn-burst: 0.32;
     --btn-pane-a: 0.1;
     --btn-pane-hot: 0.2;
     --btn-ink: #ffffff;
-    --btn-edge: rgb(255 255 255 / 0.4);
-    --btn-edge-hot: rgb(240 191 108 / 0.95);
+    --btn-edge: rgb(255 255 255 / 0.22);
+    --btn-edge-hot: rgb(255 255 255 / 0.42);
     --btn-cast: rgb(0 0 0 / 0.3);
     --btn-rim: rgb(255 255 255 / 0.32);
     --btn-focus: #ffffff;
@@ -451,12 +507,12 @@ a {
 
   @media (hover: hover) and (pointer: fine) {
     :is(.btn-invert, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):hover {
-      --btn-lume: 0.34;
+      --btn-lume: 0.17;
     }
   }
 
   :is(.btn-invert, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass):active {
-    --btn-lume: 0.4;
+    --btn-lume: 0.2;
   }
 
   .btn-sm {
@@ -480,7 +536,7 @@ a {
 
   /* Reduced motion keeps the feedback and drops the travel: the lights hold
      their rest composition, the capsule does not move, and the press reads as
-     a colour step and a gold rim instead of a bloom. */
+     a colour step instead of a bloom. */
   @media (prefers-reduced-motion: reduce) {
     :is(.btn, .btn-primary, .btn-secondary, .btn-accent, .btn-on-dark, .btn-on-dark-outline, .btn-hero-glass) {
       transition:
