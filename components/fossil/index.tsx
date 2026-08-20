@@ -36,9 +36,9 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         /* The one authored moment: the seam arrives. The wave is flat when the
-           page lands and swells into the brand's own crest while the pack
-           settles into it and the headline rises off it. Everything after this
-           is the sea continuing to move — never a second entrance. */
+           page lands and swells into the brand's own crest while the headline
+           rises off it. Everything after this is the sea continuing to
+           move — never a second entrance. */
         const hero = gsap.timeline({ defaults: { ease: "power3.out" } });
         hero
           .fromTo(".fossil-seam-fill", { attr: { d: WAVE.fillFlat } }, { attr: { d: WAVE.fill }, duration: 1.25, ease: "power2.inOut" }, 0)
@@ -48,7 +48,6 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
           .from(".fossil-hero-title", { opacity: 0, y: 30, duration: 0.9 }, 0.15)
           .from(".fossil-hero-lead", { opacity: 0, y: 18, duration: 0.7 }, 0.4)
           .from(".fossil-hero-action", { opacity: 0, y: 14, duration: 0.55, stagger: 0.08 }, 0.55)
-          .from(".fossil-hero-bottle", { opacity: 0, y: 70, duration: 1.2 }, 0.2)
           .from(".fossil-hero-fact", { opacity: 0, y: 10, duration: 0.5, stagger: 0.07 }, 0.7);
 
         /* Ambient: every seam on the page drifts one full width, seamlessly,
@@ -133,7 +132,7 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
           style={{ background: `radial-gradient(circle, ${FOSSIL.aqua} 0%, transparent 62%)` }}
         />
         <div className="fossil-shell relative z-10 grid items-end gap-6 pb-[clamp(80px,14vw,190px)] pt-8 lg:grid-cols-12 lg:gap-8 lg:pb-[clamp(120px,13vw,200px)] lg:pt-16">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-9">
             <ResponsiveImage
               src={c.lockup.src}
               alt={c.lockup.alt}
@@ -158,23 +157,6 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
                 {c.hero.secondary}
               </Link>
             </div>
-          </div>
-
-          <div className="relative flex justify-center lg:col-span-5 lg:justify-end">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute bottom-[4%] h-[42%] w-[62%] rounded-full opacity-40 blur-2xl"
-              style={{ background: `radial-gradient(ellipse at center, ${FOSSIL.aqua} 0%, transparent 70%)` }}
-            />
-            {/* Sized by height, not width: the pack is 1:2.8, so a width-driven
-                image drives the hero grid to 1200px tall. */}
-            <ResponsiveImage
-              src="/images/fossil/fossil-500cc.png"
-              alt={isArabic ? "عبوة فوسيل 400 SL سعة 500 سم³" : "The 500 cm³ Fossil 400 SL pack"}
-              priority
-              sizes="(min-width: 1024px) 260px, 150px"
-              className="fossil-hero-bottle relative h-[clamp(240px,34vh,330px)] w-auto translate-y-[7%] lg:h-[clamp(430px,64vh,640px)] lg:translate-y-[9%]"
-            />
           </div>
         </div>
 
