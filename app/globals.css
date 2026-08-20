@@ -726,3 +726,163 @@ a {
     max-width: 80%;
   }
 }
+
+/* ── Fossil 400 SL landing ───────────────────────────────────────────────
+   The Fossil brand book is its own identity, not AgroPest's: Marine Blue
+   ground, Vigor Green and Aqua Blue, Aktiv Grotesk CD (Barlow Semi Condensed
+   here, the closest obtainable face). These rules are scoped to .fossil-page
+   so nothing leaks into the site's own palette or type. */
+.fossil-page {
+  font-family: var(--font-fossil-body), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #003549;
+}
+
+.fossil-page .fossil-display {
+  font-family: var(--font-fossil-display), var(--font-fossil-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+.fossil-page--ar,
+.fossil-page--ar .fossil-display,
+.fossil-page--ar .fossil-btn,
+.fossil-page--ar .fossil-crop {
+  font-family: var(--font-fossil-ar), ui-sans-serif, system-ui, sans-serif;
+}
+
+.fossil-page h1,
+.fossil-page h2,
+.fossil-page h3 {
+  text-wrap: balance;
+}
+
+.fossil-page p {
+  text-wrap: pretty;
+}
+
+/* Browser surfaces belong to the design too. */
+.fossil-page ::selection {
+  background: #16b9ec;
+  color: #003549;
+}
+
+.fossil-page :is(a, button):focus-visible {
+  outline: 2px solid #16b9ec;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.fossil-shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .fossil-shell {
+    padding-inline: 2rem;
+  }
+}
+
+/* Actions: one capsule, two polarities, both on the marine ground. Green fill
+   carries marine ink (4.7:1) rather than white (2.8:1). */
+.fossil-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding-inline: 1.5rem;
+  border-radius: 9999px;
+  font-family: var(--font-fossil-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms ease, border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.fossil-btn--leaf {
+  background: #1db14b;
+  color: #00303f;
+  box-shadow: 0 14px 34px -16px rgba(29, 177, 75, 0.9);
+}
+
+.fossil-btn--line {
+  border: 1px solid rgba(22, 185, 236, 0.5);
+  color: #ffffff;
+}
+
+@media (hover: hover) {
+  .fossil-btn--leaf:hover {
+    background: #29c45a;
+    transform: translateY(-2px);
+    box-shadow: 0 20px 42px -18px rgba(29, 177, 75, 0.95);
+  }
+
+  .fossil-btn--line:hover {
+    border-color: #16b9ec;
+    background: rgba(22, 185, 236, 0.14);
+    transform: translateY(-2px);
+  }
+}
+
+.fossil-btn:active {
+  transform: translateY(0);
+}
+
+/* Crop selector: sits on the Vigor Green field, so its ink and its focus ring
+   are the field's own marine. */
+.fossil-crop {
+  min-height: 2.75rem;
+  padding-inline: 1.15rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 48, 63, 0.4);
+  color: #00303f;
+  font-family: var(--font-fossil-display), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+@media (hover: hover) {
+  .fossil-crop:hover {
+    background: rgba(255, 255, 255, 0.32);
+  }
+}
+
+.fossil-crop--on,
+.fossil-crop--on:hover {
+  background: #003549;
+  border-color: #003549;
+  color: #ffffff;
+}
+
+.fossil-page .fossil-crop:focus-visible {
+  outline-color: #003549;
+}
+
+/* Rates are read column against column. */
+.fossil-row,
+.fossil-panel {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes fossilRowIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fossil-panel .fossil-row {
+  animation: fossilRowIn 440ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fossil-panel .fossil-row {
+    animation: none;
+  }
+}

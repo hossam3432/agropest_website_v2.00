@@ -5724,5 +5724,119 @@
         "path": "/images/optimized/lasix/lasix-mixing-1344.jpg"
       }
     ]
+  },
+  "/images/fossil/fossil-500cc.png": {
+    "width": 900,
+    "height": 2538,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/fossil/fossil-500cc-400.avif"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/fossil/fossil-500cc-800.avif"
+      },
+      {
+        "width": 900,
+        "path": "/images/optimized/fossil/fossil-500cc-900.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/fossil/fossil-500cc-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/fossil/fossil-500cc-800.webp"
+      },
+      {
+        "width": 900,
+        "path": "/images/optimized/fossil/fossil-500cc-900.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/fossil/fossil-500cc-400.png"
+      },
+      {
+        "width": 800,
+        "path": "/images/optimized/fossil/fossil-500cc-800.png"
+      },
+      {
+        "width": 900,
+        "path": "/images/optimized/fossil/fossil-500cc-900.png"
+      }
+    ]
+  },
+  "/images/fossil/fossil-lockup-ar.png": {
+    "width": 680,
+    "height": 276,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/fossil/fossil-lockup-ar-400.avif"
+      },
+      {
+        "width": 680,
+        "path": "/images/optimized/fossil/fossil-lockup-ar-680.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/fossil/fossil-lockup-ar-400.webp"
+      },
+      {
+        "width": 680,
+        "path": "/images/optimized/fossil/fossil-lockup-ar-680.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/fossil/fossil-lockup-ar-400.png"
+      },
+      {
+        "width": 680,
+        "path": "/images/optimized/fossil/fossil-lockup-ar-680.png"
+      }
+    ]
+  },
+  "/images/fossil/fossil-lockup-en.png": {
+    "width": 677,
+    "height": 276,
+    "avif": [
+      {
+        "width": 400,
+        "path": "/images/optimized/fossil/fossil-lockup-en-400.avif"
+      },
+      {
+        "width": 677,
+        "path": "/images/optimized/fossil/fossil-lockup-en-677.avif"
+      }
+    ],
+    "webp": [
+      {
+        "width": 400,
+        "path": "/images/optimized/fossil/fossil-lockup-en-400.webp"
+      },
+      {
+        "width": 677,
+        "path": "/images/optimized/fossil/fossil-lockup-en-677.webp"
+      }
+    ],
+    "fallback": [
+      {
+        "width": 400,
+        "path": "/images/optimized/fossil/fossil-lockup-en-400.png"
+      },
+      {
+        "width": 677,
+        "path": "/images/optimized/fossil/fossil-lockup-en-677.png"
+      }
+    ]
   }
 }

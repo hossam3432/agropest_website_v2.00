@@ -7,7 +7,7 @@ const IMAGES_DIR = path.join(PUBLIC_DIR, "images");
 const OUT_DIR = path.join(IMAGES_DIR, "optimized");
 const MANIFEST_PATH = path.resolve(import.meta.dirname, "..", "lib", "image-manifest.json");
 
-const SCAN_DIRS = ["products", "categories", "hero", "backgrounds", "featured", "partners", "brand", "lasix"];
+const SCAN_DIRS = ["products", "categories", "hero", "backgrounds", "featured", "partners", "brand", "lasix", "fossil"];
 const WIDTHS = [400, 800, 1200, 1600];
 const RASTER_EXT = new Set([".png", ".jpg", ".jpeg"]);
 

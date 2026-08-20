@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 
 const marketingPaths = ["", "about", "solutions", "products", "technical-library", "brochures", "partner-with-us", "contact"];
 
-const campaignPaths = ["signal-npk", "edegal-72-2-sl", "lasix-70-wg", "rival-duo-45-sc"];
+const campaignPaths = ["signal-npk", "edegal-72-2-sl", "lasix-70-wg", "rival-duo-45-sc", "fossil-400-sl"];
 
 function localePath(locale: Locale, path: string) {
   return `/${locale}${path ? `/${path}` : ""}`;
