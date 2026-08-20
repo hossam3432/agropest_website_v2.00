@@ -179,7 +179,7 @@ export const enContent = {
       title: "Why the Farmer Trusts AgroPest",
       description:
         "More than a pack. Each product is delivered with the documentation that proves it, the material that sells it at the counter, and the published content that puts it in front of the grower first.",
-      imageAlt: "AgroPest team and growers inspecting a tomato field trial beside branded AgroPest flags",
+      imageAlt: "Growers in AgroPest caps holding the pepper harvest at the edge of the field",
       items: [
         { eyebrow: "01", title: "The registration file", description: "The registered label, the registration documentation, and the manufacturer's technical sheet. A registered product carries a reference standard and an accountable party behind it." },
         { eyebrow: "02", title: "Counter-ready material", description: "A brochure, a product page, and a recommendation table for each product — the crop it serves, the stage it serves, and the problem it addresses. Written so a retailer can repeat it accurately." },
@@ -233,7 +233,6 @@ export const enContent = {
       backgroundImage: imagePaths.hero.about,
       backgroundPosition: "center 50%",
       backgroundScale: 1.25,
-      splitOnLarge: true,
       primaryCta: { label: "Become a Distributor", href: "/partner-with-us" },
       secondaryCta: { label: "Contact Us", href: "/contact" }
     },

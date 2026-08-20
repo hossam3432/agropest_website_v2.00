@@ -119,6 +119,21 @@ export default async function AboutPage({ params }: LocalePageProps) {
           the number it carries and counted up as its mark is struck. */}
       <AboutLedger locale={locale} entries={ledgerEntries} />
 
+      {/* Direction — read straight off the ledger above, so it carries on the
+          same clear field rather than on a band of its own. */}
+      <section className="field-clear py-16 sm:py-24">
+        <RevealSection className="container-shell" amount={0.15}>
+          <h2 className="max-w-4xl text-2xl font-bold leading-[1.3] tracking-normal text-agri-blue sm:text-[2.125rem] sm:leading-[1.28]">
+            {directionSection.title}
+          </h2>
+          <div className="mt-6 grid max-w-3xl gap-5 text-base leading-8 text-slate-600 sm:text-lg">
+            {directionSection.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </RevealSection>
+      </section>
+
       {/* Registration — the heaviest single proof on the page, so it gets its own weight. */}
       <section className="field-clear py-14 sm:py-24">
         <RevealSection className="container-shell" amount={0.15}>
@@ -215,11 +230,10 @@ export default async function AboutPage({ params }: LocalePageProps) {
         </RevealSection>
       </section>
 
-      {/* Direction — the page's second weight. It was a dark slab; it is now the
-          band that burns hardest, which is the same job done with light instead
-          of ink. The field photograph survives as the faintest layer under it
-          rather than as a 20% ghost over navy. */}
-      <section className="field-bloom field-bloom-dusk relative isolate overflow-hidden py-16 sm:py-24">
+      {/* The documentation set that ships with every product in the portfolio. It
+          now carries the dusk bloom, with the field photograph as the faintest
+          layer under it; the panel goes translucent so both still read. */}
+      <section className="field-bloom field-bloom-dusk relative isolate overflow-hidden py-14 sm:py-24">
         <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-[0.09]">
           <ResponsiveImage
             src={proof.direction.image}
@@ -231,21 +245,7 @@ export default async function AboutPage({ params }: LocalePageProps) {
         </div>
 
         <RevealSection className="container-shell relative" amount={0.15}>
-          <h2 className="max-w-4xl text-2xl font-bold leading-[1.3] tracking-normal text-agri-blue sm:text-[2.125rem] sm:leading-[1.28]">
-            {directionSection.title}
-          </h2>
-          <div className="mt-6 grid max-w-3xl gap-5 text-base leading-8 text-slate-600 sm:text-lg">
-            {directionSection.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </RevealSection>
-      </section>
-
-      {/* The documentation set that ships with every product in the portfolio. */}
-      <section className="field-clear py-14 sm:py-24">
-        <RevealSection className="container-shell" amount={0.15}>
-          <div className="grid gap-8 rounded-lg border-[0.5px] border-agri-line bg-agri-mist p-6 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-14">
+          <div className="grid gap-8 rounded-lg border-[0.5px] border-agri-line bg-agri-mist/70 p-6 backdrop-blur-sm sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-14">
             <div className="flex items-start gap-5">
               <span className="flex h-12 w-12 flex-none items-center justify-center rounded-sm border border-agri-gold/70 text-agri-gold">
                 <DocumentIcon className="h-6 w-6" />

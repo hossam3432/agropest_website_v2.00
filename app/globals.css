@@ -697,29 +697,10 @@ a {
     isolation: isolate;
   }
 
-  .featured-product-deck::before {
-    content: "";
-    position: absolute;
-    inset: -2rem;
-    z-index: -1;
-    background: radial-gradient(
-      circle at var(--featured-mouse-x, 50%) var(--featured-mouse-y, 50%),
-      rgb(217 146 39 / 0.22),
-      transparent 28%
-    );
-    opacity: 0;
-    transition: opacity 280ms ease;
-    pointer-events: none;
-  }
-
-  .featured-product-deck.is-pointer-controlled::before {
-    opacity: 1;
-  }
-
   .featured-deck-item {
     min-width: 0;
     flex: 1 1 0%;
-    padding-inline: 0.35rem;
+    padding-inline: 0.75rem;
     transition: flex 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 320ms ease, filter 320ms ease;
   }
 

@@ -22,7 +22,7 @@ type FeaturedCardProps = {
 };
 
 function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProps) {
-  const tiltValues = [-4, -1.5, 1.5, 4];
+  const tiltValues = [-2.5, -1, 1, 2.5];
   const isDesktop = mode === "desktop";
   const isRtl = locale === "ar";
 
@@ -85,7 +85,7 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
           </>
         ) : null}
         {isDesktop ? (
-          <p className="featured-card-description flex-1 mt-3 line-clamp-3 text-justify leading-6 text-slate-600">{item.description}</p>
+          <p className={`featured-card-description flex-1 mt-3 line-clamp-5 leading-6 text-slate-600 ${isRtl ? "text-justify" : "text-start"}`}>{item.description}</p>
         ) : null}
         {isDesktop ? (
           <span
@@ -114,13 +114,9 @@ function FeaturedProductCard({ item, locale, mode, index = 0 }: FeaturedCardProp
 export function FeaturedProductLinesSection({ content, locale, className = "" }: FeaturedProductLinesSectionProps) {
   const { featuredProductLinesSection } = content.home;
   const [activeDesktopIndex, setActiveDesktopIndex] = useState<number | null>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
 
   function handleDeckMouseMove(event: MouseEvent<HTMLDivElement>) {
     const container = event.currentTarget;
-    const rect = container.getBoundingClientRect();
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
 
     // Hit-test against each card's live rect (not a fixed equal-width split) so the
     // active card doesn't lose the highlight while the pointer travels down toward
@@ -134,13 +130,11 @@ export function FeaturedProductLinesSection({ content, locale, className = "" }:
       }
     }
 
-    setMousePosition({ x, y });
     setActiveDesktopIndex(nextIndex);
   }
 
   function handleDeckMouseLeave() {
     setActiveDesktopIndex(null);
-    setMousePosition({ x: 50, y: 50 });
   }
 
   return (
@@ -169,12 +163,6 @@ export function FeaturedProductLinesSection({ content, locale, className = "" }:
           amount={0.15}
           onMouseLeave={handleDeckMouseLeave}
           onMouseMove={handleDeckMouseMove}
-          style={
-            {
-              "--featured-mouse-x": `${mousePosition.x}%`,
-              "--featured-mouse-y": `${mousePosition.y}%`
-            } as CSSProperties
-          }
         >
           {featuredProductLinesSection.items.map((item, index) => (
             <RevealItem

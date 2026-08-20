@@ -21,7 +21,7 @@ export function WhyAgropestSection({ content, className = "" }: WhyAgropestSecti
           </div>
           <div className="relative aspect-[16/10] overflow-hidden rounded-md border border-agri-line shadow-soft">
             <ResponsiveImage
-              src="/images/backgrounds/field-day-trials.jpg"
+              src="/images/backgrounds/why-agropest-growers.jpg"
               alt={whyAgropestSection.imageAlt}
               className="h-full w-full"
               objectFit="cover"

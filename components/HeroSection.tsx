@@ -20,8 +20,6 @@ type HeroSectionProps = {
   compact?: boolean;
   /** Set false when a full-bleed element (e.g. Breadcrumbs) already precedes this hero. */
   leading?: boolean;
-  /** On lg+ screens, confine the image to the inline-end panel with a solid/gradient panel on the inline-start side for the text; falls back to full-bleed cover below lg. */
-  splitOnLarge?: boolean;
   /** Set false when a dark section is welded to the hero's base; the mist fade only reads correctly against a mist section. */
   fadeToMist?: boolean;
 };
@@ -40,7 +38,6 @@ export function HeroSection({
   secondaryCta,
   compact = false,
   leading = true,
-  splitOnLarge = false,
   fadeToMist = true
 }: HeroSectionProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -80,40 +77,22 @@ export function HeroSection({
           <source src={backgroundVideo} type="video/mp4" />
         </video>
       ) : backgroundImage ? (
-        <>
-          <div aria-hidden="true" className={`absolute inset-0 ${splitOnLarge ? "lg:hidden" : ""}`}>
-            <ResponsiveImage
-              src={backgroundImage}
-              alt=""
-              className="h-full w-full"
-              objectFit="cover"
-              priority
-              style={imageStyle}
-            />
-          </div>
-          {splitOnLarge ? (
-            <div aria-hidden="true" className="absolute inset-0 hidden lg:block">
-              <div className="absolute inset-y-0 end-0 w-[58%] overflow-hidden">
-                <ResponsiveImage
-                  src={backgroundImage}
-                  alt=""
-                  className="h-full w-full"
-                  objectFit="cover"
-                  priority
-                  style={imageStyle}
-                />
-                <div className="absolute inset-y-0 start-0 w-1/2 bg-gradient-to-l from-transparent via-agri-blue/60 to-agri-blue rtl:bg-gradient-to-r" />
-              </div>
-              <div className="absolute inset-y-0 start-0 w-[42%] bg-agri-blue" />
-            </div>
-          ) : null}
-        </>
+        <div aria-hidden="true" className="absolute inset-0">
+          <ResponsiveImage
+            src={backgroundImage}
+            alt=""
+            className="h-full w-full"
+            objectFit="cover"
+            priority
+            style={imageStyle}
+          />
+        </div>
       ) : null}
-      <div className={`absolute inset-0 bg-gradient-to-r from-agri-blue via-agri-blue/80 to-agri-green/40 ${splitOnLarge ? "lg:hidden" : ""}`} />
+      <div aria-hidden="true" className="absolute inset-0 bg-agri-blue/70" />
       {fadeToMist ? <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-agri-mist to-transparent" /> : null}
 
       <div className="container-shell relative flex min-h-[inherit] items-center py-20">
-        <div className={`max-w-3xl text-white ${splitOnLarge ? "lg:me-auto lg:text-start" : ""}`}>
+        <div className="max-w-3xl text-white">
           {eyebrow ? <p className="eyebrow eyebrow-on-dark">{eyebrow}</p> : null}
           <h1
             className={`mt-5 max-w-4xl text-3xl font-bold leading-[1.22] tracking-normal sm:text-4xl sm:leading-[1.18] lg:text-5xl lg:leading-[1.16] ${
