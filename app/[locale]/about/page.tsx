@@ -16,13 +16,17 @@ import { HeroSection } from "@/components/HeroSection";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
 import { AboutLedger, type LedgerEntry } from "@/components/about/AboutLedger";
-import { DocumentIcon, RegionIcon } from "@/components/about/icons";
+import { DocumentIcon } from "@/components/about/icons";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { localizeHref } from "@/lib/content";
 import { getPortfolioSize } from "@/lib/products";
 import { buildPageMetadata } from "@/lib/seo";
 
 const FOUNDING_YEAR = 1995;
+
+// The ledger's supplier figure is stated, not counted: it covers every manufacturer
+// we source from, while the logo grid below shows only the ones cleared for display.
+const SUPPLIER_COUNT = 4;
 
 export async function generateMetadata({ params }: LocalePageProps): Promise<Metadata> {
   const { content, locale } = getLocalePage((await params).locale);
@@ -53,7 +57,7 @@ export default async function AboutPage({ params }: LocalePageProps) {
   // beneath it; the heading carries the page on its own.
   const { eyebrow: _heroEyebrow, ...hero } = about.hero;
 
-  const [partnersSection, registrationSection, sourcingSection, partnershipSection, coverageSection, directionSection] =
+  const [partnersSection, registrationSection, sourcingSection, partnershipSection, directionSection] =
     about.sections;
 
   const portfolioSize = getPortfolioSize(locale);
@@ -66,10 +70,10 @@ export default async function AboutPage({ params }: LocalePageProps) {
     { value: String(yearsTrading), label: proof.ledger.yearsLabel, mark: "years", count: yearsTrading },
     { value: String(portfolioSize), label: proof.ledger.productsLabel, mark: "portfolio", count: portfolioSize },
     {
-      value: String(proof.suppliers.items.length),
+      value: String(SUPPLIER_COUNT),
       label: proof.ledger.suppliersLabel,
       mark: "suppliers",
-      count: proof.suppliers.items.length
+      count: SUPPLIER_COUNT
     }
   ];
 
@@ -211,14 +215,14 @@ export default async function AboutPage({ params }: LocalePageProps) {
         </RevealSection>
       </section>
 
-      {/* Coverage and direction — the page's second weight. It was a dark slab;
-          it is now the band that burns hardest, which is the same job done with
-          light instead of ink. The coverage photograph survives as the faintest
-          layer under it rather than as a 20% ghost over navy. */}
+      {/* Direction — the page's second weight. It was a dark slab; it is now the
+          band that burns hardest, which is the same job done with light instead
+          of ink. The field photograph survives as the faintest layer under it
+          rather than as a 20% ghost over navy. */}
       <section className="field-bloom field-bloom-dusk relative isolate overflow-hidden py-16 sm:py-24">
         <div aria-hidden="true" className="absolute inset-0 -z-10 opacity-[0.09]">
           <ResponsiveImage
-            src={proof.coverage.image}
+            src={proof.direction.image}
             alt=""
             className="h-full w-full"
             objectFit="cover"
@@ -227,37 +231,13 @@ export default async function AboutPage({ params }: LocalePageProps) {
         </div>
 
         <RevealSection className="container-shell relative" amount={0.15}>
-          <div className="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:gap-14">
-            <div>
-              <h2 className="text-2xl font-bold leading-[1.25] tracking-normal text-agri-blue sm:text-4xl">{coverageSection.title}</h2>
-              <div className="mt-6 grid gap-5 leading-8 text-slate-600">
-                {coverageSection.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </div>
-
-            <StaggerContainer className="grid gap-0 self-start" amount={0.15} stagger={0.07}>
-              {proof.coverage.regions.map((region) => (
-                <RevealItem key={region}>
-                  <div className="flex items-center gap-4 border-b border-agri-line py-4 first:border-t first:border-agri-line">
-                    <RegionIcon className="h-5 w-5 flex-none text-agri-goldInk" />
-                    <p className="text-base leading-7 text-agri-blue sm:text-lg">{region}</p>
-                  </div>
-                </RevealItem>
-              ))}
-            </StaggerContainer>
-          </div>
-
-          <div className="mt-14 border-t border-agri-line pt-10 sm:mt-16 sm:pt-12">
-            <h2 className="max-w-4xl text-2xl font-bold leading-[1.3] tracking-normal text-agri-blue sm:text-[2.125rem] sm:leading-[1.28]">
-              {directionSection.title}
-            </h2>
-            <div className="mt-6 grid max-w-3xl gap-5 text-base leading-8 text-slate-600 sm:text-lg">
-              {directionSection.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
+          <h2 className="max-w-4xl text-2xl font-bold leading-[1.3] tracking-normal text-agri-blue sm:text-[2.125rem] sm:leading-[1.28]">
+            {directionSection.title}
+          </h2>
+          <div className="mt-6 grid max-w-3xl gap-5 text-base leading-8 text-slate-600 sm:text-lg">
+            {directionSection.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </RevealSection>
       </section>

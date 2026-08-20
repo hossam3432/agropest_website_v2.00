@@ -283,14 +283,6 @@ export const enContent = {
         ]
       },
       {
-        eyebrow: "Coverage",
-        title: "Where we operate",
-        paragraphs: [
-          "AgroPest supplies distributors across Egypt, including the Alexandria desert road corridor, the Delta, the Upper Egypt governorates, and the reclaimed-land regions of the north-west.",
-          "We build long-term relationships with suppliers and distributors because the Egyptian market needs continuity more than it needs transactions."
-        ]
-      },
-      {
         eyebrow: "Direction",
         title: "A trusted source for selected agricultural solutions",
         paragraphs: [
@@ -356,13 +348,7 @@ export const enContent = {
         image: "/images/backgrounds/field-day-trials.jpg",
         imageAlt: "An AgroPest field day in the Egyptian field"
       },
-      coverage: {
-        regions: [
-          "The Alexandria desert road corridor",
-          "The Delta",
-          "The Upper Egypt governorates",
-          "Reclaimed land in the north-west"
-        ],
+      direction: {
         image: "/images/backgrounds/egypt-field-rows.jpg",
         imageAlt: "Field rows in the Egyptian reclaimed-land belt"
       },
