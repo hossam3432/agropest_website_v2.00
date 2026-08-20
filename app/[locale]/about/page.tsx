@@ -86,7 +86,7 @@ export default async function AboutPage({ params }: LocalePageProps) {
       <AboutLedger locale={locale} entries={ledgerEntries} />
 
       {/* Heritage — the place and the span, anchored to a real photograph of it. */}
-      <section className="bg-agri-mist py-14 sm:py-24">
+      <section className="field-veil py-14 sm:py-24">
         <RevealSection
           className="container-shell grid items-center gap-9 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14"
           amount={0.15}
@@ -133,7 +133,7 @@ export default async function AboutPage({ params }: LocalePageProps) {
       />
 
       {/* Registration — the heaviest single proof on the page, so it gets its own weight. */}
-      <section className="bg-white py-14 sm:py-24">
+      <section className="field-clear py-14 sm:py-24">
         <RevealSection className="container-shell" amount={0.15}>
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-14">
             <div>
@@ -174,7 +174,7 @@ export default async function AboutPage({ params }: LocalePageProps) {
       </section>
 
       {/* Suppliers — the named relationships behind the portfolio. */}
-      <section className="bg-agri-mist py-14 sm:py-24">
+      <section className="field-veil py-14 sm:py-24">
         <RevealSection className="container-shell" amount={0.15}>
           <div className="max-w-3xl">
             <h2 className="section-title">{sourcingSection.title}</h2>
@@ -210,7 +210,7 @@ export default async function AboutPage({ params }: LocalePageProps) {
       </section>
 
       {/* What the distributor actually receives — partners + partnership, one argument. */}
-      <section className="bg-white py-14 sm:py-24">
+      <section className="field-clear py-14 sm:py-24">
         <RevealSection className="container-shell" amount={0.15}>
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-14">
             <div>
@@ -303,7 +303,7 @@ export default async function AboutPage({ params }: LocalePageProps) {
       </section>
 
       {/* The documentation set that ships with every product in the portfolio. */}
-      <section className="bg-white py-14 sm:py-24">
+      <section className="field-clear py-14 sm:py-24">
         <RevealSection className="container-shell" amount={0.15}>
           <div className="grid gap-8 rounded-lg border-[0.5px] border-agri-line bg-agri-mist p-6 sm:p-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-14">
             <div className="flex items-start gap-5">

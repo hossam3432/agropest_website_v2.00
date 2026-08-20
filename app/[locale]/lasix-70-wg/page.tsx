@@ -303,7 +303,7 @@ export default async function LasixLandingPage({ params }: LocalePageProps) {
        than hidden, so there is a single rendering of this product to maintain
        and no chance of the two drifting apart. It is in git if it is wanted
        back. */
-    <main dir={c.dir} className={cairo.className + " native-width-page antialiased"} style={{ backgroundColor: CREAM, color: PETROL }}>
+    <main dir={c.dir} className={cairo.className + " own-ground native-width-page antialiased"} style={{ backgroundColor: CREAM, color: PETROL }}>
       <LasixMobileV2
         c={c}
         locale={locale}

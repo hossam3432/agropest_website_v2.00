@@ -19,7 +19,7 @@ export function CapabilitySystemSection({
   title = content.home.solutionsSection.title,
   description = content.home.solutionsSection.description,
   cta = content.home.solutionsSection.cta,
-  className = "bg-white"
+  className = "field-clear"
 }: CapabilitySystemSectionProps) {
   return (
     <section className={`${className} py-16 sm:py-20 lg:py-24`}>

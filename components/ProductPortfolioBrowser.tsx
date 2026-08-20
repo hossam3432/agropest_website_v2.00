@@ -142,7 +142,7 @@ function ProductPortfolioBrowserView({ content, initialCategorySlug, initialSubc
   }
 
   return (
-    <section className="bg-white py-14 sm:py-16 lg:py-20" dir={locale === "ar" ? "rtl" : "ltr"}>
+    <section className="field-clear py-14 sm:py-16 lg:py-20" dir={locale === "ar" ? "rtl" : "ltr"}>
       <div className="container-shell">
         <div className="grid items-stretch gap-4 lg:grid-cols-2">
           {content.categories.map((category, index) => {

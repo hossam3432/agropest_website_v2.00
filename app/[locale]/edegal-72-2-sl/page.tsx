@@ -264,7 +264,7 @@ export default async function EdegalLandingPage({ params }: LocalePageProps) {
   const dirAttr = isRtl ? "rtl" : "ltr";
 
   return (
-    <div dir={dirAttr} className={cairo.className + " edegal-landing bg-white text-slate-800"}>
+    <div dir={dirAttr} className={cairo.className + " own-ground edegal-landing bg-white text-slate-800"}>
       {/* HERO */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#1E2875] via-[#283593] to-[#141C55]">
         <div

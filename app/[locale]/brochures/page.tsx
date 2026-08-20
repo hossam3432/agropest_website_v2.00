@@ -44,7 +44,7 @@ export default async function BrochuresPage({ params }: LocalePageProps) {
     <>
       <HeroSection compact locale={locale} {...brochuresPage.hero} />
 
-      <section className="bg-white py-12 sm:py-20">
+      <section className="field-clear py-12 sm:py-20">
         <div className="container-shell">
           <RevealSection className="max-w-3xl" amount={0.15}>
             <p className="eyebrow">{brochuresPage.section.eyebrow}</p>

@@ -34,7 +34,7 @@ export default async function TechnicalLibraryPage({ params }: LocalePageProps) 
     <>
       <HeroSection compact locale={locale} {...libraryPage.hero} />
 
-      <section className="bg-white py-12 sm:py-20">
+      <section className="field-clear py-12 sm:py-20">
         <div className="container-shell">
           <div className="max-w-3xl">
             <p className="eyebrow">{libraryPage.knowledgeSection.eyebrow}</p>
@@ -57,7 +57,7 @@ export default async function TechnicalLibraryPage({ params }: LocalePageProps) 
         </div>
       </section>
 
-      <section className="bg-agri-mist py-12 sm:py-16">
+      <section className="field-veil py-12 sm:py-16">
         <div className="container-shell">
           <p className="eyebrow">{libraryPage.section.eyebrow}</p>
           <div className="mt-3 grid gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">

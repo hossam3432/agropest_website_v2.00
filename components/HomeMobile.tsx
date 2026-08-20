@@ -469,7 +469,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       </div>
 
       {/* --------------------------------------------------------- STORY (commitment) */}
-      <section id="m-story" className="scroll-mt-[150px] bg-white px-5 pb-14 pt-12">
+      <section id="m-story" className="scroll-mt-[150px] field-clear px-5 pb-14 pt-12">
         <div className="mx-auto w-full max-w-[450px]">
         <Eyebrow>{home.commitmentSection.eyebrow}</Eyebrow>
         <h2 className="mt-6 text-2xl font-bold leading-tight text-agri-blue">{home.commitmentSection.title}</h2>
@@ -602,7 +602,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       </section>
 
       {/* -------------------------------------------------------------- CATEGORIES */}
-      <section id="m-categories" className="scroll-mt-[150px] bg-agri-mist px-5 py-14">
+      <section id="m-categories" className="scroll-mt-[150px] field-veil px-5 py-14">
         <div className="mx-auto w-full max-w-[450px] rounded-lg border border-agri-line bg-white p-7 shadow-soft">
           <Eyebrow>{home.productCategoriesSection.eyebrow}</Eyebrow>
           <h2 className="mt-4 text-[24px] font-bold leading-tight text-agri-blue">{home.productCategoriesSection.title}</h2>
@@ -661,7 +661,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       </section>
 
       {/* --------------------------------------------------------- TECHNICAL LIBRARY */}
-      <section id="m-library" className="scroll-mt-[150px] bg-white px-5 py-14">
+      <section id="m-library" className="scroll-mt-[150px] field-clear px-5 py-14">
         <div className="relative mx-auto min-h-[190px] w-full max-w-[450px] overflow-hidden rounded-lg bg-agri-blue shadow-soft">
           <ResponsiveImage
             src={content.technicalLibraryPreview.image}
@@ -749,7 +749,7 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
       </section>
 
       {/* --------------------------------------------------------------------- CTA */}
-      <section id="m-cta" className="scroll-mt-[150px] bg-agri-mist px-5 py-14">
+      <section id="m-cta" className="scroll-mt-[150px] field-veil px-5 py-14">
         <div className="relative mx-auto w-full max-w-[450px] overflow-hidden rounded-lg bg-agri-blue px-6 py-9 text-white shadow-soft">
           {home.cta.backgroundImage ? (
             <div aria-hidden="true" className="absolute inset-0 opacity-25">
