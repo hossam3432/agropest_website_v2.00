@@ -765,16 +765,6 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
               <Link href={localizeHref(locale, home.cta.primaryHref)} className="btn-primary min-h-[54px] w-full">
                 {home.cta.primaryLabel}
               </Link>
-              {home.cta.secondaryLabel && home.cta.secondaryHref ? (
-                <Link href={localizeHref(locale, home.cta.secondaryHref)} className="btn-primary min-h-[54px] w-full">
-                  {home.cta.secondaryLabel}
-                </Link>
-              ) : null}
-              {home.cta.tertiaryLabel && home.cta.tertiaryHref ? (
-                <a href={home.cta.tertiaryHref} className="btn-primary min-h-[54px] w-full">
-                  {home.cta.tertiaryLabel}
-                </a>
-              ) : null}
             </div>
           </div>
         </div>
