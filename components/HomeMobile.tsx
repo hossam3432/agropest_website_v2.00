@@ -509,7 +509,6 @@ export function HomeMobile({ content, locale }: HomeMobileProps) {
         id="m-products"
         className="scroll-mt-[150px] field-bloom field-bloom-dusk relative isolate overflow-hidden px-5 pb-14 pt-14"
       >
-        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
         <div className="mx-auto w-full max-w-[450px]">
         <Eyebrow>{home.featuredProductLinesSection.eyebrow}</Eyebrow>
         <h2 className="mt-4 text-2xl font-bold leading-tight text-agri-blue">{home.featuredProductLinesSection.title}</h2>

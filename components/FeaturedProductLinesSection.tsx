@@ -145,8 +145,6 @@ export function FeaturedProductLinesSection({ content, locale, className = "" }:
 
   return (
     <section className={`field-bloom field-bloom-dusk relative overflow-hidden py-16 sm:py-20 lg:py-[108px] ${className}`} dir={content.direction}>
-      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
-      <div aria-hidden="true" className="absolute inset-x-0 top-0 hidden h-32 border-b border-agri-line bg-white/45 lg:block" />
       <RevealSection className="container-shell" amount={0.15}>
         <div className="grid gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
           <div>
