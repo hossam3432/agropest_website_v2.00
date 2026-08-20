@@ -88,12 +88,18 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
           });
         }
 
-        gsap.from(".fossil-step", {
-          opacity: 0,
-          y: 26,
-          duration: 0.7,
-          stagger: 0.12,
-          scrollTrigger: { trigger: ".fossil-mechanism", start: "top 65%" }
+        /* A step is only displaced if it is still below the fold when the page
+           mounts. Anything already on screen keeps its resting state, so a
+           trigger that never fires can never leave content invisible. */
+        gsap.utils.toArray<HTMLElement>(".fossil-step").forEach((step, index) => {
+          if (step.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+          gsap.from(step, {
+            opacity: 0,
+            y: 26,
+            duration: 0.7,
+            delay: (index % 2) * 0.08,
+            scrollTrigger: { trigger: step, start: "top 88%", once: true }
+          });
         });
 
         return () => {
@@ -117,13 +123,16 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
   return (
     <div ref={root} className="fossil-page-root">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative -mt-24 flex min-h-[92svh] flex-col justify-end overflow-hidden pt-24" style={{ backgroundColor: FOSSIL.marine }}>
+      <section
+        className="relative -mt-24 flex min-h-[88svh] flex-col justify-end overflow-hidden pt-24 lg:min-h-[92svh]"
+        style={{ backgroundColor: FOSSIL.marine }}
+      >
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-24 end-[-10%] h-[560px] w-[560px] rounded-full opacity-[0.16] blur-[2px]"
           style={{ background: `radial-gradient(circle, ${FOSSIL.aqua} 0%, transparent 62%)` }}
         />
-        <div className="fossil-shell relative z-10 grid items-end gap-10 pb-[clamp(90px,14vw,190px)] pt-10 lg:grid-cols-12 lg:gap-8 lg:pb-[clamp(120px,13vw,200px)] lg:pt-16">
+        <div className="fossil-shell relative z-10 grid items-end gap-6 pb-[clamp(80px,14vw,190px)] pt-8 lg:grid-cols-12 lg:gap-8 lg:pb-[clamp(120px,13vw,200px)] lg:pt-16">
           <div className="lg:col-span-7">
             <ResponsiveImage
               src={c.lockup.src}
@@ -133,15 +142,15 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
               className="fossil-hero-lockup h-14 w-auto sm:h-[68px]"
             />
             <h1
-              className={"fossil-hero-title fossil-display mt-8 text-[clamp(2.5rem,8.4vw,5.25rem)] font-bold leading-[0.94] text-white" + displayCase}
+              className={"fossil-hero-title fossil-display mt-6 sm:mt-8 text-[clamp(2.5rem,8.4vw,5.25rem)] font-bold leading-[0.94] text-white" + displayCase}
               style={{ letterSpacing: isArabic ? undefined : "-0.02em" }}
             >
               {c.hero.title}
             </h1>
-            <p className="fossil-hero-lead mt-6 max-w-[54ch] text-[17px] leading-[1.7]" style={{ color: FOSSIL.sea }}>
+            <p className="fossil-hero-lead mt-5 max-w-[54ch] text-[16px] sm:mt-6 sm:text-[17px] leading-[1.7]" style={{ color: FOSSIL.sea }}>
               {c.hero.lead}
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
+            <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9">
               <a className="fossil-hero-action fossil-btn fossil-btn--leaf" href={TECHNICAL_SHEET} download>
                 {c.hero.primary}
               </a>
@@ -164,7 +173,7 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
               alt={isArabic ? "عبوة فوسيل 400 SL سعة 500 سم³" : "The 500 cm³ Fossil 400 SL pack"}
               priority
               sizes="(min-width: 1024px) 260px, 150px"
-              className="fossil-hero-bottle relative h-[clamp(270px,40vh,360px)] w-auto translate-y-[7%] lg:h-[clamp(430px,64vh,640px)] lg:translate-y-[9%]"
+              className="fossil-hero-bottle relative h-[clamp(240px,34vh,330px)] w-auto translate-y-[7%] lg:h-[clamp(430px,64vh,640px)] lg:translate-y-[9%]"
             />
           </div>
         </div>
@@ -228,23 +237,22 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
       </section>
 
       {/* ── The crossing: leaf above the wave, sea below it ──────────────── */}
-      <section className="fossil-crossing relative overflow-hidden pb-[clamp(70px,9vw,120px)] pt-16 sm:pt-24" style={{ backgroundColor: FOSSIL.marine }}>
-        <div className="fossil-shell relative z-10">
-          <h2 className={"fossil-display max-w-[16ch] text-[clamp(2rem,5.4vw,3.5rem)] font-bold leading-[1.02] text-white" + displayCase}>
-            {c.crossing.title}
-          </h2>
-          <p className="mt-5 max-w-[58ch] text-[17px] leading-[1.7]" style={{ color: FOSSIL.sea }}>
-            {c.crossing.intro}
-          </p>
+      <section className="fossil-crossing relative overflow-hidden">
+        {/* Above the seam: the leaf field. */}
+        <div className="relative pb-[clamp(56px,8vw,104px)] pt-16 sm:pt-24" style={{ backgroundColor: FOSSIL.marine }}>
+          <LeafOutline
+            className="pointer-events-none absolute top-[34%] end-0 hidden h-[300px] w-auto opacity-40 lg:block"
+            color={FOSSIL.green}
+          />
+          <div className="fossil-shell relative z-10">
+            <h2 className={"fossil-display max-w-[16ch] text-[clamp(2rem,5.4vw,3.5rem)] font-bold leading-[1.02] text-white" + displayCase}>
+              {c.crossing.title}
+            </h2>
+            <p className="mt-5 max-w-[58ch] text-[17px] leading-[1.7]" style={{ color: FOSSIL.sea }}>
+              {c.crossing.intro}
+            </p>
 
-          <div className="relative mt-14 sm:mt-16">
-            <LeafOutline
-              className="pointer-events-none absolute -top-10 end-0 hidden h-[260px] w-auto opacity-25 sm:block"
-              color={FOSSIL.green}
-            />
-
-            {/* Above the wave: the leaf. */}
-            <div className="fossil-leaf-half relative z-10 max-w-[46ch] pb-10">
+            <div className="fossil-leaf-half relative mt-12 max-w-[46ch] sm:mt-16">
               <p className="fossil-display text-[clamp(3.5rem,11vw,7rem)] font-bold leading-[0.86]" style={{ color: FOSSIL.green }}>
                 {c.crossing.leaf.value}
               </p>
@@ -253,32 +261,33 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
                 {c.crossing.leaf.note}
               </p>
             </div>
-
-            {/* The seam itself, at full width. */}
-            <div className="relative -mx-5 sm:-mx-8">
-              <WaveEdge fill="transparent" className="h-[clamp(40px,7vw,92px)] w-full" />
-            </div>
-
-            {/* Below the wave: the sea. */}
-            <div className="fossil-sea-half relative z-10 flex flex-col items-start pt-8 sm:items-end sm:pt-4">
-              <div className="max-w-[46ch] sm:text-end">
-                <p className="fossil-display text-[clamp(3.5rem,11vw,7rem)] font-bold leading-[0.86]" style={{ color: FOSSIL.aqua }}>
-                  {c.crossing.sea.value}
-                </p>
-                <p className="fossil-display mt-3 text-[19px] font-semibold text-white sm:text-[22px]">{c.crossing.sea.label}</p>
-                <p className="mt-3 text-[16px] leading-[1.7]" style={{ color: FOSSIL.sea }}>
-                  {c.crossing.sea.note}
-                </p>
-              </div>
-            </div>
           </div>
-
-          <p className="mt-14 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-t pt-6 text-[15px]" style={{ borderColor: FOSSIL.marineLift, color: FOSSIL.sea }}>
-            <span className="fossil-display font-semibold text-white">{c.crossing.packLabel}</span>
-            <span>{c.crossing.pack}</span>
-          </p>
+          <WaveEdge fill={FOSSIL.marineDeep} className="absolute inset-x-0 bottom-0 h-[clamp(44px,7vw,96px)] w-full" />
         </div>
-        <WaveEdge fill={FOSSIL.white} className="absolute inset-x-0 bottom-0 h-[clamp(48px,8vw,110px)] w-full" />
+
+        {/* Below the seam: the sea. */}
+        <div className="relative" style={{ backgroundColor: FOSSIL.marineDeep }}>
+          <div className="fossil-shell relative z-10 pb-[clamp(70px,9vw,120px)] pt-8 sm:pt-4">
+            <div className="fossil-sea-half max-w-[46ch] sm:ms-auto sm:text-end">
+              <p className="fossil-display text-[clamp(3.5rem,11vw,7rem)] font-bold leading-[0.86]" style={{ color: FOSSIL.aqua }}>
+                {c.crossing.sea.value}
+              </p>
+              <p className="fossil-display mt-3 text-[19px] font-semibold text-white sm:text-[22px]">{c.crossing.sea.label}</p>
+              <p className="mt-3 text-[16px] leading-[1.7]" style={{ color: FOSSIL.sea }}>
+                {c.crossing.sea.note}
+              </p>
+            </div>
+
+            <p
+              className="mt-14 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-t pt-6 text-[15px]"
+              style={{ borderColor: FOSSIL.marineLift, color: FOSSIL.sea }}
+            >
+              <span className="fossil-display font-semibold text-white">{c.crossing.packLabel}</span>
+              <span>{c.crossing.pack}</span>
+            </p>
+          </div>
+          <WaveEdge fill={FOSSIL.white} className="absolute inset-x-0 bottom-0 h-[clamp(48px,8vw,110px)] w-full" />
+        </div>
       </section>
 
       {/* ── Mechanism ────────────────────────────────────────────────────── */}
@@ -294,12 +303,11 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
             {c.mechanism.intro}
           </p>
 
+          {/* The seam turned on its side. Each point is a node on it, so the
+              four effects read as one run of the same current. */}
           <div className="relative mt-14 sm:mt-20">
-            <WaveThread
-              className="pointer-events-none absolute inset-y-0 start-[6px] w-10 lg:start-1/2 lg:-ms-5"
-              color={FOSSIL.aqua}
-            />
-            <ol className="relative space-y-12 sm:space-y-16">
+            <WaveThread className="pointer-events-none absolute inset-y-0 start-0 w-11 lg:start-1/2 lg:-ms-[22px]" color={FOSSIL.aqua} />
+            <ol className="relative space-y-14 sm:space-y-16">
               {c.mechanism.points.map((point, index) => {
                 const Icon = MECHANISM_ICONS[index] ?? IconRoots;
                 const onEnd = index % 2 === 1;
@@ -307,23 +315,26 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
                   <li
                     key={point.title}
                     className={
-                      "fossil-step relative ps-14 lg:w-[calc(50%-3rem)] lg:ps-0 " + (onEnd ? "lg:ms-auto lg:ps-14" : "lg:pe-14 lg:text-end")
+                      "fossil-step relative ps-[76px] lg:w-1/2 lg:ps-0 " + (onEnd ? "lg:ms-auto lg:ps-[76px]" : "lg:pe-[76px] lg:text-end")
                     }
                   >
                     <span
                       aria-hidden="true"
                       className={
-                        "absolute top-1 flex h-8 w-8 items-center justify-center start-0 lg:top-0 " +
-                        (onEnd ? "lg:start-[-2.6rem]" : "lg:start-auto lg:end-[-2.6rem]")
+                        "absolute top-0 flex h-11 w-11 items-center justify-center rounded-full bg-white start-0 " +
+                        (onEnd ? "lg:start-[-22px]" : "lg:start-auto lg:end-[-22px]")
                       }
-                      style={{ color: FOSSIL.green }}
+                      style={{ color: FOSSIL.green, boxShadow: `inset 0 0 0 1.5px ${FOSSIL.aqua}` }}
                     >
-                      <Icon className="h-8 w-8" />
+                      <Icon className="h-[22px] w-[22px]" />
                     </span>
                     <h3 className="fossil-display text-[21px] font-semibold sm:text-[24px]" style={{ color: FOSSIL.marine }}>
                       {point.title}
                     </h3>
-                    <p className="mt-3 max-w-[52ch] text-[16px] leading-[1.7] lg:inline-block" style={{ color: "#3D5C6B" }}>
+                    <p
+                      className={"mt-3 max-w-[52ch] text-[16px] leading-[1.7] " + (onEnd ? "" : "lg:ms-auto")}
+                      style={{ color: "#3D5C6B" }}
+                    >
                       {point.text}
                     </p>
                   </li>
@@ -332,30 +343,35 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
             </ol>
           </div>
         </div>
-        <WaveEdge fill={FOSSIL.green} crest={FOSSIL.marine} className="absolute inset-x-0 bottom-0 h-[clamp(48px,8vw,110px)] w-full opacity-100" />
+        <WaveEdge fill={FOSSIL.green} crest={FOSSIL.aqua} className="absolute inset-x-0 bottom-0 h-[clamp(48px,8vw,110px)] w-full" />
       </section>
 
       {/* ── Application ──────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden pb-[clamp(80px,11vw,150px)] pt-14 sm:pt-20" style={{ backgroundColor: FOSSIL.green }}>
         <div className="fossil-shell relative z-10">
-          <h2 className={"fossil-display text-[clamp(2rem,5.4vw,3.5rem)] font-bold leading-[1.02] text-white" + displayCase}>
+          <h2
+            className={"fossil-display text-[clamp(2rem,5.4vw,3.5rem)] font-bold leading-[1.02]" + displayCase}
+            style={{ color: FOSSIL.leafInk }}
+          >
             {c.apply.title}
           </h2>
           <p className="mt-5 max-w-[64ch] text-[17px] leading-[1.7]" style={{ color: FOSSIL.leafInk }}>
             {c.apply.intro}
           </p>
 
-          <div role="tablist" aria-label={c.apply.title} className="mt-9 flex flex-wrap gap-2.5">
+          {/* Pressed buttons rather than the ARIA tab pattern: every crop stays
+              reachable with Tab and activates with Enter or Space, with no
+              roving-tabindex contract to half-implement. */}
+          <div role="group" aria-label={c.apply.title} className="mt-9 flex flex-wrap gap-2.5">
             {c.apply.crops.map((entry) => {
               const selected = entry.id === activeCrop.id;
               return (
                 <button
                   key={entry.id}
                   type="button"
-                  role="tab"
                   id={`fossil-tab-${entry.id}`}
-                  aria-selected={selected}
-                  aria-controls={`fossil-panel-${entry.id}`}
+                  aria-pressed={selected}
+                  aria-controls="fossil-stages"
                   onClick={() => setCrop(entry.id)}
                   className={"fossil-crop" + (selected ? " fossil-crop--on" : "")}
                 >
@@ -367,9 +383,9 @@ export function FossilLanding({ c, locale }: FossilLandingProps) {
 
           <div
             key={activeCrop.id}
-            role="tabpanel"
-            id={`fossil-panel-${activeCrop.id}`}
-            aria-labelledby={`fossil-tab-${activeCrop.id}`}
+            id="fossil-stages"
+            role="region"
+            aria-label={`${c.apply.title} — ${activeCrop.label}`}
             className="fossil-panel mt-7 overflow-hidden rounded-md bg-white"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-2 border-b px-6 py-5 sm:px-8" style={{ borderColor: "#DCEAE2" }}>

@@ -85,6 +85,9 @@ export function HeroSeam({ fill, className }: { fill: string; className?: string
 export function WaveThread({ className, color = FOSSIL.aqua }: { className?: string; color?: string }) {
   return (
     <svg aria-hidden="true" className={className} viewBox="0 0 40 1080" preserveAspectRatio="none" fill="none">
+      {/* The rail is always there; the thread draws along it as the reader
+          descends, so the run of nodes reads even before any scrolling. */}
+      <path d={WAVE_VERTICAL} stroke={color} strokeWidth={2} vectorEffect="non-scaling-stroke" opacity={0.22} />
       <path
         className="fossil-thread"
         d={WAVE_VERTICAL}
@@ -130,16 +133,15 @@ const iconBase = {
   "aria-hidden": true as const
 };
 
-/** Root establishment. */
+/** Root establishment: one leaf above, three roots below. */
 export function IconRoots({ className }: IconProps) {
   return (
     <svg {...iconBase} className={className}>
-      <path d="M12 12v9" />
-      <path d="M12 12c0-2.6 1.9-4.4 4.6-4.6C16.6 10 14.7 12 12 12Z" />
-      <path d="M12 12c0-2.6-1.9-4.4-4.6-4.6C7.4 10 9.3 12 12 12Z" />
-      <path d="M12 15.5c-1.7.9-2.6 2.4-2.9 4.4" />
-      <path d="M12 15.5c1.7.9 2.6 2.4 2.9 4.4" />
-      <path d="M12 3.5V7" />
+      <path d="M12 4v10.5" />
+      <path d="M12 9.6c0-2.5 1.9-4.2 4.6-4.4-.2 2.7-2.1 4.4-4.6 4.4Z" />
+      <path d="M12 14.5c-2 1.1-3.2 2.9-3.6 5.5" />
+      <path d="M12 14.5c2 1.1 3.2 2.9 3.6 5.5" />
+      <path d="M12 14.5V20" />
     </svg>
   );
 }
@@ -148,10 +150,8 @@ export function IconRoots({ className }: IconProps) {
 export function IconBalance({ className }: IconProps) {
   return (
     <svg {...iconBase} className={className}>
-      <circle cx="12" cy="12" r="8.5" />
-      <path d="M3.9 13.6c1.6-1.6 3.2-1.6 4.7 0 1.6 1.6 3.2 1.6 4.7 0 1.6-1.6 3.2-1.6 4.7 0" />
-      <path d="M12 9.4c0-1.7 1.2-2.9 3-3-.1 1.8-1.3 3-3 3Z" />
-      <path d="M12 9.4V6.9" />
+      <circle cx="12" cy="12" r="8.4" />
+      <path d="M3.8 12.2c1.7-1.9 3.4-1.9 5.1 0 1.7 1.9 3.4 1.9 5.1 0 1.7-1.9 3.4-1.9 5.1 0" />
     </svg>
   );
 }

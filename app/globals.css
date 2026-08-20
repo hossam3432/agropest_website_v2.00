@@ -1101,3 +1101,18 @@ a {
     animation: none;
   }
 }
+
+/* Arabic sets marks above and below the baseline: the Latin display leading
+   (0.94–1.02) collides them. Element selectors outrank the leading utilities
+   without needing !important. */
+.fossil-page--ar h1 {
+  line-height: 1.18;
+}
+
+.fossil-page--ar h2 {
+  line-height: 1.22;
+}
+
+.fossil-page--ar h3 {
+  line-height: 1.4;
+}
