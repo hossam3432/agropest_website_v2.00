@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CTASection } from "@/components/CTASection";
 import { HeroSection } from "@/components/HeroSection";
+import { RevealItem, RevealSection, StaggerContainer } from "@/components/animations";
 import { getLocalePage, type LocalePageProps } from "@/app/[locale]/_utils";
 import { localizeHref } from "@/lib/content";
 import { buildPageMetadata } from "@/lib/seo";
@@ -36,7 +37,7 @@ export default async function TechnicalLibraryPage({ params }: LocalePageProps) 
 
       <section className="field-clear py-12 sm:py-20">
         <div className="container-shell">
-          <div className="max-w-3xl">
+          <RevealSection className="max-w-3xl" amount={0.15}>
             <p className="eyebrow">{libraryPage.knowledgeSection.eyebrow}</p>
             <h2 className="section-title mt-3">{libraryPage.knowledgeSection.title}</h2>
             <div className="mt-5 grid gap-4 text-base leading-8 text-slate-600 sm:mt-6 sm:text-lg">
@@ -44,47 +45,53 @@ export default async function TechnicalLibraryPage({ params }: LocalePageProps) 
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-          </div>
+          </RevealSection>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <StaggerContainer className="mt-10 grid gap-5 lg:grid-cols-3" amount={0.15}>
             {libraryPage.knowledgeSection.items.map((item) => (
-              <article key={item.title} className="group card border-t-4 border-t-agri-gold p-5 transition duration-300 sm:p-6 hover:-translate-y-1 hover:border-agri-green hover:border-t-agri-gold hover:bg-agri-green hover:shadow-soft">
-                <h3 className="text-lg font-bold sm:text-xl tracking-normal text-agri-blue transition duration-300 group-hover:text-white">{item.title}</h3>
-                <p className="mt-3 leading-7 text-slate-600 transition duration-300 group-hover:text-white/80">{item.description}</p>
-              </article>
+              <RevealItem key={item.title} hoverLift>
+                <article className="group h-full card p-5 transition duration-300 sm:p-6 hover:-translate-y-1 hover:border-agri-green hover:bg-agri-green hover:shadow-soft">
+                  <h3 className="text-lg font-bold sm:text-xl tracking-normal text-agri-blue transition duration-300 group-hover:text-white">{item.title}</h3>
+                  <p className="mt-3 leading-7 text-slate-600 transition duration-300 group-hover:text-white/80">{item.description}</p>
+                </article>
+              </RevealItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       <section className="field-veil py-12 sm:py-16">
         <div className="container-shell">
-          <p className="eyebrow">{libraryPage.section.eyebrow}</p>
+          <RevealSection amount={0.15}>
+            <p className="eyebrow">{libraryPage.section.eyebrow}</p>
+          </RevealSection>
           <div className="mt-3 grid gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
-            <div>
+            <RevealSection amount={0.15}>
               <h2 className="section-title">{libraryPage.section.title}</h2>
               <p className="section-copy">{technicalLibraryPreview.description}</p>
-            </div>
-            <div className="grid gap-4">
+            </RevealSection>
+            <StaggerContainer className="grid gap-4" amount={0.15}>
               {technicalLibraryPreview.documents.map((document) => (
-                <article key={document.type} className="group grid gap-3 rounded-md border border-t-4 border-agri-line border-t-agri-gold bg-white p-4 shadow-sm sm:p-5 transition duration-300 hover:-translate-y-1 hover:border-agri-green hover:border-t-agri-gold hover:bg-agri-green hover:shadow-soft sm:grid-cols-[11rem_1fr]">
-                  <p className="text-sm font-bold uppercase tracking-[0.16em] text-agri-gold transition duration-300 group-hover:text-white/80">{document.type}</p>
-                  <div>
-                    <h3 className="text-lg font-bold sm:text-xl tracking-normal text-agri-blue transition duration-300 group-hover:text-white">{document.title}</h3>
-                    <p className="mt-2 leading-7 text-slate-600 transition duration-300 group-hover:text-white/80">{document.description}</p>
-                    {document.href ? (
-                      <Link href={localizeHref(locale, document.href)} className="btn-secondary mt-4">
-                        {document.buttonLabel ?? libraryPage.section.buttonLabel}
-                      </Link>
-                    ) : (
-                      <button className="btn-secondary mt-4 cursor-not-allowed opacity-60" type="button" disabled aria-disabled="true">
-                        {libraryPage.section.buttonLabel}
-                      </button>
-                    )}
-                  </div>
-                </article>
+                <RevealItem key={document.type} hoverLift>
+                  <article className="group grid gap-3 rounded-md border border-agri-line bg-white p-4 shadow-sm sm:p-5 transition duration-300 hover:-translate-y-1 hover:border-agri-green hover:bg-agri-green hover:shadow-soft sm:grid-cols-[11rem_1fr]">
+                    <p className="text-sm font-bold uppercase tracking-[0.16em] text-agri-gold transition duration-300 group-hover:text-white/80">{document.type}</p>
+                    <div>
+                      <h3 className="text-lg font-bold sm:text-xl tracking-normal text-agri-blue transition duration-300 group-hover:text-white">{document.title}</h3>
+                      <p className="mt-2 leading-7 text-slate-600 transition duration-300 group-hover:text-white/80">{document.description}</p>
+                      {document.href ? (
+                        <Link href={localizeHref(locale, document.href)} className="btn-secondary mt-4">
+                          {document.buttonLabel ?? libraryPage.section.buttonLabel}
+                        </Link>
+                      ) : (
+                        <button className="btn-secondary mt-4 cursor-not-allowed opacity-60" type="button" disabled aria-disabled="true">
+                          {libraryPage.section.buttonLabel}
+                        </button>
+                      )}
+                    </div>
+                  </article>
+                </RevealItem>
               ))}
-            </div>
+            </StaggerContainer>
           </div>
         </div>
       </section>

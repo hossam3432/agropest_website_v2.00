@@ -73,7 +73,6 @@ export const enContent = {
   footer: {
     companyColumn: "Company",
     contactColumn: "Contact",
-    bottomNote: "Built for agricultural trade partnerships.",
     copyrightPrefix: "Copyright",
     rightsReserved: "All rights reserved."
   },
@@ -438,7 +437,8 @@ export const enContent = {
       title: "Explore AgroPest product portfolio",
       subtitle:
         "Browse the AgroPest portfolio through clear paths: start with the main sector, refine by technical category, then open each product profile for practical field and market information.",
-      backgroundImage: imagePaths.hero.products
+      backgroundImage: imagePaths.hero.products,
+      backgroundPosition: "center bottom"
     },
     productCategoriesSection: {
       eyebrow: "Portfolio",

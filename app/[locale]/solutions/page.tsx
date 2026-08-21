@@ -50,7 +50,7 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
           <StaggerContainer className="mt-10 grid gap-5 lg:grid-cols-2" amount={0.15}>
             {solutionsPage.audiencesSection.items.map((item) => (
               <RevealItem key={item.title} hoverLift>
-                <article className="group h-full rounded-md border border-t-4 border-agri-line border-t-agri-gold bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-agri-green hover:border-t-agri-gold hover:bg-agri-green hover:shadow-soft sm:p-7">
+                <article className="group h-full rounded-md border border-agri-line bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-agri-green hover:bg-agri-green hover:shadow-soft sm:p-7">
                   <h3 className="text-lg font-bold tracking-normal text-agri-blue sm:text-xl transition duration-300 group-hover:text-white">{item.title}</h3>
                   <p className="mt-3 leading-7 text-slate-600 transition duration-300 group-hover:text-white/80">{item.description}</p>
                 </article>
@@ -75,7 +75,6 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
             {solutionsPage.solutionTracksSection.tracks.map((track, index) => (
               <RevealItem key={track.title} hoverLift>
                 <article className="relative h-full overflow-hidden rounded-md border border-agri-line bg-agri-mist p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-agri-gold hover:bg-white hover:shadow-soft sm:p-8">
-                  <div className="absolute inset-x-0 top-0 h-1 bg-agri-gold" />
                   <p className="text-sm font-bold uppercase tracking-[0.18em] text-agri-gold">{String(index + 1).padStart(2, "0")}</p>
                   <h3 className="mt-4 text-xl font-bold tracking-normal text-agri-blue sm:text-2xl">{track.title}</h3>
                   <p className="mt-4 leading-7 text-slate-700">{track.description}</p>
@@ -133,7 +132,7 @@ export default async function SolutionsPage({ params }: LocalePageProps) {
                 </RevealItem>
               ))}
             </StaggerContainer>
-            <p className="mt-7 rounded-md border-s-4 border-agri-gold bg-white p-5 leading-8 text-slate-700 shadow-sm">{solutionsPage.needsSection.conclusion}</p>
+            <p className="mt-7 rounded-md border border-agri-line bg-white p-5 leading-8 text-slate-700 shadow-sm">{solutionsPage.needsSection.conclusion}</p>
           </div>
         </RevealSection>
       </section>

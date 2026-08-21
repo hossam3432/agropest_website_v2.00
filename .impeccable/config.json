@@ -11,6 +11,15 @@
         ],
         "createdAt": "2026-08-20T21:11:04.097Z",
         "reason": "house pattern: identical border-s-4 border-agri-gold bg-agri-mist callout already ships in app/[locale]/brochures/page.tsx and app/[locale]/about"
+      },
+      {
+        "rule": "border-accent-on-rounded",
+        "value": "*",
+        "files": [
+          "app/[locale]/technical-library/page.tsx"
+        ],
+        "createdAt": "2026-08-21T08:33:46.514Z",
+        "reason": "pre-existing sitewide card convention (border-t-4 gold accent + rounded-md), unchanged from before this edit; same pattern used in this file's knowledgeSection cards and on the Solutions page"
       }
     ]
   }

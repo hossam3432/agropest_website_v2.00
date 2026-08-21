@@ -35,7 +35,7 @@ export default async function PartnerWithUsPage({ params }: LocalePageProps) {
 
       <section className="field-clear py-12 sm:py-20">
         <div className="container-shell">
-          <div className="rounded-md border-s-4 border-agri-gold bg-agri-mist p-5 shadow-sm sm:p-8 lg:p-10">
+          <div className="rounded-md border border-agri-line bg-agri-mist p-5 shadow-sm sm:p-8 lg:p-10">
             <p className="eyebrow">{partnerPage.bridgeSection.eyebrow}</p>
             <h2 className="section-title mt-3">{partnerPage.bridgeSection.title}</h2>
             <div className="mt-5 grid gap-4 text-base leading-8 text-slate-600 sm:mt-6 sm:text-lg lg:grid-cols-2">
@@ -75,7 +75,7 @@ export default async function PartnerWithUsPage({ params }: LocalePageProps) {
           <h2 className="section-title mt-3">{partnerPage.tracksSection.title}</h2>
           <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {partnerTracks.map((track) => (
-              <article key={track.title} className="card border-t-4 border-t-agri-gold p-5 sm:p-8">
+              <article key={track.title} className="card p-5 sm:p-8">
                 <h3 className="text-xl font-semibold text-agri-blue sm:text-2xl">{track.title}</h3>
                 <p className="mt-4 leading-7 text-slate-600">{track.description}</p>
               </article>
