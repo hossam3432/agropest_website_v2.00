@@ -73,6 +73,7 @@ export const enContent = {
   footer: {
     companyColumn: "Company",
     contactColumn: "Contact",
+    bottomNote: "",
     copyrightPrefix: "Copyright",
     rightsReserved: "All rights reserved."
   },

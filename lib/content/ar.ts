@@ -425,7 +425,8 @@ export const arContent = {
       eyebrow: "المنتجات",
       title: "استكشف محفظة منتجات أجروبست",
       subtitle: "انتقل بين وقاية المحاصيل والتغذية النباتية، ثم اختر الفئة الفنية المناسبة للوصول الي المنتجات التي تخدم احتياجك",
-      backgroundImage: imagePaths.hero.products
+      backgroundImage: imagePaths.hero.products,
+      backgroundPosition: "center bottom"
     },
     productCategoriesSection: {
       eyebrow: "المحفظة",
